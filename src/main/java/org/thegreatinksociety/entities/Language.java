@@ -8,9 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class Language {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
