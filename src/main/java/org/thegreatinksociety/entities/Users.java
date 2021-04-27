@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class Users {
@@ -36,20 +37,50 @@ public class Users {
     @Temporal(TemporalType.DATE)
     private Date dob;
 
-    @ManyToOne
-    private Badges badge;
-
     private int followers;
     private int followings;
-    private int podcastLikes;
+
     private int writingLikes;
+    private int podcastLikes;
+
+    @ManyToOne
+    private BookLists bookLists;
+    private int numberOfBookLists;
+
+//    @ManyToOne
+//    private PodcastLists podcastLists;
+    private int numberOfPodcastLists;
+
+//    @ManyToOne
+//    private Books books;
     private int numberOfBooks;
+
+//    @ManyToOne
+//    private Podcasts podcasts;
     private int numberOfPodcasts;
-    private int numberOfEpisodes;
+
+//    @ManyToOne
+//    private Chapters chapters;
     private int numberOfChapters;
+
+//    @ManyToOne
+//    private Episodes episodes;
+    private int numberOfEpisodes;
+
+    @OneToMany (mappedBy = "user")
+    private List<Badges> badge;
     private int numberOfBadges;
+    private int currentBadgeId;
+
+    @ManyToOne
+    private Competitions competitions;
+    private int numberOfParticipatedCompetitions;
+
+    @ManyToOne
+    private Awards award;
+    private int numberOfAwards;
 
     @Column(nullable = false) @Temporal(TemporalType.DATE)
-    private Date joined;
+    private Date joinedDate;
 
 }
