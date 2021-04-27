@@ -13,8 +13,12 @@ public class Badges {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(nullable = false)
     private String badgeName;
+
+    @Column(nullable = false)
     private int minLikesToEarn;
+
     private int numberOfUsersEarned;
     private int numberOfUsersNow;
 }

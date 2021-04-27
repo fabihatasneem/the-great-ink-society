@@ -17,13 +17,18 @@ public class Books {
     @OneToOne//One book will have one user, not multiple
     private Users user;
 
+    @Column(nullable = false)
     private String bookName;
 
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
-    private int genreId;
-    private int languageId;
+    @ManyToOne
+    private Genre genre;
+
+    @ManyToOne
+    private Language language;
+
     private int publishStatus;
     private int completionStatus; //0->Incomplete  1-> Completed
     private int numberOfLikes;

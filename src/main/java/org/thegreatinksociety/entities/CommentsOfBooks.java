@@ -15,9 +15,15 @@ public class CommentsOfBooks {
 
     @Column(length = 500)
     private String commentDescription;
-    private int userId;
-    private int chapterId;
-    private int bookId;
+
+    @ManyToOne
+    private Users user;
+
+    @ManyToOne
+    private Chapters chapter;
+
+    @ManyToOne
+    private Books book;
 
     @Temporal(TemporalType.DATE)
     private Date commentDate;

@@ -1,5 +1,6 @@
 package org.thegreatinksociety.entities;
 
+import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,17 +8,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class BookListDetails {
+@Enabled @Data @NoArgsConstructor @AllArgsConstructor
+public class PodcastListDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
-    private BookLists bookList;
+    private PodcastLists podcastList;
 
     @OneToOne
-    private Books book;
+    private PodcastSeries podcastSeries;
 
     @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date addedDate;

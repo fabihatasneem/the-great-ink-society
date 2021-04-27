@@ -11,7 +11,9 @@ public class Genre {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
     private int numberOfBooks;
     private int numberOfPodcasts;
 }

@@ -19,7 +19,10 @@ public class Chapters {
     private Books book;
 
     private int status; //0-> Unpublished 1-> Published
+
+    @Column(nullable = false)
     private String chapterName;
+
     private String textFileName;
     private String textFileLink;
     private int numberOfLikes;
