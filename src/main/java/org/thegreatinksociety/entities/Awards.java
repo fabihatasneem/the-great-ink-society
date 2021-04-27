@@ -16,8 +16,12 @@ public class Awards {
     @ManyToOne
     private Competitions competition;
 
+    @Column(nullable = false)
     private String rank;
+
+    @Column(nullable = false)
     private String rankName;
+
     private int winnerUserId; //Default 0
     private int winnerBookId; //Default 0 Changes with type
     private int winnerPodcastId; //Default 0 Changes with type

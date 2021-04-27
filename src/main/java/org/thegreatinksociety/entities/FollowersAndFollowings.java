@@ -13,7 +13,10 @@ public class FollowersAndFollowings {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(nullable = false)
     private int followerId;
+
+    @Column(nullable = false)
     private int followingId;
 
     @Temporal(TemporalType.DATE)

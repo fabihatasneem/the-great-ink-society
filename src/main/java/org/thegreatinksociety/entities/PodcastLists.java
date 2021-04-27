@@ -16,7 +16,9 @@ public class PodcastLists {
     @OneToOne
     private Users user;
 
+    @Column(nullable = false)
     private String listName;
+
     private int numberOfPodcasts;
     private int privacyStatus; //0->Private 1->Public
 

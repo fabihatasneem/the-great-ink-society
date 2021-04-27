@@ -19,12 +19,16 @@ public class PodcastSeries {
 
     private String seriesName;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date creationDate;
 
-    private int genreId;
-    private int languageId;
-    private int publishStatus;
+    @ManyToOne
+    private Genre genre;
+
+    @ManyToOne
+    private Language language;
+
+    private int publishStatus; //0-> Unpublished 1-> Published
     private int completionStatus; //0->Incomplete  1-> Completed
     private int numberOfLikes;
     private int numberOfComments;

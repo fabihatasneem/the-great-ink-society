@@ -15,10 +15,16 @@ public class CommentsOfPodcast {
 
     @Column(length = 500)
     private String commentDescription;
-    private int userId;
-    private int episodeId;
-    private int podcastId;
 
-    @Temporal(TemporalType.DATE)
+    @ManyToOne
+    private Users user;
+
+    @ManyToOne
+    private Chapters chapter;
+
+    @ManyToOne
+    private Books book;
+
+    @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date commentDate;
 }

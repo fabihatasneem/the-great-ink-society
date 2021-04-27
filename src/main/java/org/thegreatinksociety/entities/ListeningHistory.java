@@ -23,7 +23,7 @@ public class ListeningHistory {
     private Episodes episodes;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastlisteningTime;
+    private Date lastListeningTime;
 
     private int status; //0 -> Liked, 1 -> Not Liked
     private int listenedAudioLength;

@@ -13,7 +13,10 @@ public class Subscribers {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(nullable = false)
     private int subscriberId;
+
+    @Column(nullable = false)
     private int subscribedToId;
 
     @Temporal(TemporalType.DATE)

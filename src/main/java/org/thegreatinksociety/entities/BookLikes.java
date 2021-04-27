@@ -13,7 +13,6 @@ public class BookLikes {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-
     @ManyToOne
     private Users user;
 

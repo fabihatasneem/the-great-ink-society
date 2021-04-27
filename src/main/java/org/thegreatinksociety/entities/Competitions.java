@@ -13,14 +13,16 @@ public class Competitions {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long competitionId;
 
+    @Column(nullable = false)
     private String competitionName;
+
     private Long numberOfParticipants;
     private int type; //1-> Writing 2->Podcasting
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date entryDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date deadlineDate;
 
     @Temporal(TemporalType.DATE)

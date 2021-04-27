@@ -16,8 +16,9 @@ public class BookLists {
     @OneToOne
     private Users user;
 
+    @Column(nullable = false)
     private String listName;
-    private int listType;
+
     private int numberOfBooks;
     private int privacyStatus; //0->Private 1->Public
 

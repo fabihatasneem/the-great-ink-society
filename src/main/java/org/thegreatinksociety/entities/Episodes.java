@@ -19,7 +19,10 @@ public class Episodes {
     private PodcastSeries podcastSeries;
 
     private int status; //0-> Unpublished 1-> Published
+
+    @Column(nullable = false)
     private String episodeName;
+
     private String audioFileName;
     private String audioFileLink;
     private int numberOfLikes;

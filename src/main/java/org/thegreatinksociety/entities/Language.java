@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class ListType {
+@Entity @Data @AllArgsConstructor @NoArgsConstructor
+public class Language {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String typeName;
+    @Column(nullable = false)
+    private String languageName;
+
 }
