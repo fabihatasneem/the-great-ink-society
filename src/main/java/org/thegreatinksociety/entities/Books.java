@@ -14,13 +14,10 @@ public class Books {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToMany
-    private List<Users> user;
+    @OneToOne//One book will have one user, not multiple
+    private Users user;
 
-    @OneToMany
-    private List<BookLists> bookList;
-
-    private String name;
+    private String bookName;
 
     @Temporal(TemporalType.DATE)
     private Date creationDate;
@@ -28,13 +25,12 @@ public class Books {
     private int genreId;
     private int languageId;
     private int publishStatus;
-    private int completionStatus;
+    private int completionStatus; //0->Incomplete  1-> Completed
     private int numberOfLikes;
     private int numberOfComments;
     private int numberOfChapters;
-    private int pages;
-    private int views;
-
+    private int totalPages;
+    private int totalViews;
     private String coverPhotoName;
     private String coverPhotoLink;
 }

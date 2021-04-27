@@ -5,16 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class Badges {
+public class BookListDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String badgeName;
-    private int minLikesToEarn;
-    private int numberOfUsersEarned;
-    private int numberOfUsersNow;
+    @ManyToOne
+    private BookLists bookList;
+
+    @OneToOne
+    private Books book;
+
+    @Temporal(TemporalType.DATE)
+    private Date addedDate;
 }

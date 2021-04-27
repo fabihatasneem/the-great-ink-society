@@ -5,16 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class Badges {
+public class Subscribers {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String badgeName;
-    private int minLikesToEarn;
-    private int numberOfUsersEarned;
-    private int numberOfUsersNow;
+    private int subscriberId;
+    private int subscribedToId;
+
+    @Temporal(TemporalType.DATE)
+    private Date subscriptionDate;
+
 }

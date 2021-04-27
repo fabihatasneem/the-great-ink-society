@@ -9,6 +9,16 @@ import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class Awards {
+
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @ManyToOne
+    private Competitions competition;
+
+    private String rank;
+    private String rankName;
+    private int winnerUserId; //Default 0
+    private int winnerBookId; //Default 0 Changes with type
+    private int winnerPodcastId; //Default 0 Changes with type
 }

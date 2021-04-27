@@ -8,19 +8,18 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class BookLists {
+public class CommentsOfBooks {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long commentId;
 
-    @OneToOne
-    private Users user;
-
-    private String listName;
-    private int listType;
-    private int numberOfBooks;
-    private int privacyStatus; //0->Private 1->Public
+    @Column(length = 500)
+    private String commentDescription;
+    private int userId;
+    private int chapterId;
+    private int bookId;
 
     @Temporal(TemporalType.DATE)
-    private Date creationDate;
+    private Date commentDate;
+
 }

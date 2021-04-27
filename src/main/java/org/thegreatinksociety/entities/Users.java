@@ -12,75 +12,61 @@ import java.util.List;
 public class Users {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long id;//(1)
 
     @Column(nullable = false)
-    private String userName;
+    private String userName;//(2)
 
     @Column(nullable = false)
-    private String fullName;
+    private String fullName;//(3)
 
-    private String email;
-    private String mobile;
-    private String location;
-
-    @Column(nullable = false)
-    private String password;
-
-    private String bio;
-    private String profilePicName;
-    private String profilePicLink;
+    private String email;//(4)
+    private String mobile;//(5)
+    private String location;//(6)
 
     @Column(nullable = false)
-    private String gender;
+    private String password;//(7)
+
+    private String bio;//(8)
+    private String profilePicName;//(9)
+    private String profilePicLink;//(10)
+
+    @Column(nullable = false)
+    private String gender;//(11)
 
     @Temporal(TemporalType.DATE)
-    private Date dob;
+    private Date dob;//(12)
 
-    private int followers;
-    private int followings;
+    private int followers;//(13)
+    private int followings;//(14)
+    private int subscribers;//(15)
 
-    private int writingLikes;
-    private int podcastLikes;
+    private int writingLikes;//(16)
+    private int podcastLikes;//(17)
+    private int numberOfBookLists;//(18)
+    private int numberOfPodcastLists;//(19)
+    private int numberOfBooks;//(20)
+    private int numberOfPodcasts;//(21)
+    private int numberOfChapters;//(22)
+    private int numberOfEpisodes;//(23)
 
-    @ManyToOne
-    private BookLists bookLists;
-    private int numberOfBookLists;
-
-//    @ManyToOne
-//    private PodcastLists podcastLists;
-    private int numberOfPodcastLists;
-
-//    @ManyToOne
-//    private Books books;
-    private int numberOfBooks;
-
-//    @ManyToOne
-//    private Podcasts podcasts;
-    private int numberOfPodcasts;
-
-//    @ManyToOne
-//    private Chapters chapters;
-    private int numberOfChapters;
-
-//    @ManyToOne
-//    private Episodes episodes;
-    private int numberOfEpisodes;
-
-    @OneToMany (mappedBy = "user")
+    @OneToMany (targetEntity = Badges.class)//This will create a separate table
     private List<Badges> badge;
-    private int numberOfBadges;
-    private int currentBadgeId;
 
-    @ManyToOne
-    private Competitions competitions;
-    private int numberOfParticipatedCompetitions;
+    private int numberOfBadges;//(24)
+    private int currentBadgeId;//(25)
 
-    @ManyToOne
-    private Awards award;
-    private int numberOfAwards;
+    @OneToMany(targetEntity = Competitions.class)//This will create a separate table
+    private List<Competitions> competitions;
+
+    private int numberOfParticipatedCompetitions;//(26)
+
+    @OneToMany(targetEntity = Awards.class)//This will create a separate table
+    private List<Awards> award;
+
+    private int numberOfAwards;//(27)
 
     @Column(nullable = false) @Temporal(TemporalType.DATE)
-    private Date joinedDate;
+    private Date joinedDate;//28
 
 }
