@@ -1,6 +1,5 @@
 package org.thegreatinksociety.entities;
 
-import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-@Enabled @Data @NoArgsConstructor @AllArgsConstructor
+@Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class PodcastListDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
