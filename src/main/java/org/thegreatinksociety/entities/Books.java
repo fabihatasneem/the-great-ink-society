@@ -14,7 +14,7 @@ public class Books {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne//One book will have one user, not multiple
+    @ManyToOne//One book will have one user, not multiple
     private Users user;
 
     private String bookName;

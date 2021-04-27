@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class PodcastSeries {
@@ -16,4 +14,23 @@ public class PodcastSeries {
     private Long id;
 
 
+    @ManyToOne
+    private Users user;
+
+    private String seriesName;
+
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
+
+    private int genreId;
+    private int languageId;
+    private int publishStatus;
+    private int completionStatus; //0->Incomplete  1-> Completed
+    private int numberOfLikes;
+    private int numberOfComments;
+    private int numberOfEpisodes;
+    private int totalAudioLength;
+    private int totalViews;
+    private String coverPhotoName;
+    private String coverPhotoLink;
 }

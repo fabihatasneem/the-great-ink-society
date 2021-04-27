@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
-public class Chapters {
+public class Episodes {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -16,15 +16,14 @@ public class Chapters {
     private Users user;
 
     @ManyToOne
-    private Books book;
+    private PodcastSeries podcastSeries;
 
     private int status; //0-> Unpublished 1-> Published
-    private String chapterName;
-    private String textFileName;
-    private String textFileLink;
+    private String episodeName;
+    private String audioFileName;
+    private String audioFileLink;
     private int numberOfLikes;
     private int numberOfComments;
-    private int numberOfPages;
-    private int startingPage;
+    private int audioLength;
     private int totalViews;
 }
