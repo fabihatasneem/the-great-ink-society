@@ -29,6 +29,7 @@ public class Books {
     @ManyToOne
     private Language language;
 
+    private String description;
     private int publishStatus;//0-> Unpublished 1-> Published
     private int completionStatus; //0->Incomplete  1-> Completed
     private int numberOfLikes;
