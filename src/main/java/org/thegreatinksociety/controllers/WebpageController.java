@@ -10,4 +10,64 @@ public class WebpageController {
     public String getIndex() {
         return "index";
     }
+
+    @RequestMapping("/podcast")
+    public String getPodcastIndex() {
+        return "podcastIndex";
+    }
+
+    @RequestMapping("/writing")
+    public String getWritingIndex() {
+        return "writingIndex";
+    }
+
+    @RequestMapping("/events")
+    public String getEventsPage() {
+        return "events";
+    }
+
+    @RequestMapping("/genre")
+    public String getGenrePage(){
+        return "genre";
+    }
+
+    @RequestMapping("/myProfile")
+    public String getMyProfilePage() {
+        return "myProfile";
+    }
+
+    @RequestMapping("/userProfile")
+    public String getUserProfilePage() {
+        return "userProfile";
+    }
+
+    @RequestMapping("/bookCreate")
+    public String getBookCreatePage() {
+        return "bookCreate";
+    }
+
+    @RequestMapping("/bookSubmit")
+    public String submitBook() {
+        return "write";
+    }
+
+    @RequestMapping("/reading")
+    public String getReadingPage() {
+        return "reading";
+    }
+
+    @RequestMapping("/podcastCreate")
+    public String getPodcastCreatePage() {
+        return "podcastCreate";
+    }
+
+    @RequestMapping("/podcastSubmit")
+    public String submitPodcast() {
+        return "upload";
+    }
+
+    @RequestMapping("/listening")
+    public String getListeningPage() {
+        return "listening";
+    }
 }
