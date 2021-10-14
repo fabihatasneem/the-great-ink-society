@@ -158,33 +158,33 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="container">
-                                <form action="bookSubmit">
+                                <form action="submitBook" method="POST" enctype="multipart/form-data">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="bookname">Book Name</label>
-                                            <input type="text" class="form-control" id="bookname"
+                                            <input name="bookName" type="text" class="form-control" id="bookname"
                                                    placeholder="Book Name">
                                         </div>
                                         <div class="custom-file col-md-6">
                                             <label for="chaptername">Book Cover Photo(.jpg/.png)</label>
-                                            <input type="file" class="form-control" id="chaptername">
+                                            <input name="file" type="file" class="form-control" id="chaptername">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress">Description</label>
-                                        <textarea class="form-control" placeholder="Description"></textarea>
+                                        <label for="description">Description</label>
+                                        <textarea name="description" id="description" class="form-control" placeholder="Description"></textarea>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="language">Langugage</label>
-                                            <select id="language" class="form-control">
+                                            <select name="language" id="language" class="form-control">
                                                 <option selected>Choose...</option>
                                                 <option>...</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="genre">Genre</label>
-                                            <select id="genre" class="form-control">
+                                            <select name="genre" id="genre" class="form-control">
                                                 <option selected>Choose...</option>
                                                 <option>...</option>
                                             </select>

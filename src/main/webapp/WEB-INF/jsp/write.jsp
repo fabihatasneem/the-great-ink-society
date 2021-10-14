@@ -33,20 +33,20 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="chaptername">Chapter Name</label>
-                                <input type="text" class="form-control" id="chaptername" placeholder="Chapter Name">
+                                <input name="chapterName" type="text" class="form-control" id="chaptername" placeholder="Chapter Name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress">Description</label>
-                            <textarea class="form-control" placeholder="Description"></textarea>
+                            <label>Description</label>
+                            <textarea id="description" name="desc" class="form-control" placeholder="Description"></textarea>
                         </div>
 
-                        <textarea id='edit' style="margin-top: 30px;" placeholder="Type some text"></textarea>
+                        <textarea id="chapterWriting" class="form-control" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text"></textarea>
                         <br>
                         <div style="justify-content: flex-end;" class="form-row">
-                            <button type="submit" class="btn btn-warning">Save to Draft</button>&nbsp;
-                            <button type="submit" class="btn btn-primary">Publish</button>&nbsp;
-                            <button type="submit" class="btn btn-danger">Cancel</button>
+                            <button type="button" class="btn btn-warning">Save to Draft</button>&nbsp;
+                            <button onclick="demo()" type="button" class="btn btn-primary">Publish</button>&nbsp;
+                            <button type="button" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -242,6 +242,20 @@
             }
         })
     })()
+
+    function demo() {
+
+        var chapterName = $("#chaptername").val();
+        var desc = $("#description").val();
+
+        let chapterWriting = document.getElementById("chapterWriting").value;
+        // chapterWriting = chapterWriting.replace(/\n\r?/g, '<br />');
+
+
+        $.post("<%=GlobalVariable.localUrl%>/uploadChapter", {chapterName: chapterName, description: desc, chapterWriting: chapterWriting}, function(result){
+            console.log(result);
+        });
+    }
 </script>
 </body>
 
