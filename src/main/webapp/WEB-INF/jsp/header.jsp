@@ -42,8 +42,6 @@
     <link rel="stylesheet" href="css/global/headernav.css" />
     <link rel="stylesheet" href="css/global/styles.css" />
 
-
-
     <!-- CSS END -->
 </head>
 <style>
@@ -61,7 +59,7 @@
 <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="<%=GlobalVariable.localUrl%>" class="logo"><img src="images/client-7.png" alt="" class="img-fluid"></a>
+        <a href="<%=GlobalVariable.localUrl%>" class="logo"><img src="images/icon.png" alt="" class="img-fluid"></a>
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
@@ -77,7 +75,7 @@
         </nav>
         <!-- .nav-menu -->
 
-        <!-- <a style="font-family: 'Open Sans', sans-serif; font-weight: 400;" href="#about" class="get-started-btn scrollto">Sign In</a> -->
+        <a style="font-family: 'Open Sans', sans-serif; font-weight: 400;" href="<%=GlobalVariable.localUrl%>/sign_in" class="get-started-btn scrollto">Sign In</a>
         <nav class="nav-menu">
             <ul>
                 <li class="drop-down">

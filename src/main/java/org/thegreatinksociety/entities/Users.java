@@ -20,7 +20,9 @@ public class Users {
     @Column(nullable = false)
     private String fullName;//(3)
 
+    @Column(nullable = false)
     private String email;//(4)
+
     private String mobile;//(5)
     private String location;//(6)
 
