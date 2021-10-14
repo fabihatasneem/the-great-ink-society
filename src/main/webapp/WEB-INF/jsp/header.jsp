@@ -75,22 +75,22 @@
         </nav>
         <!-- .nav-menu -->
 
-        <a style="font-family: 'Open Sans', sans-serif; font-weight: 400;" href="<%=GlobalVariable.localUrl%>/sign_in" class="get-started-btn scrollto">Sign In</a>
-        <nav class="nav-menu">
-            <ul>
-                <li class="drop-down">
-                    <a href="">My Profile</a>
-                    <ul style="left: auto">
-                        <li><a href="<%=GlobalVariable.localUrl%>/myProfile">View Profile</a></li>
-                        <li><a href="<%=GlobalVariable.localUrl%>/bookCreate">Write a Story</a></li>
-                        <li><a href="<%=GlobalVariable.localUrl%>/podcastCreate">Upload a Podcast</a></li>
-                        <li><a href="#">Account Settings</a></li>
-                        <hr>
-                        <li><a href="">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <a style="font-family: 'Open Sans', sans-serif; font-weight: 400;" href="<%=GlobalVariable.localUrl%>/signIn" class="get-started-btn scrollto">Sign In</a>
+<%--        <nav class="nav-menu">--%>
+<%--            <ul>--%>
+<%--                <li class="drop-down">--%>
+<%--                    <a href="">My Profile</a>--%>
+<%--                    <ul style="left: auto">--%>
+<%--                        <li><a href="<%=GlobalVariable.localUrl%>/myProfile">View Profile</a></li>--%>
+<%--                        <li><a href="<%=GlobalVariable.localUrl%>/bookCreate">Write a Story</a></li>--%>
+<%--                        <li><a href="<%=GlobalVariable.localUrl%>/podcastCreate">Upload a Podcast</a></li>--%>
+<%--                        <li><a href="#">Account Settings</a></li>--%>
+<%--                        <hr>--%>
+<%--                        <li><a href="">Sign Out</a></li>--%>
+<%--                    </ul>--%>
+<%--                </li>--%>
+<%--            </ul>--%>
+<%--        </nav>--%>
 
     </div>
 </header>

@@ -15,14 +15,16 @@
 
                 <div class="signin-form">
                     <h2 class="form-title">Sign In</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <h6 style="color: red">${message}</h6>
+                    <h6 style="color: green">${message}</h6>
+                    <form action="<%=GlobalVariable.localUrl%>/signInSubmit" method="POST" class="register-form" id="login-form">
                         <div class="form-group">
                             <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="username" id="username" placeholder="Username">
                         </div>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password">
+                            <input type="password" name="password" id="your_pass" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember-me" id="remember-me" class="agree-term">
