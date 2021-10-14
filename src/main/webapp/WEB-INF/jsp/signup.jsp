@@ -7,9 +7,13 @@
     <section class="signup">
         <div class="container">
             <div class="signup-content">
+                <div class="signin-image">
+                    <figure><img src="images/login.png" alt="log in image"></figure>
+                    <a href="<%=GlobalVariable.localUrl%>/signIn" class="signup-image-link">Log In</a>
+                </div>
                 <div class="signup-form">
                     <h2 class="form-title">Sign up</h2>
-                    <form method="POST" enctype="utf8" class="register-form" id="register-form">
+                    <form action="<%=GlobalVariable.localUrl%>/signUpSubmit" method="POST" enctype="utf8" class="register-form" id="register-form">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="name" id="name" placeholder="Your Name">
@@ -23,6 +27,14 @@
                             <input type="text" name="username" id="username" placeholder="Username">
                         </div>
                         <div class="form-group">
+                            <label for="gender"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <select id="gender" name="gender" class="zmdi zmdi-account">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                             <input type="password" name="pass" id="pass" placeholder="Password">
                         </div>
@@ -31,8 +43,8 @@
                             <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password">
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term">
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required>
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree to all the
                                 statements in <a href="terms-conditions.html" class="term-service">Terms of service</a>
                             </label>
                         </div>
