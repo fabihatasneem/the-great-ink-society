@@ -163,7 +163,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="bookname">Book Name</label>
                                             <input name="bookName" type="text" class="form-control" id="bookname"
-                                                   placeholder="Book Name">
+                                                   placeholder="Book Name" required>
                                         </div>
                                         <div class="custom-file col-md-6">
                                             <label for="chaptername">Book Cover Photo(.jpg/.png)</label>
@@ -172,21 +172,20 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea name="description" id="description" class="form-control" placeholder="Description"></textarea>
+                                        <textarea name="description" id="description" class="form-control" placeholder="Description" required></textarea>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="language">Langugage</label>
-                                            <select name="language" id="language" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <option>...</option>
+                                            <select name="language" id="language" class="form-control" required>
+                                                <option disabled hidden selected>Choose...</option>
+
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="genre">Genre</label>
-                                            <select name="genre" id="genre" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <option>...</option>
+                                            <select name="genre" id="genre" class="form-control" required>
+                                                <option value="" disabled selected hidden>Choose...</option>
                                             </select>
                                         </div>
                                     </div>
@@ -382,6 +381,29 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js"></script>
 <script>
+
+    $(document).ready(function () {
+        $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result){
+            console.log(result);
+            let design = '';
+            for (let i = 0; i < result.length; i++) {
+                design += '<option value = "' + result[i].id + '" > ' + result[i].languageName + '</option>'
+            }
+            console.log(design);
+            $("#language").append(design);
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getGenre", {}, function(result){
+            console.log(result);
+            let design = '';
+            for (let i = 0; i < result.length; i++) {
+                design += '<option value = "' + result[i].id + '" > ' + result[i].name + '</option>'
+            }
+            console.log(design);
+            $("#genre").append(design);
+        });
+    });
+
     function tabChange() {
         var tabs = $(".nav-tabs > li");
         var active = tabs.filter(".active");

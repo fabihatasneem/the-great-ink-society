@@ -27,10 +27,6 @@ public class WebpageController {
         return "writingIndex";
     }
 
-    @RequestMapping("/events")
-    public String getEventsPage() {
-        return "events";
-    }
 
     @RequestMapping("/genre")
     public String getGenrePage(){
@@ -42,15 +38,6 @@ public class WebpageController {
         return "myProfile";
     }
 
-    @RequestMapping("/userProfile")
-    public String getUserProfilePage() {
-        return "userProfile";
-    }
-
-    @RequestMapping("/bookCreate")
-    public String getBookCreatePage() {
-        return "bookCreate";
-    }
 
     @RequestMapping("/write")
     public String submitBook() {
@@ -74,10 +61,6 @@ public class WebpageController {
         return "reading";
     }
 
-    @RequestMapping("/podcastCreate")
-    public String getPodcastCreatePage() {
-        return "podcastCreate";
-    }
 
     @RequestMapping("/podcastSubmit")
     public String submitPodcast() {
