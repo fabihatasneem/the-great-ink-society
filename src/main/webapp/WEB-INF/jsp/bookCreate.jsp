@@ -158,7 +158,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="container">
-                                <form action="submitBook" method="POST" enctype="multipart/form-data">
+                                <form action="<%=GlobalVariable.localUrl%>/submitBook" method="POST" enctype="multipart/form-data">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="bookname">Book Name</label>
@@ -190,8 +190,8 @@
                                         </div>
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
-                                        <button type="submit" class="btn btn-warning">Save to Draft</button>&nbsp;
-                                        <button type="submit" class="btn btn-primary">Start Writing</button>
+                                        <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
+                                        <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Start Writing</button>
                                     </div>
                                 </form>
                             </div>

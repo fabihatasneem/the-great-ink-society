@@ -5,7 +5,7 @@ import java.io.*;
 
 public class FileUpload {
 
-    public static void upload(Part part, String path) {
+    public static String upload(Part part, String path) {
         if (part != null) {
                 String Value = getFileName(part);
 
@@ -16,6 +16,7 @@ public class FileUpload {
                         boolean ret = uploadFile(part, FileName, path);
                         if (ret) {
                             System.out.println("FILE UPLOADED");
+                            return FileName;
                         }
                     }
                 } else {
@@ -23,6 +24,7 @@ public class FileUpload {
                 }
 
             }
+        return null;
     }
 
 
@@ -49,7 +51,7 @@ public class FileUpload {
         }
 
         try {
-            out = new FileOutputStream(new File(path + File.separator + fileName));
+            out = new FileOutputStream(path + File.separator + fileName);
             filecontent = filePart.getInputStream();
 
             int read = 0;

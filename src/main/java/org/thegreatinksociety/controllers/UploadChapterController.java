@@ -13,7 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 @RestController
-public class RestAPIController {
+public class UploadChapterController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/uploadChapter")
     public boolean uploadChapter(@RequestParam String chapterName, String description, String chapterWriting) throws Docx4JException, IOException {

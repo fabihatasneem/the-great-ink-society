@@ -26,10 +26,11 @@ public class SignInSubmit {
 
         session = request.getSession();
 
-        session.setAttribute("username", username);
-        session.setAttribute("password", password);
-
         if (users != null) {
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            session.setAttribute("userId", users.getId());
+
             response.sendRedirect(GlobalVariable.localUrl + "/myProfile");
         } else {
             response.sendRedirect(GlobalVariable.localUrl + "/signIn");
