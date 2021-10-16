@@ -29,7 +29,7 @@
             </div>
             <div class="col-lg-9">
                 <div id="editor">
-                    <form>
+                    <form action="<%=GlobalVariable.localUrl%>/uploadChapter" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="chaptername">Chapter Name</label>
@@ -44,9 +44,9 @@
                         <textarea id="chapterWriting" class="form-control" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text"></textarea>
                         <br>
                         <div style="justify-content: flex-end;" class="form-row">
-                            <button type="button" class="btn btn-warning">Save to Draft</button>&nbsp;
-                            <button onclick="demo()" type="button" class="btn btn-primary">Publish</button>&nbsp;
-                            <button type="button" class="btn btn-danger">Cancel</button>
+                            <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
+                            <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>&nbsp;
+                            <button type="submit" name="publishedStatus" value="2" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
                 </div>
