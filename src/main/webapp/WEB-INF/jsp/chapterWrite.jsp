@@ -24,21 +24,22 @@
     <div class="container">
         <div class="row">
             <div class="text-center" style="padding-bottom: 20px;">
-                <h2>Book Name</h2>
-                <h4>Chapter: 01</h4>
+                <h2 id="bookName"></h2>
+                <h4 id="chapterNumber">Chapter: 01</h4>
             </div>
             <div class="col-lg-9">
                 <div id="editor">
                     <form action="<%=GlobalVariable.localUrl%>/uploadChapter" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="chaptername">Chapter Name</label>
-                                <input name="chapterName" type="text" class="form-control" id="chaptername" placeholder="Chapter Name">
+                                <label for="chapterName">Chapter Name</label>
+                                <input name="chapterName" type="text" class="form-control" id="chapterName" placeholder="Chapter Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea id="description" name="desc" class="form-control" placeholder="Description"></textarea>
+                            <textarea id="description" name="description" class="form-control" placeholder="Description"></textarea>
+                            <input type="hidden" id="bookId" value="${bookId}" name="bookId">
                         </div>
 
                         <textarea id="chapterWriting" class="form-control" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text"></textarea>
@@ -227,21 +228,16 @@
 <script src="js/global/mail-script.js"></script>
 <script src="js/reading/main.js"></script>
 <script>
-    (function () {
-        const editorInstance = new FroalaEditor('#edit', {
-            enter: FroalaEditor.ENTER_P,
-            placeholderText: null,
-            events: {
-                initialized: function () {
-                    const editor = this
-                    this.el.closest('form').addEventListener('submit', function (e) {
-                        console.log(editor.$oel.val())
-                        e.preventDefault()
-                    })
-                }
-            }
-        })
-    })()
+
+    $(document).ready(function () {
+
+        let bookId = $("#bookId").val();
+
+        $.post("<%=GlobalVariable.localUrl%>/getBookName", {bookId: bookId}, function(result){
+            console.log(result);
+            $("#bookName").html(result);
+        });
+    });
 
     function demo() {
 

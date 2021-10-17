@@ -2,6 +2,7 @@ package org.thegreatinksociety.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thegreatinksociety.entities.Books;
@@ -39,7 +40,9 @@ public class BookSubmitController {
     private GenreRepository genreRepository;
 
     @RequestMapping(value = "/submitBook")
-    public void submitBook(HttpServletResponse response, HttpServletRequest request, HttpSession session, @RequestParam String bookName, @RequestParam String description, @RequestParam long language, @RequestParam long genre, @RequestParam String publishedStatus) throws IOException, ServletException {
+    public void submitBook(HttpServletResponse response, HttpServletRequest request, HttpSession session,
+                           @RequestParam String bookName, @RequestParam String description, @RequestParam long language,
+                           @RequestParam long genre, @RequestParam String publishedStatus) throws IOException, ServletException {
         Collection<Part> parts;
         String fileName = null;
         String path = GlobalVariable.fileUploadPath;
@@ -47,7 +50,7 @@ public class BookSubmitController {
 
         parts = request.getParts();
         if (parts != null && parts.size() > 0) {
-            Part filePart_recordFile = request.getPart("file");
+            Part filePart_recordFile = request.getPart("bookCover");
             fileName = FileUpload.upload(filePart_recordFile, path);
         }
 
@@ -70,9 +73,12 @@ public class BookSubmitController {
         books.setCoverPhotoName(fileName);
         books.setCoverPhotoLink(path + fileName);
 
-        booksRepository.save(books);
+        Books submittedBook = booksRepository.save(books);
 
-        response.sendRedirect(GlobalVariable.localUrl + "/write");
+        session.setAttribute("bookId", submittedBook.getId());
+
+        response.sendRedirect(GlobalVariable.localUrl + "/chapterWrite");
+
     }
 
 }

@@ -1,51 +1,17 @@
-package org.thegreatinksociety.controllers;
+package org.thegreatinksociety.webPageControllers;
 
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thegreatinksociety.entities.PodcastLists;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 @Controller
-public class WebpageController {
-
-    @RequestMapping("/")
-    public String getIndex() {
-        return "index";
-    }
-
-    @RequestMapping("/podcast")
-    public String getPodcastIndex() {
-        return "podcastIndex";
-    }
-
-    @RequestMapping("/writing")
-    public String getWritingIndex() {
-        return "writingIndex";
-    }
-
-
-    @RequestMapping("/genre")
-    public String getGenrePage(){
-        return "genre";
-    }
-
-    @RequestMapping("/myProfile")
-    public String getMyProfilePage() {
-        return "myProfile";
-    }
-
-
-    @RequestMapping("/write")
-    public String submitBook() {
-        return "write";
-    }
-
+public class ReadingPageController {
     @RequestMapping("/reading")
     public String getReadingPage(ModelMap model) throws IOException {
         XWPFWordExtractor extractor;
@@ -61,10 +27,5 @@ public class WebpageController {
         }
         model.addAttribute("paragraph", text);
         return "reading";
-    }
-
-    @RequestMapping("/listening")
-    public String getListeningPage() {
-        return "listening";
     }
 }

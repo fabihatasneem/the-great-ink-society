@@ -167,7 +167,7 @@
                                         </div>
                                         <div class="custom-file col-md-6">
                                             <label for="chaptername">Book Cover Photo(.jpg/.png)</label>
-                                            <input name="file" type="file" class="form-control" id="chaptername">
+                                            <input name="bookCover" type="file" class="form-control" id="chaptername">
                                         </div>
                                     </div>
                                     <div class="form-group">

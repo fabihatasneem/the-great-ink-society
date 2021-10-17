@@ -65,8 +65,8 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li><a href="<%=GlobalVariable.localUrl%>">Home</a></li>
-                <li><a href="<%=GlobalVariable.localUrl%>/writing">Writing</a></li>
-                <li><a href="<%=GlobalVariable.localUrl%>/podcast">Podcast</a></li>
+                <li><a href="<%=GlobalVariable.localUrl%>/writingIndex">Writing</a></li>
+                <li><a href="<%=GlobalVariable.localUrl%>/podcastIndex">Podcast</a></li>
                 <li><a href="<%=GlobalVariable.localUrl%>/events">Events</a></li>
                 <li><a href="<%=GlobalVariable.localUrl%>/genre">Genre</a></li>
                 <li><a class="nav-icon d-none d-lg-inline" href="#" data-toggle="modal" data-target="#templatemo_search">
@@ -88,7 +88,7 @@
                         <li><a href="<%=GlobalVariable.localUrl%>/podcastCreate">Upload a Podcast</a></li>
                         <li><a href="#">Account Settings</a></li>
                         <hr>
-                        <li><a href="">Sign Out</a></li>
+                        <li><a href="<%=GlobalVariable.localUrl%>/signOut">Sign Out</a></li>
                     </ul>
                 </li>
             </ul>

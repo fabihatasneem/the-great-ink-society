@@ -5,4 +5,6 @@ import org.thegreatinksociety.entities.Books;
 
 public interface BooksRepository extends CrudRepository<Books, Long> {
 
+    Books findBooksById(Long id);
+
 }
