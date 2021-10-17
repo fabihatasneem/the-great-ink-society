@@ -27,7 +27,7 @@
             </div>
             <div class="col-lg-9">
                 <div id="editor">
-                    <form>
+                    <form action="<%=GlobalVariable.localUrl%>/podcastEpisodePublish"  method="POST" enctype="utf8" class="podcastEpisode-form" id="podcastEpisode-form">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="episodename">Episode Name</label>

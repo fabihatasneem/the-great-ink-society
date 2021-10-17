@@ -140,42 +140,39 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="container">
-                                <form action="podcastSubmit">
+                                <form action="<%=GlobalVariable.localUrl%>/podcastSubmit" method="POST" enctype="multipart/form-data" class="podcastCreate-form" id="podcastCreate-form">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="podcastname">Podcasr Name</label>
-                                            <input type="text" class="form-control" id="podcastname"
-                                                   placeholder="Podcast Name">
+                                            <label for="podcastname">Podcast Name</label>
+                                            <input type="text" class="form-control" id="podcastname" name="podcastname"
+                                                   placeholder="Podcast Name" required>
                                         </div>
                                         <div class="custom-file col-md-6">
-                                            <label for="episodename">Podcast Cover Photo(.jpg/.png)</label>
-                                            <input type="file" class="form-control" id="episodename">
+                                            <label for="podcastCover">Podcast Cover Photo(.jpg/.png)</label>
+                                            <input type="file" class="form-control" id="podcastCover" name="podcastCover">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress">Description</label>
-                                        <textarea class="form-control" placeholder="Description"></textarea>
+                                        <label for="description">Description</label>
+                                        <textarea name="description" id="description" class="form-control" placeholder="Description"></textarea>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="language">Langugage</label>
-                                            <select id="language" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <option>English</option>
-                                                <option>Bangla</option>
+                                            <select name="language" id="language" class="form-control" required>
+                                                <option disabled hidden selected>Choose...</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="genre">Genre</label>
-                                            <select id="genre" class="form-control">
-                                                <option selected>Choose...</option>
-                                                <option>...</option>
+                                            <select name="genre" id="genre" class="form-control" required>
+                                                <option value="" disabled selected hidden>Choose...</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
-                                        <button type="submit" class="btn btn-warning">Save to Draft</button>&nbsp;
-                                        <button type="submit" class="btn btn-primary">Start Uploading</button>
+                                        <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
+                                        <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>
                                     </div>
                                 </form>
                             </div>
@@ -363,6 +360,28 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js"></script>
 <script>
+    $(document).ready(function () {
+        $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result){
+            console.log(result);
+            let design = '';
+            for (let i = 0; i < result.length; i++) {
+                design += '<option value = "' + result[i].id + '" > ' + result[i].languageName + '</option>'
+            }
+            console.log(design);
+            $("#language").append(design);
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getGenre", {}, function(result){
+            console.log(result);
+            let design = '';
+            for (let i = 0; i < result.length; i++) {
+                design += '<option value = "' + result[i].id + '" > ' + result[i].name + '</option>'
+            }
+            console.log(design);
+            $("#genre").append(design);
+        });
+    });
+
     function tabChange() {
         var tabs = $(".nav-tabs > li");
         var active = tabs.filter(".active");

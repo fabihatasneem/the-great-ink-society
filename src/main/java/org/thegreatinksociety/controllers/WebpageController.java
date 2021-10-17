@@ -5,6 +5,8 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.thegreatinksociety.entities.PodcastLists;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -59,12 +61,6 @@ public class WebpageController {
         }
         model.addAttribute("paragraph", text);
         return "reading";
-    }
-
-
-    @RequestMapping("/podcastSubmit")
-    public String submitPodcast() {
-        return "upload";
     }
 
     @RequestMapping("/listening")

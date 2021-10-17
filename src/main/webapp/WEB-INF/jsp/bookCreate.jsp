@@ -179,7 +179,6 @@
                                             <label for="language">Langugage</label>
                                             <select name="language" id="language" class="form-control" required>
                                                 <option disabled hidden selected>Choose...</option>
-
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
