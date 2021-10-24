@@ -189,8 +189,8 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label style="font-weight:500;" for="eMail">Email</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+                                    <label style="font-weight:500;" for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email ID">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -201,8 +201,8 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label style="font-weight:500;" for="website">Username</label>
-                                    <input type="text" class="form-control" disabled id="website" placeholder="Username">
+                                    <label style="font-weight:500;" for="username">Username</label>
+                                    <input type="text" class="form-control" disabled id="username" placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -218,14 +218,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label style="font-weight:500;" for="inputAddress">Bio</label>
-                                <textarea class="form-control" placeholder="User Bio"></textarea>
+                                <label style="font-weight:500;" for="bio">Bio</label>
+                                <textarea class="form-control" id="bio" placeholder="User Bio"></textarea>
                             </div>
                         </div>
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
+<%--                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>--%>
                                     <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
@@ -235,59 +235,8 @@
             </div>
             <div class="tab-pane fade" id="v-pills-mybooks" role="tabpanel" aria-labelledby="v-pills-mybooks-tab">
                 <div class="container-fluid">
-                    <div class="row" style="margin-left: 1px; row-gap: 15px; column-gap: 5.1%;">
-                        <div class="card">
-                            <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">
-                            <div class="container"
-                                 style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                <h4><b>Book Name</b></h4>
-                                <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                        class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                    100</small> </p>
-                                <hr>
-                                <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum a a a a a a a a a
-                                    .....</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">
-                            <div class="container"
-                                 style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                <h4><b>Book Name test</b></h4>
-                                <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                        class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                    100</small> </p>
-                                <hr>
-                                <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum a a a a a a a a a
-                                    .....</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">
-                            <div class="container"
-                                 style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                <h4><b>Book Name</b></h4>
-                                <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                        class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                    100</small> </p>
-                                <hr>
-                                <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk jbkfds njkdsLorem Ipsum
-                                    a a a a a a a a a
-                                    .....</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">
-                            <div class="container"
-                                 style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                <h4><b>Book Name</b></h4>
-                                <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                        class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                    100</small> </p>
-                                <hr>
-                                <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a a .....</p>
-                            </div>
-                        </div>
+                    <div class="row" id="mybooks-row" style="margin-left: 1px; row-gap: 15px; column-gap: 5.1%;">
+
                     </div>
                 </div>
 
@@ -417,66 +366,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-followers" role="tabpanel" aria-labelledby="v-pills-followers-tab">
-                <!-- <div class="team-boxed">
-                    <div class="container">
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
                 <div class="list-group">
                     <div class="list-group-item d-flex align-items-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
@@ -532,79 +422,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-followings" role="tabpanel" aria-labelledby="v-pills-followings-tab">
-                <!-- <div class="team-boxed">
-                    <div class="container">
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                    <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <span>
-                                    <br>
-                                    <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unfollow</button></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
                 <div class="list-group">
                     <div class="list-group-item d-flex align-items-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
@@ -1125,6 +943,44 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+
+    $(document).ready(function (){
+        let username = '<%=session.getAttribute("username")%>';
+       $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function(result) {
+           console.log(result);
+
+           $("#username").val(result.userName);
+           $("#fullName").val(result.fullName);
+           $("#email").val(result.email);
+           $("#bio").val(result.bio);
+           $("#phone").val(result.mobile);
+           $("#location").val(result.location);
+           $("#gender").val(result.gender);
+
+       });
+
+       $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data){
+          console.log(data);
+
+          for (let i = 0; i < data.length; i++) {
+              let design = '<div class="card">' +
+                            '<img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">' +
+                           '<div class="container"' +
+                                 'style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
+                                '<h4><b>' + data[i].bookName + '</b></h4>' +
+                                '<p><small><i class="fas fa-heart" style="color:red;"></i> ' + data[i].numberOfLikes + ' &nbsp; <i ' +
+                                        'class="fas fa-comments"></i>  ' + data[i].numberOfComments + ' &nbsp; <i class="fas fa-eye"></i>  ' +
+                                    data[i].totalViews + '</small> </p>' +
+                               ' <hr>' +
+                                '<p>' + data[i].description + '</p>' +
+                           ' </div>' +
+                        '</div>';
+              document.getElementById('mybooks-row').innerHTML += design;
+          }
+
+       });
+    });
+
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
             total = mediaElements.length;
