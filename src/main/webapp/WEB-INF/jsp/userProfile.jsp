@@ -977,26 +977,8 @@
     </div>
 </div>
 
-<script src="js/global/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="js/global/bootstrap.min.js"></script>
-<script src="reading/https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="js/global/easing.min.js"></script>
-<script src="js/global/hoverIntent.js"></script>
-<script src="js/global/superfish.min.js"></script>
-<script src="js/global/jquery.ajaxchimp.min.js"></script>
-<script src="js/global/jquery.magnific-popup.min.js"></script>
-<script src="js/global/jquery.tabs.min.js"></script>
-<script src="js/global/jquery.nice-select.min.js"></script>
-<script src="js/global/owl.carousel.min.js"></script>
-<script src="js/global/mail-script.js"></script>
-<script src="js/reading/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script src="js/writing-reading/custom.js"></script>
-<script src="js/global/mediaelement-and-player.min.js"></script>
+<%@ include file="footer.jsp" %>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),

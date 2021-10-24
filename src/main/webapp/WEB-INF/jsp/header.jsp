@@ -30,14 +30,14 @@
     <link rel="stylesheet" href="css/global/bootstrap.css" />
     <link rel="stylesheet" href="css/global/magnific-popup.css" />
     <link rel="stylesheet" href="css/global/nice-select.css" />
-    <link rel="stylesheet" href="css/global/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/global/owl.carousel.css" />
     <link rel="stylesheet" href="css/global/jquery-ui.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css" />
     <link rel="stylesheet" href="css/global/aos.css" />
-    <link rel="stylesheet" href="css/global/icofont.min.css" />
-    <link rel="stylesheet" href="css/global/material-design-iconic-font.min.css" />
+    <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
 
 
     <link rel="stylesheet" href="css/global/headernav.css" />

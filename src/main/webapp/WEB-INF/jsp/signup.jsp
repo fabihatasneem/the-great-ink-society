@@ -64,11 +64,8 @@
 </div>
 
 <!-- JS -->
-<script type="text/javascript" async="" src="js/global/analytics.js"></script>
-<script src="js/global/jquery.min.js"></script>
-<script src="js/global/main.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="./Sign Up Form by Colorlib_files/js"></script>
+<%@ include file="footer.jsp" %>
+
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
