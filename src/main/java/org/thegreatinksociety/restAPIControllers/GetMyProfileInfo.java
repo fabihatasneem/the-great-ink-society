@@ -16,8 +16,6 @@ public class GetMyProfileInfo {
 
     @RequestMapping(value = "/getMyProfileInfo", method = RequestMethod.POST)
     public Users getMyProfileInfo(@RequestParam String username){
-        Users users = usersRepository.findByUserName(username);
-
-        return users;
+        return usersRepository.findByUserName(username);
     }
 }

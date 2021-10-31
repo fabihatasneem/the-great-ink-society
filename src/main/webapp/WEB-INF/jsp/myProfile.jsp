@@ -111,8 +111,8 @@
                 <img src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
                      alt="User profile" style="border-radius: 50%; width: 150px; height: 150px" />
                 <p>
-                <h3 style="color: white;">User Full Name</h3>
-                <h6 style="color: rgb(196, 190, 190);">@username</h6>
+                <h3 style="color: white;" id="profileFullName">Full Name</h3>
+                <h6 style="color: rgb(196, 190, 190);" id="profileUsername">@</h6>
                 </p>
                 <p>
                     <i style="color: #daa520" class="fas fa-trophy"></i> 10 &nbsp;
@@ -956,9 +956,10 @@
            $("#phone").val(result.mobile);
            $("#location").val(result.location);
            $("#gender").val(result.gender);
-
+           console.log(result.fullName + ", " + result.userName);
+           $("#profileFullName").html(result.fullName);
+           $("#profileUsername").html("@" + result.userName);
        });
-
        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data){
           console.log(data);
 
