@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/reading/main.css" />
-<link rel="stylesheet" href="css/profile/style.css" />
+<link rel="stylesheet" href="css/reading/main.css"/>
+<link rel="stylesheet" href="css/profile/style.css"/>
 
 <style>
     .cycle-tab-container {
@@ -65,6 +65,7 @@
         border-color: transparent !important;
         color: orange;
     }
+
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
@@ -88,7 +89,7 @@
         height: 132px;
     }
 
-    .tab-content{
+    .tab-content {
         margin: 0px;
         padding: 20px;
         box-shadow: 0 0 10px 2px #ddd;
@@ -109,7 +110,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
                 <img src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
-                     alt="User profile" style="border-radius: 50%; width: 150px; height: 150px" />
+                     alt="User profile" style="border-radius: 50%; width: 150px; height: 150px"/>
                 <p>
                 <h3 style="color: white;" id="profileFullName">Full Name</h3>
                 <h6 style="color: rgb(196, 190, 190);" id="profileUsername">@</h6>
@@ -135,7 +136,7 @@
         </div>
         <form action="" method="get" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ..." />
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ..."/>
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>
@@ -144,7 +145,7 @@
     </div>
 </div>
 <!-- Modal End -->
-<br />
+<br/>
 <!-- Nav tabs Start -->
 <div class="container">
     <div class="text-center">
@@ -163,18 +164,34 @@
     <br>
     <div class="d-flex align-items-start">
         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a style="cursor: pointer;" class="nav-link active show" id="v-pills-overview-tab" data-toggle="pill" data-target="#v-pills-overview" role="tab" aria-controls="v-pills-overview" aria-selected="true">Overview</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-mybooks-tab" data-toggle="pill" data-target="#v-pills-mybooks" role="tab" aria-controls="v-pills-mybooks" aria-selected="false">My Books</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-mypodcasts-tab" data-toggle="pill" data-target="#v-pills-mypodcasts" role="tab" aria-controls="v-pills-mypodcasts" aria-selected="false">My Podcasts</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-badges-tab" data-toggle="pill" data-target="#v-pills-badges" role="tab" aria-controls="v-pills-badges" aria-selected="false">My Badges</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-awards-tab" data-toggle="pill" data-target="#v-pills-awards" role="tab" aria-controls="v-pills-awards" aria-selected="false">Awards and Competitions</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-followers-tab" data-toggle="pill" data-target="#v-pills-followers" role="tab" aria-controls="v-pills-followers" aria-selected="false">Followers</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-followings-tab" data-toggle="pill" data-target="#v-pills-followings" role="tab" aria-controls="v-pills-followings" aria-selected="false">Followings</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-subscribes-tab" data-toggle="pill" data-target="#v-pills-subscribes" role="tab" aria-controls="v-pills-subscribes" aria-selected="false">Subscribes</a>
-            <a style="cursor: pointer;" class="nav-link" id="v-pills-saved-tab" data-toggle="pill" data-target="#v-pills-saved" role="tab" aria-controls="v-pills-saved" aria-selected="false">My Saved Lists</a>
+            <a style="cursor: pointer;" class="nav-link active show" id="v-pills-overview-tab" data-toggle="pill"
+               data-target="#v-pills-overview" role="tab" aria-controls="v-pills-overview"
+               aria-selected="true">Overview</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-mybooks-tab" data-toggle="pill"
+               data-target="#v-pills-mybooks" role="tab" aria-controls="v-pills-mybooks" aria-selected="false">My
+                Books</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-mypodcasts-tab" data-toggle="pill"
+               data-target="#v-pills-mypodcasts" role="tab" aria-controls="v-pills-mypodcasts" aria-selected="false">My
+                Podcasts</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-badges-tab" data-toggle="pill"
+               data-target="#v-pills-badges" role="tab" aria-controls="v-pills-badges" aria-selected="false">My
+                Badges</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-awards-tab" data-toggle="pill"
+               data-target="#v-pills-awards" role="tab" aria-controls="v-pills-awards" aria-selected="false">Awards and
+                Competitions</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-followers-tab" data-toggle="pill"
+               data-target="#v-pills-followers" role="tab" aria-controls="v-pills-followers" aria-selected="false">Followers</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-followings-tab" data-toggle="pill"
+               data-target="#v-pills-followings" role="tab" aria-controls="v-pills-followings" aria-selected="false">Followings</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-subscribes-tab" data-toggle="pill"
+               data-target="#v-pills-subscribes" role="tab" aria-controls="v-pills-subscribes" aria-selected="false">Subscribes</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-saved-tab" data-toggle="pill"
+               data-target="#v-pills-saved" role="tab" aria-controls="v-pills-saved" aria-selected="false">My Saved
+                Lists</a>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade active show in" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
+            <div class="tab-pane fade active show in" id="v-pills-overview" role="tabpanel"
+                 aria-labelledby="v-pills-overview-tab">
                 <div class="card-body">
                     <form>
                         <div class="row gutters">
@@ -185,6 +202,7 @@
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="fullName">Full Name</label>
                                     <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                                    <input type="hidden" class="form-control" id="userId">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -225,8 +243,9 @@
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-<%--                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>--%>
-                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                    <%--                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>--%>
+                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -244,51 +263,8 @@
             <div class="tab-pane fade" id="v-pills-mypodcasts" role="tabpanel" aria-labelledby="v-pills-mypodcasts-tab">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12 mt-3">
-                            <div class="card" style="width: 100%;">
-                                <div class="card-horizontal">
-                                    <div class="img-square-wrapper">
-                                        <img class="" src="http://via.placeholder.com/300x180"
-                                             alt="Card image cap" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div class="card-body">
-                                        <h4>Podcast Name</h4>
-                                        <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                                class="fas fa-comments"></i> 87 &nbsp; <i
-                                                class="fas fa-eye"></i>
-                                            100</small>
-                                        <hr>
-                                        <p class="card-text">Some quick example text to build on the card
-                                            title and make up the bulk of the card's content. Yo how it this
-                                            going good good no not good okay good</p>
-                                        <!-- <div class="player">
-                                            <audio id="player2" preload="none" controls style="max-width: 100%">
-                                              <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                                            </audio>
-                                          </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="card" style="width: 100%;">
-                                <div class="card-horizontal">
-                                    <div class="img-square-wrapper">
-                                        <img class="" src="http://via.placeholder.com/300x180"
-                                             alt="Card image cap" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div class="card-body">
-                                        <h4>Podcast Name</h4>
-                                        <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                                class="fas fa-comments"></i> 87 &nbsp; <i
-                                                class="fas fa-eye"></i>
-                                            100</small>
-                                        <hr>
-                                        <p class="card-text">Some quick example text to build on the card
-                                            title and make up the bulk of the card's content. Yo how it this
-                                            going good good no not good okay good</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-12 mt-3" id="mypodcasts-col">
+
                         </div>
                     </div>
                 </div>
@@ -296,35 +272,8 @@
             <div class="tab-pane fade" id="v-pills-badges" role="tabpanel" aria-labelledby="v-pills-badges-tab">
                 <div class="team-boxed">
                     <div class="container">
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Badge Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Badge Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Badge Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Badge Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
+                        <div class="row people" id="mybadges-row">
+
                         </div>
                     </div>
                 </div>
@@ -332,148 +281,20 @@
             <div class="tab-pane fade" id="v-pills-awards" role="tabpanel" aria-labelledby="v-pills-awards-tab">
                 <div class="team-boxed">
                     <div class="container">
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Award Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Award Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Award Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                      src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Award Name</h5>
-                                    <small>Description of Badges</small>
-                                </div>
-                            </div>
+                        <div class="row people" id="myawards-row">
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-followers" role="tabpanel" aria-labelledby="v-pills-followers-tab">
-
-                <div class="list-group">
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Follow Back</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Follow Back</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Follow Back</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
+                <div class="list-group" id="myfollowers-list">
 
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-followings" role="tabpanel" aria-labelledby="v-pills-followings-tab">
 
-                <div class="list-group">
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unfollow</a>
-                    </div>
+                <div class="list-group" id="myfollowings-list">
 
                 </div>
             </div>
@@ -553,7 +374,8 @@
                 </div> -->
                 <div class="list-group">
                     <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
+                             class="rounded-sm ml-n2"/>
                         <div class="flex-fill pl-3 pr-3">
                             <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
                             <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
@@ -563,7 +385,8 @@
                         <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
                     </div>
                     <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
+                             class="rounded-sm ml-n2"/>
                         <div class="flex-fill pl-3 pr-3">
                             <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
                             <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
@@ -573,7 +396,8 @@
                         <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
                     </div>
                     <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
+                             class="rounded-sm ml-n2"/>
                         <div class="flex-fill pl-3 pr-3">
                             <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
                             <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
@@ -583,7 +407,8 @@
                         <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
                     </div>
                     <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
+                             class="rounded-sm ml-n2"/>
                         <div class="flex-fill pl-3 pr-3">
                             <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
                             <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
@@ -593,7 +418,8 @@
                         <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
                     </div>
                     <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px" class="rounded-sm ml-n2" />
+                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
+                             class="rounded-sm ml-n2"/>
                         <div class="flex-fill pl-3 pr-3">
                             <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
                             <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
@@ -638,7 +464,8 @@
                                         <div class="row"
                                              style="margin-left: 1px; column-gap: 6.5%; row-gap: 15px;">
                                             <div class="card">
-                                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -647,7 +474,7 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                         Ipsum a a a a a a a a a
@@ -655,24 +482,8 @@
                                                 </div>
                                             </div>
                                             <div class="card">
-                                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                                     alt="Avatar" style="width:100%; max-height: 42% ">
-                                                <div class="container"
-                                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                                    <h4><b>Book Name</b></h4>
-                                                    <p><small><i class="fas fa-heart"
-                                                                 style="color:red;"></i> 78 &nbsp; <i
-                                                            class="fas fa-comments"></i> 87 &nbsp; <i
-                                                            class="fas fa-eye"></i>
-                                                        100</small> </p>
-                                                    <hr>
-                                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-                                                        Ipsum a a a a a a a a a
-                                                        .....</p>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -681,31 +492,15 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
-                                                    <hr>
-                                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk
-                                                        jbkfds njkdsLorem Ipsum a a a a a a a a a
-                                                        .....</p>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
-                                                     alt="Avatar">
-                                                <div class="container"
-                                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                                    <h4><b>Book Name</b></h4>
-                                                    <p><small><i class="fas fa-heart"
-                                                                 style="color:red;"></i> 78 &nbsp; <i
-                                                            class="fas fa-comments"></i> 87 &nbsp; <i
-                                                            class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a
                                                         a .....</p>
                                                 </div>
                                             </div>
                                             <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -714,7 +509,7 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                         Ipsum a a a a a a a a a
@@ -722,7 +517,8 @@
                                                 </div>
                                             </div>
                                             <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -731,7 +527,7 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                         Ipsum a a a a a a a a a
@@ -747,7 +543,8 @@
                                         <div class="row"
                                              style="margin-left: 1px; column-gap: 6.5%; row-gap: 15px;">
                                             <div class="card">
-                                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -756,65 +553,15 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
-                                                    <hr>
-                                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-                                                        Ipsum a a a a a a a a a
-                                                        .....</p>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                                     alt="Avatar" style="width:100%; max-height: 42% ">
-                                                <div class="container"
-                                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                                    <h4><b>Book Name</b></h4>
-                                                    <p><small><i class="fas fa-heart"
-                                                                 style="color:red;"></i> 78 &nbsp; <i
-                                                            class="fas fa-comments"></i> 87 &nbsp; <i
-                                                            class="fas fa-eye"></i>
-                                                        100</small> </p>
-                                                    <hr>
-                                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-                                                        Ipsum a a a a a a a a a
-                                                        .....</p>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
-                                                     alt="Avatar">
-                                                <div class="container"
-                                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                                    <h4><b>Book Name</b></h4>
-                                                    <p><small><i class="fas fa-heart"
-                                                                 style="color:red;"></i> 78 &nbsp; <i
-                                                            class="fas fa-comments"></i> 87 &nbsp; <i
-                                                            class="fas fa-eye"></i>
-                                                        100</small> </p>
-                                                    <hr>
-                                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk
-                                                        jbkfds njkdsLorem Ipsum a a a a a a a a a
-                                                        .....</p>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
-                                                     alt="Avatar">
-                                                <div class="container"
-                                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                                    <h4><b>Book Name</b></h4>
-                                                    <p><small><i class="fas fa-heart"
-                                                                 style="color:red;"></i> 78 &nbsp; <i
-                                                            class="fas fa-comments"></i> 87 &nbsp; <i
-                                                            class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a
                                                         a .....</p>
                                                 </div>
                                             </div>
                                             <div class="card">
-                                                <img class="card-img-top"  src="https://www.w3schools.com/howto/img_avatar2.png"
+                                                <img class="card-img-top"
+                                                     src="https://www.w3schools.com/howto/img_avatar2.png"
                                                      alt="Avatar">
                                                 <div class="container"
                                                      style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
@@ -823,7 +570,7 @@
                                                                  style="color:red;"></i> 78 &nbsp; <i
                                                             class="fas fa-comments"></i> 87 &nbsp; <i
                                                             class="fas fa-eye"></i>
-                                                        100</small> </p>
+                                                        100</small></p>
                                                     <hr>
                                                     <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                         Ipsum a a a a a a a a a
@@ -944,43 +691,131 @@
 
 <script>
 
-    $(document).ready(function (){
+    $(document).ready(function () {
         let username = '<%=session.getAttribute("username")%>';
-       $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function(result) {
-           console.log(result);
+        let userId = '<%=session.getAttribute("userId")%>';
+        $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function (result) {
+            console.log(result);
 
-           $("#username").val(result.userName);
-           $("#fullName").val(result.fullName);
-           $("#email").val(result.email);
-           $("#bio").val(result.bio);
-           $("#phone").val(result.mobile);
-           $("#location").val(result.location);
-           $("#gender").val(result.gender);
-           console.log(result.fullName + ", " + result.userName);
-           $("#profileFullName").html(result.fullName);
-           $("#profileUsername").html("@" + result.userName);
-       });
-       $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data){
-          console.log(data);
+            $("#profileFullName").html(result.fullName);
+            $("#profileUsername").html("@" + result.userName);
 
-          for (let i = 0; i < data.length; i++) {
-              let design = '<div class="card">' +
-                            '<img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">' +
-                           '<div class="container"' +
-                                 'style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
-                                '<h4><b>' + data[i].bookName + '</b></h4>' +
-                                '<p><small><i class="fas fa-heart" style="color:red;"></i> ' + data[i].numberOfLikes + ' &nbsp; <i ' +
-                                        'class="fas fa-comments"></i>  ' + data[i].numberOfComments + ' &nbsp; <i class="fas fa-eye"></i>  ' +
-                                    data[i].totalViews + '</small> </p>' +
-                               ' <hr>' +
-                                '<p>' + data[i].description + '</p>' +
-                           ' </div>' +
-                        '</div>';
-              document.getElementById('mybooks-row').innerHTML += design;
-          }
+            $("#userId").val(result.id);
+            $("#username").val(result.userName);
+            $("#fullName").val(result.fullName);
+            $("#email").val(result.email);
+            $("#bio").val(result.bio);
+            $("#phone").val(result.mobile);
+            $("#location").val(result.location);
+            $("#gender").val(result.gender);
 
-       });
+            for (let i = 0; i < result.badge.length; i++) {
+                let design = '<div class="col-md-6 col-lg-4 item">' +
+                    '<div class="box"><img style="max-width: 140px;" class="img-thumbnail"' +
+                    'src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                    '<h5 class="name">' + result.badge[i].badgeName + '</h5>' +
+                    '<small>Points needed to Earn: ' + result.badge[i].minLikesToEarn + '</small>' +
+                    '</div>' +
+                    '</div>';
+                document.getElementById('mybadges-row').innerHTML += design;
+            }
+            for (let i = 0; i < result.award.length; i++) {
+                let design = '<div class="col-md-6 col-lg-4 item">' +
+                    '<div class="box"><img style="max-width: 140px;" class="img-thumbnail"' +
+                    'src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                    '<h5 class="name">' + result.award[i].competition.competitionName + '</h5>' +
+                    '<small>' + result.award[i].rankName + '</small>' +
+                    '</div>' +
+                    '</div>';
+                document.getElementById('myawards-row').innerHTML += design;
+            }
+
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data) {
+            console.log(data);
+
+            for (let i = 0; i < data.length; i++) {
+                let design = '<div id="' + data[i].id + '" onclick="bookDetails(this)" class="card">' +
+                    '<img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">' +
+                    '<div class="container"' +
+                    'style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
+                    '<h4><b>' + data[i].bookName + '</b></h4>' +
+                    '<p><small><i class="fas fa-heart" style="color:red;"></i> ' + data[i].numberOfLikes + ' &nbsp; <i ' +
+                    'class="fas fa-comments"></i>  ' + data[i].numberOfComments + ' &nbsp; <i class="fas fa-eye"></i>  ' +
+                    data[i].totalViews + '</small> </p>' +
+                    ' <hr>' +
+                    '<p>' + data[i].description + '</p>' +
+                    ' </div>' +
+                    '</div>';
+                document.getElementById('mybooks-row').innerHTML += design;
+            }
+
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyPodcastsInfo", {username: username}, function (data) {
+            console.log(data);
+
+            for (let i = 0; i < data.length; i++) {
+                let design = '<div class="card" style="width: 100%;">' +
+                    '<div class="card-horizontal">' +
+                    '<div class="img-square-wrapper">' +
+                    '<img class="" src="http://via.placeholder.com/300x180"' +
+                    'alt = "Card image cap" style="width: 100%; height: 100%;">' +
+                    ' </div>' +
+                    '<div class="card-body">' +
+                    '<h4>' + data[i].seriesName + '</h4>' +
+                    '<small><i class="fas fa-heart" style="color:red;"></i>' + data[i].numberOfLikes + '&nbsp; ' +
+                    '<i class="fas fa-comments"></i>' + data[i].numberOfComments + '&nbsp; ' +
+                    '<i class="fas fa-eye"></i>' + data[i].totalViews + '</small>' +
+                    '<hr>' +
+                    '<p class="card-text">Some quick example text to build on the card' +
+                    'title and make up the bulk of the cards content. Yo how is this' +
+                    'going good good no not good okay good</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<br>';
+                document.getElementById('mypodcasts-col').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyFollowersInfo", {userId: userId}, function (data) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                let design = '<div class="list-group-item d-flex align-items-center" >'+
+                    '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"'+
+                    'class="rounded-sm ml-n2"/>'+
+                    '<div class="flex-fill pl-3 pr-3">'+
+                    '<div><a href="#" class="text-dark font-weight-600">'+ data[i].userName +'</a></div>'+
+                    '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>'+ data[i].followers +'&nbsp;'+
+                    '<i class="fas fa-book-open"></i>'+ data[i].numberOfBooks +'&nbsp; '+
+                    '<i class="fas fa-podcast"></i> '+ data[i].numberOfPodcasts +'</small></div>'+
+                    '</div>'+
+                    '<a href="#" class="btn btn-outline-primary">Follow Back</a>'+
+                    '</div>';
+                document.getElementById('myfollowers-list').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsInfo", {userId: userId}, function (data) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                let design = '<div class="list-group-item d-flex align-items-center" >'+
+                    '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"'+
+                    'class="rounded-sm ml-n2"/>'+
+                    '<div class="flex-fill pl-3 pr-3">'+
+                    '<div><a href="#" class="text-dark font-weight-600">'+ data[i].userName +'</a></div>'+
+                    '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>'+ data[i].followers +'&nbsp;'+
+                    '<i class="fas fa-book-open"></i>'+ data[i].numberOfBooks +'&nbsp; '+
+                    '<i class="fas fa-podcast"></i> '+ data[i].numberOfPodcasts +'</small></div>'+
+                    '</div>'+
+                    '<a href="#" class="btn btn-outline-primary">Unfollow</a>'+
+                    '</div>';
+                document.getElementById('myfollowings-list').innerHTML += design;
+            }
+        });
     });
+
+    function bookDetails(element) {
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
@@ -1001,6 +836,7 @@
             });
         }
     });
+
     function tabChange() {
         var tabs = $(".nav-tabs > li");
         var active = tabs.filter(".active");
