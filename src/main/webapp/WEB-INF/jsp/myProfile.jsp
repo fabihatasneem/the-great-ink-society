@@ -964,7 +964,7 @@
           console.log(data);
 
           for (let i = 0; i < data.length; i++) {
-              let design = '<div class="card">' +
+              let design = '<div id="' + data[i].id + '" onclick="bookDetails(this)" class="card">' +
                             '<img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">' +
                            '<div class="container"' +
                                  'style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
@@ -981,6 +981,10 @@
 
        });
     });
+
+    function bookDetails(element) {
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),

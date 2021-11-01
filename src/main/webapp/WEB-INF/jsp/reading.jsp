@@ -39,7 +39,7 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Book Name
+                    ${bookName}
                 </h1>
             </div>
         </div>
@@ -61,14 +61,14 @@
                                  src="img/blog/feature-img1.jpg">
                         </div>
                     </div>
-                    <h3 class="mt-20 mb-10"> 01. Chapter Name </h3>
-                    <a class="mb-10" href="#">Genre Name</a>
+                    <h3 class="mt-20 mb-10"> ${chapterName} </h3>
+                    <a class="mb-10" href="#">${genre}</a>
                     <div class="user-details row">
                         <div class="col-lg-12">
-                            <i class="fas fa-calendar-alt"></i> 12 Dec, 2017 &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-heart"></i> 100 Reacts &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-eye"></i> 1.2M Views &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-comments"></i> 06 Comments
+                            <i class="fas fa-calendar-alt"></i> ${creationDate} &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-heart"></i> ${totalReacts} &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-eye"></i> ${totalViews} Views &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-comments"></i> ${totalComments} Comments
                         </div>
                     </div>
                     <hr style="margin-top: 10px;">
@@ -177,12 +177,12 @@
                     <div class="single-sidebar-widget user-info-widget">
                         <img src="img/blog/user-info.png" alt="">
                         <a href="#">
-                            <h4>Charlie Barber</h4>
+                            <h4>${userFullName}</h4>
                         </a>
                         <p>
-                            <i class="fas fa-user-friends"></i> 100 &nbsp; <i class="fas fa-award"></i> 3 &nbsp; <i
-                                style="color: #DAA520;" class="fas fa-trophy"></i> 3 &nbsp; <i class="fas fa-heart"
-                                                                                               style="color:red;"></i> 100
+                            <i class="fas fa-user-friends"></i> ${userFollowers} &nbsp; <i class="fas fa-award"></i> ${numberOfBadges} &nbsp; <i
+                                style="color: #DAA520;" class="fas fa-trophy"></i> ${numberOfAwards} &nbsp; <i class="fas fa-heart"
+                                                                                               style="color:red;"></i> ${numberOfReacts}
                         </p>
                         <ul class="social-links">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -191,10 +191,7 @@
                             <li><a href="#"><i class="fa fa-behance"></i></a></li>
                         </ul>
                         <p>
-                            User Bio: Boot camps have its supporters andit sdetractors. Some people do not
-                            understand why you
-                            should have to spend money on boot camp when you can get. Boot camps have itssuppor ters
-                            andits detractors.
+                            ${userBio}
                         </p>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">

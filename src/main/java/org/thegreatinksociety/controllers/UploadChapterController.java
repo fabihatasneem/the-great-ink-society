@@ -21,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 @RestController
 public class UploadChapterController {
@@ -35,7 +36,7 @@ public class UploadChapterController {
     private ChaptersRepository chaptersRepository;
 
     @RequestMapping(method = RequestMethod.POST, value = "/uploadChapter")
-    public boolean uploadChapter(HttpSession session, HttpServletResponse response, @RequestParam String chapterName, @RequestParam String description,
+    public boolean uploadChapter(HttpSession session, HttpServletResponse response, @RequestParam String chapterName,
                                  @RequestParam String chapterWriting, @RequestParam Long bookId, @RequestParam int publishedStatus) throws Docx4JException, IOException {
 
         Chapters chapters = new Chapters();
@@ -45,6 +46,7 @@ public class UploadChapterController {
 
         String fileName = chapterName + ".docx";
         String filePath = GlobalVariable.fileUploadPath + fileName;
+        Date todayDate = new Date();
 
         WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
         MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
@@ -67,8 +69,15 @@ public class UploadChapterController {
         chapters.setChapterName(chapterName);
         chapters.setTextFileName(fileName);
         chapters.setTextFileLink(filePath);
+        chapters.setCreationDate(todayDate);
+
+        int numberOfChapters = book.getNumberOfChapters();
+        numberOfChapters += 1;
+        book.setNumberOfChapters(numberOfChapters);
+        book.setLastUpdatedDate(todayDate);
 
         Chapters submittedChapter = chaptersRepository.save(chapters);
+        Books updatedBook = booksRepository.save(book);
 
         response.sendRedirect(GlobalVariable.localUrl);
 

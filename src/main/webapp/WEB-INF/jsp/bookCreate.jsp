@@ -166,8 +166,8 @@
                                                    placeholder="Book Name" required>
                                         </div>
                                         <div class="custom-file col-md-6">
-                                            <label for="chaptername">Book Cover Photo(.jpg/.png)</label>
-                                            <input name="bookCover" type="file" class="form-control" id="chaptername">
+                                            <label for="bookCover">Book Cover Photo(.jpg/.png)</label>
+                                            <input name="bookCover" type="file" class="form-control" id="bookCover">
                                         </div>
                                     </div>
                                     <div class="form-group">

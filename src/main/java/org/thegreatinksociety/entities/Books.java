@@ -23,6 +23,9 @@ public class Books {
     @Temporal(TemporalType.DATE) @Column(nullable = false)
     private Date creationDate;
 
+    @Temporal(TemporalType.DATE)
+    private Date lastUpdatedDate;
+
     @ManyToOne
     private Genre genre;
 

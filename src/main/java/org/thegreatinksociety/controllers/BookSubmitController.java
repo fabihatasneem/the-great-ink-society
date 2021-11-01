@@ -2,7 +2,6 @@ package org.thegreatinksociety.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thegreatinksociety.entities.Books;
@@ -67,6 +66,7 @@ public class BookSubmitController {
         books.setBookName(bookName);
         books.setDescription(description);
         books.setCreationDate(today);
+        books.setLastUpdatedDate(today);
         books.setLanguage(language1);
         books.setGenre(genre1);
         books.setPublishStatus(Integer.parseInt(publishedStatus));
@@ -77,7 +77,7 @@ public class BookSubmitController {
 
         session.setAttribute("bookId", submittedBook.getId());
 
-        response.sendRedirect(GlobalVariable.localUrl + "/chapterWrite");
+        response.sendRedirect(GlobalVariable.localUrl + "/chapterWrite?chapterNo=1");
 
     }
 

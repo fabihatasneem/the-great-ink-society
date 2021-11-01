@@ -57,27 +57,28 @@
                 <div class="container-fluid">
                     <div class="text-center">
                         <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
-                        <h2 style="padding: 15px 0;">Book Name</h2>
+                        <h2 style="padding: 15px 0;">${bookName}</h2>
                     </div>
                     <div class="container extra">
                         <div class="row">
                             <div class="col-lg-7">
-                                <p><i class="fas fa-book-open"></i> Number of Chapters Published: 50</p>
-                                <p><i class="fas fa-language"></i> Language: </p>
-                                <p><i class="fas fa-theater-masks"></i> Genre: </p>
-                                <p><i class="fas fa-clock"></i> Last Updated 12/12/2021</p>
+                                <p><i class="fas fa-book-open"></i> Number of Chapters Published: ${numberOfChapters}</p>
+                                <p><i class="fas fa-language"></i> Language: ${language}</p>
+                                <p><i class="fas fa-theater-masks"></i> Genre: ${genre}</p>
+                                <p><i class="fas fa-clock"></i> Last Updated ${lastUpdated}</p>
                             </div>
                             <div class="col-lg-5">
-                                <p><i class="fas fa-eye"></i> Total Views 100</p>
-                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts 100</p>
-                                <p><i class="fas fa-comments"></i> Total Comments 100</p>
+                                <p><i class="fas fa-eye"></i> Total Views ${totalViews}</p>
+                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts ${totalReacts}</p>
+                                <p><i class="fas fa-comments"></i> Total Comments ${totalComments}</p>
                                 <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won 5</p>
                             </div>
                             <br><br>
-                            <form>
+                            <form method="POST" action="<%=GlobalVariable.localUrl%>/bookEdit">
                                 <div class="form-group mt-20">
-                                    <label style="font-weight: bold;" for="inputAddress">Description</label>
-                                    <textarea class="form-control" placeholder="Description"></textarea>
+                                    <label style="font-weight: bold;" for="description">Description</label>
+                                    <textarea name="description" id="description" class="form-control" placeholder="Description">${description}</textarea>
+                                    <input type="hidden" name="bookId" value="${bookId}">
                                 </div>
                                 <div style="justify-content: flex-end;" class="form-row">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>&nbsp;
@@ -89,30 +90,13 @@
                         Chapters
                     </h3>
                     <div class="container extra2">
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">01. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">02. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">03. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">04. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">05. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item"> <small style="color: red;">(Draft)</small> justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
+                        <ul id="chapterList" class="list-group list-group-flush">
+
                         </ul>
                     </div>
                     <div class="text-right">
                         <button class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button>
-                        <button class="btn btn-primary">Add a New Chapter</button>
+                        <button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>
                     </div>
                 </div>
             </div>
@@ -282,6 +266,25 @@
 </section>
 <!-- End post-content Area -->
 <%@ include file="footer.jsp" %>
+
+<script>
+    $(document).ready(function (){
+        let bookId = ${bookId};
+
+        $.post("<%=GlobalVariable.localUrl%>/getChaptersofBook", {bookId: bookId}, function (result){
+           console.log(result);
+            let design = '';
+           result.map(chapter => {
+               design += '<a href="<%=GlobalVariable.localUrl%>/reading?id=' + chapter.id + '"><li class="list-group-item">' + chapter.chapterName +
+               '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + chapter.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + chapter.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + chapter.totalViews + '</p></small>' +
+               '</li></a>';
+
+           });
+
+           document.getElementById('chapterList').innerHTML = design;
+        });
+    });
+</script>
 
 </body>
 </html>
