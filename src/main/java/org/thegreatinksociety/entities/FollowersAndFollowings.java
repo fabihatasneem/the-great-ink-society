@@ -14,10 +14,10 @@ public class FollowersAndFollowings {
     private Long id;
 
     @Column(nullable = false)
-    private int followerId;
+    private Long followerId;
 
     @Column(nullable = false)
-    private int followingId;
+    private Long followingId;
 
     @Temporal(TemporalType.DATE)
     private Date dateFollowed;
