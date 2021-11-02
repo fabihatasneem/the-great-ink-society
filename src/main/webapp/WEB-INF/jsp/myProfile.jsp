@@ -194,7 +194,7 @@
             <div class="tab-pane fade active show in" id="v-pills-overview" role="tabpanel"
                  aria-labelledby="v-pills-overview-tab">
                 <div class="card-body">
-                    <form>
+                    <form action="<%=GlobalVariable.localUrl%>/userProfileUpdate" method="POST">
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <h6 class="mb-2 text-primary">Personal Details</h6>
@@ -202,51 +202,48 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
-                                    <input type="hidden" class="form-control" id="userId">
+                                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter full name" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email ID">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email ID" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="phone">Mobile</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="username">Username</label>
-                                    <input type="text" class="form-control" disabled id="username" placeholder="Username">
+                                    <input type="text" class="form-control" disabled id="username" name="username" placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="location">Location</label>
-                                    <input type="text" class="form-control" id="location" placeholder="Location">
+                                    <input type="text" class="form-control" id="location" name="location" placeholder="Location">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="gender">Gender</label>
-                                    <input type="text" class="form-control" id="gender" disabled placeholder="Gender">
+                                    <input type="text" class="form-control" id="gender" name="gender" disabled placeholder="Gender">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label style="font-weight:500;" for="bio">Bio</label>
-                                <textarea class="form-control" id="bio" placeholder="User Bio"></textarea>
+                                <textarea class="form-control" id="bio" name="bio" placeholder="User Bio"></textarea>
                             </div>
                         </div>
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-                                    <%--                                    <button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>--%>
-                                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update
-                                    </button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -312,62 +309,6 @@
                                             class="fas fa-podcast"></i> 100</small>
                                             <br>
                                     <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <span>
-                                    <br>
-                                    <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                            <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
                                 </div>
                             </div>
                         </div>
@@ -651,7 +592,6 @@
             $("#numberOfAwards").html("  "+result.numberOfAwards);
             $("#numberOfBadges").html("  "+result.numberOfBadges);
             $("#numberOfFollowers").html("  "+result.followers);
-            $("#userId").val(result.id);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
             $("#email").val(result.email);
@@ -785,7 +725,7 @@
                         '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
                         '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
                         '</div>' +
-                        '<a href="#" class="btn btn-outline-primary">Unfollow</a>' +
+                        '<a href="#" class="btn btn-outline-primary">Subscribe</a>' +
                         '</div>';
                     document.getElementById('mysubscribers-list').innerHTML += design;
                 }
