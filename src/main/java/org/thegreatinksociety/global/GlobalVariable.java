@@ -6,4 +6,5 @@ public class GlobalVariable {
     public static final String serverUrl = "";
 
     public static final String fileUploadPath = "F:\\New Folder\\";
+    public static final String imageUploadPath = "F:\\New Folder\\Images\\";
 }

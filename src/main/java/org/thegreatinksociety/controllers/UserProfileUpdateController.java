@@ -8,7 +8,6 @@ import org.thegreatinksociety.entities.Users;
 import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.UsersRepository;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;

@@ -100,6 +100,43 @@
         display: flex;
         flex: 1 1 auto;
     }
+
+    .profile-pic {
+        align-content: center;
+        background-position: center;
+        background-blend-mode: multiply;
+        vertical-align: middle;
+        text-align: center;
+        color: transparent;
+        transition: all .3s ease;
+        text-decoration: none;
+    }
+
+    .profile-pic img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .profile-pic img:hover {
+        background-color: rgba(0, 0, 0, .5);
+        color: #fff;
+        transition: all .3s ease;
+        text-decoration: none;
+        opacity: 0.6;
+    }
+
+    .profile-pic span {
+        display: inline-block;
+        padding-top: 4.5em;
+        padding-bottom: 4.5em;
+    }
+
+    form input[type="file"] {
+        display: none;
+        cursor: pointer;
+    }
 </style>
 
 
@@ -109,19 +146,47 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
-                <img id="profilePicture" src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
-                     alt="Profile Picture" style="border-radius: 50%; width: 150px; height: 150px"/>
+                <div class="profile-pic">
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <img id="profilePicture" class="img-circle img-profile img-thumbnail lazy"
+                         alt="Profile Picture" data-toggle="modal" data-target="#pictureModal"/>
+                </div>
+                <div class="modal fade bd-example-modal-sm" id="pictureModal" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">New Profile Picture</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <form action="<%=GlobalVariable.localUrl%>/userProfilePictureUpdate" method="POST"
+                                  enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <label for="profilePictureUpload" style="cursor: pointer">
+                                        <b>Choose From Gallery</b>
+                                        <input type="file" class="form-control" name="profilePictureUpload"
+                                               id="profilePictureUpload">
+                                    </label>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <p>
                 <h3 style="color: white;" id="profileFullName">Full Name</h3>
                 <h6 style="color: rgb(196, 190, 190);" id="profileUsername">@</h6>
                 </p>
                 <p>
-                    <i style="color: #daa520" class="fas fa-trophy"id="numberOfAwards"></i> &nbsp; &nbsp;
-                    <i style="color: #abf6ff" class="fas fa-award"id="numberOfBadges"></i> &nbsp; &nbsp;
+                    <i style="color: #daa520" class="fas fa-trophy" id="numberOfAwards"></i> &nbsp; &nbsp;
+                    <i style="color: #abf6ff" class="fas fa-award" id="numberOfBadges"></i> &nbsp; &nbsp;
                     <i style="color: #ffabab" class="fas fa-users" id="numberOfFollowers"></i>
                 </p>
                 <br>
-                <p id="profileBio" style="color: #9c9c9c" ></p>
+                <p id="profileBio" style="color: #9c9c9c"></p>
             </div>
         </div>
     </div>
@@ -202,37 +267,43 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter full name" required>
+                                    <input type="text" class="form-control" id="fullName" name="fullName"
+                                           placeholder="Enter full name" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email ID" required>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                           placeholder="Enter email ID" required>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="phone">Mobile</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
+                                    <input type="text" class="form-control" id="phone" name="phone"
+                                           placeholder="Enter phone number">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="username">Username</label>
-                                    <input type="text" class="form-control" disabled id="username" name="username" placeholder="Username">
+                                    <input type="text" class="form-control" disabled id="username" name="username"
+                                           placeholder="Username">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="location">Location</label>
-                                    <input type="text" class="form-control" id="location" name="location" placeholder="Location">
+                                    <input type="text" class="form-control" id="location" name="location"
+                                           placeholder="Location">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label style="font-weight:500;" for="gender">Gender</label>
-                                    <input type="text" class="form-control" id="gender" name="gender" disabled placeholder="Gender">
+                                    <input type="text" class="form-control" id="gender" name="gender" disabled
+                                           placeholder="Gender">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -243,7 +314,8 @@
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="text-right">
-                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Update
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -575,7 +647,8 @@
 <!-- Nav Tabs End -->
 
 <%@ include file="footer.jsp" %>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -583,15 +656,15 @@
         let userId = '<%=session.getAttribute("userId")%>';
         $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function (result) {
             console.log(result);
-            if(result.profilePicLink != null) {
+            if (result.profilePicLink != null) {
                 document.getElementById("profilePicture").src = result.profilePicLink;
             }
             $("#profileFullName").html(result.fullName);
             $("#profileUsername").html("@" + result.userName);
             $("#profileBio").html(result.bio);
-            $("#numberOfAwards").html("  "+result.numberOfAwards);
-            $("#numberOfBadges").html("  "+result.numberOfBadges);
-            $("#numberOfFollowers").html("  "+result.followers);
+            $("#numberOfAwards").html("  " + result.numberOfAwards);
+            $("#numberOfBadges").html("  " + result.numberOfBadges);
+            $("#numberOfFollowers").html("  " + result.followers);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
             $("#email").val(result.email);
@@ -670,9 +743,9 @@
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyFollowersInfo", {userId: userId}, function (data) {
             console.log(data);
-            if(data.length === 0){
+            if (data.length === 0) {
                 document.getElementById('myfollowers-list').innerHTML = '<p> No Followers To Show </p>';
-            }else {
+            } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
                         '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
@@ -691,9 +764,9 @@
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsInfo", {userId: userId}, function (data) {
             console.log(data);
-            if(data.length === 0){
+            if (data.length === 0) {
                 document.getElementById('myfollowings-list').innerHTML = '<p> You Have Not Followed Anyone Yet </p>';
-            }else {
+            } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
                         '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
@@ -712,9 +785,9 @@
         });
         $.post("<%=GlobalVariable.localUrl%>/getMySubscribersInfo", {userId: userId}, function (data) {
             console.log(data);
-            if(data.length === 0){
+            if (data.length === 0) {
                 document.getElementById('mysubscribers-list').innerHTML = '<p> No Subscribers To Show </p>';
-            }else {
+            } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
                         '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
