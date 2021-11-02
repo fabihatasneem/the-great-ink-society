@@ -14,10 +14,10 @@ public class Subscribers {
     private Long id;
 
     @Column(nullable = false)
-    private int subscriberId;
+    private Long subscriberId;
 
     @Column(nullable = false)
-    private int subscribedToId;
+    private Long subscribedToId;
 
     @Temporal(TemporalType.DATE)
     private Date subscriptionDate;

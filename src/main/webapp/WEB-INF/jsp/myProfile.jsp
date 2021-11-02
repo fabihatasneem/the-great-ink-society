@@ -109,18 +109,19 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
-                <img src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
-                     alt="User profile" style="border-radius: 50%; width: 150px; height: 150px"/>
+                <img id="profilePicture" src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
+                     alt="Profile Picture" style="border-radius: 50%; width: 150px; height: 150px"/>
                 <p>
                 <h3 style="color: white;" id="profileFullName">Full Name</h3>
                 <h6 style="color: rgb(196, 190, 190);" id="profileUsername">@</h6>
                 </p>
                 <p>
-                    <i style="color: #daa520" class="fas fa-trophy"></i> 10 &nbsp;
-                    <i class="fas fa-award"></i> 3 &nbsp;
-                    <i class="fas fa-podcast"></i> 3 &nbsp;
-                    <i class="fas fa-book-open"></i> 100
+                    <i style="color: #daa520" class="fas fa-trophy"id="numberOfAwards"></i> &nbsp; &nbsp;
+                    <i style="color: #abf6ff" class="fas fa-award"id="numberOfBadges"></i> &nbsp; &nbsp;
+                    <i style="color: #ffabab" class="fas fa-users" id="numberOfFollowers"></i>
                 </p>
+                <br>
+                <p id="profileBio" style="color: #9c9c9c" ></p>
             </div>
         </div>
     </div>
@@ -372,62 +373,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="list-group">
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                             class="rounded-sm ml-n2"/>
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                             class="rounded-sm ml-n2"/>
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                             class="rounded-sm ml-n2"/>
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                             class="rounded-sm ml-n2"/>
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
-                    </div>
-                    <div class="list-group-item d-flex align-items-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                             class="rounded-sm ml-n2"/>
-                        <div class="flex-fill pl-3 pr-3">
-                            <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                            <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                    class="fas fa-podcast"></i> 100</small></div>
-                        </div>
-                        <a href="#" class="btn btn-outline-primary">Unsubscribe</a>
-                    </div>
+                <div class="list-group" id="mysubscribers-list">
 
                 </div>
             </div>
@@ -696,10 +642,15 @@
         let userId = '<%=session.getAttribute("userId")%>';
         $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function (result) {
             console.log(result);
-
+            if(result.profilePicLink != null) {
+                document.getElementById("profilePicture").src = result.profilePicLink;
+            }
             $("#profileFullName").html(result.fullName);
             $("#profileUsername").html("@" + result.userName);
-
+            $("#profileBio").html(result.bio);
+            $("#numberOfAwards").html("  "+result.numberOfAwards);
+            $("#numberOfBadges").html("  "+result.numberOfBadges);
+            $("#numberOfFollowers").html("  "+result.followers);
             $("#userId").val(result.id);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
@@ -779,36 +730,65 @@
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyFollowersInfo", {userId: userId}, function (data) {
             console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                let design = '<div class="list-group-item d-flex align-items-center" >'+
-                    '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"'+
-                    'class="rounded-sm ml-n2"/>'+
-                    '<div class="flex-fill pl-3 pr-3">'+
-                    '<div><a href="#" class="text-dark font-weight-600">'+ data[i].userName +'</a></div>'+
-                    '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>'+ data[i].followers +'&nbsp;'+
-                    '<i class="fas fa-book-open"></i>'+ data[i].numberOfBooks +'&nbsp; '+
-                    '<i class="fas fa-podcast"></i> '+ data[i].numberOfPodcasts +'</small></div>'+
-                    '</div>'+
-                    '<a href="#" class="btn btn-outline-primary">Follow Back</a>'+
-                    '</div>';
-                document.getElementById('myfollowers-list').innerHTML += design;
+            if(data.length === 0){
+                document.getElementById('myfollowers-list').innerHTML = '<p> No Followers To Show </p>';
+            }else {
+                for (let i = 0; i < data.length; i++) {
+                    let design = '<div class="list-group-item d-flex align-items-center" >' +
+                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        'class="rounded-sm ml-n2"/>' +
+                        '<div class="flex-fill pl-3 pr-3">' +
+                        '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
+                        '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>' + data[i].followers + '&nbsp;' +
+                        '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
+                        '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
+                        '</div>' +
+                        '<a href="#" class="btn btn-outline-primary">Follow Back</a>' +
+                        '</div>';
+                    document.getElementById('myfollowers-list').innerHTML += design;
+                }
             }
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsInfo", {userId: userId}, function (data) {
             console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                let design = '<div class="list-group-item d-flex align-items-center" >'+
-                    '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"'+
-                    'class="rounded-sm ml-n2"/>'+
-                    '<div class="flex-fill pl-3 pr-3">'+
-                    '<div><a href="#" class="text-dark font-weight-600">'+ data[i].userName +'</a></div>'+
-                    '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>'+ data[i].followers +'&nbsp;'+
-                    '<i class="fas fa-book-open"></i>'+ data[i].numberOfBooks +'&nbsp; '+
-                    '<i class="fas fa-podcast"></i> '+ data[i].numberOfPodcasts +'</small></div>'+
-                    '</div>'+
-                    '<a href="#" class="btn btn-outline-primary">Unfollow</a>'+
-                    '</div>';
-                document.getElementById('myfollowings-list').innerHTML += design;
+            if(data.length === 0){
+                document.getElementById('myfollowings-list').innerHTML = '<p> You Have Not Followed Anyone Yet </p>';
+            }else {
+                for (let i = 0; i < data.length; i++) {
+                    let design = '<div class="list-group-item d-flex align-items-center" >' +
+                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        'class="rounded-sm ml-n2"/>' +
+                        '<div class="flex-fill pl-3 pr-3">' +
+                        '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
+                        '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>' + data[i].followers + '&nbsp;' +
+                        '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
+                        '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
+                        '</div>' +
+                        '<a href="#" class="btn btn-outline-primary">Unfollow</a>' +
+                        '</div>';
+                    document.getElementById('myfollowings-list').innerHTML += design;
+                }
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMySubscribersInfo", {userId: userId}, function (data) {
+            console.log(data);
+            if(data.length === 0){
+                document.getElementById('mysubscribers-list').innerHTML = '<p> No Subscribers To Show </p>';
+            }else {
+                for (let i = 0; i < data.length; i++) {
+                    let design = '<div class="list-group-item d-flex align-items-center" >' +
+                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        'class="rounded-sm ml-n2"/>' +
+                        '<div class="flex-fill pl-3 pr-3">' +
+                        '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
+                        '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>' + data[i].followers + '&nbsp;' +
+                        '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
+                        '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
+                        '</div>' +
+                        '<a href="#" class="btn btn-outline-primary">Unfollow</a>' +
+                        '</div>';
+                    document.getElementById('mysubscribers-list').innerHTML += design;
+                }
             }
         });
     });

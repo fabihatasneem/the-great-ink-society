@@ -3,6 +3,8 @@ package org.thegreatinksociety.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.thegreatinksociety.entities.Subscribers;
 
-public interface SubscribersRepository extends CrudRepository<Subscribers, Long> {
+import java.util.List;
 
+public interface SubscribersRepository extends CrudRepository<Subscribers, Long> {
+    List<Subscribers> findBySubscribedToId(Long userId);
 }
