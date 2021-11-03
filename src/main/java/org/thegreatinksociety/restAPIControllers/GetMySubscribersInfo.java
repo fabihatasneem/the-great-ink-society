@@ -6,29 +6,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.thegreatinksociety.entities.FollowersAndFollowings;
+import org.thegreatinksociety.entities.Subscribers;
 import org.thegreatinksociety.entities.Users;
 import org.thegreatinksociety.repositories.FollowersAndFollowingsRepository;
+import org.thegreatinksociety.repositories.SubscribersRepository;
 import org.thegreatinksociety.repositories.UsersRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class GetMyFollowersInfo {
+public class GetMySubscribersInfo {
+
     @Autowired
-    private FollowersAndFollowingsRepository followersAndFollowingsRepository;
+    private SubscribersRepository subscribersRepository;
 
     @Autowired
     private UsersRepository usersRepository;
 
-    @RequestMapping(value = "/getMyFollowersInfo", method = RequestMethod.POST)
-    public List<Users> getMyFollowersInfo(@RequestParam Long userId){
-        List<FollowersAndFollowings> followerIdList = followersAndFollowingsRepository.findByFollowingId(userId);
+    @RequestMapping(value = "/getMySubscribersInfo", method = RequestMethod.POST)
+    public List<Users> getMySubscribersInfo(@RequestParam Long userId){
+        List<Subscribers> subscriberIdList = subscribersRepository.findBySubscribedToId(userId);
 
-        List<Users> followerList = new ArrayList<>();
-        for(FollowersAndFollowings i : followerIdList){
-            followerList.add(usersRepository.findUsersById(i.getFollowerId()));
+        List<Users> subscriberList = new ArrayList<>();
+        for(Subscribers i : subscriberIdList){
+            subscriberList.add(usersRepository.findUsersById(i.getSubscriberId()));
         }
-        return followerList;
+        return subscriberList;
     }
 }
