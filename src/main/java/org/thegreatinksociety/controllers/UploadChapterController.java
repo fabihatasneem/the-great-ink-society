@@ -36,10 +36,14 @@ public class UploadChapterController {
     private ChaptersRepository chaptersRepository;
 
     @RequestMapping(method = RequestMethod.POST, value = "/uploadChapter")
-    public boolean uploadChapter(HttpSession session, HttpServletResponse response, @RequestParam String chapterName,
+    public void uploadChapter(HttpSession session, HttpServletResponse response, @RequestParam String chapterName, @RequestParam String chapterId,
                                  @RequestParam String chapterWriting, @RequestParam Long bookId, @RequestParam int publishedStatus) throws Docx4JException, IOException {
 
-        Chapters chapters = new Chapters();
+        if (publishedStatus == 2) {
+            response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + bookId);
+            return;
+        }
+
         String userName = session.getAttribute("username").toString();
         Users user = usersRepository.findByUserName(userName);
         Books book = booksRepository.findBooksById(bookId);
@@ -55,32 +59,46 @@ public class UploadChapterController {
         for (String text : texts) {
             mainDocumentPart.addParagraphOfText(text);
         }
-        System.out.println(chapterWriting);
-        File demoFile = new File("Demo.txt");
-        FileWriter writer = new FileWriter(demoFile);
-        writer.write(chapterWriting);
-        writer.close();
         File exportFile = new File(filePath);
         wordPackage.save(exportFile);
 
-        chapters.setUser(user);
-        chapters.setBook(book);
-        chapters.setStatus(publishedStatus);
-        chapters.setChapterName(chapterName);
-        chapters.setTextFileName(fileName);
-        chapters.setTextFileLink(filePath);
-        chapters.setCreationDate(todayDate);
+        Chapters chapterToBeSaved;
 
-        int numberOfChapters = book.getNumberOfChapters();
-        numberOfChapters += 1;
-        book.setNumberOfChapters(numberOfChapters);
-        book.setLastUpdatedDate(todayDate);
+        Long oldChapterId;
+        if (!chapterId.equals("")) {
+            //If it is a draft
+            oldChapterId = Long.parseLong(chapterId);
 
-        Chapters submittedChapter = chaptersRepository.save(chapters);
+            chapterToBeSaved = chaptersRepository.findChaptersById(oldChapterId);
+
+        } else {
+            //If it is a new Chapter
+
+            chapterToBeSaved = new Chapters();
+        }
+
+        chapterToBeSaved.setUser(user);
+        chapterToBeSaved.setBook(book);
+        chapterToBeSaved.setStatus(publishedStatus);
+        chapterToBeSaved.setChapterName(chapterName);
+        chapterToBeSaved.setTextFileName(fileName);
+        chapterToBeSaved.setTextFileLink(filePath);
+        chapterToBeSaved.setCreationDate(todayDate);
+
+        if (publishedStatus == 1) {
+            int numberOfChapters = book.getNumberOfChapters();
+            numberOfChapters += 1;
+            book.setNumberOfChapters(numberOfChapters);
+            book.setLastUpdatedDate(todayDate);
+        }
+
+        Chapters submittedChapter = chaptersRepository.save(chapterToBeSaved);
         Books updatedBook = booksRepository.save(book);
 
-        response.sendRedirect(GlobalVariable.localUrl);
-
-        return true;
+        if (publishedStatus == 0) {
+            response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + bookId);
+        } else {
+            response.sendRedirect(GlobalVariable.localUrl + "/reading?id=" + submittedChapter.getId());
+        }
     }
 }

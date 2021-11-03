@@ -11,6 +11,8 @@ import org.thegreatinksociety.entities.Chapters;
 import org.thegreatinksociety.entities.Users;
 import org.thegreatinksociety.repositories.ChaptersRepository;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,9 +24,13 @@ public class ReadingPageController {
     private ChaptersRepository chaptersRepository;
 
     @RequestMapping("/reading")
-    public String getReadingPage(ModelMap model, @RequestParam Long id) throws IOException {
+    public String getReadingPage(ModelMap model, @RequestParam Long id, HttpSession session) throws IOException {
         Chapters chapter = chaptersRepository.findChaptersById(id);
         Users user = chapter.getUser();
+        int isWriter = 0;
+        if (user.getId() == Integer.parseInt(session.getAttribute("userId").toString())) {
+            isWriter = 1;
+        }
 
         String fileName = chapter.getTextFileLink();
 
@@ -54,6 +60,10 @@ public class ReadingPageController {
         model.addAttribute("numberOfBadges", user.getNumberOfBadges());
         model.addAttribute("numberOfReacts", user.getWritingLikes());
         model.addAttribute("userBio", user.getBio());
+
+        model.addAttribute("isWriter", isWriter);
+        model.addAttribute("chapterId", chapter.getId());
+        model.addAttribute("bookId", chapter.getBook().getId());
 
 
         return "reading";

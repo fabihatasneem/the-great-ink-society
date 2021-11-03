@@ -22,7 +22,7 @@ public class Awards {
     @Column(nullable = false)
     private String rankName;
 
-    private int winnerUserId; //Default 0
-    private int winnerBookId; //Default 0 Changes with type
-    private int winnerPodcastId; //Default 0 Changes with type
+    private Long winnerUserId; //Default 0
+    private Long winnerBookId; //Default 0 Changes with type
+    private Long winnerPodcastId; //Default 0 Changes with type
 }

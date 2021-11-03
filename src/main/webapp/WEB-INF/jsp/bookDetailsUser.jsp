@@ -71,7 +71,7 @@
                                 <p><i class="fas fa-eye"></i> Total Views ${totalViews}</p>
                                 <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts ${totalReacts}</p>
                                 <p><i class="fas fa-comments"></i> Total Comments ${totalComments}</p>
-                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won 5</p>
+                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won ${totalAwards}</p>
                             </div>
                             <br><br>
                             <form method="POST" action="<%=GlobalVariable.localUrl%>/bookEdit">
@@ -94,9 +94,8 @@
 
                         </ul>
                     </div>
-                    <div class="text-right">
-                        <button class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button>
-                        <button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>
+                    <div id="buttons" class="text-right">
+
                     </div>
                 </div>
             </div>
@@ -268,22 +267,55 @@
 <%@ include file="footer.jsp" %>
 
 <script>
-    $(document).ready(function (){
+    $(document).ready(function () {
         let bookId = ${bookId};
+        let completionStatus = ${completionStatus};
+        console.log(completionStatus);
 
         $.post("<%=GlobalVariable.localUrl%>/getChaptersofBook", {bookId: bookId}, function (result){
            console.log(result);
             let design = '';
+            let draftName = '';
+            let urlLink = '';
            result.map(chapter => {
-               design += '<a href="<%=GlobalVariable.localUrl%>/reading?id=' + chapter.id + '"><li class="list-group-item">' + chapter.chapterName +
+               draftName = '';
+               if (chapter.status === 0) {
+                   draftName = ' <small style="color: red;">(Draft)</small> ';
+                   urlLink = '<%=GlobalVariable.localUrl%>/chapterWrite?chapterId=' + chapter.id;
+               } else {
+                   urlLink = '<%=GlobalVariable.localUrl%>/reading?id=' + chapter.id;
+               }
+
+               design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + chapter.chapterName +
                '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + chapter.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + chapter.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + chapter.totalViews + '</p></small>' +
                '</li></a>';
 
            });
 
            document.getElementById('chapterList').innerHTML = design;
+           let buttonsDesign = '';
+           if (completionStatus === 0) {
+               buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
+                   '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>'
+           } else {
+               buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
+           }
+
+           document.getElementById('buttons').innerHTML = buttonsDesign;
         });
     });
+
+    function completeBook(bookId) {
+        $.post("<%=GlobalVariable.localUrl%>/makeBookCompleted", {bookId: bookId}, function (result){
+            console.log(result);
+            let buttonsDesign = '';
+            if (result) {
+                buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
+
+                document.getElementById('buttons').innerHTML = buttonsDesign;
+            }
+        });
+    }
 </script>
 
 </body>

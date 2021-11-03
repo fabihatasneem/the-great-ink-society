@@ -25,7 +25,7 @@ public class CommentsOfBooks {
     @ManyToOne
     private Books book;
 
-    @Temporal(TemporalType.DATE) @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP) @Column(nullable = false)
     private Date commentDate;
 
 }

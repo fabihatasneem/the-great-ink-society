@@ -82,8 +82,8 @@
                             <div name="heart" id="heart" class="text-left">
                                 <i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>
                             </div>
-                            <div class="text-right">
-                                <button class="btn btn-outline-warning"><i class="fas fa-flag"></i> Report</button>
+                            <div id="reportORunpublishButton" class="text-right">
+
                             </div>
                         </div>
                     </div>
@@ -109,66 +109,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="comments-area">
-                    <h4>05 Comments</h4>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c1.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Emilly Blunt</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c4.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Maria Luna</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c5.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Ina Hayes</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="comments" class="comments-area">
+                    <h4 id="numberOfComments"></h4>
                 </div>
                 <div class="comment-form">
                     <h4>Leave a Comment</h4>
-                    <form>
+                    <form action="<%=GlobalVariable.localUrl%>/submitCommentOfChapter" method="POST">
                         <div class="form-group">
-								<textarea class="form-control mb-10" rows="5" name="message"
+								<textarea class="form-control mb-10" rows="5" name="commentDesc"
                                           placeholder="Your Comment..." onfocus="this.placeholder = ''"
                                           onblur="this.placeholder = 'Your Comment...'" required=""></textarea>
+                            <input type="hidden" name="chapterId" value="${chapterId}">
+                            <input type="hidden" name="bookId" value="${bookId}">
                         </div>
-                        <a href="#" class="primary-btn text-uppercase">Post Comment</a>
+                        <button type="submit" class="primary-btn text-uppercase">Post Comment</button>
                     </form>
                 </div>
             </div>
@@ -318,10 +272,60 @@
 <!-- End footer Area -->
 <script>
     $(document).ready(function () {
-        $.post("<%=GlobalVariable.localUrl%>/uploadChapter", {}, function(result){
-            console.log(result);
+
+        let isWriter = ${isWriter};
+        let buttonsDesign = '';
+        console.log(isWriter);
+        if (isWriter === 1) {
+            buttonsDesign = '<button onclick="unpublishChapter(${chapterId})" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i> Unpublish</button>';
+        } else {
+            buttonsDesign = '<button class="btn btn-outline-warning"><i class="fas fa-flag"></i> Report</button>';
+        }
+
+        document.getElementById('reportORunpublishButton').innerHTML = buttonsDesign;
+
+        $(document).ready(function () {
+            $.post("<%=GlobalVariable.localUrl%>/getCommentsOfChapter", {chapterId: ${chapterId}, bookId: ${bookId}}, function(result){
+                console.log(result);
+                let design = '';
+                result.map(comment => {
+
+                    design += '<div class="comment-list"> ' +
+                                '<div class="single-comment justify-content-between d-flex">' +
+                                    '<div class="user justify-content-between d-flex">' +
+                                        '<div class="thumb">' +
+                                            '<img src="img/blog/c2.jpg" alt="">' +
+                                        '</div>' +
+                                        '<div class="desc">' +
+                                            '<h5><a href="#">' + comment.user.fullName + '</a></h5>' +
+                                            '<p class="date">' + moment(comment.commentDate).format('MMMM Do YYYY, h:mm:ss a') + '</p>' +
+                                            '<p class="comment">' + comment.commentDescription + '</p>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                                '</div>';
+                });
+                document.getElementById('numberOfComments').innerHTML = result.length + ' Comments';
+                document.getElementById('comments').innerHTML += design;
+            });
         });
     });
+
+    function unpublishChapter(chapterId){
+        $.post("<%=GlobalVariable.localUrl%>/unpublishChapter", {chapterId: chapterId}, function (result){
+            console.log(result);
+            if (result) {
+                location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + ${bookId};
+            }
+        });
+    }
+
+    function submitComment(commentDesc, chapterId, bookId) {
+        $.post("<%=GlobalVariable.localUrl%>/submitCommentOfChapter", {chapterId: chapterId, bookId: bookId, commentDesc: commentDesc}, function (result){
+            console.log(result);
+
+        });
+    }
 
     $("#heart").click(function () {
         if ($("#heart").hasClass("liked")) {
