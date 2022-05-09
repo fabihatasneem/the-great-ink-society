@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SubscribersRepository extends CrudRepository<Subscribers, Long> {
     List<Subscribers> findBySubscribedToId(Long userId);
+
+    List<Subscribers> findBySubscriberId(Long userId);
 }

@@ -147,34 +147,8 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
                 <div class="profile-pic">
-                    <span class="glyphicon glyphicon-camera"></span>
                     <img id="profilePicture" class="img-circle img-profile img-thumbnail lazy"
                          alt="Profile Picture" data-toggle="modal" data-target="#pictureModal"/>
-                </div>
-                <div class="modal fade bd-example-modal-sm" id="pictureModal" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-sm">
-                        <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">New Profile Picture</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            <form action="<%=GlobalVariable.localUrl%>/userProfilePictureUpdate" method="POST"
-                                  enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <label for="profilePictureUpload" style="cursor: pointer">
-                                        <b>Choose From Gallery</b>
-                                        <input type="file" class="form-control" name="profilePictureUpload"
-                                               id="profilePictureUpload">
-                                    </label>
-                                </div>
-                                <div class="modal-footer justify-content-center">
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
                 <p>
                 <h3 style="color: white;" id="profileFullName">Full Name</h3>
@@ -185,8 +159,6 @@
                     <i style="color: #abf6ff" class="fas fa-award" id="numberOfBadges"></i> &nbsp; &nbsp;
                     <i style="color: #ffabab" class="fas fa-users" id="numberOfFollowers"></i>
                 </p>
-                <br>
-                <p id="profileBio" style="color: #9c9c9c"></p>
             </div>
         </div>
     </div>
@@ -250,7 +222,11 @@
             <a style="cursor: pointer;" class="nav-link" id="v-pills-followings-tab" data-toggle="pill"
                data-target="#v-pills-followings" role="tab" aria-controls="v-pills-followings" aria-selected="false">Followings</a>
             <a style="cursor: pointer;" class="nav-link" id="v-pills-subscribes-tab" data-toggle="pill"
-               data-target="#v-pills-subscribes" role="tab" aria-controls="v-pills-subscribes" aria-selected="false">Subscribes</a>
+               data-target="#v-pills-subscribes" role="tab" aria-controls="v-pills-subscribes" aria-selected="false">Subscribers</a>
+            <a style="cursor: pointer;" class="nav-link" id="v-pills-mysubscription-tab" data-toggle="pill"
+               data-target="#v-pills-mysubscription" role="tab" aria-controls="v-pills-mysubscription"
+               aria-selected="false">
+                My Subscription</a>
             <a style="cursor: pointer;" class="nav-link" id="v-pills-saved-tab" data-toggle="pill"
                data-target="#v-pills-saved" role="tab" aria-controls="v-pills-saved" aria-selected="false">My Saved
                 Lists</a>
@@ -258,68 +234,81 @@
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade active show in" id="v-pills-overview" role="tabpanel"
                  aria-labelledby="v-pills-overview-tab">
-                <div class="card-body">
-                    <form action="<%=GlobalVariable.localUrl%>/userProfileUpdate" method="POST">
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-2 text-primary">Personal Details</h6>
+                <div class="container-fluid">
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: center;">
+                            <p style="font-weight:500; font-size:18px;"><q id="userbio"></q></p>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: center;">
+                            <h4 class="mb-2 text-primary">Personal Details</h4>
+                        </div>
+                        <div class="row">
+                        <div class="card" style="width:50%; padding: 5%;">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-bottom: 10px;">
+                                <i style="color: #c70000; font-size: 18px;" class="fas fa-envelope">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="useremail"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" name="fullName"
-                                           placeholder="Enter full name" required>
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;">
+                                <i style="color: #f50392; font-size: 18px;" class="fas fa-map-marker-smile">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userlocation"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                           placeholder="Enter email ID" required>
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #812aff; font-size: 18px;" class="fas fa-phone">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userphone"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="phone">Mobile</label>
-                                    <input type="text" class="form-control" id="phone" name="phone"
-                                           placeholder="Enter phone number">
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #3db212; font-size: 18px;" class="fas fa-venus-mars">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="usergender"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="username">Username</label>
-                                    <input type="text" class="form-control" disabled id="username" name="username"
-                                           placeholder="Username">
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #0c64ed; font-size: 18px;" class="fab fa-facebook">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userfb"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="location">Location</label>
-                                    <input type="text" class="form-control" id="location" name="location"
-                                           placeholder="Location">
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #f50392; font-size: 18px;" class="fab fa-instagram">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userinstagram"></label>
+                                </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label style="font-weight:500;" for="gender">Gender</label>
-                                    <input type="text" class="form-control" id="gender" name="gender" disabled
-                                           placeholder="Gender">
-                                </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #f17002; font-size: 18px;" class="fas fa-calendar-star">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userjoindate"></label>
+                                </i>
                             </div>
-                            <div class="form-group">
-                                <label style="font-weight:500;" for="bio">Bio</label>
-                                <textarea class="form-control" id="bio" name="bio" placeholder="User Bio"></textarea>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                <i style="color: #f17002; font-size: 18px;" class="fas fa-birthday-cake">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="userbirthdate"></label>
+                                </i>
                             </div>
                         </div>
-                        <div class="row gutters">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <div class="text-right">
-                                    <button type="submit" id="submit" name="submit" class="btn btn-primary">Update
-                                    </button>
-                                </div>
+                            <div class="card" style="width:50%; padding: 5%;">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                                 style="margin-bottom: 10px;text-align: center;">
+                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                           id="usercurrentbadge"></label>
+                            </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-mybooks" role="tabpanel" aria-labelledby="v-pills-mybooks-tab">
@@ -388,6 +377,16 @@
                 </div> -->
                 <div class="list-group" id="mysubscribers-list">
 
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-mysubscription" role="tabpanel"
+                 aria-labelledby="v-pills-mysubscription-tab">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mt-3" id="mysubscription-list">
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-saved" role="tabpanel" aria-labelledby="v-pills-saved-tab">
@@ -643,7 +642,7 @@
         </div>
     </div>
 </div>
-
+<br>
 <!-- Nav Tabs End -->
 
 <%@ include file="footer.jsp" %>
@@ -661,17 +660,30 @@
             }
             $("#profileFullName").html(result.fullName);
             $("#profileUsername").html("@" + result.userName);
-            $("#profileBio").html(result.bio);
             $("#numberOfAwards").html("  " + result.numberOfAwards);
             $("#numberOfBadges").html("  " + result.numberOfBadges);
             $("#numberOfFollowers").html("  " + result.followers);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
-            $("#email").val(result.email);
-            $("#bio").val(result.bio);
-            $("#phone").val(result.mobile);
-            $("#location").val(result.location);
-            $("#gender").val(result.gender);
+            $("#useremail").html("   " + result.email);
+            $("#userbio").html(result.bio);
+            if (result.phone != null) {
+                $("#userphone").html(result.mobile);
+            } else {
+                $("#userphone").html(" Mobile Number");
+            }
+            if (result.location != null) {
+                $("#userlocation").html(result.location);
+            } else {
+                $("#userlocation").html(" Location");
+            }
+            $("#usergender").html(result.gender);
+            if (result.location != null) {
+                $("#userbirthdate").html(result.dob);
+            } else {
+                $("#userbirthdate").html("Date of Birth");
+            }
+            $("#userjoindate").html(result.joinedDate);
 
             for (let i = 0; i < result.badge.length; i++) {
                 let design = '<div class="col-md-6 col-lg-4 item">' +
@@ -693,7 +705,10 @@
                     '</div>';
                 document.getElementById('myawards-row').innerHTML += design;
             }
-
+            $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {badgeId: result.currentBadgeId}, function (data) {
+                console.log("Badge:" + data);
+                $("#usercurrentbadge").html(data.badgeName);
+            });
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data) {
             console.log(data);
@@ -801,6 +816,27 @@
                         '<a href="#" class="btn btn-outline-primary">Subscribe</a>' +
                         '</div>';
                     document.getElementById('mysubscribers-list').innerHTML += design;
+                }
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMySubscriptionInfo", {userId: userId}, function (data) {
+            console.log(data);
+            if (data.length === 0) {
+                document.getElementById('mysubscription-list').innerHTML = '<p> You Have Not Subscribed Anyone </p>';
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    let design = '<div class="list-group-item d-flex align-items-center" >' +
+                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        'class="rounded-sm ml-n2"/>' +
+                        '<div class="flex-fill pl-3 pr-3">' +
+                        '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
+                        '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i>' + data[i].followers + '&nbsp;' +
+                        '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
+                        '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
+                        '</div>' +
+                        '<a href="#" class="btn btn-outline-primary">Unsubscribe</a>' +
+                        '</div>';
+                    document.getElementById('mysubscription-list').innerHTML += design;
                 }
             }
         });
