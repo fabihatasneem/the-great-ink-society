@@ -130,7 +130,7 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget user-info-widget">
                         <img src="img/blog/user-info.png" alt="">
-                        <a href="#">
+                        <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
                             <h4>${userFullName}</h4>
                         </a>
                         <p>
@@ -150,113 +150,16 @@
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Popular From This Author</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="sameAuthorBooks" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">More From This Genre</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
+                        <div id="sameGenreBooks" class="popular-post-list">
+
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
@@ -285,7 +188,7 @@
         document.getElementById('reportORunpublishButton').innerHTML = buttonsDesign;
 
         $(document).ready(function () {
-            $.post("<%=GlobalVariable.localUrl%>/getCommentsOfChapter", {chapterId: ${chapterId}, bookId: ${bookId}}, function(result){
+            $.post("<%=GlobalVariable.localUrl%>/getCommentsOfChapter", {chapterId: ${chapterId}, bookId: ${bookId}}, function(result) {
                 console.log(result);
                 let design = '';
                 result.map(comment => {
@@ -308,6 +211,50 @@
                 document.getElementById('numberOfComments').innerHTML = result.length + ' Comments';
                 document.getElementById('comments').innerHTML += design;
             });
+
+            $.post("<%=GlobalVariable.localUrl%>/getSameGenreBooks", {genreId: ${genreId}}, function (result) {
+                console.log(result);
+
+                let genreBookDesign = '';
+
+                result.map( book => {
+                    genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="blog-single.html">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+                });
+
+                document.getElementById('sameGenreBooks').innerHTML = genreBookDesign;
+            });
+
+            $.post("<%=GlobalVariable.localUrl%>/getSameAuthorBooks", {userId: ${userId}}, function (result) {
+                console.log(result);
+
+                let genreBookDesign = '';
+
+                result.map( book => {
+                    genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                        ' <div class="thumb">' +
+                        '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                        '</div>' +
+                        '<div class="details">' +
+                        '<a href="blog-single.html">' +
+                        '<h6>' + book.bookName + '</h6>' +
+                        '</a>' +
+                        '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
+                        ' </div>' +
+                        '</div>';
+                });
+
+                document.getElementById('sameAuthorBooks').innerHTML = genreBookDesign;
+            });
         });
     });
 
@@ -323,6 +270,18 @@
     function submitComment(commentDesc, chapterId, bookId) {
         $.post("<%=GlobalVariable.localUrl%>/submitCommentOfChapter", {chapterId: chapterId, bookId: bookId, commentDesc: commentDesc}, function (result){
             console.log(result);
+            let design = '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    '<div class="thumb">' +
+            ' <img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+            ' </div>' +
+            '<div class="details">' +
+            '<a href="blog-single.html">' +
+            '<h6>Space The Final Frontier</h6>' +
+            '</a>' +
+            '<p> <i class="fas fa-user"></i> John Doe</p>' +
+            '<small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i class="fas fa-comments"></i> 87</small>' +
+            '</div>' +
+            '</div>';
 
         });
     }

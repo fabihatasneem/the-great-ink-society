@@ -64,6 +64,8 @@ public class ReadingPageController {
         model.addAttribute("isWriter", isWriter);
         model.addAttribute("chapterId", chapter.getId());
         model.addAttribute("bookId", chapter.getBook().getId());
+        model.addAttribute("userId", chapter.getUser().getId());
+        model.addAttribute("genreId", chapter.getBook().getGenre().getId());
 
 
         return "reading";

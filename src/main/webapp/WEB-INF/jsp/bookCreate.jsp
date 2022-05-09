@@ -198,95 +198,13 @@
                         <div class="tab-pane fade" id="existing" role="tabpanel" aria-labelledby="existing-tab">
                             <div class="container">
                                 <h3 style="padding: 20px;">Published</h3>
-                                <div class="row people" style="row-gap: 30px;">
-                                    <div class="col-md-12 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
+                                <div id="publishedBooks" class="row people" style="row-gap: 30px;">
+
                                 </div>
                                 <br>
                                 <h3 style="padding: 20px;">Drafts</h3>
-                                <div class="row people" style="row-gap: 30px;">
-                                    <div class="col-md-12 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
+                                <div id="draftBooks" class="row people" style="row-gap: 30px;">
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Book Name</h5>
-                                            <p style="margin-bottom: auto;">Chapters: 10</p>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -373,6 +291,37 @@
             }
             console.log(design);
             $("#genre").append(design);
+        });
+        let username = '${username}';
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (result){
+           console.log(result);
+           let publishedBookDesign = '';
+           let draftBookDesign = '';
+           result.map(book => {
+                if (book.publishStatus === 1) {
+                    publishedBookDesign += '<div class="col-md-12 col-lg-3 item">' +
+                                            '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
+                                                '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                                                '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
+                                                '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
+                                                '<small><i style="color: red;" class="fas fa-heart"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + '</small>' +
+                                            '</div> </a>' +
+                                            '</div>';
+                } else {
+                    draftBookDesign += '<div class="col-md-12 col-lg-3 item">' +
+                        '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
+                        '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                        '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
+                        '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
+                        '</div> </a>' +
+                        '</div>';
+                }
+           });
+
+           document.getElementById('publishedBooks').innerHTML = publishedBookDesign;
+           document.getElementById('draftBooks').innerHTML = draftBookDesign;
+
         });
     });
 

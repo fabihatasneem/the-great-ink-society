@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thegreatinksociety.entities.Awards;
 import org.thegreatinksociety.entities.Books;
-import org.thegreatinksociety.entities.Chapters;
 import org.thegreatinksociety.repositories.AwardsRepository;
 import org.thegreatinksociety.repositories.BooksRepository;
-import org.thegreatinksociety.repositories.ChaptersRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -46,8 +44,9 @@ public class BookDetailsUserPageController {
         model.addAttribute("totalComments", books.getNumberOfComments());
         model.addAttribute("totalAwards", numberOfAwards);
         model.addAttribute("completionStatus", books.getCompletionStatus());
-
+        model.addAttribute("publishStatus", books.getPublishStatus());
         model.addAttribute("description", books.getDescription());
+        model.addAttribute("userId", books.getUser().getId());
 
         return "/bookDetailsUser";
     }

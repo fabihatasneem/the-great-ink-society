@@ -41,7 +41,7 @@ public class BookSubmitController {
     @RequestMapping(value = "/submitBook")
     public void submitBook(HttpServletResponse response, HttpServletRequest request, HttpSession session,
                            @RequestParam String bookName, @RequestParam String description, @RequestParam long language,
-                           @RequestParam long genre, @RequestParam String publishedStatus) throws IOException, ServletException {
+                           @RequestParam long genre, @RequestParam int publishedStatus) throws IOException, ServletException {
         Collection<Part> parts;
         String fileName = null;
         String path = GlobalVariable.fileUploadPath;
@@ -69,7 +69,7 @@ public class BookSubmitController {
         books.setLastUpdatedDate(today);
         books.setLanguage(language1);
         books.setGenre(genre1);
-        books.setPublishStatus(Integer.parseInt(publishedStatus));
+        books.setPublishStatus(publishedStatus);
         books.setCoverPhotoName(fileName);
         books.setCoverPhotoLink(path + fileName);
 
@@ -77,8 +77,11 @@ public class BookSubmitController {
 
         session.setAttribute("bookId", submittedBook.getId());
 
-        response.sendRedirect(GlobalVariable.localUrl + "/chapterWrite?chapterNo=1");
-
+        if (publishedStatus == 1) {
+            response.sendRedirect(GlobalVariable.localUrl + "/chapterWrite?chapterNo=1");
+        } else {
+            response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + submittedBook.getId());
+        }
     }
 
 }

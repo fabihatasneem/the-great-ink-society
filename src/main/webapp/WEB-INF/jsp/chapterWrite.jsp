@@ -40,14 +40,14 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="chapterName">Chapter Name</label>
-                                <input name="chapterName" type="text" class="form-control" id="chapterName" value="${chapterName}" placeholder="Chapter Name">
+                                <input name="chapterName" type="text" class="form-control" id="chapterName" value="${chapterName}" placeholder="Chapter Name" required>
                             </div>
                         </div>
 
                         <input type="hidden" id="bookId" value="${bookId}" name="bookId">
                         <input type="hidden" id="chapterId" value="${chapterId}" name="chapterId">
 
-                        <textarea id="chapterWriting" class="form-control txta" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text">${paragraph}</textarea>
+                        <textarea required id="chapterWriting" class="form-control txta" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text">${paragraph}</textarea>
                         <br>
                         <div style="justify-content: flex-end;" class="form-row">
                             <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;

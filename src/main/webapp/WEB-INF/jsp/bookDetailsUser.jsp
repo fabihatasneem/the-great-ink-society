@@ -103,158 +103,20 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-
-                                </div>
-                            </div>
+                        <div id="myDraftBooks" class="popular-post-list">
                         </div>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostPopular" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Viewed</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostViewed" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
@@ -270,9 +132,10 @@
     $(document).ready(function () {
         let bookId = ${bookId};
         let completionStatus = ${completionStatus};
+        let publishStatus = ${publishStatus};
         console.log(completionStatus);
 
-        $.post("<%=GlobalVariable.localUrl%>/getChaptersofBook", {bookId: bookId}, function (result){
+        $.post("<%=GlobalVariable.localUrl%>/getChaptersofBook", {bookId: bookId}, function (result) {
            console.log(result);
             let design = '';
             let draftName = '';
@@ -295,14 +158,88 @@
            document.getElementById('chapterList').innerHTML = design;
            let buttonsDesign = '';
            if (completionStatus === 0) {
-               buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
-                   '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>'
+               if (publishStatus == 1) {
+                   buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
+                       '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>';
+               } else {
+                   buttonsDesign = '<button onclick="publishBook(${bookId})" class="btn btn-info">Publish Book <i class="fas fa-check-circle"></i></button> ' +
+                       '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>'
+               }
+
            } else {
                buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
            }
 
            document.getElementById('buttons').innerHTML = buttonsDesign;
         });
+
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyDraftBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let draftBookDesign = '';
+
+            result.map( book => {
+                draftBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="blog-single.html">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myDraftBooks').innerHTML = draftBookDesign;
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyMostPopularBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let mostPopularBookDesign = '';
+
+            result.map( book => {
+                mostPopularBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="blog-single.html">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myMostPopular').innerHTML = mostPopularBookDesign;
+        });
+
+        <%--$.post("<%=GlobalVariable.localUrl%>/getMyMostViewedBooks", {userId: ${userId}}, function (result) {--%>
+        <%--    console.log(result);--%>
+
+        <%--    let mostViewedBookDesign = '';--%>
+
+        <%--    result.map( book => {--%>
+        <%--        mostViewedBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +--%>
+        <%--            ' <div class="thumb">' +--%>
+        <%--            '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +--%>
+        <%--            '</div>' +--%>
+        <%--            '<div class="details">' +--%>
+        <%--            '<a href="blog-single.html">' +--%>
+        <%--            '<h6>' + book.bookName + '</h6>' +--%>
+        <%--            '</a>' +--%>
+        <%--            '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + ' </p>' +--%>
+        <%--            ' </div>' +--%>
+        <%--            '</div>';--%>
+        <%--    });--%>
+
+        <%--    document.getElementById('myMostViewed').innerHTML = mostViewedBookDesign;--%>
+        <%--});--%>
+
+
     });
 
     function completeBook(bookId) {
@@ -311,6 +248,19 @@
             let buttonsDesign = '';
             if (result) {
                 buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
+
+                document.getElementById('buttons').innerHTML = buttonsDesign;
+            }
+        });
+    }
+
+    function publishBook(bookId) {
+        $.post("<%=GlobalVariable.localUrl%>/makeBookPublished", {bookId: bookId}, function (result){
+            console.log(result);
+            let buttonsDesign = '';
+            if (result) {
+                buttonsDesign = buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
+                    '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>';
 
                 document.getElementById('buttons').innerHTML = buttonsDesign;
             }
