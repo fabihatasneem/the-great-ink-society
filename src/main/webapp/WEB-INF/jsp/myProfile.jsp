@@ -705,7 +705,7 @@
                     '</div>';
                 document.getElementById('myawards-row').innerHTML += design;
             }
-            $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {badgeId: result.currentBadgeId}, function (data) {
+            $.post("<%=GlobalVariable.localUrl%>/getCurrentBadge", {badgeId: result.currentBadgeId}, function (data) {
                 console.log("Badge:" + data);
                 $("#usercurrentbadge").html(data.badgeName);
             });
@@ -728,7 +728,6 @@
                     '</div>';
                 document.getElementById('mybooks-row').innerHTML += design;
             }
-
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyPodcastsInfo", {username: username}, function (data) {
             console.log(data);

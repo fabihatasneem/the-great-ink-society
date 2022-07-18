@@ -288,65 +288,8 @@
                     <a href="#">View More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/product_01.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Title goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Start Reading</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_02.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Start Reading</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_03.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Start Reading</a></span>
-                    </div>
-                </div>
+            <div class="row" id="most-popular-books-row">
+
             </div>
         </div>
     </div>
@@ -362,68 +305,11 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Most Recent</h2>
-                    <a href="products.html">View More<i class="fa fa-angle-right"></i></a>
+                    <a href="#">View More<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_01.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Start Reading</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_02.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Start Reading</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_03.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
-                            &nbsp; <i class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Chapters (20) </span>
-                        <span><a href="">Continue Reading</a></span>
-                    </div>
-                </div>
+            <div class="row" id="most-recent-books-row">
+
             </div>
         </div>
     </div>
@@ -495,41 +381,11 @@
                         <a href="">
                             (...Continue)
                         </a>
-
-                    </p>
-                </div>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith
-                  <span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i
-                          class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially unchanged.
-
-                        <a href="">
-                            (...Continue)
-                        </a>
                     </p>
                 </div>
             </div>
             <div class="section-heading">
-                <a href="products.html">View More <i class="fa fa-angle-right"></i></a>
+                <a href="#">View More <i class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>
@@ -540,6 +396,53 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+    $(document).ready(function () {
+        let username = '<%=session.getAttribute("username")%>';
+        let userId = '<%=session.getAttribute("userId")%>';
+        $.post("<%=GlobalVariable.localUrl%>/getMostPopularBooks", {}, function (result) {
+            console.log(result);
+            for(var i = 0; i < 3; i++){
+                let design = '<div class="col-md-4">'+
+                '<div class="product-item">'+
+                        '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" /></a>'+
+                        '<div class="down-content">'+
+                            '<a href="#">'+
+                                '<h4>' + result[i].bookName + '</h4>'+
+                            '</a>'+
+                            '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>'+
+                            '<hr>'+
+                                '<p>' + result[i].description + '</p>'+
+                                '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>'+
+                                '<span><a href="">Start Reading</a></span>'+
+                        '</div>'+
+                    '</div>'+
+                    '</div>';
+                document.getElementById('most-popular-books-row').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMostRecentBooks", {}, function (result) {
+            console.log(result);
+            for(var i = 0; i < 3; i++){
+                let design = '<div class="col-md-4">'+
+                    '<div class="product-item">'+
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" /></a>'+
+                    '<div class="down-content">'+
+                    '<a href="#">'+
+                    '<h4>' + result[i].bookName + '</h4>'+
+                    '</a>'+
+                    '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>'+
+                    '<hr>'+
+                    '<p>' + result[i].description + '</p>'+
+                    '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>'+
+                    '<span><a href="">Start Reading</a></span>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>';
+                document.getElementById('most-recent-books-row').innerHTML += design;
+            }
+        });
+
+    });
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
             total = mediaElements.length;
@@ -581,6 +484,7 @@
             next.children(":first-child").clone().appendTo($(this));
         }
     });
+
 </script>
 
 </body>
