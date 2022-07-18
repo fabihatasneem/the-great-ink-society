@@ -8,5 +8,7 @@ import java.util.List;
 public interface AwardsRepository extends CrudRepository<Awards, Long> {
     List<Awards> findByWinnerBookId(Long winnerBookId);
 
+    List<Awards> findAwardByWinnerBookId (Long winnerBookId);
+
 
 }
