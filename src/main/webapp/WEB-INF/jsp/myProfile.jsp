@@ -734,7 +734,7 @@
             console.log(data);
 
             for (let i = 0; i < data.length; i++) {
-                let design = '<div class="card" style="width: 100%;">' +
+                let design = '<div id="' + data[i].id + '" onclick="podcastDetails(this)" class="card" style="width: 100%;">' +
                     '<div class="card-horizontal">' +
                     '<div class="img-square-wrapper">' +
                     '<img class="" src="http://via.placeholder.com/300x180"' +
@@ -844,6 +844,10 @@
 
     function bookDetails(element) {
         location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
+    }
+
+    function podcastDetails(element) {
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=" + element.id;
     }
 
     document.addEventListener("DOMContentLoaded", function () {
