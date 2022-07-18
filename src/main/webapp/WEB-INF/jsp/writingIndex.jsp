@@ -285,7 +285,7 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Most Popular</h2>
-                    <a href="products.html">View More <i class="fa fa-angle-right"></i></a>
+                    <a href="#">View More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -293,7 +293,7 @@
                     <a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/product_01.jpg" alt="" /></a>
                     <div class="down-content">
                         <a href="#">
-                            <h4>Tittle goes here</h4>
+                            <h4>Title goes here</h4>
                         </a>
                         <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78
                             &nbsp; <i class="fas fa-comments"></i> 87
