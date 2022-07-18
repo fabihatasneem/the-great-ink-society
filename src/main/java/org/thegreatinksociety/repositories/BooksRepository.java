@@ -21,5 +21,5 @@ public interface BooksRepository extends CrudRepository<Books, Long> {
 
     List<Books> findByPublishStatusOrderByCreationDateDesc(Pageable pageable, int publishStatus);
 
-
+    List<Books> findByUser_IdAndPublishStatusOrderByNumberOfLikesDesc(Long id, int publishStatus);
 }

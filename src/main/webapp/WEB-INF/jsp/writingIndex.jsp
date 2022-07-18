@@ -325,64 +325,8 @@
             <div class="section-heading">
                 <h2>From Your Followings</h2>
             </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith
-                  <span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i
-                          class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially unchanged.
+            <div id="following-books-row">
 
-                        <a href="">
-                            (...Continue)
-                        </a>
-
-                    </p>
-                </div>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith
-                  <span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i
-                          class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially unchanged.
-
-                        <a href="">
-                            (...Continue)
-                        </a>
-                    </p>
-                </div>
             </div>
             <div class="section-heading">
                 <a href="#">View More <i class="fa fa-angle-right"></i></a>
@@ -400,7 +344,6 @@
         let username = '<%=session.getAttribute("username")%>';
         let userId = '<%=session.getAttribute("userId")%>';
         $.post("<%=GlobalVariable.localUrl%>/getMostPopularBooks", {}, function (result) {
-            console.log(result);
             for(var i = 0; i < 3; i++){
                 let design = '<div class="col-md-4">'+
                 '<div class="product-item">'+
@@ -421,7 +364,6 @@
             }
         });
         $.post("<%=GlobalVariable.localUrl%>/getMostRecentBooks", {}, function (result) {
-            console.log(result);
             for(var i = 0; i < 3; i++){
                 let design = '<div class="col-md-4">'+
                     '<div class="product-item">'+
@@ -441,7 +383,25 @@
                 document.getElementById('most-recent-books-row').innerHTML += design;
             }
         });
-
+        $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsBooks", {userId : userId}, function (result) {
+            console.log(result);
+            for(var i = 0; i < result.length; i++){
+                let design = '<div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">'+
+                    '<div class="image" style="background-image: url(\'images/' + result[i].coverPhotoName + '\')"></div>'+
+                    '<div class="text">'+
+                    '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>'+
+                    '<hr>'+
+                    '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfChapters + '</h6>'+
+                    '<div class="text-white mb-3">'+
+                    '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> ' + result[i].user.fullName + '<span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>'+
+                    '</div>'+
+                    '<hr>'+
+                    '<p class="mb-4">'+'<a href="">(...Continue)</a></p>'+
+                    '</div>'+
+                    '</div>';
+                document.getElementById('following-books-row').innerHTML += design;
+            }
+        });
     });
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
