@@ -207,68 +207,11 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Most Popular</h2>
-                    <a href="products.html">View More <i class="fa fa-angle-right"></i></a>
+                    <a href="#">View More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_01.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur.
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_02.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_03.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
+            <div class="row" id="most-popular-row">
+
             </div>
         </div>
     </div>
@@ -284,68 +227,11 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Most Recent</h2>
-                    <a href="products.html">View More<i class="fa fa-angle-right"></i></a>
+                    <a href="#">View More<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_01.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_02.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="images/product_03.jpg" alt="" /></a>
-                    <div class="down-content">
-                        <a href="#">
-                            <h4>Tittle goes here</h4>
-                        </a>
-                        <small><i class="fas fa-user"></i> Mike Smith &nbsp; <i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                class="fas fa-comments"></i> 87
-                        </small>
-                        <hr>
-                        <p>
-                            Lorem ipsume dolor sit amet, adipisicing elite. Itaque,
-                            corporis nulla aspernatur. bla bhdsbf bhifda bhdsa bhudfa hbask
-                        </p>
-                        <span style="margin-right: 65%; color: grey;"> Episodes (20) </span>
-                        <span><a href="">Start Listening</a></span>
-                    </div>
-                </div>
+            <div class="row" id="most-recent-row">
+
             </div>
         </div>
     </div>
@@ -357,116 +243,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="latest-products">
-            <div class="section-heading">
-                <h2>From Your Followings</h2>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith <span class="sep"><i
-                      class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially unchanged.
-
-                        <a href="">
-                            (...Continue)
-                        </a>
-
-                    </p>
-
-                    <div class="player">
-                        <audio id="player2" preload="none" controls style="max-width: 100%">
-                            <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                        </audio>
-                    </div>
-                </div>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith <span class="sep"><i
-                      class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially unchanged.
-
-                        <a href="">
-                            (...Continue)
-                        </a>
-
-                    </p>
-
-                    <div class="player">
-                        <audio id="player2" preload="none" controls style="max-width: 100%">
-                            <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                        </audio>
-                    </div>
-                </div>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith <span class="sep"><i
-                      class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the ind
-
-                        <a href="">
-                            (...Continue)
-                        </a>
-
-                    </p>
-
-                    <div class="player">
-                        <audio id="player2" preload="none" controls style="max-width: 100%">
-                            <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                        </audio>
-                    </div>
-                </div>
-            </div>
-            <div class="section-heading">
-                <a href="products.html">View More <i class="fa fa-angle-right"></i></a>
-            </div>
+        <div class="latest-products" id="following-row">
         </div>
     </div>
 </div>
@@ -476,6 +253,75 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+    $(document).ready(function () {
+        let username = '<%=session.getAttribute("username")%>';
+        let userId = '<%=session.getAttribute("userId")%>';
+        $.post("<%=GlobalVariable.localUrl%>/getMostPopularPodcasts", {}, function (result) {
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                let url = '<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=' + result[i].id;
+                let design = '<div class="col-md-4">' +
+                    '<div class="product-item">' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<div class="down-content">' +
+                    '<h4>' + result[i].seriesName + '</h4>' +
+                    '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
+                    '<hr>' +
+                    '<p>' + result[i].description + '</p>' +
+                    '<span style="margin-right: 65%; color: grey;"> Episodes : ' + result[i].numberOfEpisodes + ' </span>' +
+                    '<span><b><a href="' + url + '">Start Listening</a></b></span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                document.getElementById('most-popular-row').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMostRecentPodcasts", {}, function (result) {
+            for (var i = 0; i < result.length; i++) {
+                let url = '<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=' + result[i].id;
+                let design = '<div class="col-md-4">' +
+                    '<div class="product-item">' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<div class="down-content">' +
+                    '<h4>' + result[i].seriesName + '</h4>' +
+                    '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
+                    '<hr>' +
+                    '<p>' + result[i].description + '</p>' +
+                    '<span style="margin-right: 65%; color: grey;"> Episodes : ' + result[i].numberOfEpisodes + ' </span>' +
+                    '<span><b><a href="' + url + '">Start Listening</a></b></span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                document.getElementById('most-recent-row').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsPodcasts", {userId: userId}, function (result) {
+            if (result.length != 0) {
+                let design = '<div class="section-heading"><h2>From Your Followings</h2></div>';
+
+                for (var i = 0; i < result.length; i++) {
+                    design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
+                        '<div class="image" style="background-image: url("images/' + result[i].coverPhotoName + '")"></div>' +
+                        '<div class="text">' +
+                        '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].seriesName + '</a></h3>' +
+                        '<hr>' +
+                        '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfEpisodes + '</h6>' +
+                        '<div class="text-white mb-3">' +
+                        '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> ' + result[i].user.fullName + '<span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>' +
+                        '</div>' +
+                        '<hr>' +
+                        '<p class="mb-4">' + '<a href="">(...Continue)</a></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                }
+                design += '<div class="section-heading">' +
+                    '<a href="#">View More <i class="fa fa-angle-right"></i></a>' +
+                    '</div>';
+                document.getElementById('following-row').innerHTML += design;
+            }
+        });
+    });
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
             total = mediaElements.length;
@@ -517,6 +363,75 @@
             next.children(":first-child").clone().appendTo($(this));
         }
     });
+
+    function podcastDetails(podcastId) {
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=" + podcastId;
+    }
+
+    function votePodcast(userId, podcastId) {
+        $.post("<%=GlobalVariable.localUrl%>/likeUnlikePodcast", {userId: userId, podcastId: podcastId}, function (result) {
+            console.log(result.status);
+            openModal(userId, podcastId);
+        });
+    }
+
+    function openModal(userId, podcastId) {
+        console.log(podcastId);
+
+        $.post("<%=GlobalVariable.localUrl%>/getSinglePodcastDetails", {podcastId: podcastId}, function (result) {
+
+            $("#modalTitle").html(result.podcastName);
+
+            let awardCount = 0;
+            for (var i = 0; i < result.user.award.length; i++) {
+                if (result.user.award[i].winnerPodcastId == podcastId) {
+                    awardCount++;
+                }
+            }
+
+            let modalBodyDesign = '<div class="container">' +
+                '<div class="row">' +
+                '<div class="col-lg-8">' +
+                '<div class="container-fluid">' +
+                '<div class="text-center">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="images/' + result.coverPhotoName + '">' +
+                '<hr>' +
+                '<h4>Description</h4> &nbsp;' +
+                '<p class="text-left">' + result.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                '<div class="container extra">' +
+                '<div class="row">' +
+                '<p><i class="fas fa-book-open"></i> Chapters Published : ' + result.numberOfChapters + '</p> &nbsp;' +
+                '<br><br>' +
+                '<p><i class="fas fa-language"></i> Language : ' + result.language.languageName + '</p>' +
+                '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
+                '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
+                '<br><br>' +
+                '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
+                '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
+                '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + awardCount + '</p>' +
+                '<br><br>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalBody').innerHTML = modalBodyDesign;
+
+            let modalFooterDesign = '<div class="text-left">' +
+                '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
+                '<i id="voteId" style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true" onclick="voteBook(' + userId + ',' + bookId + ')">&nbsp;' + result.numberOfLikes + '</i>' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-primary" onclick="bookDetails(' + bookId + ')">View Details</button>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalFooter').innerHTML = modalFooterDesign;
+        });
+    }
 </script>
 
 

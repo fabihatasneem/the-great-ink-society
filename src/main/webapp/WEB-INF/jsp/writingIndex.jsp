@@ -32,22 +32,23 @@
 <!-- Modal End -->
 
 <!-- Details Modal Start -->
-<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Book title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modalBody">
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Book title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" onclick="location.reload()">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
 
-                </div>
-                <div class="modal-footer"  id="modalFooter">
-                </div>
+            </div>
+            <div class="modal-footer" id="modalFooter">
             </div>
         </div>
+    </div>
 </div>
 
 <!-- Details Modal End -->
@@ -281,16 +282,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="latest-products">
-            <div class="section-heading">
-                <h2>From Your Followings</h2>
-            </div>
-            <div id="following-books-row">
-
-            </div>
-            <div class="section-heading">
-                <a href="#">View More <i class="fa fa-angle-right"></i></a>
-            </div>
+        <div class="latest-products" id="following-row">
         </div>
     </div>
 </div>
@@ -305,41 +297,36 @@
         let userId = '<%=session.getAttribute("userId")%>';
         $.post("<%=GlobalVariable.localUrl%>/getMostPopularBooks", {}, function (result) {
             for (var i = 0; i < result.length; i++) {
+                let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="' + result[i].id + '"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + result[i].id + ')"/></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
-                    '<a href="#">' +
                     '<h4>' + result[i].bookName + '</h4>' +
-                    '</a>' +
                     '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
                     '<p>' + result[i].description + '</p>' +
                     '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>' +
-                    '<span><a href="">Start Reading</a></span>' +
+                    '<span><b><a href="' + url + '">Start Reading</a></b></span>' +
                     '</div>' +
                     '</div>' +
                     '</div>';
                 document.getElementById('most-popular-books-row').innerHTML += design;
-
-
-
             }
         });
         $.post("<%=GlobalVariable.localUrl%>/getMostRecentBooks", {}, function (result) {
             for (var i = 0; i < result.length; i++) {
+                let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" /></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
-                    '<a href="#">' +
                     '<h4>' + result[i].bookName + '</h4>' +
-                    '</a>' +
                     '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
                     '<p>' + result[i].description + '</p>' +
                     '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>' +
-                    '<span><a href="">Start Reading</a></span>' +
+                    '<span><b><a href="' + url + '">Start Reading</a></b></span>' +
                     '</div>' +
                     '</div>' +
                     '</div>';
@@ -347,22 +334,29 @@
             }
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyFollowingsBooks", {userId: userId}, function (result) {
+            if (result.length != 0) {
+                let design = '<div class="section-heading"><h2>From Your Followings</h2></div>';
 
-            for (var i = 0; i < result.length; i++) {
-                let design = '<div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
-                    '<div class="image" style="background-image: url(\'images/' + result[i].coverPhotoName + '\')"></div>' +
-                    '<div class="text">' +
-                    '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>' +
-                    '<hr>' +
-                    '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfChapters + '</h6>' +
-                    '<div class="text-white mb-3">' +
-                    '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> ' + result[i].user.fullName + '<span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>' +
-                    '</div>' +
-                    '<hr>' +
-                    '<p class="mb-4">' + '<a href="">(...Continue)</a></p>' +
-                    '</div>' +
+                for (var i = 0; i < result.length; i++) {
+                    design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
+                        '<div class="image" style="background-image: url("images/' + result[i].coverPhotoName + '")"></div>' +
+                        '<div class="text">' +
+                        '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>' +
+                        '<hr>' +
+                        '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfChapters + '</h6>' +
+                        '<div class="text-white mb-3">' +
+                        '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> ' + result[i].user.fullName + '<span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>' +
+                        '</div>' +
+                        '<hr>' +
+                        '<p class="mb-4">' + '<a href="">(...Continue)</a></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+                }
+                design += '<div class="section-heading">' +
+                    '<a href="#">View More <i class="fa fa-angle-right"></i></a>' +
                     '</div>';
-                document.getElementById('following-books-row').innerHTML += design;
+                document.getElementById('following-row').innerHTML += design;
             }
         });
     });
@@ -412,53 +406,68 @@
         location.href = "<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=" + bookId;
     }
 
-    function openModal(bookId){
+    function voteBook(userId, bookId) {
+        $.post("<%=GlobalVariable.localUrl%>/likeUnlikeBook", {userId: userId, bookId: bookId}, function (result) {
+            console.log(result.status);
+            openModal(userId, bookId);
+        });
+    }
+
+    function openModal(userId, bookId) {
         console.log(bookId);
 
-        $.post("<%=GlobalVariable.localUrl%>/getSingleBookDetails", {bookId: bookId}, function (result){
+        $.post("<%=GlobalVariable.localUrl%>/getSingleBookDetails", {bookId: bookId}, function (result) {
 
-        $("#modalTitle").html(result.bookName);
+            $("#modalTitle").html(result.bookName);
 
-        let modalBodyDesign = '<div class="container">' +
-            '<div class="row">' +
-            '<div class="col-lg-8">' +
-            '<div class="container-fluid">' +
-            '<div class="text-center">' +
-            '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="images/' + result.coverPhotoName + '">' +
-            '<hr>' +
-            '<h4>Description</h4> &nbsp;' +
-            '<p class="text-left">' + result.description + '</p>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="col-lg-4">' +
-            '<div class="container extra">' +
-            '<div class="row">' +
-            '<p><i class="fas fa-book-open"></i> Number of Chapters Published : ' + result.numberOfChapters + '</p> &nbsp;' +
-            '<p><i class="fas fa-language"></i> Language : ' + result.numberOfChapters + '</p>' +
-            '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
-            '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
-            '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
-            '<p><i style="color: red;" class="fas fa-heart"></i> Total Reacts : ' + result.numberOfLikes + '</p>' +
-            '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
-            '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + result.numberOfAwards + '</p>' +
-            '<br><br>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' ;
-        document.getElementById('modalBody').innerHTML = modalBodyDesign;
+            let awardCount = 0;
+            for (var i = 0; i < result.user.award.length; i++) {
+                if (result.user.award[i].winnerBookId == bookId) {
+                    awardCount++;
+                }
+            }
 
-        let modalFooterDesign = '<div class="text-left">' +
-            '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
-            '<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>' +
-            '</div>' +
-            '</div>' +
-            '<button type="button" class="btn btn-primary" onclick="bookDetails(' + bookId + ')">View Details</button>' +
-            '</div>' +
-            '</div>' ;
-        document.getElementById('modalFooter').innerHTML = modalFooterDesign;
+            let modalBodyDesign = '<div class="container">' +
+                '<div class="row">' +
+                '<div class="col-lg-8">' +
+                '<div class="container-fluid">' +
+                '<div class="text-center">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="images/' + result.coverPhotoName + '">' +
+                '<hr>' +
+                '<h4>Description</h4> &nbsp;' +
+                '<p class="text-left">' + result.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                '<div class="container extra">' +
+                '<div class="row">' +
+                '<p><i class="fas fa-book-open"></i> Chapters Published : ' + result.numberOfChapters + '</p> &nbsp;' +
+                '<br><br>' +
+                '<p><i class="fas fa-language"></i> Language : ' + result.language.languageName + '</p>' +
+                '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
+                '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
+                '<br><br>' +
+                '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
+                '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
+                '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + awardCount + '</p>' +
+                '<br><br>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalBody').innerHTML = modalBodyDesign;
+
+            let modalFooterDesign = '<div class="text-left">' +
+                '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
+                '<i id="voteId" style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true" onclick="voteBook(' + userId + ',' + bookId + ')">&nbsp;' + result.numberOfLikes + '</i>' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-primary" onclick="bookDetails(' + bookId + ')">View Details</button>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalFooter').innerHTML = modalFooterDesign;
         });
     }
 
