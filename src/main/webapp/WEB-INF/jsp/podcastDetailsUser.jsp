@@ -58,27 +58,27 @@
                 <div class="container-fluid">
                     <div class="text-center">
                         <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
-                        <h2 style="padding: 15px 0;">Podcast Name</h2>
+                        <h2 style="padding: 15px 0;">${podcastName}</h2>
                     </div>
                     <div class="container extra">
                         <div class="row">
                             <div class="col-lg-7">
-                                <p><i class="fas fa-book-open"></i> Number of Episodes Published: 50</p>
-                                <p><i class="fas fa-language"></i> Language: </p>
-                                <p><i class="fas fa-theater-masks"></i> Genre: </p>
+                                <p><i class="fas fa-book-open"></i> Number of Episodes Published: ${numberOfEpisodes}</p>
+                                <p><i class="fas fa-language"></i> Language: ${language}</p>
+                                <p><i class="fas fa-theater-masks"></i> Genre: ${genre}</p>
                                 <p><i class="fas fa-clock"></i> Last Updated 12/12/2021</p>
                             </div>
                             <div class="col-lg-5">
-                                <p><i class="fas fa-eye"></i> Total Views 100</p>
-                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts 100</p>
-                                <p><i class="fas fa-comments"></i> Total Comments 100</p>
-                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won 5</p>
+                                <p><i class="fas fa-eye"></i> Total Views ${totalViews}</p>
+                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts ${totalReacts}</p>
+                                <p><i class="fas fa-comments"></i> Total Comments ${totalComments}</p>
+                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won ${totalAwards}</p>
                             </div>
                             <br><br>
                             <form>
                                 <div class="form-group mt-20">
-                                    <label style="font-weight: bold;" for="inputAddress">Description</label>
-                                    <textarea class="form-control" placeholder="Description"></textarea>
+                                    <textarea name="description" id="description" class="form-control" placeholder="Description">${description}</textarea>
+                                    <input type="hidden" name="bookId" value="${podcastId}">
                                 </div>
                                 <div style="justify-content: flex-end;" class="form-row">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>&nbsp;
@@ -90,30 +90,13 @@
                         Episodes
                     </h3>
                     <div class="container extra2">
-                        <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">01. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">02. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">03. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">04. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">05. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item"> <small style="color: red;">(Draft)</small> justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
+                        <ul id="episodesList" class="list-group list-group-flush">
+
                         </ul>
+
                     </div>
-                    <div class="text-right">
-                        <button class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button>
-                        <button class="btn btn-primary">Add a New Episode</button>
+                    <div id="buttons" class="text-right">
+
                     </div>
                 </div>
             </div>
@@ -121,158 +104,20 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-
-                                </div>
-                            </div>
+                        <div id="myDraftPodcasts" class="popular-post-list">
                         </div>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostPopular" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Viewed</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostViewed" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
@@ -286,6 +131,122 @@
 <!-- start footer Area -->
 <%@ include file="footer.jsp" %>
 <!-- End footer Area -->
+
+
+<script>
+    $(document).ready(function () {
+        let podcastId = ${podcastId};
+        let completionStatus = ${completionStatus};
+        let publishStatus = ${publishStatus};
+        console.log(completionStatus);
+
+        $.post("<%=GlobalVariable.localUrl%>/getEpisodesOfPodcast", {podcastId: podcastId}, function (result) {
+            console.log(result);
+            let design = '';
+            let draftName = '';
+            let urlLink = '';
+            result.map(episode => {
+                draftName = '';
+                if (episode.status === 0) {
+                    draftName = ' <small style="color: red;">(Draft)</small> ';
+                    urlLink = '<%=GlobalVariable.localUrl%>/chapterWrite?chapterId=' + episode.id;
+                } else {
+                    urlLink = '<%=GlobalVariable.localUrl%>/listening?id=' + episode.id;
+                }
+
+                design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + episode.episodeName +
+                    '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + episode.totalViews + '</p></small>' +
+                    '</li></a>';
+
+            });
+
+            document.getElementById('episodesList').innerHTML = design;
+            let buttonsDesign = '';
+            if (completionStatus === 0) {
+                if (publishStatus == 1) {
+                    buttonsDesign = '<button onclick="completePodcast(${podcastId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
+                        '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/uploadEpisode?episodeNo=${nextEpisodeNo}"> Add a New Episode </a></button>';
+                } else {
+                    buttonsDesign = '<button onclick="publishPodcast(${podcastId})" class="btn btn-info">Publish Podcast <i class="fas fa-check-circle"></i></button> ' +
+                        '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/uploadEpisode?episodeNo=${nextEpisodeNo}"> Add a New Episode </a></button>'
+                }
+
+            } else {
+                buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
+            }
+
+            document.getElementById('buttons').innerHTML = buttonsDesign;
+        });
+
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyDraftPodcasts", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let draftPodcastDesign = '';
+
+            result.map( episode => {
+                draftPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="blog-single.html">' +
+                    '<h6>' + episode.episodeName + '</h6>' +
+                    '</a>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myDraftPodcasts').innerHTML = draftPodcastDesign;
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyMostPopularPodcasts", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let mostPopularPodcastDesign = '';
+
+            result.map( episode => {
+                mostPopularPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="blog-single.html">' +
+                    '<h6>' + episode.episodeName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myMostPopular').innerHTML = mostPopularPodcastDesign;
+        });
+
+        <%--$.post("<%=GlobalVariable.localUrl%>/getMyMostViewedBooks", {userId: ${userId}}, function (result) {--%>
+        <%--    console.log(result);--%>
+
+        <%--    let mostViewedBookDesign = '';--%>
+
+        <%--    result.map( book => {--%>
+        <%--        mostViewedBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +--%>
+        <%--            ' <div class="thumb">' +--%>
+        <%--            '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +--%>
+        <%--            '</div>' +--%>
+        <%--            '<div class="details">' +--%>
+        <%--            '<a href="blog-single.html">' +--%>
+        <%--            '<h6>' + book.bookName + '</h6>' +--%>
+        <%--            '</a>' +--%>
+        <%--            '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + ' </p>' +--%>
+        <%--            ' </div>' +--%>
+        <%--            '</div>';--%>
+        <%--    });--%>
+
+        <%--    document.getElementById('myMostViewed').innerHTML = mostViewedBookDesign;--%>
+        <%--});--%>
+
+
+    });
+</script>
 
 </body>
 </html>

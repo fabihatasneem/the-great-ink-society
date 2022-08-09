@@ -125,7 +125,7 @@
                                             <hr>
                                             <div class="player">
                                                 <audio id="player2" preload="none" controls style="max-width: 100%">
-                                                    <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
+                                                    <source src="https://docs.google.com/uc?export=download&id=1HN3tB-ikKELErPHR00Zjda2fKxutyRuP" type="audio/mp3" />
                                                 </audio>
                                             </div>
                                         </div>

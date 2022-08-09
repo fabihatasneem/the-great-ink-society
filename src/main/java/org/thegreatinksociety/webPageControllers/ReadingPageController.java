@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 
 @Controller
 public class ReadingPageController {
@@ -35,9 +36,8 @@ public class ReadingPageController {
         String fileName = chapter.getTextFileLink();
 
         XWPFWordExtractor extractor;
-        File file = new File(fileName);
-        FileInputStream fis = new FileInputStream(file.getAbsolutePath());
-        XWPFDocument document = new XWPFDocument(fis);
+        URL file = new URL(fileName);
+        XWPFDocument document = new XWPFDocument(file.openStream());
         extractor = new XWPFWordExtractor(document);
         String fileData = extractor.getText();
         String text = "";

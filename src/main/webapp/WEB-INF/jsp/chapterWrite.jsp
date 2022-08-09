@@ -36,23 +36,29 @@
             </div>
             <div class="col-lg-9">
                 <div id="editor">
-                    <form action="<%=GlobalVariable.localUrl%>/uploadChapter" method="POST">
+                    <form id="chapterSubmitForm" action="<%=GlobalVariable.localUrl%>/uploadChapter" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="chapterName">Chapter Name</label>
                                 <input name="chapterName" type="text" class="form-control" id="chapterName" value="${chapterName}" placeholder="Chapter Name" required>
                             </div>
+                            <div class="custom-file">
+                                <label for="chapterFile">Doc File(.doc/.docx)</label>
+                                <input type="file" class="form-control" id="chapterFile" name="chapterFile" required/>
+                                <input id="chapterFileName" name="chapterFileName" type="hidden" value="">
+                                <progress id="uploader" value="0" max="100">0%</progress>
+                            </div>
                         </div>
 
                         <input type="hidden" id="bookId" value="${bookId}" name="bookId">
                         <input type="hidden" id="chapterId" value="${chapterId}" name="chapterId">
-
-                        <textarea required id="chapterWriting" class="form-control txta" name="chapterWriting" style="margin-top: 30px;" placeholder="Type some text">${paragraph}</textarea>
+                        <br>
                         <br>
                         <div style="justify-content: flex-end;" class="form-row">
-                            <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
-                            <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>&nbsp;
-                            <button type="submit" name="publishedStatus" value="2" class="btn btn-danger">Cancel</button>
+                            <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
+                            <button onclick="validateForm(0)" type="button" name="publishedStatus" class="btn btn-warning">Save to Draft</button>&nbsp;
+                            <button onclick="validateForm(1)" type="button" name="publishedStatus" class="btn btn-primary">Publish</button>&nbsp;
+                            <button onclick="validateForm(2)" type="button" name="publishedStatus" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -122,6 +128,10 @@
 
 <script>
 
+    let file;
+    const uploader = document.getElementById('uploader');
+    const fileButton = document.getElementById('chapterFile');
+
     $(document).ready(function () {
 
         let bookId = $("#bookId").val();
@@ -132,85 +142,47 @@
         });
     });
 
-    function demo() {
-
-        var chapterName = $("#chaptername").val();
-        var desc = $("#description").val();
-
-        let chapterWriting = document.getElementById("chapterWriting").value;
-        // chapterWriting = chapterWriting.replace(/\n\r?/g, '<br />');
+    fileButton.addEventListener('change', function(e) {
+        console.log("here");
+        file = e.target.files[0];
+    });
 
 
-        $.post("<%=GlobalVariable.localUrl%>/uploadChapter", {chapterName: chapterName, description: desc, chapterWriting: chapterWriting}, function(result){
-            console.log(result);
+    function validateForm(status) {
+        $("#publishedStatus").val(status);
+        const firebaseConfig = {
+            apiKey: "${FIREBASE_API_KEY}",
+            authDomain: "${FIREBASE_AUTH_DOMAIN}",
+            projectId: "${FIREBASE_PROJECT_ID}",
+            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+            appId: "${FIREBASE_APP_ID}",
+            measurementId: "${FIREBASE_MEASUREMENT_ID}"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        console.log("firebase initialized.");
+
+        const storageRef = firebase.storage().ref('chapters/' + file.name);
+        const task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+        }, function error(err) {
+            console.log(err);
+        }, function complete() {
+            // get the uploaded image url back
+            task.snapshot.ref.getDownloadURL().then(
+                function (downloadURL) {
+                    // You get your url from here
+                    console.log('File uploaded');
+
+                    $("#chapterFileName").val(downloadURL);
+                    document.getElementById("chapterSubmitForm").submit();
+                });
         });
     }
 
-    // Targets all textareas with class "txta"
-    let textareas = document.querySelectorAll('.txta'),
-        hiddenDiv = document.createElement('div'),
-        content = null;
-
-    // Adds a class to all textareas
-    for (let j of textareas) {
-        j.classList.add('txtstuff');
-    }
-
-    // Build the hidden div's attributes
-
-    // The line below is needed if you move the style lines to CSS
-    // hiddenDiv.classList.add('hiddendiv');
-
-    // Add the "txta" styles, which are common to both textarea and hiddendiv
-    // If you want, you can remove those from CSS and add them via JS
-    hiddenDiv.classList.add('txta');
-
-    // Add the styles for the hidden div
-    // These can be in the CSS, just remove these three lines and uncomment the CSS
-    hiddenDiv.style.display = 'none';
-    hiddenDiv.style.whiteSpace = 'pre-wrap';
-    hiddenDiv.style.wordWrap = 'break-word';
-
-    // Loop through all the textareas and add the event listener
-    for(let i of textareas) {
-        (function(i) {
-            // Note: Use 'keyup' instead of 'input'
-            // if you want older IE support
-            i.addEventListener('input', function() {
-
-                // Append hiddendiv to parent of textarea, so the size is correct
-                i.parentNode.appendChild(hiddenDiv);
-
-                // Remove this if you want the user to be able to resize it in modern browsers
-                i.style.resize = 'none';
-
-                // This removes scrollbars
-                i.style.overflow = 'hidden';
-
-                // Every input/change, grab the content
-                content = i.value;
-
-                // Add the same content to the hidden div
-
-                // This is for old IE
-                content = content.replace(/\n/g, '<br>');
-
-                // The <br ..> part is for old IE
-                // This also fixes the jumpy way the textarea grows if line-height isn't included
-                hiddenDiv.innerHTML = content + '<br style="line-height: 3px;">';
-
-                // Briefly make the hidden div block but invisible
-                // This is in order to read the height
-                hiddenDiv.style.visibility = 'hidden';
-                hiddenDiv.style.display = 'block';
-                i.style.height = hiddenDiv.offsetHeight + 'px';
-
-                // Make the hidden div display:none again
-                hiddenDiv.style.visibility = 'visible';
-                hiddenDiv.style.display = 'none';
-            });
-        })(i);
-    }
 </script>
 </body>
 

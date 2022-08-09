@@ -11,15 +11,9 @@ import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.EpisodesRepository;
 import org.thegreatinksociety.repositories.PodcastSeriesRepository;
 import org.thegreatinksociety.repositories.UsersRepository;
-import org.thegreatinksociety.util.FileUpload;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 import java.io.IOException;
-import java.util.Collection;
 
 @Controller
 public class EpisodeSubmit {
@@ -33,18 +27,18 @@ public class EpisodeSubmit {
     private PodcastSeriesRepository podcastSeriesRepository;
 
     @RequestMapping("/episodeSubmit")
-    public boolean episodeSubmit(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam String episodeName, @RequestParam int publishedStatus) throws ServletException, IOException {
+    public void episodeSubmit(HttpServletResponse response, HttpSession session,
+                              @RequestParam String episodeName, @RequestParam int publishedStatus, @RequestParam String episodeFileName)
+            throws IOException {
         if(publishedStatus != 2) {
             Episodes episode = new Episodes();
 
-            Collection<Part> parts;
-            String fileName = null;
-            String path = GlobalVariable.fileUploadPath;
+            String fileName;
 
-            parts = request.getParts();
-            if (parts != null && parts.size() > 0) {
-                Part filePart_recordFile = request.getPart("episodefilename");
-                fileName = FileUpload.upload(filePart_recordFile, path);
+            if (episodeFileName.equals("")) {
+                fileName = "NoAudio.wav";
+            } else {
+                fileName = episodeFileName;
             }
 
             String username = session.getAttribute("username").toString();
@@ -56,11 +50,10 @@ public class EpisodeSubmit {
             episode.setPodcastSeries(podcast);
             episode.setEpisodeName(episodeName);
             episode.setAudioFileName(fileName);
-            episode.setAudioFileLink(path + fileName);
+            episode.setAudioFileLink(fileName);
             episode.setStatus(publishedStatus);
             episodesRepository.save(episode);
         }
         response.sendRedirect(GlobalVariable.localUrl + "/podcastCreate");
-        return true;
     }
 }

@@ -1,8 +1,5 @@
 package org.thegreatinksociety.controllers;
 
-import org.docx4j.openpackaging.exceptions.Docx4JException;
-import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
-import org.docx4j.openpackaging.parts.WordprocessingML.MainDocumentPart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +15,6 @@ import org.thegreatinksociety.repositories.UsersRepository;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
@@ -36,8 +31,10 @@ public class UploadChapterController {
     private ChaptersRepository chaptersRepository;
 
     @RequestMapping(method = RequestMethod.POST, value = "/uploadChapter")
-    public void uploadChapter(HttpSession session, HttpServletResponse response, @RequestParam String chapterName, @RequestParam String chapterId,
-                                 @RequestParam String chapterWriting, @RequestParam Long bookId, @RequestParam int publishedStatus) throws Docx4JException, IOException {
+    public void uploadChapter(HttpSession session, HttpServletResponse response,
+                              @RequestParam String chapterName, @RequestParam String chapterId, @RequestParam String chapterFileName,
+                              @RequestParam Long bookId, @RequestParam int publishedStatus)
+            throws IOException {
 
         if (publishedStatus == 2) {
             response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + bookId);
@@ -48,19 +45,9 @@ public class UploadChapterController {
         Users user = usersRepository.findByUserName(userName);
         Books book = booksRepository.findBooksById(bookId);
 
-        String fileName = chapterName + ".docx";
-        String filePath = GlobalVariable.fileUploadPath + fileName;
+        String fileName = chapterFileName;
         Date todayDate = new Date();
 
-        WordprocessingMLPackage wordPackage = WordprocessingMLPackage.createPackage();
-        MainDocumentPart mainDocumentPart = wordPackage.getMainDocumentPart();
-
-        String[] texts = chapterWriting.split("\n");
-        for (String text : texts) {
-            mainDocumentPart.addParagraphOfText(text);
-        }
-        File exportFile = new File(filePath);
-        wordPackage.save(exportFile);
 
         Chapters chapterToBeSaved;
 
@@ -82,7 +69,7 @@ public class UploadChapterController {
         chapterToBeSaved.setStatus(publishedStatus);
         chapterToBeSaved.setChapterName(chapterName);
         chapterToBeSaved.setTextFileName(fileName);
-        chapterToBeSaved.setTextFileLink(filePath);
+        chapterToBeSaved.setTextFileLink(fileName);
         chapterToBeSaved.setCreationDate(todayDate);
 
         if (publishedStatus == 1) {

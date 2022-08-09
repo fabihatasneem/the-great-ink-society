@@ -39,22 +39,17 @@ public class BookSubmitController {
     private GenreRepository genreRepository;
 
     @RequestMapping(value = "/submitBook")
-    public void submitBook(HttpServletResponse response, HttpServletRequest request, HttpSession session,
+    public void submitBook(HttpServletResponse response, HttpSession session,
                            @RequestParam String bookName, @RequestParam String description, @RequestParam long language,
-                           @RequestParam long genre, @RequestParam int publishedStatus) throws IOException, ServletException {
-        Collection<Part> parts;
-        String fileName = null;
-        String path = GlobalVariable.fileUploadPath;
+                           @RequestParam long genre, @RequestParam int publishedStatus, @RequestParam String bookCover) throws IOException, ServletException {
+
+        String fileName;
         Books books = new Books();
 
-        parts = request.getParts();
-        if (parts != null && parts.size() > 0) {
-            Part filePart_recordFile = request.getPart("bookCover");
-            fileName = FileUpload.upload(filePart_recordFile, path);
-        }
-
-        if (fileName == null) {
+        if (bookCover.equals("")) {
             fileName = "noBookCover.jpg";
+        } else {
+            fileName = bookCover;
         }
 
         Users user = usersRepository.findByUserName(session.getAttribute("username").toString());
@@ -71,7 +66,7 @@ public class BookSubmitController {
         books.setGenre(genre1);
         books.setPublishStatus(publishedStatus);
         books.setCoverPhotoName(fileName);
-        books.setCoverPhotoLink(path + fileName);
+        books.setCoverPhotoLink(fileName);
 
         Books submittedBook = booksRepository.save(books);
 

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thegreatinksociety.entities.Chapters;
+import org.thegreatinksociety.global.GlobalFunction;
+import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.ChaptersRepository;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 
 @Controller
 public class ChapterWritePageController {
@@ -34,9 +37,8 @@ public class ChapterWritePageController {
             String fileName = chapter.getTextFileLink();
 
             XWPFWordExtractor extractor;
-            File file = new File(fileName);
-            FileInputStream fis = new FileInputStream(file.getAbsolutePath());
-            XWPFDocument document = new XWPFDocument(fis);
+            URL file = new URL(fileName);
+            XWPFDocument document = new XWPFDocument(file.openStream() );
             extractor = new XWPFWordExtractor(document);
             String fileData = extractor.getText();
 
@@ -44,9 +46,12 @@ public class ChapterWritePageController {
             model.addAttribute("chapterName", chapter.getChapterName());
             model.addAttribute("paragraph", fileData);
             model.addAttribute("chapterId", chapter.getId());
+
         }
         String bookId = session.getAttribute("bookId") == null ? "0" : session.getAttribute("bookId").toString();
         model.addAttribute("bookId", bookId);
+
+        GlobalFunction.firebaseConfig(model);
 
         return "chapterWrite";
     }

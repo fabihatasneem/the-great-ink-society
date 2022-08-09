@@ -44,7 +44,10 @@ public class PodcastSubmit {
     private PodcastSeriesRepository podcastSeriesRepository;
 
     @RequestMapping(value = "/podcastSubmit")
-    public void podcastSubmit(HttpServletRequest request, HttpServletResponse response, HttpSession session, @RequestParam String podcastname, @RequestParam String description, @RequestParam long language, @RequestParam long genre, @RequestParam int publishedStatus) throws ServletException, IOException {
+    public void podcastSubmit(HttpServletResponse response, HttpSession session,
+                              @RequestParam String podcastname, @RequestParam String description, @RequestParam long language,
+                              @RequestParam long genre, @RequestParam int publishedStatus, @RequestParam String podcastCover)
+            throws ServletException, IOException {
         PodcastSeries podcast = new PodcastSeries();
         Language lang = languageRepository.findLanguageById(language);
         Genre gen = genreRepository.findGenreById(genre);
@@ -52,18 +55,12 @@ public class PodcastSubmit {
         Users user = usersRepository.findByUserName(username);
         Date today = new Date();
 
-        Collection<Part> parts;
-        String fileName = null;
-        String path = GlobalVariable.fileUploadPath;
+        String fileName;
 
-        parts = request.getParts();
-        if (parts != null && parts.size() > 0) {
-            Part filePart_recordFile = request.getPart("podcastCover");
-            fileName = FileUpload.upload(filePart_recordFile, path);
-        }
-
-        if (fileName == null) {
-            fileName = "noPodcastCover.jpg";
+        if (podcastCover.equals("")) {
+            fileName = "noBookCover.jpg";
+        } else {
+            fileName = podcastCover;
         }
 
         podcast.setUser(user);
@@ -74,9 +71,9 @@ public class PodcastSubmit {
         podcast.setCreationDate(today);
         podcast.setPublishStatus(publishedStatus);
         podcast.setCoverPhotoName(fileName);
-        podcast.setCoverPhotoLink(path + fileName);
+        podcast.setCoverPhotoLink(fileName);
         long podcastId = podcastSeriesRepository.save(podcast).getId();
-        session.setAttribute("podcastId",podcastId);
+        session.setAttribute("podcastId", podcastId);
         response.sendRedirect(GlobalVariable.localUrl + "/uploadEpisode");
     }
 

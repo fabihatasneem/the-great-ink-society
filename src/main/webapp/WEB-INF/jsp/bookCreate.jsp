@@ -158,7 +158,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="container">
-                                <form action="<%=GlobalVariable.localUrl%>/submitBook" method="POST" enctype="multipart/form-data">
+                                <form id="bookSubmitForm" action="<%=GlobalVariable.localUrl%>/submitBook" method="POST" enctype="multipart/form-data">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="bookname">Book Name</label>
@@ -167,7 +167,9 @@
                                         </div>
                                         <div class="custom-file col-md-6">
                                             <label for="bookCover">Book Cover Photo(.jpg/.png)</label>
-                                            <input name="bookCover" type="file" class="form-control" id="bookCover">
+                                            <input type="file" class="form-control" id="bookCover">
+                                            <input id="bookCoverFileName" name="bookCover" type="hidden" value="">
+                                            <progress id="uploader" value="0" max="100">0%</progress>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -189,8 +191,9 @@
                                         </div>
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
-                                        <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
-                                        <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Start Writing</button>
+                                        <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
+                                        <button onclick="validateForm(0)" type="button" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
+                                        <button onclick="validateForm(1)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Start Writing</button>
                                     </div>
                                 </form>
                             </div>
@@ -251,7 +254,7 @@
                             </div>
                             <div class="single-post-list d-flex flex-row align-items-center">
                                 <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
+                                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2F180-1804588_night-fury-toothless-dragon-png-download-stickers-how.png?alt=media&token=184b928a-95ee-46ec-ac94-454bf087097c" alt="">
                                 </div>
                                 <div class="details">
                                     <a href="blog-single.html">
@@ -271,6 +274,10 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+
+    let file;
+    const uploader = document.getElementById('uploader');
+    const fileButton = document.getElementById('bookCover');
 
     $(document).ready(function () {
         $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result){
@@ -324,6 +331,46 @@
 
         });
     });
+
+    fileButton.addEventListener('change', function(e) {
+        console.log("here");
+        file = e.target.files[0];
+    });
+
+    function validateForm(status) {
+        $("#publishedStatus").val(status);
+        const firebaseConfig = {
+            apiKey: "${FIREBASE_API_KEY}",
+            authDomain: "${FIREBASE_AUTH_DOMAIN}",
+            projectId: "${FIREBASE_PROJECT_ID}",
+            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+            appId: "${FIREBASE_APP_ID}",
+            measurementId: "${FIREBASE_MEASUREMENT_ID}"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        console.log("firebase initialized.");
+
+        const storageRef = firebase.storage().ref('bookCover/' + file.name);
+        const task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+        }, function error(err) {
+            console.log(err);
+        }, function complete() {
+            // get the uploaded image url back
+            task.snapshot.ref.getDownloadURL().then(
+                function (downloadURL) {
+                    // You get your url from here
+                    console.log('File uploaded');
+
+                    $("#bookCoverFileName").val(downloadURL);
+                    document.getElementById("bookSubmitForm").submit();
+                });
+        });
+    }
 
     function tabChange() {
         var tabs = $(".nav-tabs > li");

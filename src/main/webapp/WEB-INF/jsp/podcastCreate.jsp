@@ -140,7 +140,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="new" role="tabpanel" aria-labelledby="new-tab">
                             <div class="container">
-                                <form action="<%=GlobalVariable.localUrl%>/podcastSubmit" method="POST" enctype="multipart/form-data" class="podcastCreate-form" id="podcastCreate-form">
+                                <form id="podcastSubmitForm" action="<%=GlobalVariable.localUrl%>/podcastSubmit" method="POST" enctype="multipart/form-data" class="podcastCreate-form" id="podcastCreate-form">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="podcastname">Podcast Name</label>
@@ -150,6 +150,8 @@
                                         <div class="custom-file col-md-6">
                                             <label for="podcastCover">Podcast Cover Photo(.jpg/.png)</label>
                                             <input type="file" class="form-control" id="podcastCover" name="podcastCover">
+                                            <input id="podcastCoverFileName" name="podcastCover" type="hidden" value="">
+                                            <progress id="uploader" value="0" max="100">0%</progress>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -171,8 +173,9 @@
                                         </div>
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
-                                        <button type="submit" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
-                                        <button type="submit" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>
+                                        <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
+                                        <button onclick="validateForm(0)" type="button" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
+                                        <button onclick="validateForm(1)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>
                                     </div>
                                 </form>
                             </div>
@@ -337,6 +340,10 @@
 
 
 <script>
+    let file;
+    const uploader = document.getElementById('uploader');
+    const fileButton = document.getElementById('podcastCover');
+
     $(document).ready(function () {
         $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result){
             console.log(result);
@@ -358,6 +365,46 @@
             $("#genre").append(design);
         });
     });
+
+    fileButton.addEventListener('change', function(e) {
+        console.log("here");
+        file = e.target.files[0];
+    });
+
+    function validateForm(status) {
+        $("#publishedStatus").val(status);
+        const firebaseConfig = {
+            apiKey: "${FIREBASE_API_KEY}",
+            authDomain: "${FIREBASE_AUTH_DOMAIN}",
+            projectId: "${FIREBASE_PROJECT_ID}",
+            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+            appId: "${FIREBASE_APP_ID}",
+            measurementId: "${FIREBASE_MEASUREMENT_ID}"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        console.log("firebase initialized.");
+
+        const storageRef = firebase.storage().ref('podcastCover/' + file.name);
+        const task = storageRef.put(file);
+        task.on('state_changed', function progress(snapshot) {
+            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+        }, function error(err) {
+            console.log(err);
+        }, function complete() {
+            // get the uploaded image url back
+            task.snapshot.ref.getDownloadURL().then(
+                function (downloadURL) {
+                    // You get your url from here
+                    console.log('File uploaded');
+
+                    $("#podcastCoverFileName").val(downloadURL);
+                    document.getElementById("podcastSubmitForm").submit();
+                });
+        });
+    }
 
     function tabChange() {
         var tabs = $(".nav-tabs > li");
