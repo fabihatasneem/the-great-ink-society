@@ -12,5 +12,7 @@ public interface AwardsRepository extends CrudRepository<Awards, Long> {
 
 
 
+    List<Awards> findAwardByWinnerBookId (Long winnerBookId);
+
 
 }
