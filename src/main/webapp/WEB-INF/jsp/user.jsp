@@ -8,13 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/profile/style.css" />
-<link rel="stylesheet" href="css/reading/main.css" />
+<link rel="stylesheet" href="css/profile/style.css"/>
+<link rel="stylesheet" href="css/reading/main.css"/>
 
 <style>
     .cycle-tab-container {
         margin: 0px;
         padding: 20px;
+        background-color: lavenderblush;
         box-shadow: 0 0 10px 2px #ddd;
     }
 
@@ -105,16 +106,18 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
                 <img src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
-                     alt="User profile" style="border-radius: 50%; width: 150px; height: 150px" />
+                     alt="User profile" style="border-radius: 50%; width: 150px; height: 150px"/>
                 <p>
-                <h3 style="color: white;">User Full Name</h3>
-                <h6 style="color: rgb(196, 190, 190);">@username</h6>
+                <h3 style="color: white;">${userFullName}</h3>
+                <h6 style="color: rgb(196, 190, 190);">@${username}</h6>
                 </p>
                 <p>
-                    <i style="color: #daa520" class="fas fa-trophy"></i> 10 &nbsp;
-                    <i class="fas fa-award"></i> 3 &nbsp;
-                    <i class="fas fa-podcast"></i> 3 &nbsp;
-                    <i class="fas fa-book-open"></i> 100
+                    <i style="color: #daa520" class="fas fa-trophy" id="numberOfAwards"></i> &nbsp; ${numberOfAwards}
+                    &nbsp;
+                    <i style="color: #abf6ff" class="fas fa-award" id="numberOfBadges"></i> &nbsp; ${numberOfBadges}
+                    &nbsp;
+                    <i style="color: #ffabab" class="fas fa-users" id="numberOfFollowers"></i>
+                    &nbsp; ${numberOfFollowers}
                 </p>
             </div>
         </div>
@@ -123,201 +126,37 @@
 <!-- End banner Area -->
 
 
-<br />
+<br/>
 <!-- Nav tabs -->
 <div class="container">
     <div class="row">
         <div class="col-md-4">
             <div class="widget-wrap">
-                <div class="single-sidebar-widget popular-post-widget">
-                    <button type="button" class="btn btn-outline-secondary">Message</button>
-                    <button type="button" class="btn btn-outline-danger">Follow</button>
-                    <button type="button" class="btn btn-outline-info">Subscribe</button>
+                <div class="single-sidebar-widget popular-post-widget" align="center">
+                    <button type="button" class="btn btn-outlined--black" style="color:white; background-color: limegreen" id="followBigBtn"
+                            onclick="followOrUnfollow(${userId})">Follow
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-outlined--black" style="color:white; background-color: crimson">Subscribe</button>
                     <br>
                     <br>
-                    <p style="text-align: center;"> User Bio: What is Lorem Ipsum Lorem Ipsum is simply dummy text
-                        of the printing and typesetting industry
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book it has?</p>
+                    <p style="text-align: center;"> ${userBio}</p>
                 </div>
                 <div class="single-sidebar-widget popular-post-widget">
                     <h4 style="margin-bottom: 15px" class="popular-title">
                         <i class="fa fa-star"></i> Earned Badges
                     </h4>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="images/product_01.jpg" width="150px" />
-                            <h6 style="
-                      font-size: 12px;
-                      text-align: center;
-                      padding-top: 8px;
-                    ">
-                                Badge Name
-                            </h6>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="images/product_01.jpg" width="150px" />
-                            <h6 style="
-                      font-size: 12px;
-                      text-align: center;
-                      padding-top: 8px;
-                    ">
-                                Badge Name
-                            </h6>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="images/product_01.jpg" width="150px" />
-                            <h6 style="
-                      font-size: 12px;
-                      text-align: center;
-                      padding-top: 8px;
-                    ">
-                                Badge Name
-                            </h6>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="images/product_01.jpg" width="150px" />
-                            <h6 style="
-                      font-size: 12px;
-                      text-align: center;
-                      padding-top: 8px;
-                    ">
-                                Badge Name
-                            </h6>
-                        </div>
+                    <div id="earnedBadgesDesign">
+                        ${earnedBadgesDesign}
                     </div>
                 </div>
                 <div class="single-sidebar-widget popular-post-widget">
                     <h4 class="popular-title">
                         <i class="fa fa-trophy"></i> Achievements
                     </h4>
-                </div>
-                <div class="single-sidebar-widget popular-post-widget">
-                    <h4 class="popular-title"><i class="fas fa-book-open"></i> Popular Books</h4>
-                    <div class="popular-post-list">
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp1.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Space The Final Frontier</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp2.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>The Amazing Hubble</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp3.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Astronomy Or Astrology</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp4.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Asteroids telescope</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
+                    <div id="achievementDesign">
+                        ${achievementDesign}
                     </div>
-                    <span> <a style="margin-left: 70%" href=""> View More </a> </span>
-                </div>
-                <div class="single-sidebar-widget popular-post-widget">
-                    <h4 class="popular-title"><i class="fas fa-podcast"></i> Popular Podcasts</h4>
-                    <div class="popular-post-list">
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp1.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Space The Final Frontier</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp2.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>The Amazing Hubble</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp3.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Astronomy Or Astrology</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="thumb">
-                                <img class="img-fluid" src="img/blog/pp4.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Asteroids telescope</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <span> <a style="margin-left: 70%" href=""> View More </a> </span>
                 </div>
             </div>
         </div>
@@ -335,7 +174,8 @@
                             Podcasts</a>
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#followers">Followers(100)</a>
+                        <a class="nav-link" role="tab" data-toggle="tab"
+                           href="#followers">Followers(${numberOfFollowers})</a>
                     </li>
                     <li class="cycle-tab-item">
                         <a class="nav-link" role="tab" data-toggle="tab" href="#saved">Saved Lists</a>
@@ -348,30 +188,30 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <p>
-                                    Full Name: Iftekhar E Mahbub Zeeon
+                                    Full Name: ${userFullName}
                                 </p>
                                 <p>
-                                    Location: Dhaka
+                                    Location: ${location}
                                 </p>
                                 <p>
-                                    Followers: 10
+                                    Followers: ${numberOfFollowers}
                                 </p>
                                 <p>
-                                    Following: 10
+                                    Following: ${numberOfFollowings}
                                 </p>
                             </div>
                             <div class="col-md-5">
                                 <p>
-                                    Awards Won
+                                    Awards Won: ${numberOfAwards}
                                 </p>
                                 <p>
-                                    Participated On
+                                    Competitions Participated In: ${competitionCount}
                                 </p>
                                 <p>
-                                    Badges Earned
+                                    Badges Earned: ${numberOfBadges}
                                 </p>
                                 <p>
-                                    Current Badge
+                                    Current Badge: ${currentBadge}
                                 </p>
                             </div>
                             <hr style="width:max-content;">
@@ -382,77 +222,10 @@
                     <div class="tab-pane fade" id="publishedbooks" role="tabpanel"
                          aria-labelledby="publishedbooks-tab">
                         <!-- Published Books tag -->
-                        <div class="row" style="margin-left: 1px; column-gap: 6.5%; row-gap: 15px;">
-                            <div class="card">
-                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                     alt="Avatar">
-                                <div class="container"
-                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                    <h4><b>Book Name</b></h4>
-                                    <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                        100</small> </p>
-                                    <hr>
-                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum a a a a a a a a a
-                                        .....</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                     alt="Avatar">
-                                <div class="container"
-                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                    <h4><b>Book Name test</b></h4>
-                                    <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                        100</small> </p>
-                                    <hr>
-                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum a a a a a a a a a
-                                        .....</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                     alt="Avatar">
-                                <div class="container"
-                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                    <h4><b>Book Name</b></h4>
-                                    <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                        100</small> </p>
-                                    <hr>
-                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk jbkfds njkdsLorem Ipsum
-                                        a a a a a a a a a
-                                        .....</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                     alt="Avatar">
-                                <div class="container"
-                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                    <h4><b>Book Name</b></h4>
-                                    <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                        100</small> </p>
-                                    <hr>
-                                    <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a a .....</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png"
-                                     alt="Avatar">
-                                <div class="container"
-                                     style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">
-                                    <h4><b>Book Name</b></h4>
-                                    <p><small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87 &nbsp; <i class="fas fa-eye"></i>
-                                        100</small> </p>
-                                    <hr>
-                                    <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum a a a a a a a a a
-                                        .....</p>
-                                </div>
-                            </div>
+                        <div class="row" style="margin-left: 1px; column-gap: 6.5%; row-gap: 15px;"
+                             id="userPublishedBooks">
+
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="publishedpodcasts" role="tabpanel"
@@ -460,173 +233,14 @@
                         <!-- Published Podcasts tag -->
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-12 mt-3">
-                                    <div class="card" style="width: 100%;">
-                                        <div class="card-horizontal">
-                                            <div class="img-square-wrapper" style="width: 55%">
-                                                <img class="" src="http://via.placeholder.com/300x180"
-                                                     alt="Card image cap" style="width: 100%; height: 100%;">
-                                            </div>
-                                            <div class="card-body">
-                                                <h4>Podcast Name</h4>
-                                                <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                                        class="fas fa-comments"></i> 87 &nbsp; <i
-                                                        class="fas fa-eye"></i>
-                                                    100</small>
-                                                <hr>
-                                                <p class="card-text">Some quick example text to build on the card
-                                                    title and make up the bulk of the card's content. Yo how it this
-                                                    going good good no not good okay good</p>
-                                                <!-- <div class="player">
-                                                    <audio id="player2" preload="none" controls style="max-width: 100%">
-                                                      <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                                                    </audio>
-                                                  </div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="card" style="width: 100%;">
-                                        <div class="card-horizontal">
-                                            <div class="img-square-wrapper" style="width: 55%">
-                                                <img class="" src="http://via.placeholder.com/300x180"
-                                                     alt="Card image cap" style="width: 100%; height: 100%;">
-                                            </div>
-                                            <div class="card-body">
-                                                <h4>Podcast Name</h4>
-                                                <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                                        class="fas fa-comments"></i> 87 &nbsp; <i
-                                                        class="fas fa-eye"></i>
-                                                    100</small>
-                                                <hr>
-                                                <p class="card-text">Some quick example text to build on the card
-                                                    title and make up the bulk of the card's content. Yo how it this
-                                                    going good good no not good okay good</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-12 mt-3" id="userPublishedPodcasts">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
                         <!-- Followers Tag -->
-                        <!-- <div class="team-boxed">
-                            <div class="container">
-                                <div class="row people">
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 item">
-                                        <div class="box"><img class="rounded-circle"
-                                                src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 class="name">Ben Johnson</h5>
-                                            <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                                    class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                    class="fas fa-podcast"></i> 100</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="list-group">
-                            <div class="list-group-item d-flex align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                                     class="rounded-sm ml-n2" />
-                                <div class="flex-fill pl-3 pr-3">
-                                    <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                                    <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp;
-                                        <i class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                class="fas fa-podcast"></i> 100</small></div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary">Follow</a>
-                            </div>
-                            <div class="list-group-item d-flex align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                                     class="rounded-sm ml-n2" />
-                                <div class="flex-fill pl-3 pr-3">
-                                    <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                                    <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp;
-                                        <i class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                class="fas fa-podcast"></i> 100</small></div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary">Follow</a>
-                            </div>
-                            <div class="list-group-item d-flex align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                                     class="rounded-sm ml-n2" />
-                                <div class="flex-fill pl-3 pr-3">
-                                    <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                                    <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp;
-                                        <i class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                class="fas fa-podcast"></i> 100</small></div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary">Follow</a>
-                            </div>
-                            <div class="list-group-item d-flex align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                                     class="rounded-sm ml-n2" />
-                                <div class="flex-fill pl-3 pr-3">
-                                    <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                                    <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp;
-                                        <i class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                class="fas fa-podcast"></i> 100</small></div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary">Follow</a>
-                            </div>
-                            <div class="list-group-item d-flex align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"
-                                     class="rounded-sm ml-n2" />
-                                <div class="flex-fill pl-3 pr-3">
-                                    <div><a href="#" class="text-dark font-weight-600">Ethel Wilkes</a></div>
-                                    <div class="text-muted fs-13px"><small><i class="fas fa-users"></i> 100 &nbsp;
-                                        <i class="fas fa-book-open"></i> 100 &nbsp; <i
-                                                class="fas fa-podcast"></i> 100</small></div>
-                                </div>
-                                <a href="#" class="btn btn-outline-primary">Follow</a>
-                            </div>
+                        <div class="list-group" id="userFollowerSection">
 
                         </div>
                     </div>
@@ -674,7 +288,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -692,7 +306,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -710,7 +324,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk
                                                                 jbkfds njkdsLorem Ipsum a a a a a a a a a
@@ -728,7 +342,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a
                                                                 a .....</p>
@@ -745,7 +359,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -763,7 +377,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -789,7 +403,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -807,7 +421,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -825,7 +439,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum fdshk
                                                                 jbkfds njkdsLorem Ipsum a a a a a a a a a
@@ -843,7 +457,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Loremem Ipsum a a a a a a a a
                                                                 a .....</p>
@@ -860,7 +474,7 @@
                                                                          style="color:red;"></i> 78 &nbsp; <i
                                                                     class="fas fa-comments"></i> 87 &nbsp; <i
                                                                     class="fas fa-eye"></i>
-                                                                100</small> </p>
+                                                                100</small></p>
                                                             <hr>
                                                             <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
                                                                 Ipsum a a a a a a a a a
@@ -980,6 +594,106 @@
 <%@ include file="footer.jsp" %>
 
 <script>
+    $(document).ready(function () {
+        let username = '${username}';
+        let userId = '${userId}';
+        $.post("<%=GlobalVariable.localUrl%>/getSameAuthorBooks", {userId: userId}, function (result) {
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                let design = '<div class="card">' +
+                    '<img class="card-img-top" src="images/' + result[i].coverPhotoName + '" alt="Avatar">' +
+                    '<div class="container" style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
+                    '<h4><b>' + result[i].bookName + '</b></h4>' +
+                    '<p><small><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; ' +
+                    '<i class="fas fa-comments"></i> ' + result[i].numberOfComments + ' &nbsp; <i class="fas fa-eye"></i>' + result[i].totalViews + '</small></p>' +
+                    '<hr>' +
+                    '<p>' + result[i].description + '</p>' +
+                    '</div>' +
+                    '</div>';
+                document.getElementById('userPublishedBooks').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getSameUploaderPodcasts", {userId: userId}, function (result) {
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                let design = '<div class="card" style="width: 100%;">' +
+                    '<div class="card-horizontal">' +
+                    '<div class="img-square-wrapper" style="width: 55%">' +
+                    '<img class="" src="images/' + result[i].coverPhotoName + '" alt="Card image cap" style="width: 100%; height: 100%;">' +
+                    '</div>' +
+                    '<div class="card-body">' +
+                    '<h4>' + result[i].seriesName + '</h4>' +
+                    '<small><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp;' +
+                    '<i class="fas fa-comments"></i> ' + result[i].numberOfComments + ' &nbsp;' +
+                    '<i class="fas fa-eye"></i> ' + result[i].totalViews + '</small>' +
+                    '<hr>' +
+                    '<p class="card-text">' + result[i].description + ' </p>' +
+                    '<div class="player">' +
+                    '<audio id="player2" preload="none" controls style="max-width: 100%">' +
+                    '<source src="http://www.largesound.com/ashborytour/sound/brobob.mp3" type="audio/mp3" />' +
+                    '</audio>' +
+                    '</div> ' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<br>';
+                document.getElementById('userPublishedPodcasts').innerHTML += design;
+            }
+        });
+        $.post("<%=GlobalVariable.localUrl%>/getMyFollowersInfo", {userId: userId}, function (result) {
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].id;
+                let imageName;
+                if (result[i].profilePicName != null) {
+                    imageName = result[i].profilePicName;
+                } else {
+                    if (result[i].gender == 'Male') {
+                        imageName = 'male_dp.jpg';
+                    } else {
+                        imageName = 'female_dp.jpg';
+                    }
+                }
+                let design = '<div class="list-group-item d-flex align-items-center">' +
+                    '<img src="images/' + imageName + '" alt="" width="50px" class="rounded-sm ml-n2"/>' +
+                    '<div class="flex-fill pl-3 pr-3">' +
+                    '<div><a href="' + userProfileUrl + '" class="text-dark font-weight-600">' + result[i].fullName + '</a></div>' +
+                    '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i> ' + result[i].followers + ' &nbsp;' +
+                    '<i class="fas fa-book-open"></i> ' + result[i].numberOfBooks + ' &nbsp; ' +
+                    '<i class="fas fa-podcast"></i> ' + result[i].numberOfPodcasts + '</small></div>' +
+                    '</div>' +
+                    '<button onclick="followOrUnfollow(' + result[i].id + ')" class="btn btn-outlined--black" style="color:white; background-color: limegreen" id="followSmallBtn_' + result[i].id + '">Follow</button>' +
+                    '</div>';
+                document.getElementById('userFollowerSection').innerHTML += design;
+            }
+        });
+    });
+
+    function followOrUnfollow(followingId) {
+        let followerId = '<%=session.getAttribute("userId")%>';
+        let profileId = '${userId}';
+        let btn;
+        if(followingId != profileId){
+            btn = document.getElementById('followSmallBtn_' + followingId);
+        } else{
+            btn = document.getElementById('followBigBtn');
+        }
+        $.post("<%=GlobalVariable.localUrl%>/followUnfollowUser", {
+            followerId: followerId,
+            followingId: followingId
+        }, function (result) {
+            if (result.status == 1) {
+                btn.textContent = "Unfollow";
+                btn.style.backgroundColor = 'orangered';
+                btn.style.color = 'white';
+            } else {
+                btn.textContent = "Follow";
+                btn.style.backgroundColor = 'limegreen';
+                btn.style.color = 'white';
+            }
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         var mediaElements = document.querySelectorAll("video, audio"),
             total = mediaElements.length;
@@ -999,6 +713,7 @@
             });
         }
     });
+
     function tabChange() {
         var tabs = $(".nav-tabs > li");
         var active = tabs.filter(".active");

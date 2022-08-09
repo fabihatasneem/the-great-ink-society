@@ -22,4 +22,6 @@ public class FollowersAndFollowings {
     @Temporal(TemporalType.DATE)
     private Date dateFollowed;
 
+    private int status;
+
 }

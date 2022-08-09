@@ -9,4 +9,6 @@ public interface FollowersAndFollowingsRepository extends CrudRepository<Followe
     List<FollowersAndFollowings> findByFollowingId(Long userId);
 
     List<FollowersAndFollowings> findByFollowerId(Long userId);
+
+    FollowersAndFollowings findByFollowerIdAndFollowingId(Long followerId, Long followingId);
 }

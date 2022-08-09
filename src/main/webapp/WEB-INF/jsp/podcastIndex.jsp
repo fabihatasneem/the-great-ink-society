@@ -259,13 +259,14 @@
         $.post("<%=GlobalVariable.localUrl%>/getMostPopularPodcasts", {}, function (result) {
             console.log(result);
             for (var i = 0; i < result.length; i++) {
+                let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
                 let url = '<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
                     '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].seriesName + '</h4>' +
-                    '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
+                    '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
                     '<p>' + result[i].description + '</p>' +
                     '<span style="margin-right: 65%; color: grey;"> Episodes : ' + result[i].numberOfEpisodes + ' </span>' +
@@ -278,13 +279,14 @@
         });
         $.post("<%=GlobalVariable.localUrl%>/getMostRecentPodcasts", {}, function (result) {
             for (var i = 0; i < result.length; i++) {
+                let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
                 let url = '<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
                     '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].seriesName + '</h4>' +
-                    '<small><i class="fas fa-user"></i> &nbsp' + result[i].user.fullName + '&nbsp; <i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
+                    '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
                     '<p>' + result[i].description + '</p>' +
                     '<span style="margin-right: 65%; color: grey;"> Episodes : ' + result[i].numberOfEpisodes + ' </span>' +
@@ -300,6 +302,8 @@
                 let design = '<div class="section-heading"><h2>From Your Followings</h2></div>';
 
                 for (var i = 0; i < result.length; i++) {
+                    let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
+                    let url = '<%=GlobalVariable.localUrl%>/podcastDetailsViewer?id=' + result[i].id;
                     design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
                         '<div class="image" style="background-image: url("images/' + result[i].coverPhotoName + '")"></div>' +
                         '<div class="text">' +
@@ -307,10 +311,10 @@
                         '<hr>' +
                         '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfEpisodes + '</h6>' +
                         '<div class="text-white mb-3">' +
-                        '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> ' + result[i].user.fullName + '<span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>' +
+                        '<span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i><a href="' + userProfileUrl + '">' + result[i].user.fullName + '</a><span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>' + result[i].numberOfLikes + ' &nbsp; <iclass="fas fa-comments"></i> ' + result[i].numberOfComments + '  </small></span>' +
                         '</div>' +
                         '<hr>' +
-                        '<p class="mb-4">' + '<a href="">(...Continue)</a></p>' +
+                        '<p class="mb-4">' + '<a href="' + url + '">(...Continue)</a></p>' +
                         '</div>' +
                         '</div>' +
                         '</div>';
