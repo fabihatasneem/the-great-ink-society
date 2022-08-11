@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
+<link rel="stylesheet" href="css/reading/bootstrap.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 
 <style>
@@ -223,7 +224,7 @@
                     '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="blog-single.html">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
                     '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
@@ -245,7 +246,7 @@
                         '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                         '</div>' +
                         '<div class="details">' +
-                        '<a href="blog-single.html">' +
+                        '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                         '<h6>' + book.bookName + '</h6>' +
                         '</a>' +
                         '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +

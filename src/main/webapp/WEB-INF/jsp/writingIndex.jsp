@@ -301,7 +301,7 @@
                 let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
@@ -321,7 +321,7 @@
                 let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="images/' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
@@ -343,7 +343,7 @@
                     let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
                     let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                     design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
-                        '<div class="image" style="background-image: url("images/' + result[i].coverPhotoName + '")"></div>' +
+                        '<div class="image" style="background-image: url("' + result[i].coverPhotoName + '")"></div>' +
                         '<div class="text">' +
                         '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>' +
                         '<hr>' +

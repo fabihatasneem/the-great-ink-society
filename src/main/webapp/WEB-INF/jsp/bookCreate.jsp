@@ -203,11 +203,6 @@
                                 <div id="publishedBooks" class="row people" style="row-gap: 30px;">
 
                                 </div>
-                                <br>
-                                <h3 style="padding: 20px;">Drafts</h3>
-                                <div id="draftBooks" class="row people" style="row-gap: 30px;">
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,51 +212,7 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2F180-1804588_night-fury-toothless-dragon-png-download-stickers-how.png?alt=media&token=184b928a-95ee-46ec-ac94-454bf087097c" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-
-                                </div>
-                            </div>
+                        <div id="myDraftBooks" class="popular-post-list">
                         </div>
                     </div>
                 </div>
@@ -300,7 +251,7 @@
         });
         let username = '${username}';
 
-        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (result){
+        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (result) {
            console.log(result);
            let publishedBookDesign = '';
            let draftBookDesign = '';
@@ -328,6 +279,27 @@
            document.getElementById('publishedBooks').innerHTML = publishedBookDesign;
            document.getElementById('draftBooks').innerHTML = draftBookDesign;
 
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyDraftBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let draftBookDesign = '';
+
+            result.map( book => {
+                draftBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id="' + book.id + '>' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myDraftBooks').innerHTML = draftBookDesign;
         });
     });
 
