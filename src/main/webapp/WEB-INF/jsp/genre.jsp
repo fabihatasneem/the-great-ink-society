@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="css/writing-podcast/style.css" />
 
 <link rel="stylesheet" href="css/genre/style.css" />
-<link rel="stylesheet" href="css/genre/nice-select.css" />
 <link rel="stylesheet" href="css/genre/main.css" />
 
 <div style="background-color: #111;">

@@ -104,7 +104,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
-<script src="js/global/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -120,8 +120,8 @@
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
 
-<script src="js/global/bootstrap.min.js"></script>
-<script src="js/global/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js" integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js" integrity="sha512-9GacT4119eY3AcosfWtHMsT5JyZudrexyEVzTBWV3viP/YfB9e2pEy3N7WXL3SV6ASXpTU0vzzSxsbfsuUH4sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
 <script src="js/global/easing.min.js"></script>
 <script src="js/global/hoverIntent.js"></script>
@@ -129,24 +129,18 @@
 <script src="js/global/jquery.ajaxchimp.min.js"></script>
 <script src="js/global/jquery.magnific-popup.min.js"></script>
 <script src="js/global/jquery.tabs.min.js"></script>
-<script src="js/global/jquery.nice-select.min.js"></script>
-<script src="js/global/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/global/mail-script.js"></script>
-<script src="js/global/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/global/mediaelement-and-player.min.js"></script>
 <script src="js/global/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-<script src="js/global/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js" integrity="sha512-C1zvdb9R55RAkl6xCLTPt+Wmcz6s+ccOvcr6G57lbm8M2fbgn2SUjUJbQ13fEyjuLViwe97uJvwa1EUf4F1Akw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Magnific Popup for lightboxes -->
 <script src="js/global/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
 <script src="js/global/slick.min.js"></script> <!-- Review Slider scripts -->
 <script src="js/global/scripts.js"></script> <!-- Custom scripts -->
 <script type="text/javascript" async="" src="js/global/analytics.js"></script>
 <script src="js/global/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="js/writepage/froala_editor.min.js"></script>
-<script type="text/javascript" src="js/writepage/plugins/draggable.min.js"></script>
-<script type="text/javascript" src="js/writepage/plugins/entities.min.js"></script>
 
 <script src="js/reading/main.js"></script>
 <script src="js/genre/plugins.js"></script>

@@ -34,13 +34,20 @@ public class ChapterWritePageController {
 
             chapter = chaptersRepository.findChaptersById(chapterId);
 
-            String fileName = chapter.getTextFileLink();
+            String fileLink = chapter.getTextFileLink();
 
             XWPFWordExtractor extractor;
-            URL file = new URL(fileName);
+            URL file = new URL(fileLink);
             XWPFDocument document = new XWPFDocument(file.openStream() );
             extractor = new XWPFWordExtractor(document);
             String fileData = extractor.getText();
+
+            String draftDesign = "";
+            if (chapter.getStatus() == 0) {
+                draftDesign = "<a href=\"" + fileLink + "\"> <u style=\"color:blue\"> CLick here to download your previous version. </u> </a>";
+            }
+
+            model.addAttribute("draftDesign", draftDesign);
 
 
             model.addAttribute("chapterName", chapter.getChapterName());

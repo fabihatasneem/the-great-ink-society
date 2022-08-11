@@ -185,7 +185,7 @@
                     '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="blog-single.html">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id="' + book.id + '>' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
                     ' </div>' +
@@ -216,28 +216,6 @@
 
             document.getElementById('myMostPopular').innerHTML = mostPopularBookDesign;
         });
-
-        <%--$.post("<%=GlobalVariable.localUrl%>/getMyMostViewedBooks", {userId: ${userId}}, function (result) {--%>
-        <%--    console.log(result);--%>
-
-        <%--    let mostViewedBookDesign = '';--%>
-
-        <%--    result.map( book => {--%>
-        <%--        mostViewedBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +--%>
-        <%--            ' <div class="thumb">' +--%>
-        <%--            '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +--%>
-        <%--            '</div>' +--%>
-        <%--            '<div class="details">' +--%>
-        <%--            '<a href="blog-single.html">' +--%>
-        <%--            '<h6>' + book.bookName + '</h6>' +--%>
-        <%--            '</a>' +--%>
-        <%--            '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + ' </p>' +--%>
-        <%--            ' </div>' +--%>
-        <%--            '</div>';--%>
-        <%--    });--%>
-
-        <%--    document.getElementById('myMostViewed').innerHTML = mostViewedBookDesign;--%>
-        <%--});--%>
 
 
     });

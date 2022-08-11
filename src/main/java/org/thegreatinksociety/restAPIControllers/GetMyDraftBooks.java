@@ -22,9 +22,6 @@ public class GetMyDraftBooks {
     @RequestMapping(value = "/getMyDraftBooks", method = RequestMethod.POST)
     public List<Books> getMyDraftBooks(@RequestParam Long userId){
 
-        Pageable limitedData = PageRequest.of(0, 4, Sort.by("lastUpdatedDate").descending());
-        int publishStatus = 0;
-
-        return booksRepository.findByUser_IdAndPublishStatusOrderByLastUpdatedDate(userId, limitedData, publishStatus);
+        return booksRepository.findBooksByDraftChapter();
     }
 }

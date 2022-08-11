@@ -192,7 +192,6 @@
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
                                         <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
-                                        <button onclick="validateForm(0)" type="button" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
                                         <button onclick="validateForm(1)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Start Writing</button>
                                     </div>
                                 </form>
@@ -339,37 +338,65 @@
 
     function validateForm(status) {
         $("#publishedStatus").val(status);
-        const firebaseConfig = {
-            apiKey: "${FIREBASE_API_KEY}",
-            authDomain: "${FIREBASE_AUTH_DOMAIN}",
-            projectId: "${FIREBASE_PROJECT_ID}",
-            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
-            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
-            appId: "${FIREBASE_APP_ID}",
-            measurementId: "${FIREBASE_MEASUREMENT_ID}"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("firebase initialized.");
+        console.log($("#genre").val(), '-', $("#language").val(), '-', $("#bookname").val(), '-', $("#description").val());
 
-        const storageRef = firebase.storage().ref('bookCover/' + file.name);
-        const task = storageRef.put(file);
-        task.on('state_changed', function progress(snapshot) {
-            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if ($("#genre").val() === null || $("#language").val() === null ||
+            $("#bookname").val() === '' || $("#description").val() === '') {
+            alert("Invalid input");
+        } else {
+            const firebaseConfig = {
+                apiKey: "${FIREBASE_API_KEY}",
+                authDomain: "${FIREBASE_AUTH_DOMAIN}",
+                projectId: "${FIREBASE_PROJECT_ID}",
+                storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+                messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+                appId: "${FIREBASE_APP_ID}",
+                measurementId: "${FIREBASE_MEASUREMENT_ID}"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            console.log("firebase initialized.");
 
-        }, function error(err) {
-            console.log(err);
-        }, function complete() {
-            // get the uploaded image url back
-            task.snapshot.ref.getDownloadURL().then(
-                function (downloadURL) {
-                    // You get your url from here
-                    console.log('File uploaded');
+            let fileName = '';
 
-                    $("#bookCoverFileName").val(downloadURL);
-                    document.getElementById("bookSubmitForm").submit();
+            if (file === undefined) {
+                fileName = 'noBookCover.jpg';
+
+                const storageRef = firebase.storage().ref('bookCover/' + fileName);
+
+                storageRef.getDownloadURL()
+                    .then((downloadURL) => {
+                        // `url` is the download URL for 'images/stars.jpg'
+
+                        $("#bookCoverFileName").val(downloadURL);
+                        document.getElementById("bookSubmitForm").submit();
+
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+
+                const storageRef = firebase.storage().ref('bookCover/' + file.name);
+                const task = storageRef.put(file);
+                task.on('state_changed', function progress(snapshot) {
+                    uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                }, function error(err) {
+                    console.log(err);
+                }, function complete() {
+                    // get the uploaded image url back
+                    task.snapshot.ref.getDownloadURL().then(
+                        function (downloadURL) {
+                            // You get your url from here
+                            console.log('File uploaded');
+
+                            $("#bookCoverFileName").val(downloadURL);
+                            document.getElementById("bookSubmitForm").submit();
+                        });
                 });
-        });
+            }
+        }
     }
 
     function tabChange() {
