@@ -20,7 +20,7 @@
                     <div class="text-container">
                         <h1 style="color:white">Welcome To<br><span class="turquoise"> The Great Ink Society</span></h1>
                         <p class="p-large">Let your stories be told. Let your imaginations be heard.</p>
-                        <a class="btn-solid-lg page-scroll" href="index.jsp">DISCOVER</a>
+                        <a class="btn-solid-lg page-scroll" href="<%=GlobalVariable.localUrl%>">DISCOVER</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
@@ -74,7 +74,7 @@
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fcreativity.png?alt=media&token=654cd3c8-e1da-416c-9dd0-36e5af65fff0" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fcreativity.png?alt=media&token=da3ee0b3-38c5-431e-817d-cca52a73047f" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -96,7 +96,7 @@
                     <h2>Write Your Own Stories</h2>
                     <p>Stop whining & start writing! We are hunting for all the writers of the world.
                     So which story are you going to tell us?</p>
-                    <button class="btn-solid-reg"><a href="writingIndex.jsp">Start Writing</a></button>
+                    <button class="btn-solid-reg"><a href="<%=GlobalVariable.localUrl%>/writingIndex">Start Writing</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -110,9 +110,9 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-container">
-                    <h2>Tell us your stories & keep our ears smiling with your podcasts. </h2>
-                    <p>Podcast Content</p>
-                    <button class="btn-solid-reg"><a href="podcastIndex.jsp">Start Storytelling</a></button>
+                    <h2>Tell us your stories</h2>
+                    <p>Keep our ears smiling with your podcasts. </p>
+                    <button class="btn-solid-reg"><a href="<%=GlobalVariable.localUrl%>/podcastIndex">Start Storytelling</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
@@ -259,10 +259,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-1.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fbadge.png?alt=media&token=b1b41c4d-8071-4943-8447-581e6a3b350d" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Badge 1</p>
-                                        <p class="testimonial-text">10 points</p>
+                                        <p class="testimonial-author">The Wacky Wordsmith</p>
+                                        <p class="testimonial-text">10 likes on Podcasts</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -271,10 +271,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-2.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fbadge.png?alt=media&token=b1b41c4d-8071-4943-8447-581e6a3b350d" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Badge 2</p>
-                                        <p class="testimonial-text">50 points</p>
+                                        <p class="testimonial-author">The Fantastic Fictionist</p>
+                                        <p class="testimonial-text">50 likes on Books</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -283,10 +283,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-3.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fbadge.png?alt=media&token=b1b41c4d-8071-4943-8447-581e6a3b350d" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Badge 3</p>
-                                        <p class="testimonial-text">100 points</p>
+                                        <p class="testimonial-author">The Blooming Bookworm</p>
+                                        <p class="testimonial-text">3 Book reads</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -306,7 +306,7 @@
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/testimonials-2-men-talking.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2FAchievement-bro.png?alt=media&token=b8e7db57-bcd5-401c-ab78-922491284d12" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -321,7 +321,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/testimonials-2-men-talking.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fawards.png?alt=media&token=644af9fa-0356-4b9a-90f4-d685e201cd66" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
@@ -335,10 +335,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-1.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Ftrophy.png?alt=media&token=4f6789df-7411-437b-a942-bcad91e66b1c" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Competition name 1</p>
-                                        <p class="testimonial-text">A Writing Competition Details 1</p>
+                                        <p class="testimonial-author">Competition 1</p>
+                                        <p class="testimonial-text">Adventurous Story Writing Competition</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -347,10 +347,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-2.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Ftrophy.png?alt=media&token=4f6789df-7411-437b-a942-bcad91e66b1c" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Competition name 2</p>
-                                        <p class="testimonial-text">A Storytelling Competition Details 1</p>
+                                        <p class="testimonial-author">Competition 2</p>
+                                        <p class="testimonial-text">A Storytelling Competition</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -359,10 +359,10 @@
                             <!-- Slide -->
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <img class="card-image" src="images/testimonial-3.svg" alt="alternative">
+                                    <img class="card-image" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Ftrophy.png?alt=media&token=4f6789df-7411-437b-a942-bcad91e66b1c" alt="alternative">
                                     <div class="card-body">
-                                        <p class="testimonial-author">Competition name 3</p>
-                                        <p class="testimonial-text">A Writing Competition Details 2</p>
+                                        <p class="testimonial-author">Competition 3</p>
+                                        <p class="testimonial-text">Writing Competition</p>
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-slide -->
@@ -392,7 +392,7 @@
             <div class="col-md-12">
                 <div class="mu-testimonials-area">
                     <div class="mu-heading-area">
-                        <h2 class="mu-heading-title">What Our Readers Say</h2>
+                        <h2 class="mu-heading-title">Reviews From Our Users</h2>
                         <span class="mu-header-dot"></span>
                     </div>
 
@@ -400,26 +400,23 @@
                         <ul class="mu-testimonial-slide">
 
                             <li>
-                                <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever."</p>
-                                <img class="mu-rt-img" src="images/team-member-3.svg" alt="img">
-                                <h5 class="mu-rt-name"> - Alice Boga</h5>
-                                <span class="mu-rt-title">CEO, Apple Inc.</span>
+                                <p>"My one and only comfort place!"</p>
+                                <img class="mu-rt-img" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Ffemale_dp.jpg?alt=media&token=9ea42b0b-a39b-48d0-8db2-a20d3a5ded42" alt="img">
+                                <h5 class="mu-rt-name"> - Sheen</h5>
+                                <span class="mu-rt-title">Student, BUET</span>
                             </li>
 
                             <li>
-                                <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever."</p>
-                                <img class="mu-rt-img" src="images/team-member-4.svg" alt="img">
-                                <h5 class="mu-rt-name"> - Jhon Doe</h5>
-                                <span class="mu-rt-title">Director, Google Inc.</span>
+                                <p>"Best site I found on the internet. I don't know how I survived until I discovered it."</p>
+                                <img class="mu-rt-img" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fmale_dp.jpg?alt=media&token=579905b0-891d-41c2-9ed7-4b5ead39dee9" alt="img">
+                                <h5 class="mu-rt-name"> - Zeeon</h5>
+                                <span class="mu-rt-title">Cricketer</span>
                             </li>
 
                             <li>
-                                <p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever."</p>
-                                <img class="mu-rt-img" src="images/team-member-2.svg" alt="img">
-                                <h5 class="mu-rt-name"> - Jessica Doe</h5>
+                                <p>"I really like the positive vibe here."</p>
+                                <img class="mu-rt-img" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Ffemale_dp.jpg?alt=media&token=9ea42b0b-a39b-48d0-8db2-a20d3a5ded42" alt="img">
+                                <h5 class="mu-rt-name"> - Bubbles</h5>
                                 <span class="mu-rt-title">Web Developer</span>
                             </li>
 
@@ -444,13 +441,16 @@
             <div class="col-lg-6">
                 <div class="text-container">
                     <h2>Meet The Team Behind</h2>
-                    <p>Team Blueth</p>
-                    <button class="btn-solid-reg" onclick="http:/127.0.0.1:5502/about.html">Learn More</button>
+                    <h3 style="color:#0303c7">Team Monsters Inc.</h3>
+                    <h5 style="color:#1f8989">Iftekhar E Mahbub Zeeon</h5>
+                    <p>CSE, BUET</p>
+                    <h5 style="color:#1f8989">Fabiha Tasneem</h5>
+                    <p>CSE, BUET</p>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/details-1-office-worker.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fdevelopers.png?alt=media&token=458ed573-61c8-4840-a68b-3bbdf098b039" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
