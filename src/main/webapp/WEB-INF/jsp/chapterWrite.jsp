@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/writepage/froala_editor.css">
-<link rel="stylesheet" href="css/writepage/froala_style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 
@@ -49,11 +47,13 @@
                                 <progress id="uploader" value="0" max="100">0%</progress>
                             </div>
                         </div>
-
                         <input type="hidden" id="bookId" value="${bookId}" name="bookId">
                         <input type="hidden" id="chapterId" value="${chapterId}" name="chapterId">
                         <br>
                         <br>
+                        <div>
+                            ${draftDesign}
+                        </div>
                         <div style="justify-content: flex-end;" class="form-row">
                             <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
                             <button onclick="validateForm(0)" type="button" name="publishedStatus" class="btn btn-warning">Save to Draft</button>&nbsp;

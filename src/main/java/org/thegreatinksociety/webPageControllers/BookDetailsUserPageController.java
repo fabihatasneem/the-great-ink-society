@@ -47,6 +47,7 @@ public class BookDetailsUserPageController {
         model.addAttribute("publishStatus", books.getPublishStatus());
         model.addAttribute("description", books.getDescription());
         model.addAttribute("userId", books.getUser().getId());
+        model.addAttribute("bookCoverLink", books.getCoverPhotoLink());
 
         return "/bookDetailsUser";
     }

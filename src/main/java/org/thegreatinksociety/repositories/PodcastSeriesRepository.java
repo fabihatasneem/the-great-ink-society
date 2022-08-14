@@ -2,6 +2,7 @@ package org.thegreatinksociety.repositories;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
+import org.thegreatinksociety.entities.Books;
 import org.thegreatinksociety.entities.PodcastSeries;
 
 import java.util.List;
@@ -21,5 +22,5 @@ public interface PodcastSeriesRepository extends CrudRepository<PodcastSeries, L
 
     List<PodcastSeries> findByUser_IdAndPublishStatusOrderByNumberOfLikesDesc(Long userId, int publishStatus);
 
-
+    List<PodcastSeries> findByGenre_IdAndPublishStatusOrderByNumberOfLikesDesc(Long genreId, Pageable limitedData, int publishStatus);
 }

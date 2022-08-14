@@ -151,7 +151,7 @@
                          alt="Profile Picture" data-toggle="modal" data-target="#pictureModal"/>
                 </div>
                 <p>
-                <h3 style="color: white;" id="profileFullName">Full Name</h3>
+                <h3 style="color: white;" id="profileFullName"></h3>
                 <h6 style="color: rgb(196, 190, 190);" id="profileUsername">@</h6>
                 </p>
                 <p>

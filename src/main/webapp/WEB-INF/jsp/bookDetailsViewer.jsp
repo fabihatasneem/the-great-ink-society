@@ -57,21 +57,21 @@
                 <div class="container-fluid">
                     <div class="text-center">
                         <img style="max-width: 100%; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
-                        <h2 style="padding: 15px 0;">Book Name</h2>
+                        <h2 style="padding: 15px 0;">${bookName}</h2>
                     </div>
                     <div class="container extra">
                         <div class="row">
                             <div class="col-lg-7">
-                                <p><i class="fas fa-book-open"></i> Number of Chapters Published: 50</p>
-                                <p><i class="fas fa-language"></i> Language: </p>
-                                <p><i class="fas fa-theater-masks"></i> Genre: </p>
-                                <p><i class="fas fa-clock"></i> Last Updated 12/12/2021</p>
+                                <p><i class="fas fa-book-open"></i> Number of Chapters Published: ${numberOfChapters}</p>
+                                <p><i class="fas fa-language"></i> Language: ${language}</p>
+                                <p><i class="fas fa-theater-masks"></i> Genre: ${genre}</p>
+                                <p><i class="fas fa-clock"></i> Last Updated ${lastUpdated}</p>
                             </div>
                             <div class="col-lg-5">
-                                <p><i class="fas fa-eye"></i> Total Views 100</p>
-                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts 100</p>
-                                <p><i class="fas fa-comments"></i> Total Comments 100</p>
-                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won 5</p>
+                                <p><i class="fas fa-eye"></i> Total Views ${totalViews}</p>
+                                <p><i style="color: red;" class="fas fa-heart"></i> Total Reacts ${totalReacts}</p>
+                                <p><i class="fas fa-comments"></i> Total Comments ${totalComments}</p>
+                                <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won ${totalAwards}</p>
                             </div>
                             <br><br>
                         </div>
@@ -81,21 +81,7 @@
                     </h3>
                     <div class="container extra2">
                         <ul class="list-group list-group-flush">
-                            <a href="#"><li class="list-group-item">01. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">02. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">03. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">04. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
-                            <a href="#"><li class="list-group-item">05. justo odio
-                                <small><p><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-comments"></i> 100 <i class="fas fa-eye"></i> 100</p></small>
-                            </li></a>
+
                         </ul>
                     </div>
                 </div>
@@ -104,109 +90,15 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostPopular" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Viewed</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="myMostViewed" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
@@ -216,6 +108,75 @@
     </div>
 </section>
 <%@ include file="footer.jsp" %>
+
+<script>
+    $(document).ready(function () {
+        let bookId = ${bookId};
+        let completionStatus = ${completionStatus};
+        let publishStatus = ${publishStatus};
+        console.log(completionStatus);
+
+        $.post("<%=GlobalVariable.localUrl%>/getChaptersofBook", {bookId: bookId}, function (result) {
+            console.log(result);
+            let design = '';
+            let draftName = '';
+            let urlLink = '';
+            result.map(chapter => {
+                draftName = '';
+                if (chapter.status === 0) {
+                    draftName = ' <small style="color: red;">(Draft)</small> ';
+                    urlLink = '<%=GlobalVariable.localUrl%>/chapterWrite?chapterId=' + chapter.id;
+                } else {
+                    urlLink = '<%=GlobalVariable.localUrl%>/reading?id=' + chapter.id;
+                }
+
+                design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + chapter.chapterName +
+                    '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + chapter.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + chapter.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + chapter.totalViews + '</p></small>' +
+                    '</li></a>';
+
+            });
+
+            document.getElementById('chapterList').innerHTML = design;
+            let buttonsDesign = '';
+            if (completionStatus === 0) {
+                if (publishStatus == 1) {
+                    buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
+                        '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>';
+                }
+
+            } else {
+                buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
+            }
+
+            document.getElementById('buttons').innerHTML = buttonsDesign;
+        });
+
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyMostPopularBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let mostPopularBookDesign = '';
+
+            result.map( book => {
+                mostPopularBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myMostPopular').innerHTML = mostPopularBookDesign;
+        });
+
+
+    });
+</script>
 
 </body>
 </html>

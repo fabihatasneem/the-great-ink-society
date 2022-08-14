@@ -54,12 +54,14 @@ public class ReadingPageController {
         model.addAttribute("totalViews", chapter.getTotalViews());
         model.addAttribute("totalComments", chapter.getNumberOfComments());
         model.addAttribute("paragraph", text);
+        model.addAttribute("bookCoverPhotoLink", chapter.getBook().getCoverPhotoLink());
         model.addAttribute("userFullName", user.getFullName());
         model.addAttribute("userFollowers", user.getFollowers());
         model.addAttribute("numberOfAwards", user.getNumberOfAwards());
         model.addAttribute("numberOfBadges", user.getNumberOfBadges());
         model.addAttribute("numberOfReacts", user.getWritingLikes());
         model.addAttribute("userBio", user.getBio());
+        model.addAttribute("userProfileLink", user.getProfilePicLink());
 
         model.addAttribute("isWriter", isWriter);
         model.addAttribute("chapterId", chapter.getId());

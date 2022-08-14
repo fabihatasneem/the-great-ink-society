@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/writepage/froala_editor.css">
-<link rel="stylesheet" href="css/writepage/froala_style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 <style>
@@ -192,7 +190,6 @@
                                     </div>
                                     <div style="justify-content: flex-end;" class="form-row">
                                         <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
-                                        <button onclick="validateForm(0)" type="button" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
                                         <button onclick="validateForm(1)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Start Writing</button>
                                     </div>
                                 </form>
@@ -204,11 +201,6 @@
                                 <div id="publishedBooks" class="row people" style="row-gap: 30px;">
 
                                 </div>
-                                <br>
-                                <h3 style="padding: 20px;">Drafts</h3>
-                                <div id="draftBooks" class="row people" style="row-gap: 30px;">
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -218,51 +210,7 @@
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2F180-1804588_night-fury-toothless-dragon-png-download-stickers-how.png?alt=media&token=184b928a-95ee-46ec-ac94-454bf087097c" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-
-                                </div>
-                            </div>
+                        <div id="myDraftBooks" class="popular-post-list">
                         </div>
                     </div>
                 </div>
@@ -301,7 +249,7 @@
         });
         let username = '${username}';
 
-        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (result){
+        $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (result) {
            console.log(result);
            let publishedBookDesign = '';
            let draftBookDesign = '';
@@ -309,7 +257,7 @@
                 if (book.publishStatus === 1) {
                     publishedBookDesign += '<div class="col-md-12 col-lg-3 item">' +
                                             '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
-                                                '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                                                '<img style="max-width: 140px;" class="img-thumbnail" src="' + book.coverPhotoLink + '">' +
                                                 '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
                                                 '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
                                                 '<small><i style="color: red;" class="fas fa-heart"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + '</small>' +
@@ -318,7 +266,7 @@
                 } else {
                     draftBookDesign += '<div class="col-md-12 col-lg-3 item">' +
                         '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
-                        '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                        '<img style="max-width: 140px;" class="img-thumbnail" src="' + book.coverPhotoLink + '">' +
                         '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
                         '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
                         '</div> </a>' +
@@ -330,6 +278,27 @@
            document.getElementById('draftBooks').innerHTML = draftBookDesign;
 
         });
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyDraftBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let draftBookDesign = '';
+
+            result.map( book => {
+                draftBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="' + book.coverPhotoLink + '" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('myDraftBooks').innerHTML = draftBookDesign;
+        });
     });
 
     fileButton.addEventListener('change', function(e) {
@@ -339,37 +308,65 @@
 
     function validateForm(status) {
         $("#publishedStatus").val(status);
-        const firebaseConfig = {
-            apiKey: "${FIREBASE_API_KEY}",
-            authDomain: "${FIREBASE_AUTH_DOMAIN}",
-            projectId: "${FIREBASE_PROJECT_ID}",
-            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
-            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
-            appId: "${FIREBASE_APP_ID}",
-            measurementId: "${FIREBASE_MEASUREMENT_ID}"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("firebase initialized.");
+        console.log($("#genre").val(), '-', $("#language").val(), '-', $("#bookname").val(), '-', $("#description").val());
 
-        const storageRef = firebase.storage().ref('bookCover/' + file.name);
-        const task = storageRef.put(file);
-        task.on('state_changed', function progress(snapshot) {
-            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if ($("#genre").val() === null || $("#language").val() === null ||
+            $("#bookname").val() === '' || $("#description").val() === '') {
+            alert("Invalid input");
+        } else {
+            const firebaseConfig = {
+                apiKey: "${FIREBASE_API_KEY}",
+                authDomain: "${FIREBASE_AUTH_DOMAIN}",
+                projectId: "${FIREBASE_PROJECT_ID}",
+                storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+                messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+                appId: "${FIREBASE_APP_ID}",
+                measurementId: "${FIREBASE_MEASUREMENT_ID}"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            console.log("firebase initialized.");
 
-        }, function error(err) {
-            console.log(err);
-        }, function complete() {
-            // get the uploaded image url back
-            task.snapshot.ref.getDownloadURL().then(
-                function (downloadURL) {
-                    // You get your url from here
-                    console.log('File uploaded');
+            let fileName = '';
 
-                    $("#bookCoverFileName").val(downloadURL);
-                    document.getElementById("bookSubmitForm").submit();
+            if (file === undefined) {
+                fileName = 'noBookCover.jpg';
+
+                const storageRef = firebase.storage().ref('bookCover/' + fileName);
+
+                storageRef.getDownloadURL()
+                    .then((downloadURL) => {
+                        // `url` is the download URL for 'images/stars.jpg'
+
+                        $("#bookCoverFileName").val(downloadURL);
+                        document.getElementById("bookSubmitForm").submit();
+
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+
+                const storageRef = firebase.storage().ref('bookCover/' + file.name);
+                const task = storageRef.put(file);
+                task.on('state_changed', function progress(snapshot) {
+                    uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                }, function error(err) {
+                    console.log(err);
+                }, function complete() {
+                    // get the uploaded image url back
+                    task.snapshot.ref.getDownloadURL().then(
+                        function (downloadURL) {
+                            // You get your url from here
+                            console.log('File uploaded');
+
+                            $("#bookCoverFileName").val(downloadURL);
+                            document.getElementById("bookSubmitForm").submit();
+                        });
                 });
-        });
+            }
+        }
     }
 
     function tabChange() {

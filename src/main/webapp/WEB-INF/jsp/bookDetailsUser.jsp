@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
+<link rel="stylesheet" href="css/reading/bootstrap.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 
 <%--CSS Start--%>
@@ -56,7 +57,7 @@
             <div class="col-lg-8">
                 <div class="container-fluid">
                     <div class="text-center">
-                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
+                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="${bookCoverLink}">
                         <h2 style="padding: 15px 0;">${bookName}</h2>
                     </div>
                     <div class="container extra">
@@ -185,7 +186,7 @@
                     '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="blog-single.html">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
                     ' </div>' +
@@ -206,7 +207,7 @@
                     '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="blog-single.html">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
                     '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
@@ -216,28 +217,6 @@
 
             document.getElementById('myMostPopular').innerHTML = mostPopularBookDesign;
         });
-
-        <%--$.post("<%=GlobalVariable.localUrl%>/getMyMostViewedBooks", {userId: ${userId}}, function (result) {--%>
-        <%--    console.log(result);--%>
-
-        <%--    let mostViewedBookDesign = '';--%>
-
-        <%--    result.map( book => {--%>
-        <%--        mostViewedBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +--%>
-        <%--            ' <div class="thumb">' +--%>
-        <%--            '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +--%>
-        <%--            '</div>' +--%>
-        <%--            '<div class="details">' +--%>
-        <%--            '<a href="blog-single.html">' +--%>
-        <%--            '<h6>' + book.bookName + '</h6>' +--%>
-        <%--            '</a>' +--%>
-        <%--            '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + ' </p>' +--%>
-        <%--            ' </div>' +--%>
-        <%--            '</div>';--%>
-        <%--    });--%>
-
-        <%--    document.getElementById('myMostViewed').innerHTML = mostViewedBookDesign;--%>
-        <%--});--%>
 
 
     });

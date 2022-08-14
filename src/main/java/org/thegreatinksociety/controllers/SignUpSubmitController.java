@@ -29,6 +29,13 @@ public class SignUpSubmitController {
         user.setPassword(pass);
         Date today = new Date();
         user.setJoinedDate(today);
+
+        if (gender == "Male") {
+            user.setProfilePicLink(GlobalVariable.MALE_DP_LINK);
+        } else if (gender == "Female") {
+            user.setProfilePicLink(GlobalVariable.FEMALE_DP_LINK);
+        }
+
         usersRepository.save(user);
 
         response.sendRedirect(GlobalVariable.localUrl);
