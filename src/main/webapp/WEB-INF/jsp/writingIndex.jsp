@@ -6,7 +6,7 @@
 
 <!-- #header -->
 <!-- start banner Area -->
-<div class="parallax-content baner-content active" id="home">
+<div class="parallax-content baner-content active" id="home" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwriting-index.jpg?alt=media&token=899830a5-7209-4247-844e-2859822722b2);">
     <div class="container">
         <div class="first-content"></div>
     </div>
@@ -63,32 +63,32 @@
                 <h2>Continue From Where You Left Off</h2>
             </div>
             <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('images/img_4.jpg')"></div>
+                <div class="image" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/bookCover%2FnoBookCover.jpg?alt=media&token=a2db9408-750b-4997-bcee-f47811a3f89e')"></div>
                 <div class="text">
                     <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 08: How To Create Web Page Using Bootstrap 4</a>
+                        <a href="single-post.html">Chapter 1 : Prologue</a>
                     </h3>
                     <hr>
                     <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Episode Name
+                        Pride & Prejudice
                     </h6>
                     <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Mike Smith
+              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Jane Austen
                   <span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i
                           class="fas fa-comments"></i> 87
                 </small></span>
                     </div>
                     <hr>
                     <p class="mb-4">
-                        Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of
-                        type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                        also the
-                        leap into electronic typesetting, remaining essentially unchanged.
+                        It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
+                        However little known the feelings or views of such a man may be
+                        on his first entering a neighbourhood, this truth is so well fixed in the
+                        minds of the surrounding families, that he is considered the rightful
+                        property of some one or other of their daughters.
+                        "My dear Mr. Bennet," said his lady to him one day, "have you
+                        heard that Netherfield Park is let at last?"
 
-                        <a href="">
+                        <a href="#">
                             (...Continue)
                         </a>
 
@@ -117,10 +117,10 @@
                                 <div class="single-cat-widget">
                                     <div class="content relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <a href="#" target="_blank">
+                                        <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="img/blog/118Z_2012.w017.n001.334B.p15.334.jpg" alt=""/>
+                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F118Z_2012.w017.n001.334B.p15.334.jpg?alt=media&token=d7a3b5eb-1a24-451c-9e3a-b4132ba00e60" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -138,10 +138,10 @@
                                 <div class="single-cat-widget">
                                     <div class="content relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <a href="#" target="_blank">
+                                        <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="img/blog/silhouette-couple-love-kissing-sunset-couple-love-concept.jpg"
+                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fromance.jpg?alt=media&token=6561cd6a-0beb-4981-b7db-7188c937b848"
                                                      alt=""/>
                                             </div>
                                             <div class="content-details">
@@ -160,14 +160,14 @@
                                 <div class="single-cat-widget">
                                     <div class="content relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <a href="#" target="_blank">
+                                        <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="img/blog/7Z_2103.w030.n002.6B.p30.6.jpg" alt=""/>
+                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F7Z_2103.w030.n002.6B.p30.6.jpg?alt=media&token=a49653a1-95b8-49a5-9013-a91cf8504f47" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
-                                                    Sci Fi
+                                                    Sci-Fi
                                                 </h4>
                                                 <span></span>
                                             </div>
@@ -181,10 +181,10 @@
                                 <div class="single-cat-widget">
                                     <div class="content relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <a href="#" target="_blank">
+                                        <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="img/blog/horror.jpg" alt=""/>
+                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhorror.jpg?alt=media&token=eef7f4a0-c493-4550-8511-b17cd4d060eb" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -202,10 +202,10 @@
                                 <div class="single-cat-widget">
                                     <div class="content relative">
                                         <div class="overlay overlay-bg"></div>
-                                        <a href="#" target="_blank">
+                                        <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="img/blog/history.jpg" alt=""/>
+                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhistory.png?alt=media&token=74bc87e4-1a32-4a9f-81d3-65ce55482ffc" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -301,7 +301,7 @@
                 let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoLink + '" alt="No Cover Photo" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
@@ -321,7 +321,7 @@
                 let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                 let design = '<div class="col-md-4">' +
                     '<div class="product-item">' +
-                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoName + '" alt="" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
+                    '<a data-toggle="modal" data-target="#detailsModal" href="#"><img src="' + result[i].coverPhotoLink + '" alt="No Cover Photo" onclick="openModal(' + userId + ',' + result[i].id + ')"/></a>' +
                     '<div class="down-content">' +
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
@@ -343,7 +343,7 @@
                     let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
                     let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                     design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
-                        '<div class="image" style="background-image: url("' + result[i].coverPhotoName + '")"></div>' +
+                        '<div class="image" style="background-image: url("' + result[i].coverPhotoLink + '")"></div>' +
                         '<div class="text">' +
                         '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>' +
                         '<hr>' +
@@ -436,7 +436,7 @@
                 '<div class="col-lg-8">' +
                 '<div class="container-fluid">' +
                 '<div class="text-center">' +
-                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="images/' + result.coverPhotoName + '">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="' + result.coverPhotoLink + '">' +
                 '<hr>' +
                 '<h4>Description</h4> &nbsp;' +
                 '<p class="text-left">' + result.description + '</p>' +

@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="css/reading/main.css">
 
-<section class="banner-area relative">
+<section class="banner-area relative" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fevents.jpg?alt=media&token=0f8705a0-7794-4187-a290-4e2bb0c47118')">
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">

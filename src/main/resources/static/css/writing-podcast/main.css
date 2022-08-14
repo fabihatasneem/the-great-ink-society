@@ -926,7 +926,7 @@ h6 {
 }
 .top-category-widget-area {
   background-color: #f9f9ff;
-  background-image: url(../../images/product_01.jpg);
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fbanner.jpg?alt=media&token=0b2b2f4e-ad43-43c0-9123-81735c486855);
   background-attachment: fixed;
   background-size: cover;
   display: inline;
@@ -948,6 +948,7 @@ h6 {
 }
 .top-category-widget-area .single-cat-widget img {
   width: 100%;
+  height: 200px;
 }
 .top-category-widget-area .single-cat-widget .content-details {
   top: 32%;
