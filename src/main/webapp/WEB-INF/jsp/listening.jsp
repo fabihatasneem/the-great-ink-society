@@ -57,9 +57,11 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    Podcast Name
-                </h1>
+                <a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=${podcastId}">
+                    <h1 class="text-white">
+                        ${podcastName}
+                    </h1>
+                </a>
             </div>
         </div>
     </div>
@@ -85,7 +87,7 @@
                     <div class="user-details row">
                         <div class="col-lg-12">
                             <i class="fas fa-calendar-alt"></i> 12 Dec, 2017 &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-heart"></i> ${totalReacts} &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-heart"> ${totalReacts}</i>&nbsp; &nbsp;
                             <i class="fas fa-eye"></i> ${totalViews} Views &nbsp; &nbsp; &nbsp;
                             <i class="fas fa-comments"></i> ${totalComments} Comments
                         </div>
@@ -212,6 +214,20 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+
+        let episodeLiked = ${episodeLiked};
+
+        console.log('is Liked', episodeLiked);
+
+        if (episodeLiked === 1) {
+            console.log('here');
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
+            $("#heart").addClass("liked");
+        } else {
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
+            $("#heart").removeClass("liked");
+        }
+
         var mediaElements = document.querySelectorAll("video, audio"),
             total = mediaElements.length;
 
@@ -320,13 +336,25 @@
     }
 
     $("#heart").click(function () {
-        if ($("#heart").hasClass("liked")) {
-            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
-            $("#heart").removeClass("liked");
-        } else {
-            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
-            $("#heart").addClass("liked");
-        }
+        $.post("<%=GlobalVariable.localUrl%>/episodeLike", {userId: ${userId}, chapterId: ${episodeId}}, function (result) {
+            console.log(result);
+            if (result === true) {
+                if ($("#heart").hasClass("liked")) {
+                    $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
+                    $("#heart").removeClass("liked");
+
+                    totalReacts = totalReacts + 1;
+                    console.log(totalReacts);
+                    document.getElementById("totalReacts").innerHTML = totalReacts;
+                } else {
+                    $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
+                    $("#heart").addClass("liked");
+                }
+            } else {
+                alert('You already liked this chapter');
+            }
+        });
+
     });
 
 </script>

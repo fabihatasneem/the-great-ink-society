@@ -715,7 +715,7 @@
 
             for (let i = 0; i < data.length; i++) {
                 let design = '<div id="' + data[i].id + '" onclick="bookDetails(this)" class="card">' +
-                    '<img class="card-img-top" src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar">' +
+                    '<img class="card-img-top" src="' + data[i].coverPhotoLink + '" alt="Avatar">' +
                     '<div class="container"' +
                     'style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
                     '<h4><b>' + data[i].bookName + '</b></h4>' +
@@ -736,7 +736,7 @@
                 let design = '<div id="' + data[i].id + '" onclick="podcastDetails(this)" class="card" style="width: 100%;">' +
                     '<div class="card-horizontal">' +
                     '<div class="img-square-wrapper">' +
-                    '<img class="" src="http://via.placeholder.com/300x180"' +
+                    '<img class="" src="' + data[i].coverPhotoLink + '"' +
                     'alt = "Card image cap" style="width: 100%; height: 100%;">' +
                     ' </div>' +
                     '<div class="card-body">' +
@@ -745,9 +745,7 @@
                     '<i class="fas fa-comments"></i>' + data[i].numberOfComments + '&nbsp; ' +
                     '<i class="fas fa-eye"></i>' + data[i].totalViews + '</small>' +
                     '<hr>' +
-                    '<p class="card-text">Some quick example text to build on the card' +
-                    'title and make up the bulk of the cards content. Yo how is this' +
-                    'going good good no not good okay good</p>' +
+                    '<p class="card-text">' + data[i].description + '</p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -762,7 +760,7 @@
             } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
-                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        '<img src="' + data[i].profilePicLink +'" alt="" width="50px"' +
                         'class="rounded-sm ml-n2"/>' +
                         '<div class="flex-fill pl-3 pr-3">' +
                         '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
@@ -783,7 +781,7 @@
             } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
-                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        '<img src="'  + data[i].profilePicLink +  '" alt="" width="50px"' +
                         'class="rounded-sm ml-n2"/>' +
                         '<div class="flex-fill pl-3 pr-3">' +
                         '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
@@ -804,7 +802,7 @@
             } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
-                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        '<img src="'+ data[i].profilePicLink +'" alt="" width="50px"' +
                         'class="rounded-sm ml-n2"/>' +
                         '<div class="flex-fill pl-3 pr-3">' +
                         '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
@@ -825,7 +823,7 @@
             } else {
                 for (let i = 0; i < data.length; i++) {
                     let design = '<div class="list-group-item d-flex align-items-center" >' +
-                        '<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="50px"' +
+                        '<img src="'+ data[i].profilePicLink +'" alt="" width="50px"' +
                         'class="rounded-sm ml-n2"/>' +
                         '<div class="flex-fill pl-3 pr-3">' +
                         '<div><a href="#" class="text-dark font-weight-600">' + data[i].userName + '</a></div>' +
@@ -848,26 +846,6 @@
     function podcastDetails(element) {
         location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=" + element.id;
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var mediaElements = document.querySelectorAll("video, audio"),
-            total = mediaElements.length;
-
-        for (var i = 0; i < total; i++) {
-            new MediaElementPlayer(mediaElements[i], {
-                pluginPath:
-                    "https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/",
-                shimScriptAccess: "always",
-                success: function () {
-                    var target = document.body.querySelectorAll(".player"),
-                        targetTotal = target.length;
-                    for (var j = 0; j < targetTotal; j++) {
-                        target[j].style.visibility = "visible";
-                    }
-                },
-            });
-        }
-    });
 
     function tabChange() {
         var tabs = $(".nav-tabs > li");

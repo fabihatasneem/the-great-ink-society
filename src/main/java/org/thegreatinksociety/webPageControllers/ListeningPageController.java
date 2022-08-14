@@ -5,8 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thegreatinksociety.entities.ChapterLikeHistory;
+import org.thegreatinksociety.entities.EpisodeLikeHistory;
 import org.thegreatinksociety.entities.Episodes;
 import org.thegreatinksociety.entities.Users;
+import org.thegreatinksociety.repositories.EpisodeLikeHistoryRepository;
 import org.thegreatinksociety.repositories.EpisodesRepository;
 
 import javax.servlet.http.HttpSession;
@@ -17,10 +20,14 @@ public class ListeningPageController {
     @Autowired
     EpisodesRepository episodesRepository;
 
+    @Autowired
+    EpisodeLikeHistoryRepository episodeLikeHistoryRepository;
+
     @RequestMapping("/listening")
     public String getListeningPage(ModelMap model, @RequestParam Long episodeId, HttpSession session) {
 
         Episodes episode = episodesRepository.findEpisodesById(episodeId);
+        EpisodeLikeHistory episodeLike = episodeLikeHistoryRepository.findByUser_IdAndEpisodes_Id(Long.parseLong(session.getAttribute("userId").toString()), episodeId);
         Users user = episode.getUser();
         int isUploader = 0;
         if (user.getId() == Integer.parseInt(session.getAttribute("userId").toString())) {
@@ -47,6 +54,12 @@ public class ListeningPageController {
         model.addAttribute("numberOfReacts", user.getWritingLikes());
         model.addAttribute("userBio", user.getBio());
         model.addAttribute("userProfileLink", user.getProfilePicLink());
+
+        if (episodeLike == null) {
+            model.addAttribute("episodeLiked", 0);
+        } else {
+            model.addAttribute("episodeLiked", 1);
+        }
 
         model.addAttribute("isUploader", isUploader);
         model.addAttribute("episodeId", episode.getId());

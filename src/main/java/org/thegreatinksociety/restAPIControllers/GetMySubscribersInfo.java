@@ -30,6 +30,7 @@ public class GetMySubscribersInfo {
 
         List<Users> subscriberList = new ArrayList<>();
         for(Subscribers i : subscriberIdList){
+            System.out.println("Hello");
             subscriberList.add(usersRepository.findUsersById(i.getSubscriberId()));
         }
         return subscriberList;

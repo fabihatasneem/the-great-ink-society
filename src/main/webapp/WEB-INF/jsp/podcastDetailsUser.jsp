@@ -57,7 +57,7 @@
             <div class="col-lg-8">
                 <div class="container-fluid">
                     <div class="text-center">
-                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
+                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="${podcastCoverLink}">
                         <h2 style="padding: 15px 0;">${podcastName}</h2>
                     </div>
                     <div class="container extra">
@@ -102,11 +102,6 @@
             </div>
             <div class="col-lg-4">
                 <div class="widget-wrap">
-                    <div class="single-sidebar-widget popular-post-widget">
-                        <h4 class="popular-title">My Drafts</h4>
-                        <div id="myDraftPodcasts" class="popular-post-list">
-                        </div>
-                    </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
                         <div id="myMostPopular" class="popular-post-list">
@@ -208,7 +203,7 @@
             result.map( podcast => {
                 mostPopularPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="' + podcast.coverPhotoLink + '" alt="">' +
+                    '<img widht = "100" height = "100" src="' + podcast.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +

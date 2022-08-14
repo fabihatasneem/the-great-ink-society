@@ -1,6 +1,6 @@
 package org.thegreatinksociety.restAPIControllers;
 
-import org.json.simple.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +33,7 @@ public class GetPastEvents {
 
         List<Competitions> competitionsList = competitionsRepository.findCompetitionsByResultDateBefore(new Date());
         map.put("competitionsList", competitionsList);
-        JSONObject obj=new JSONObject();
+        //JSONObject obj=new JSONObject();
 
         for(Competitions c : competitionsList) {
 

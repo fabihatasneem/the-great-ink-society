@@ -8,8 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/writepage/froala_editor.css" />
-<link rel="stylesheet" href="css/writepage/froala_style.css" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css" />
 <link rel="stylesheet" href="css/reading/main.css" />
 
@@ -46,8 +45,8 @@
                         <div style="justify-content: flex-end" class="form-row">
                             <input type="hidden" name="publishedStatus" id="publishedStatus" value="" >
                             <button onclick="validateForm(0)" type="button" name="publishedStatus" value="0" class="btn btn-warning">Save to Draft</button>&nbsp;
-                            <button onclick="validateForm(0)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>&nbsp;
-                            <button onclick="validateForm(0)" type="button" name="publishedStatus" value="2" class="btn btn-danger">Cancel</button>
+                            <button onclick="validateForm(1)" type="button" name="publishedStatus" value="1" class="btn btn-primary">Publish</button>&nbsp;
+                            <button onclick="validateForm(2)" type="button" name="publishedStatus" value="2" class="btn btn-danger">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -113,6 +112,7 @@
 <script>
 
     let file;
+    let fileExtenstion;
     const uploader = document.getElementById('uploader');
     const fileButton = document.getElementById('episodeFile');
 
@@ -131,54 +131,55 @@
 
     function validateForm(status) {
         $("#publishedStatus").val(status);
-        const firebaseConfig = {
-            apiKey: "${FIREBASE_API_KEY}",
-            authDomain: "${FIREBASE_AUTH_DOMAIN}",
-            projectId: "${FIREBASE_PROJECT_ID}",
-            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
-            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
-            appId: "${FIREBASE_APP_ID}",
-            measurementId: "${FIREBASE_MEASUREMENT_ID}"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("firebase initialized.");
 
-        const storageRef = firebase.storage().ref('episodes/' + file.name);
-        const task = storageRef.put(file);
-        task.on('state_changed', function progress(snapshot) {
-            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        if (status == 2) {
+            location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=" + ${podcastId};
+        } else {
+            if ($("#episodename").val() === null || file === undefined) {
+                alert("Invalid input");
+            } else {
+                fileExtension = file.name.split('.').pop();
+                if (fileExtension === 'wav' || fileExtension === 'mp3') {
+                    const firebaseConfig = {
+                        apiKey: "${FIREBASE_API_KEY}",
+                        authDomain: "${FIREBASE_AUTH_DOMAIN}",
+                        projectId: "${FIREBASE_PROJECT_ID}",
+                        storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+                        messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+                        appId: "${FIREBASE_APP_ID}",
+                        measurementId: "${FIREBASE_MEASUREMENT_ID}"
+                    };
+                    // Initialize Firebase
+                    firebase.initializeApp(firebaseConfig);
+                    console.log("firebase initialized.");
 
-        }, function error(err) {
-            console.log(err);
-        }, function complete() {
-            // get the uploaded image url back
-            task.snapshot.ref.getDownloadURL().then(
-                function (downloadURL) {
-                    // You get your url from here
-                    console.log('File uploaded');
+                    const storageRef = firebase.storage().ref('episodes/' + file.name);
+                    const task = storageRef.put(file);
+                    task.on('state_changed', function progress(snapshot) {
+                        uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-                    $("#episodeFileName").val(downloadURL);
-                    document.getElementById("episodeSubmitForm").submit();
-                });
-        });
-    }
+                    }, function error(err) {
+                        console.log(err);
+                    }, function complete() {
+                        // get the uploaded image url back
+                        task.snapshot.ref.getDownloadURL().then(
+                            function (downloadURL) {
+                                // You get your url from here
+                                console.log('File uploaded');
 
-    (function () {
-        const editorInstance = new FroalaEditor("#edit", {
-            enter: FroalaEditor.ENTER_P,
-            placeholderText: null,
-            events: {
-                initialized: function () {
-                    const editor = this;
-                    this.el.closest("form").addEventListener("submit", function (e) {
-                        console.log(editor.$oel.val());
-                        e.preventDefault();
+                                $("#episodeFileName").val(downloadURL);
+                                document.getElementById("episodeSubmitForm").submit();
+                            });
                     });
-                },
-            },
-        });
-    })();
+                } else {
+                    alert('Invalid file format');
+                }
+            }
+
+        }
+
+
+    }
 </script>
 </body>
 

@@ -126,7 +126,7 @@
                                         <div class="custom-file col-md-6">
                                             <label for="podcastCover">Podcast Cover Photo(.jpg/.png)</label>
                                             <input type="file" class="form-control" id="podcastCover" name="podcastCover">
-                                            <input id="podcastCoverFileName" name="podcastCover" type="hidden" value="">
+                                            <input id="podcastCoverFileName" name="podcastCoverFile" type="hidden" value="">
                                             <progress id="uploader" value="0" max="100">0%</progress>
                                         </div>
                                     </div>
@@ -181,6 +181,7 @@
 
 <script>
     let file;
+    let fileExtension;
     const uploader = document.getElementById('uploader');
     const fileButton = document.getElementById('podcastCover');
 
@@ -235,37 +236,65 @@
 
     function validateForm(status) {
         $("#publishedStatus").val(status);
-        const firebaseConfig = {
-            apiKey: "${FIREBASE_API_KEY}",
-            authDomain: "${FIREBASE_AUTH_DOMAIN}",
-            projectId: "${FIREBASE_PROJECT_ID}",
-            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
-            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
-            appId: "${FIREBASE_APP_ID}",
-            measurementId: "${FIREBASE_MEASUREMENT_ID}"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log("firebase initialized.");
+        if ($("#genre").val() === null || $("#language").val() === null ||
+            $("#podcastName").val() === '' || $("#description").val() === '') {
+            alert("Invalid input");
+        } else {
+            const firebaseConfig = {
+                apiKey: "${FIREBASE_API_KEY}",
+                authDomain: "${FIREBASE_AUTH_DOMAIN}",
+                projectId: "${FIREBASE_PROJECT_ID}",
+                storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+                messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+                appId: "${FIREBASE_APP_ID}",
+                measurementId: "${FIREBASE_MEASUREMENT_ID}"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            console.log("firebase initialized.");
 
-        const storageRef = firebase.storage().ref('podcastCover/' + file.name);
-        const task = storageRef.put(file);
-        task.on('state_changed', function progress(snapshot) {
-            uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            let fileName = '';
 
-        }, function error(err) {
-            console.log(err);
-        }, function complete() {
-            // get the uploaded image url back
-            task.snapshot.ref.getDownloadURL().then(
-                function (downloadURL) {
-                    // You get your url from here
-                    console.log('File uploaded');
+            if (file === undefined) {
+                fileName = 'noPodcastCover.jpg';
+                const storageRef = firebase.storage().ref('podcastCover/' + fileName);
 
-                    $("#podcastCoverFileName").val(downloadURL);
-                    document.getElementById("podcastSubmitForm").submit();
-                });
-        });
+                storageRef.getDownloadURL()
+                    .then((downloadURL) => {
+
+                        $("#podcastCoverFileName").val(downloadURL);
+                        document.getElementById("podcastSubmitForm").submit();
+
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            } else {
+                fileExtension = file.name.split('.').pop();
+                if (fileExtension === 'jpg' || fileExtension === 'png' || fileExtension === 'jpeg') {
+                    const storageRef = firebase.storage().ref('podcastCover/' + file.name);
+                    const task = storageRef.put(file);
+                    task.on('state_changed', function progress(snapshot) {
+                        uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                    }, function error(err) {
+                        console.log(err);
+                    }, function complete() {
+                        // get the uploaded image url back
+                        task.snapshot.ref.getDownloadURL().then(
+                            function (downloadURL) {
+                                // You get your url from here
+                                console.log('File uploaded');
+
+                                $("#podcastCoverFileName").val(downloadURL);
+                                document.getElementById("podcastSubmitForm").submit();
+                            });
+                    });
+                } else {
+                    alert('Invalid image format');
+                }
+            }
+        }
     }
 
     function tabChange() {

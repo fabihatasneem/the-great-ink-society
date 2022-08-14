@@ -33,14 +33,6 @@ public class EpisodeSubmit {
         if(publishedStatus != 2) {
             Episodes episode = new Episodes();
 
-            String fileName;
-
-            if (episodeFileName.equals("")) {
-                fileName = "NoAudio.wav";
-            } else {
-                fileName = episodeFileName;
-            }
-
             String username = session.getAttribute("username").toString();
             Users user = usersRepository.findByUserName(username);
             long podcastId = Long.parseLong(session.getAttribute("podcastId").toString());
@@ -49,11 +41,11 @@ public class EpisodeSubmit {
             episode.setUser(user);
             episode.setPodcastSeries(podcast);
             episode.setEpisodeName(episodeName);
-            episode.setAudioFileName(fileName);
-            episode.setAudioFileLink(fileName);
+            episode.setAudioFileName(episodeFileName);
+            episode.setAudioFileLink(episodeFileName);
             episode.setStatus(publishedStatus);
-            episodesRepository.save(episode);
+            Episodes newEpisode = episodesRepository.save(episode);
+            response.sendRedirect(GlobalVariable.localUrl + "/listening?episodeId=" + newEpisode.getId());
         }
-        response.sendRedirect(GlobalVariable.localUrl + "/podcastCreate");
     }
 }

@@ -39,9 +39,11 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    ${bookName}
-                </h1>
+                <a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=${bookId}">
+                    <h1 class="text-white">
+                        ${bookName}
+                    </h1>
+                </a>
             </div>
         </div>
     </div>
@@ -67,7 +69,7 @@
                     <div class="user-details row">
                         <div class="col-lg-12">
                             <i class="fas fa-calendar-alt"></i> ${creationDate} &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-heart"></i> ${totalReacts} &nbsp; &nbsp; &nbsp;
+                            <i id="totalReacts" class="fas fa-heart"> ${totalReacts} </i>  &nbsp; &nbsp; &nbsp;
                             <i class="fas fa-eye"></i> ${totalViews} Views &nbsp; &nbsp; &nbsp;
                             <i class="fas fa-comments"></i> ${totalComments} Comments
                         </div>
@@ -130,7 +132,7 @@
             <div class="col-lg-4">
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget user-info-widget">
-                        <img src="${userProfileLink}" alt="">
+                        <img width="250" height="250" src="${userProfileLink}" alt="">
                         <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
                             <h4>${userFullName}</h4>
                         </a>
@@ -169,7 +171,20 @@
 <%@ include file="footer.jsp" %>
 <!-- End footer Area -->
 <script>
+    let totalReacts = ${totalReacts};
     $(document).ready(function () {
+
+        let chapterLiked = ${chapterLiked};
+
+        console.log('is Liked', chapterLiked);
+
+        if (chapterLiked === 1) {
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
+            $("#heart").addClass("liked");
+        } else {
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
+            $("#heart").removeClass("liked");
+        }
 
         let isWriter = ${isWriter};
         let buttonsDesign = '';
@@ -191,7 +206,7 @@
                     '<div class="single-comment justify-content-between d-flex">' +
                     '<div class="user justify-content-between d-flex">' +
                     '<div class="thumb">' +
-                    '<img src="img/blog/c2.jpg" alt="">' +
+                    '<img width="60" height="60" src="' + comment.user.profilePicLink + '" alt="">' +
                     '</div>' +
                     '<div class="desc">' +
                     '<h5><a href="#">' + comment.user.fullName + '</a></h5>' +
@@ -261,13 +276,25 @@
     }
 
     $("#heart").click(function () {
-        if ($("#heart").hasClass("liked")) {
-            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
-            $("#heart").removeClass("liked");
-        } else {
-            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
-            $("#heart").addClass("liked");
-        }
+        $.post("<%=GlobalVariable.localUrl%>/chapterLike", {userId: ${userId}, chapterId: ${chapterId}}, function (result) {
+            console.log(result);
+            if (result === true) {
+                if ($("#heart").hasClass("liked")) {
+                    $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
+                    $("#heart").removeClass("liked");
+
+                    totalReacts = totalReacts + 1;
+                    console.log(totalReacts);
+                    document.getElementById("totalReacts").innerHTML = totalReacts;
+                } else {
+                    $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
+                    $("#heart").addClass("liked");
+                }
+            } else {
+                alert('You already liked this chapter');
+            }
+        });
+
     });
 </script>
 

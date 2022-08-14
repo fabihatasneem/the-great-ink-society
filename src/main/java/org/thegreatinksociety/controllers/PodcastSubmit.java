@@ -46,7 +46,7 @@ public class PodcastSubmit {
     @RequestMapping(value = "/podcastSubmit")
     public void podcastSubmit(HttpServletResponse response, HttpSession session,
                               @RequestParam String podcastname, @RequestParam String description, @RequestParam long language,
-                              @RequestParam long genre, @RequestParam int publishedStatus, @RequestParam String podcastCover)
+                              @RequestParam long genre, @RequestParam int publishedStatus, @RequestParam String podcastCoverFile)
             throws ServletException, IOException {
         PodcastSeries podcast = new PodcastSeries();
         Language lang = languageRepository.findLanguageById(language);
@@ -55,14 +55,6 @@ public class PodcastSubmit {
         Users user = usersRepository.findByUserName(username);
         Date today = new Date();
 
-        String fileName;
-
-        if (podcastCover.equals("")) {
-            fileName = "noBookCover.jpg";
-        } else {
-            fileName = podcastCover;
-        }
-
         podcast.setUser(user);
         podcast.setSeriesName(podcastname);
         podcast.setLanguage(lang);
@@ -70,8 +62,8 @@ public class PodcastSubmit {
         podcast.setDescription(description);
         podcast.setCreationDate(today);
         podcast.setPublishStatus(publishedStatus);
-        podcast.setCoverPhotoName(fileName);
-        podcast.setCoverPhotoLink(fileName);
+        podcast.setCoverPhotoName(podcastCoverFile);
+        podcast.setCoverPhotoLink(podcastCoverFile);
         long podcastId = podcastSeriesRepository.save(podcast).getId();
         session.setAttribute("podcastId", podcastId);
         response.sendRedirect(GlobalVariable.localUrl + "/uploadEpisode");

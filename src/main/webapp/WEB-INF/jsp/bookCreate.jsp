@@ -5,7 +5,7 @@
   Time: 3:33 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="header.jsp" %>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
@@ -224,6 +224,7 @@
 <script>
 
     let file;
+    let fileExtension;
     const uploader = document.getElementById('uploader');
     const fileButton = document.getElementById('bookCover');
 
@@ -336,7 +337,6 @@
 
                 storageRef.getDownloadURL()
                     .then((downloadURL) => {
-                        // `url` is the download URL for 'images/stars.jpg'
 
                         $("#bookCoverFileName").val(downloadURL);
                         document.getElementById("bookSubmitForm").submit();
@@ -347,24 +347,29 @@
                     });
             } else {
 
-                const storageRef = firebase.storage().ref('bookCover/' + file.name);
-                const task = storageRef.put(file);
-                task.on('state_changed', function progress(snapshot) {
-                    uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                fileExtension = file.name.split('.').pop();
+                if (fileExtension === 'jpg' || fileExtension === 'png' || fileExtension === 'jpeg') {
+                    const storageRef = firebase.storage().ref('bookCover/' + file.name);
+                    const task = storageRef.put(file);
+                    task.on('state_changed', function progress(snapshot) {
+                        uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-                }, function error(err) {
-                    console.log(err);
-                }, function complete() {
-                    // get the uploaded image url back
-                    task.snapshot.ref.getDownloadURL().then(
-                        function (downloadURL) {
-                            // You get your url from here
-                            console.log('File uploaded');
+                    }, function error(err) {
+                        console.log(err);
+                    }, function complete() {
+                        // get the uploaded image url back
+                        task.snapshot.ref.getDownloadURL().then(
+                            function (downloadURL) {
+                                // You get your url from here
+                                console.log('File uploaded');
 
-                            $("#bookCoverFileName").val(downloadURL);
-                            document.getElementById("bookSubmitForm").submit();
-                        });
-                });
+                                $("#bookCoverFileName").val(downloadURL);
+                                document.getElementById("bookSubmitForm").submit();
+                            });
+                    });
+                } else {
+                    alert('Invalid image format');
+                }
             }
         }
     }
@@ -388,5 +393,4 @@
     }
 </script>
 </body>
-
 </html>
