@@ -149,9 +149,9 @@
                 draftName = '';
                 if (episode.status === 0) {
                     draftName = ' <small style="color: red;">(Draft)</small> ';
-                    urlLink = '<%=GlobalVariable.localUrl%>/chapterWrite?chapterId=' + episode.id;
+                    urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
                 } else {
-                    urlLink = '<%=GlobalVariable.localUrl%>/listening?id=' + episode.id;
+                    urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
                 }
 
                 design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + episode.episodeName +
@@ -179,42 +179,42 @@
         });
 
 
-        $.post("<%=GlobalVariable.localUrl%>/getMyDraftPodcasts", {userId: ${userId}}, function (result) {
-            console.log(result);
+        <%--$.post("<%=GlobalVariable.localUrl%>/getMyDraftPodcasts", {userId: ${userId}}, function (result) {--%>
+        <%--    console.log(result);--%>
 
-            let draftPodcastDesign = '';
+        <%--    let draftPodcastDesign = '';--%>
 
-            result.map( episode => {
-                draftPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
-                    ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
-                    '</div>' +
-                    '<div class="details">' +
-                    '<a href="blog-single.html">' +
-                    '<h6>' + episode.episodeName + '</h6>' +
-                    '</a>' +
-                    ' </div>' +
-                    '</div>';
-            });
+        <%--    result.map( episode => {--%>
+        <%--        draftPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +--%>
+        <%--            ' <div class="thumb">' +--%>
+        <%--            '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +--%>
+        <%--            '</div>' +--%>
+        <%--            '<div class="details">' +--%>
+        <%--            '<a href="blog-single.html">' +--%>
+        <%--            '<h6>' + episode.episodeName + '</h6>' +--%>
+        <%--            '</a>' +--%>
+        <%--            ' </div>' +--%>
+        <%--            '</div>';--%>
+        <%--    });--%>
 
-            document.getElementById('myDraftPodcasts').innerHTML = draftPodcastDesign;
-        });
+        <%--    document.getElementById('myDraftPodcasts').innerHTML = draftPodcastDesign;--%>
+        <%--});--%>
 
         $.post("<%=GlobalVariable.localUrl%>/getMyMostPopularPodcasts", {userId: ${userId}}, function (result) {
-            console.log(result);
+            console.log('Popular', result);
 
             let mostPopularPodcastDesign = '';
 
-            result.map( episode => {
+            result.map( podcast => {
                 mostPopularPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img class="img-fluid" src="' + podcast.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="blog-single.html">' +
-                    '<h6>' + episode.episodeName + '</h6>' +
+                    '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +
+                    '<h6>' + podcast.seriesName + '</h6>' +
                     '</a>' +
-                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + '</p>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + podcast.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + podcast.numberOfComments + '</p>' +
                     ' </div>' +
                     '</div>';
             });

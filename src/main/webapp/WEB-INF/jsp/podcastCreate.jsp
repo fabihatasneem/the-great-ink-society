@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/writepage/froala_editor.css">
-<link rel="stylesheet" href="css/writepage/froala_style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 
@@ -64,33 +62,11 @@
     color: orange;
   }
 
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 28%;
-    padding: unset;
-    height: fit-content;
-  }
-
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
 
   img {
     border-radius: 5px 5px 0 0;
   }
 
-  .card-img-top {
-    object-fit: contain;
-    height: 132px;
-  }
-
-  .card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-  }
 </style>
 <!-- CSS END -->
 
@@ -183,153 +159,17 @@
                         <div class="tab-pane fade" id="existing" role="tabpanel" aria-labelledby="existing-tab">
                             <div class="container">
                                 <h3 style="padding: 20px;">Published</h3>
-                                <div class="row people" style="row-gap: 30px;">
-                                    <div class="col-md-12 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-                                            <small><i style="color: red;" class="fas fa-heart"></i> 100 &nbsp; <i class="fas fa-eye"></i> 100</small>
-                                        </div>
-                                    </div>
+                                <div id="publishedPodcasts" class="row people" style="row-gap: 30px;">
+
                                 </div>
                                 <br>
-                                <h3 style="padding: 20px;">Drafts</h3>
-                                <div class="row people" style="row-gap: 30px;">
-                                    <div class="col-md-12 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box">
-                                            <img style="max-width: 140px;" class="img-thumbnail"
-                                                 src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-3 item">
-                                        <div class="box"><img style="max-width: 140px;" class="img-thumbnail"
-                                                              src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                            <h5 style="padding-top: 10px;" class="name">Podcast Name</h5>
-                                            <p style="margin-bottom: auto;">Episodes: 10</p>
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="widget-wrap">
-                    <div class="single-sidebar-widget popular-post-widget">
-                        <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
 
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -345,7 +185,9 @@
     const fileButton = document.getElementById('podcastCover');
 
     $(document).ready(function () {
-        $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result){
+        let username = '${username}';
+
+        $.post("<%=GlobalVariable.localUrl%>/getLanguage", {}, function(result) {
             console.log(result);
             let design = '';
             for (let i = 0; i < result.length; i++) {
@@ -355,7 +197,7 @@
             $("#language").append(design);
         });
 
-        $.post("<%=GlobalVariable.localUrl%>/getGenre", {}, function(result){
+        $.post("<%=GlobalVariable.localUrl%>/getGenre", {}, function(result) {
             console.log(result);
             let design = '';
             for (let i = 0; i < result.length; i++) {
@@ -363,6 +205,26 @@
             }
             console.log(design);
             $("#genre").append(design);
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getMyPodcastsInfo", {username: username}, function (result) {
+            console.log(result);
+            let publishedPodcastDesign = '';
+            result.map(podcast => {
+                if (podcast.publishStatus === 1) {
+                    publishedPodcastDesign += '<div class="col-md-12 col-lg-3 item">' +
+                        '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '"> <div class="box">' +
+                        '<img style="max-width: 140px;" class="img-thumbnail" src="' + podcast.coverPhotoLink + '">' +
+                        '<h5 style="padding-top: 10px;" class="name">' + podcast.seriesName + '</h5>' +
+                        '<p style="margin-bottom: auto;">Episodes: ' + podcast.numberOfEpisodes + '</p>' +
+                        '<small><i style="color: red;" class="fas fa-heart"></i> ' + podcast.numberOfLikes + ' &nbsp; <i class="fas fa-eye"></i> ' + podcast.totalViews + '</small>' +
+                        '</div> </a>' +
+                        '</div>';
+                }
+            });
+
+            document.getElementById('publishedPodcasts').innerHTML = publishedPodcastDesign;
+
         });
     });
 

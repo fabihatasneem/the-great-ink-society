@@ -20,10 +20,10 @@ public class CommentsOfPodcast {
     private Users user;
 
     @ManyToOne
-    private Chapters chapter;
+    private Episodes episode;
 
     @ManyToOne
-    private Books book;
+    private PodcastSeries podcastSeries;
 
     @Temporal(TemporalType.TIMESTAMP) @Column(nullable = false)
     private Date commentDate;

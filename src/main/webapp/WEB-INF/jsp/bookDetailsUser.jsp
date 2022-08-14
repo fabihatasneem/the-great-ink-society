@@ -57,7 +57,7 @@
             <div class="col-lg-8">
                 <div class="container-fluid">
                     <div class="text-center">
-                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
+                        <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"  src="${bookCoverLink}">
                         <h2 style="padding: 15px 0;">${bookName}</h2>
                     </div>
                     <div class="container extra">

@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/writepage/froala_editor.css">
-<link rel="stylesheet" href="css/writepage/froala_style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 <link rel="stylesheet" href="css/reading/main.css">
 <style>
@@ -259,7 +257,7 @@
                 if (book.publishStatus === 1) {
                     publishedBookDesign += '<div class="col-md-12 col-lg-3 item">' +
                                             '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
-                                                '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                                                '<img style="max-width: 140px;" class="img-thumbnail" src="' + book.coverPhotoLink + '">' +
                                                 '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
                                                 '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
                                                 '<small><i style="color: red;" class="fas fa-heart"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-eye"></i> ' + book.totalViews + '</small>' +
@@ -268,7 +266,7 @@
                 } else {
                     draftBookDesign += '<div class="col-md-12 col-lg-3 item">' +
                         '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '"> <div class="box">' +
-                        '<img style="max-width: 140px;" class="img-thumbnail" src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">' +
+                        '<img style="max-width: 140px;" class="img-thumbnail" src="' + book.coverPhotoLink + '">' +
                         '<h5 style="padding-top: 10px;" class="name">' + book.bookName + '</h5>' +
                         '<p style="margin-bottom: auto;">Chapters: ' + book.numberOfChapters + '</p>' +
                         '</div> </a>' +
@@ -289,10 +287,10 @@
             result.map( book => {
                 draftBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img class="img-fluid" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
-                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id="' + book.id + '>' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
                     ' </div>' +

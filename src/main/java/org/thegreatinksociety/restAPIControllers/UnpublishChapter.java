@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.thegreatinksociety.entities.Chapters;
-import org.thegreatinksociety.repositories.BooksRepository;
 import org.thegreatinksociety.repositories.ChaptersRepository;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-public class MakeChapterUnpublished {
+public class UnpublishChapter {
 
     @Autowired
     private ChaptersRepository chaptersRepository;

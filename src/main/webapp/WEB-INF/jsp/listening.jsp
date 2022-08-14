@@ -77,17 +77,17 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"
-                                 src="img/blog/feature-img1.jpg">
+                                 src="${podcastCoverPhotoLink}">
                         </div>
                     </div>
-                    <h3 class="mt-20 mb-10"> 01. Episode Name </h3>
-                    <a class="mb-10" href="#">Genre Name</a>
+                    <h3 class="mt-20 mb-10"> ${episodeName} </h3>
+                    <a class="mb-10" href="#">${genre}</a>
                     <div class="user-details row">
                         <div class="col-lg-12">
                             <i class="fas fa-calendar-alt"></i> 12 Dec, 2017 &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-heart"></i> 100 Reacts &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-eye"></i> 1.2M Views &nbsp; &nbsp; &nbsp;
-                            <i class="fas fa-comments"></i> 06 Comments
+                            <i class="fas fa-heart"></i> ${totalReacts} &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-eye"></i> ${totalViews} Views &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-comments"></i> ${totalComments} Comments
                         </div>
                     </div>
                     <hr style="margin-top: 10px;">
@@ -108,24 +108,13 @@
                                     through a
                                     self-imposed
                                 </p>
-                                <p>
-                                    Boot camps have its supporters and its detractors. Some people do not understand
-                                    why you
-                                    should have to spend money on boot camp when you can get the MCSE study
-                                    materials
-                                    yourself at a fraction of the camp price. However, who has the willpower to
-                                    actually sit
-                                    through a self-imposed MCSE training. who has the willpower to actually sit
-                                    through a
-                                    self-imposed
-                                </p>
                                 <div class="card" style="width: 100%;">
                                     <div class="card-horizontal">
                                         <div class="card-body">
                                             <hr>
                                             <div class="player">
                                                 <audio id="player2" preload="none" controls style="max-width: 100%">
-                                                    <source src="https://docs.google.com/uc?export=download&id=1HN3tB-ikKELErPHR00Zjda2fKxutyRuP" type="audio/mp3" />
+                                                    <source src="${audioFileLink}" type="audio/mp3" />
                                                 </audio>
                                             </div>
                                         </div>
@@ -136,8 +125,8 @@
                             <div name="heart" id="heart" class="text-left">
                                 <i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>
                             </div>
-                            <div class="text-right">
-                                <button class="btn btn-outline-warning"><i class="fas fa-flag"></i> Report</button>
+                            <div id="reportORunpublishButton" class="text-right">
+
                             </div>
                         </div>
                     </div>
@@ -163,203 +152,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="comments-area">
-                    <h4>05 Comments</h4>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c1.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Emilly Blunt</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c4.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Maria Luna</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="thumb">
-                                    <img src="img/blog/c5.jpg" alt="">
-                                </div>
-                                <div class="desc">
-                                    <h5><a href="#">Ina Hayes</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="comments" class="comments-area">
+                    <h4 id="numberOfComments"></h4>
                 </div>
                 <div class="comment-form">
                     <h4>Leave a Comment</h4>
-                    <form>
+                    <form action="<%=GlobalVariable.localUrl%>/submitCommentOfEpisode" method="POST">
                         <div class="form-group">
-								<textarea class="form-control mb-10" rows="5" name="message"
+								<textarea class="form-control mb-10" rows="5" name="commentDesc"
                                           placeholder="Your Comment..." onfocus="this.placeholder = ''"
                                           onblur="this.placeholder = 'Your Comment...'" required=""></textarea>
+                            <input type="hidden" name="episodeId" value="${episodeId}">
+                            <input type="hidden" name="podcastId" value="${podcastId}">
                         </div>
-                        <a href="#" class="primary-btn text-uppercase">Post Comment</a>
+                        <button type="submit" class="primary-btn text-uppercase">Post Comment</button>
                     </form>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget user-info-widget">
-                        <img src="img/blog/user-info.png" alt="">
-                        <a href="#">
-                            <h4>Charlie Barber</h4>
+                        <img src="${userProfileLink}" alt="">
+                        <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
+                            <h4>${userFullName}</h4>
                         </a>
                         <p>
-                            <i class="fas fa-user-friends"></i> 100 &nbsp; <i class="fas fa-award"></i> 3 &nbsp; <i
-                                style="color: #DAA520;" class="fas fa-trophy"></i> 3 &nbsp; <i class="fas fa-heart"
-                                                                                               style="color:red;"></i> 100
+                            <i class="fas fa-user-friends"></i> ${userFollowers} &nbsp; <i class="fas fa-award"></i> ${numberOfBadges} &nbsp; <i
+                                style="color: #DAA520;" class="fas fa-trophy"></i> ${numberOfAwards} &nbsp; <i class="fas fa-heart"
+                                                                                                               style="color:red;"></i> ${numberOfReacts}
                         </p>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-github"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                        </ul>
                         <p>
-                            User Bio: Boot camps have its supporters andit sdetractors. Some people do not
-                            understand why you
-                            should have to spend money on boot camp when you can get. Boot camps have itssuppor ters
-                            andits detractors.
+                            ${userBio}
                         </p>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Popular From This Author</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</p>
-                                </div>
-                            </div>
+                        <div id="sameUploaderPodcasts" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">More From This Genre</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                    <p> <i class="fas fa-user"></i> John Doe</p>
-                                    <small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i
-                                            class="fas fa-comments"></i> 87</small>
-                                </div>
-                            </div>
+                        <div id="sameGenrePodcasts" class="popular-post-list">
+
                         </div>
                         <span> <a style="margin-left: 70%;" href=""> View More </a> </span>
                     </div>
@@ -393,18 +229,106 @@
                 },
             });
         }
-    });
-    $(document).ready(function () {
-        $("#heart").click(function () {
-            if ($("#heart").hasClass("liked")) {
-                $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
-                $("#heart").removeClass("liked");
-            } else {
-                $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
-                $("#heart").addClass("liked");
-            }
+
+        let isUploader = ${isUploader};
+        let buttonsDesign = '';
+        console.log(isUploader);
+        if (isUploader === 1) {
+            buttonsDesign = '<button onclick="unpublishEpisode(${episodeId})" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i> Unpublish</button>';
+        } else {
+            buttonsDesign = '<button class="btn btn-outline-warning"><i class="fas fa-flag"></i> Report</button>';
+        }
+
+        document.getElementById('reportORunpublishButton').innerHTML = buttonsDesign;
+
+        $.post("<%=GlobalVariable.localUrl%>/getCommentsOfEpisode", {episodeId: ${episodeId}, podcastId: ${podcastId}}, function(result) {
+            console.log(result);
+            let design = '';
+            result.map(comment => {
+
+                design += '<div class="comment-list"> ' +
+                    '<div class="single-comment justify-content-between d-flex">' +
+                    '<div class="user justify-content-between d-flex">' +
+                    '<div class="thumb">' +
+                    '<img src="img/blog/c2.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="desc">' +
+                    '<h5><a href="#">' + comment.user.fullName + '</a></h5>' +
+                    '<p class="date">' + moment(comment.commentDate).format('MMMM Do YYYY, h:mm:ss a') + '</p>' +
+                    '<p class="comment">' + comment.commentDescription + '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+            });
+            document.getElementById('numberOfComments').innerHTML = result.length + ' Comments';
+            document.getElementById('comments').innerHTML += design;
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getSameGenrePodcasts", {genreId: ${genreId}}, function (result) {
+            console.log(result);
+
+            let genrePodcastDesign = '';
+
+            result.map( podcast => {
+                genrePodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +
+                    '<h6>' + podcast.seriesName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + podcast.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + podcast.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('sameGenrePodcasts').innerHTML = genrePodcastDesign;
+        });
+
+        $.post("<%=GlobalVariable.localUrl%>/getSameUploaderPodcasts", {userId: ${userId}}, function (result) {
+            console.log(result);
+
+            let sameUploaderPodcastDesign = '';
+
+            result.map( podcast => {
+                sameUploaderPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +
+                    '<h6>' + podcast.seriesName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + podcast.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + bpodcastook.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
+            });
+
+            document.getElementById('sameUploaderPodcasts').innerHTML = sameUploaderPodcastDesign;
         });
     });
+
+    function unpublishEpisode(episodeId) {
+        $.post("<%=GlobalVariable.localUrl%>/unpublishEpisode", {episodeId: episodeId}, function (result){
+            console.log(result);
+            if (result) {
+                location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=" + ${podcastId};
+            }
+        });
+    }
+
+    $("#heart").click(function () {
+        if ($("#heart").hasClass("liked")) {
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true"></i>');
+            $("#heart").removeClass("liked");
+        } else {
+            $("#heart").html('<i style="font-size: 25px;" class="fa fa-heart" aria-hidden="true"></i>');
+            $("#heart").addClass("liked");
+        }
+    });
+
 </script>
 </body>
 

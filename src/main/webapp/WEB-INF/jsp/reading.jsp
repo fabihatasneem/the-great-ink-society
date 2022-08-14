@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/reading/bootstrap.min.css">
+
 <link rel="stylesheet" href="css/reading/main.css">
 
 <style>
@@ -59,7 +59,7 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;"
-                                 src="img/blog/feature-img1.jpg">
+                                 src="${bookCoverPhotoLink}">
                         </div>
                     </div>
                     <h3 class="mt-20 mb-10"> ${chapterName} </h3>
@@ -130,7 +130,7 @@
             <div class="col-lg-4">
                 <div class="widget-wrap">
                     <div class="single-sidebar-widget user-info-widget">
-                        <img src="img/blog/user-info.png" alt="">
+                        <img src="${userProfileLink}" alt="">
                         <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
                             <h4>${userFullName}</h4>
                         </a>
@@ -139,12 +139,6 @@
                                 style="color: #DAA520;" class="fas fa-trophy"></i> ${numberOfAwards} &nbsp; <i class="fas fa-heart"
                                                                                                style="color:red;"></i> ${numberOfReacts}
                         </p>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-github"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                        </ul>
                         <p>
                             ${userBio}
                         </p>
@@ -188,38 +182,37 @@
 
         document.getElementById('reportORunpublishButton').innerHTML = buttonsDesign;
 
-        $(document).ready(function () {
-            $.post("<%=GlobalVariable.localUrl%>/getCommentsOfChapter", {chapterId: ${chapterId}, bookId: ${bookId}}, function(result) {
-                console.log(result);
-                let design = '';
-                result.map(comment => {
+        $.post("<%=GlobalVariable.localUrl%>/getCommentsOfChapter", {chapterId: ${chapterId}, bookId: ${bookId}}, function(result) {
+            console.log(result);
+            let design = '';
+            result.map(comment => {
 
-                    design += '<div class="comment-list"> ' +
-                                '<div class="single-comment justify-content-between d-flex">' +
-                                    '<div class="user justify-content-between d-flex">' +
-                                        '<div class="thumb">' +
-                                            '<img src="img/blog/c2.jpg" alt="">' +
-                                        '</div>' +
-                                        '<div class="desc">' +
-                                            '<h5><a href="#">' + comment.user.fullName + '</a></h5>' +
-                                            '<p class="date">' + moment(comment.commentDate).format('MMMM Do YYYY, h:mm:ss a') + '</p>' +
-                                            '<p class="comment">' + comment.commentDescription + '</p>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '</div>';
-                });
-                document.getElementById('numberOfComments').innerHTML = result.length + ' Comments';
-                document.getElementById('comments').innerHTML += design;
+                design += '<div class="comment-list"> ' +
+                    '<div class="single-comment justify-content-between d-flex">' +
+                    '<div class="user justify-content-between d-flex">' +
+                    '<div class="thumb">' +
+                    '<img src="img/blog/c2.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="desc">' +
+                    '<h5><a href="#">' + comment.user.fullName + '</a></h5>' +
+                    '<p class="date">' + moment(comment.commentDate).format('MMMM Do YYYY, h:mm:ss a') + '</p>' +
+                    '<p class="comment">' + comment.commentDescription + '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
             });
+            document.getElementById('numberOfComments').innerHTML = result.length + ' Comments';
+            document.getElementById('comments').innerHTML += design;
+        });
 
-            $.post("<%=GlobalVariable.localUrl%>/getSameGenreBooks", {genreId: ${genreId}}, function (result) {
-                console.log(result);
+        $.post("<%=GlobalVariable.localUrl%>/getSameGenreBooks", {genreId: ${genreId}}, function (result) {
+            console.log(result);
 
-                let genreBookDesign = '';
+            let genreBookDesign = '';
 
-                result.map( book => {
-                    genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+            result.map( book => {
+                genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
                     '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
                     '</div>' +
@@ -230,32 +223,31 @@
                     '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
                     ' </div>' +
                     '</div>';
-                });
-
-                document.getElementById('sameGenreBooks').innerHTML = genreBookDesign;
             });
 
-            $.post("<%=GlobalVariable.localUrl%>/getSameAuthorBooks", {userId: ${userId}}, function (result) {
-                console.log(result);
+            document.getElementById('sameGenreBooks').innerHTML = genreBookDesign;
+        });
 
-                let genreBookDesign = '';
+        $.post("<%=GlobalVariable.localUrl%>/getSameAuthorBooks", {userId: ${userId}}, function (result) {
+            console.log(result);
 
-                result.map( book => {
-                    genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
-                        ' <div class="thumb">' +
-                        '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
-                        '</div>' +
-                        '<div class="details">' +
-                        '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
-                        '<h6>' + book.bookName + '</h6>' +
-                        '</a>' +
-                        '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
-                        ' </div>' +
-                        '</div>';
-                });
+            let genreBookDesign = '';
 
-                document.getElementById('sameAuthorBooks').innerHTML = genreBookDesign;
+            result.map( book => {
+                genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
+                    ' <div class="thumb">' +
+                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '</div>' +
+                    '<div class="details">' +
+                    '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
+                    '<h6>' + book.bookName + '</h6>' +
+                    '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
+                    ' </div>' +
+                    '</div>';
             });
+
+            document.getElementById('sameAuthorBooks').innerHTML = genreBookDesign;
         });
     });
 
@@ -265,25 +257,6 @@
             if (result) {
                 location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + ${bookId};
             }
-        });
-    }
-
-    function submitComment(commentDesc, chapterId, bookId) {
-        $.post("<%=GlobalVariable.localUrl%>/submitCommentOfChapter", {chapterId: chapterId, bookId: bookId, commentDesc: commentDesc}, function (result){
-            console.log(result);
-            let design = '<div class="single-post-list d-flex flex-row align-items-center">' +
-                    '<div class="thumb">' +
-            ' <img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
-            ' </div>' +
-            '<div class="details">' +
-            '<a href="blog-single.html">' +
-            '<h6>Space The Final Frontier</h6>' +
-            '</a>' +
-            '<p> <i class="fas fa-user"></i> John Doe</p>' +
-            '<small><i class="fas fa-heart" style="color:red;"></i> 78 &nbsp; <i class="fas fa-comments"></i> 87</small>' +
-            '</div>' +
-            '</div>';
-
         });
     }
 
