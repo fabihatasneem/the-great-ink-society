@@ -10,7 +10,7 @@ public interface AwardsRepository extends CrudRepository<Awards, Long> {
 
     List<Awards> findByWinnerPodcastId(Long winnerPodcastId);
 
-
+    List<Awards> findByCompetition_CompetitionId(Long competitionId);
 
     List<Awards> findAwardByWinnerBookId (Long winnerBookId);
 

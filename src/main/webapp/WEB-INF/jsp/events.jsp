@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
-<link rel="stylesheet" href="css/event/style.css" />
+<link rel="stylesheet" href="css/event/style.css"/>
 
-<link rel="stylesheet" href="css/genre/nice-select.css" />
+<link rel="stylesheet" href="css/genre/nice-select.css"/>
 
 <link rel="stylesheet" href="css/reading/main.css">
 
@@ -113,77 +113,7 @@
             <h1>Past Events</h1>
         </div>
         <hr>
-        <div class="col-md-6">
-            <div class="product-item" style="background-color:white;">
-                <a href="#"><img src="images/genre/banner1.jpg" alt="" /></a>
-                <div class="down-content">
-                    <h3>Event Name</h3>
-                    <hr>
-                    <span style="font-size: 95%;">
-                            <i class="fas fa-award" style="color:goldenrod;"></i> Champion: A
-                            <br>
-                            <i class="fas fa-award" style="color:silver"></i> First Runner's Up: B
-                            <br>
-                            <i class="fas fa-award" style="color:chocolate;"></i> Second Runner's Up: C
-                            <br>
-                            <i class="fas fa-calendar"></i> Event Held On: 20 June, 2020
-                        </span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-item" style="background-color:white;">
-                <a href="#"><img src="images/genre/bg.jpg" alt="" /></a>
-                <div class="down-content">
-                    <h3>Event Name</h3>
-                    <hr>
-                    <span style="font-size: 95%;">
-                            <i class="fas fa-award" style="color:goldenrod;"></i> Champion: A
-                            <br>
-                            <i class="fas fa-award" style="color:silver"></i> First Runner's Up: B
-                            <br>
-                            <i class="fas fa-award" style="color:chocolate;"></i> Second Runner's Up: C
-                            <br>
-                            <i class="fas fa-calendar"></i> Event Held On: 20 June, 2020
-                        </span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-item" style="background-color:white;">
-                <a href="#"><img src="images/product_01.jpg" alt="" /></a>
-                <div class="down-content">
-                    <h3>Event Name</h3>
-                    <hr>
-                    <span style="font-size: 95%;">
-                            <i class="fas fa-award" style="color:goldenrod;"></i> Champion: A
-                            <br>
-                            <i class="fas fa-award" style="color:silver"></i> First Runner's Up: B
-                            <br>
-                            <i class="fas fa-award" style="color:chocolate;"></i> Second Runner's Up: C
-                            <br>
-                            <i class="fas fa-calendar"></i> Event Held On: 20 June, 2020
-                        </span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-item" style="background-color:white;">
-                <a href="#"><img src="images/1st-section.jpg" alt="" /></a>
-                <div class="down-content">
-                    <h3>Event Name</h3>
-                    <hr>
-                    <span style="font-size: 95%;">
-                            <i class="fas fa-award" style="color:goldenrod;"></i> Champion: A
-                            <br>
-                            <i class="fas fa-award" style="color:silver"></i> First Runner's Up: B
-                            <br>
-                            <i class="fas fa-award" style="color:chocolate;"></i> Second Runner's Up: C
-                            <br>
-                            <i class="fas fa-calendar"></i> Event Held On: 20 June, 2020
-                        </span>
-                </div>
-            </div>
+        <div id="pastEvents">
         </div>
     </div>
     <!--Past Events End-->
@@ -194,6 +124,51 @@
 
 <%@ include file="footer.jsp" %>
 
+<script>
+    $(document).ready(function () {
+        let username = '<%=session.getAttribute("username")%>';
+        let userId = '<%=session.getAttribute("userId")%>';
+        $.get("<%=GlobalVariable.localUrl%>/getPastEvents", {}, function (result) {
+            let design = '<div class="row">';
+            console.log(result);
+            for (var i = 0; i < result.length; i++) {
+                console.log(result);
+                design += '<div class="col-md-6">' +
+                    ' <div class="product-item" style="background-color:white;">' +
+                    '<a href="#"><img src="images/genre/banner1.jpg" alt="" /></a>' +
+                    '<div class="down-content">' +
+                    '<h3>' + result[i].competitionName + '</h3>' +
+                    '<hr>' +
+                    '<span style="font-size: 95%;">';
+                // if (result2 != null) {
+                //     if (result2[0] != null) {
+                //         design += '<i class="fas fa-award" style="color:goldenrod;"></i> ' + result2[0].rankName + ': ' + result2[0].winnerUserId +
+                //             '<br>';
+                //     }
+                //     if (result2[1] != null) {
+                //         design += '<i class="fas fa-award" style="color:silver"></i> First Runner\'s Up: ' + result2[1].rankName +
+                //             '<br>';
+                //     }
+                //     if (result2[2] != null) {
+                //         design += ' <i class="fas fa-award" style="color:chocolate;"></i> Second Runner\'s Up: ' + result2[2].rankName +
+                //             ' <br>';
+                //     }
+                // }
+                design += ' <i class="fas fa-calendar"></i> Event Held On: ' + result[i].entryDate +
+                    '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                if (i % 2 != 0) {
+                    design += '</div><div class="row">';
+                } else if (i == result.length - 1) {
+                    design += '</div>';
+                }
+            }
+            document.getElementById('pastEvents').innerHTML += design;
+        });
+    });
+</script>
 <!-- Scripts End -->
 </body>
 

@@ -17,7 +17,7 @@ public class Awards {
     private Competitions competition;
 
     @Column(nullable = false)
-    private String rank;
+    private int rank;
 
     @Column(nullable = false)
     private String rankName;

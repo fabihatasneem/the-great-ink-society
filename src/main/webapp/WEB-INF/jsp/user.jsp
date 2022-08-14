@@ -135,10 +135,7 @@
                 <div class="single-sidebar-widget popular-post-widget" align="center">
                     <button type="button" class="btn btn-outlined--black" style="color:white; background-color: limegreen" id="followBigBtn"
                             onclick="followOrUnfollow(${userId})">Follow
-                    </button>
-                    &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-outlined--black" style="color:white; background-color: crimson">Subscribe</button>
-                    <br>
+                    </button><br>
                     <br>
                     <p style="text-align: center;"> ${userBio}</p>
                 </div>
