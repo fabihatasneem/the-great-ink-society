@@ -12,20 +12,20 @@
 <link rel="stylesheet" href="css/homepage/slick.css" />
 
 <!-- Header -->
-<div id="header" class="header">
+<div id="header" class="header" style="background-color: #081328">
     <div class="header-content">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="text-container">
-                        <h1>Welcome To<br><span class="turquoise"> The Great Ink Society</span></h1>
+                        <h1 style="color:white">Welcome To<br><span class="turquoise"> The Great Ink Society</span></h1>
                         <p class="p-large">Let your stories be told. Let your imaginations be heard.</p>
-                        <a class="btn-solid-lg page-scroll" href="#services">DISCOVER</a>
+                        <a class="btn-solid-lg page-scroll" href="index.jsp">DISCOVER</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
+                        <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Findex.png?alt=media&token=718731f4-fe68-4153-a6bb-75c5cc03dbd3" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -40,14 +40,17 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/details-2-office-team-work.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fteam.png?alt=media&token=23183e0e-5e94-423f-a8e5-72ccb3477eb1" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="text-container">
                     <h2>Who We Are</h2>
-                    <p>A short detail about our community. Who join here and why?</p>
-                    <button class="btn-solid-reg"><a href="#">Learn More</a></button>
+                    <p>Do you have a story to tell? Do you have that silly poem hidden inside your notebook that you
+                        want to share with people all over the world? Do you have that stupid horror story recording in
+                        your phone that you want people to hear? Great! Then you are just like us.
+                    </p>
+                    <button class="btn-solid-reg"><a href="<%=GlobalVariable.localUrl%>/signup">Join Us</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -61,14 +64,17 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-container">
-                    <h2>What We Do</h2>
-                    <p>Basically we tell people our stories</p>
-                    <button class="btn-solid-reg"><a href="#">Learn More</a></button>
+                    <h2>What You Can Do</h2>
+                    <p>The Great Ink Society is a free online platform for creative people to share their creativity
+                        in textual or audio format. Here you can share your own fictions, poetry, music or anything
+                        you want ** definitely with proper copyright! **
+                    </p>
+                    <button class="btn-solid-reg"><a href="<%=GlobalVariable.localUrl%>/signup">Join Us</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/details-1-office-worker.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fcreativity.png?alt=media&token=654cd3c8-e1da-416c-9dd0-36e5af65fff0" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -82,14 +88,15 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/details-3-office-worker.svg" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwriting.png?alt=media&token=7de0dffc-eb70-4c0f-a57f-49be442fcf5f" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="text-container">
                     <h2>Write Your Own Stories</h2>
-                    <p>Reading writing paragraph content</p>
-                    <button class="btn-solid-reg"><a href="#">Start Writing</a></button>
+                    <p>Stop whining & start writing! We are hunting for all the writers of the world.
+                    So which story are you going to tell us?</p>
+                    <button class="btn-solid-reg"><a href="writingIndex.jsp">Start Writing</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -103,14 +110,14 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-container">
-                    <h2>Tell Us Your Stories</h2>
+                    <h2>Tell us your stories & keep our ears smiling with your podcasts. </h2>
                     <p>Podcast Content</p>
-                    <button class="btn-solid-reg"><a href="#">Start Storytelling</a></button>
+                    <button class="btn-solid-reg"><a href="podcastIndex.jsp">Start Storytelling</a></button>
                 </div> <!-- end of text-container -->
             </div> <!-- end of col -->
             <div class="col-lg-6">
                 <div class="image-container">
-                    <img class="img-fluid" src="images/details-4-office-worker.png" alt="alternative">
+                    <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Flistening.png?alt=media&token=d6563a0d-1784-4a26-b74f-0647415976ca" alt="alternative">
                 </div> <!-- end of image-container -->
             </div> <!-- end of col -->
         </div> <!-- end of row -->
@@ -132,7 +139,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="mu-single-counter">
                                     <i class="fa fa-users" aria-hidden="true"></i>
-                                    <div class="counter-value" data-count="650">0</div>
+                                    <div class="counter-value" data-count="650"></div>
                                     <h5 class="mu-counter-name">Total Members</h5>
                                 </div>
                             </div>
@@ -186,9 +193,7 @@
             <div class="row">
                 <div class="offset-lg-3 col-lg-6">
                     <div class="info">
-                        <h1>Explore Hundreds Of Categories</h1>
-                        <p>Aenean nec tempor metus. Maecenas ligula dolor, commodo in imperdiet interdum, vehicula
-                            ut ex. Donec ante diam.</p>
+                        <h1>Explore Various Categories</h1>
                     </div>
                 </div>
             </div>
@@ -197,44 +202,38 @@
             <div class="row">
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Science Fiction</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Mystery</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Adventure</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Humor</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Paranormal</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                     <a href="#" class="mini-box">
-                        <i><img src="images/work-process-item-01.png" alt=""></i>
+                        <i><img src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwork-process-item-01.png?alt=media&token=0a91db4e-e652-44fa-8988-d0b5917961eb" alt=""></i>
                         <strong>Horror</strong>
-                        <span>Godard pabst prism fam cliche.</span>
                     </a>
                 </div>
             </div>

@@ -16,15 +16,15 @@
 <div style="background-color: #111;">
     <div class="top-category-widget-area pt-90 pb-90">
         <div class="container text-center">
-            <h1 class="font-weight-medium" style="padding-top: 80px; margin-bottom: 40px; color: azure;">Genre</h1>
+            <h1 class="font-weight-medium" style="padding-top: 80px; margin-bottom: 35px; color: azure;">Genre</h1>
             <div class="row mx-auto my-auto">
-                <div class="row">
+                <div class="row" style="padding: 30px">
                     <div class="col-sm-3">
                         <div class="single-cat-widget">
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="content-image img-fluid d-block mx-auto"
-                                     src="img/blog/118Z_2012.w017.n001.334B.p15.334.jpg" alt="" />
+                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F118Z_2012.w017.n001.334B.p15.334.jpg?alt=media&token=d7a3b5eb-1a24-451c-9e3a-b4132ba00e60" alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
                                         Fantasy
@@ -39,7 +39,7 @@
                             <div class="content" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="content-image img-fluid d-block mx-auto"
-                                     src="img/blog/silhouette-couple-love-kissing-sunset-couple-love-concept.jpg"
+                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fromance.jpg?alt=media&token=6561cd6a-0beb-4981-b7db-7188c937b848"
                                      alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
@@ -55,10 +55,10 @@
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="content-image img-fluid d-block mx-auto"
-                                     src="img/blog/7Z_2103.w030.n002.6B.p30.6.jpg" alt="" />
+                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F7Z_2103.w030.n002.6B.p30.6.jpg?alt=media&token=a49653a1-95b8-49a5-9013-a91cf8504f47" alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
-                                        Sci Fi
+                                        Sci-Fi
                                     </h4>
                                     <span></span>
                                 </div>
@@ -69,7 +69,7 @@
                         <div class="single-cat-widget">
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="img/blog/horror.jpg"
+                                <img class="content-image img-fluid d-block mx-auto" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhorror.jpg?alt=media&token=eef7f4a0-c493-4550-8511-b17cd4d060eb"
                                      alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
@@ -80,11 +80,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row" style="padding: 10px"></div>
                     <div class="col-sm-3">
                         <div class="single-cat-widget">
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="img/blog/history.jpg"
+                                <img class="content-image img-fluid d-block mx-auto" src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhistory.png?alt=media&token=74bc87e4-1a32-4a9f-81d3-65ce55482ffc"
                                      alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
@@ -100,7 +101,7 @@
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="content-image img-fluid d-block mx-auto"
-                                     src="img/blog/silhouette-couple-love-kissing-sunset-couple-love-concept.jpg"
+                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fadv.jpg?alt=media&token=902e0f99-5681-49f9-8f13-7944fbd54873"
                                      alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
@@ -115,7 +116,7 @@
                         <div class="single-cat-widget">
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block " src="img/blog/history.jpg" alt="" />
+                                <img class="content-image img-fluid d-block " src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fspiritual.jpg?alt=media&token=7182285d-9121-4145-8643-98b00811ed96" alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
                                         Spiritual
@@ -130,7 +131,7 @@
                             <div class="content relative" onclick="showWrapperFunction()">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="content-image img-fluid d-block mx-auto"
-                                     src="img/blog/118Z_2012.w017.n001.334B.p15.334.jpg" alt="" />
+                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F118Z_2012.w017.n001.334B.p15.334.jpg?alt=media&token=d7a3b5eb-1a24-451c-9e3a-b4132ba00e60" alt="" />
                                 <div class="content-details">
                                     <h4 class="content-title mx-auto text-uppercase">
                                         Mystery
