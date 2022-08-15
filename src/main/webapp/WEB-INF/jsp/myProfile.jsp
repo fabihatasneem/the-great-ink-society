@@ -250,7 +250,7 @@
                                            id="useremail"></label>
                                 </i>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
+                            <div class="col-xl-6 col-lg-6 col-md-4 col-sm-6 col-12"
                                  style="margin-bottom: 10px;">
                                 <i style="color: #f50392; font-size: 18px;" class="fas fa-map-marker-smile">
                                     <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
@@ -273,30 +273,9 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
                                  style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #0c64ed; font-size: 18px;" class="fab fa-facebook">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userfb"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #f50392; font-size: 18px;" class="fab fa-instagram">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userinstagram"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
                                 <i style="color: #f17002; font-size: 18px;" class="fas fa-calendar-star">
                                     <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
                                            id="userjoindate"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #f17002; font-size: 18px;" class="fas fa-birthday-cake">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userbirthdate"></label>
                                 </i>
                             </div>
                         </div>
