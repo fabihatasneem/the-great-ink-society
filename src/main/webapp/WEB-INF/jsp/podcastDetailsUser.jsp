@@ -66,7 +66,6 @@
                                 <p><i class="fas fa-book-open"></i> Number of Episodes Published: ${numberOfEpisodes}</p>
                                 <p><i class="fas fa-language"></i> Language: ${language}</p>
                                 <p><i class="fas fa-theater-masks"></i> Genre: ${genre}</p>
-                                <p><i class="fas fa-clock"></i> Last Updated 12/12/2021</p>
                             </div>
                             <div class="col-lg-5">
                                 <p><i class="fas fa-eye"></i> Total Views ${totalViews}</p>
@@ -78,7 +77,7 @@
                             <form>
                                 <div class="form-group mt-20">
                                     <textarea name="description" id="description" class="form-control" placeholder="Description">${description}</textarea>
-                                    <input type="hidden" name="bookId" value="${podcastId}">
+                                    <input type="hidden" name="podcastIdId" value="${podcastId}">
                                 </div>
                                 <div style="justify-content: flex-end;" class="form-row">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>&nbsp;
@@ -203,7 +202,7 @@
             result.map( podcast => {
                 mostPopularPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img widht = "100" height = "100" src="' + podcast.coverPhotoLink + '" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + podcast.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +

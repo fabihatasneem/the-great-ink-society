@@ -48,6 +48,14 @@ public class BookDetailsViewerPageController {
         model.addAttribute("publishStatus", books.getPublishStatus());
         model.addAttribute("description", books.getDescription());
         model.addAttribute("userId", books.getUser().getId());
+        model.addAttribute("userProfileLink", books.getUser().getProfilePicLink());
+        model.addAttribute("userFullName", books.getUser().getFullName());
+        model.addAttribute("userFollowers", books.getUser().getFollowers());
+        model.addAttribute("numberOfBadges", books.getUser().getNumberOfBadges());
+        model.addAttribute("numberOfAwards", books.getUser().getNumberOfAwards());
+        model.addAttribute("numberOfReacts", books.getUser().getWritingLikes());
+        model.addAttribute("userBio", books.getUser().getBio());
+        model.addAttribute("bookCoverLink", books.getCoverPhotoLink());
 
         return "bookDetailsViewer";
     }

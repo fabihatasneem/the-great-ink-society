@@ -229,7 +229,7 @@
             result.map( book => {
                 genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
@@ -251,7 +251,7 @@
             result.map( book => {
                 genreBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +

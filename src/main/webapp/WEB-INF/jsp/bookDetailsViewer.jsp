@@ -56,7 +56,7 @@
             <div class="col-lg-8">
                 <div class="container-fluid">
                     <div class="text-center">
-                        <img style="max-width: 100%; height: auto; min-width: 300px; max-height: 350px;"  src="img/blog/feature-img1.jpg">
+                        <img style="max-width: 100%; height: auto; min-width: 300px; max-height: 350px;"  src="${bookCoverLink}">
                         <h2 style="padding: 15px 0;">${bookName}</h2>
                     </div>
                     <div class="container extra">
@@ -74,6 +74,13 @@
                                 <p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won ${totalAwards}</p>
                             </div>
                             <br><br>
+                            <form method="POST" action="<%=GlobalVariable.localUrl%>/bookEdit">
+                                <div class="form-group mt-20">
+                                    <label style="font-weight: bold;" for="description">Description</label>
+                                    <textarea disabled name="description" id="description" class="form-control" placeholder="Description">${description}</textarea>
+                                    <input type="hidden" name="bookId" value="${bookId}">
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <h3 style="margin: 20px 0;">
@@ -88,6 +95,20 @@
             </div>
             <div class="col-lg-4">
                 <div class="widget-wrap">
+                    <div class="single-sidebar-widget user-info-widget">
+                        <img width="250" height="250" src="${userProfileLink}" alt="">
+                        <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
+                            <h4>${userFullName}</h4>
+                        </a>
+                        <p>
+                            <i class="fas fa-user-friends"></i> ${userFollowers} &nbsp; <i class="fas fa-award"></i> ${numberOfBadges} &nbsp; <i
+                                style="color: #DAA520;" class="fas fa-trophy"></i> ${numberOfAwards} &nbsp; <i class="fas fa-heart"
+                                                                                                               style="color:red;"></i> ${numberOfReacts}
+                        </p>
+                        <p>
+                            ${userBio}
+                        </p>
+                    </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
                         <div id="myMostPopular" class="popular-post-list">
@@ -137,18 +158,7 @@
             });
 
             document.getElementById('chapterList').innerHTML = design;
-            let buttonsDesign = '';
-            if (completionStatus === 0) {
-                if (publishStatus == 1) {
-                    buttonsDesign = '<button onclick="completeBook(${bookId})" class="btn btn-warning">Make Completed <i class="fas fa-check-circle"></i></button> ' +
-                        '<button class="btn btn-primary"><a style="color: white" href="<%=GlobalVariable.localUrl%>/chapterWrite?chapterNo=${nextChapterNo}"> Add a New Chapter </a></button>';
-                }
 
-            } else {
-                buttonsDesign = '<button class="btn btn-success">Completed <i class="fas fa-check-circle"></i></button>';
-            }
-
-            document.getElementById('buttons').innerHTML = buttonsDesign;
         });
 
 
@@ -160,7 +170,7 @@
             result.map( book => {
                 mostPopularBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +

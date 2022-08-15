@@ -38,6 +38,7 @@ public class UserProfilePageController {
         model.addAttribute("competitionCount", user.getCompetitions().size());
         model.addAttribute("userBio", user.getBio());
         model.addAttribute("location", user.getLocation());
+        model.addAttribute("profilePicLink", user.getProfilePicLink());
 
         Badges currentBadge = badgesRepository.findBadgesById((long) user.getCurrentBadgeId());
         if (currentBadge != null) {

@@ -21,14 +21,19 @@ public class GetPodcastPageController {
     @RequestMapping("/podcastDetails")
     public void getPodcastDetailsPage(@RequestParam Long id, HttpSession session, HttpServletResponse response) throws IOException {
         session.setAttribute("podcastId", id);
-        Long userId = Long.valueOf(session.getAttribute("userId").toString());
 
-        PodcastSeries podcast = podcastSeriesRepository.findPodcastSeriesById(id);
-
-        if (userId.equals(podcast.getUser().getId())) {
-            response.sendRedirect(GlobalVariable.localUrl + "/podcastDetailsUser?id=" + id);
-        } else {
+        if (session.getAttribute("userId") == null) {
             response.sendRedirect(GlobalVariable.localUrl + "/podcastDetailsViewer?id=" + id);
+        } else {
+            Long userId = Long.valueOf(session.getAttribute("userId").toString());
+
+            PodcastSeries podcast = podcastSeriesRepository.findPodcastSeriesById(id);
+
+            if (userId.equals(podcast.getUser().getId())) {
+                response.sendRedirect(GlobalVariable.localUrl + "/podcastDetailsUser?id=" + id);
+            } else {
+                response.sendRedirect(GlobalVariable.localUrl + "/podcastDetailsViewer?id=" + id);
+            }
         }
     }
 }

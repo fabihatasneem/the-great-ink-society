@@ -20,7 +20,7 @@
                     <div class="text-container">
                         <h1 style="color:white">Welcome To<br><span class="turquoise"> The Great Ink Society</span></h1>
                         <p class="p-large">Let your stories be told. Let your imaginations be heard.</p>
-                        <a class="btn-solid-lg page-scroll" href="index.jsp">DISCOVER</a>
+                        <a class="btn-solid-lg page-scroll" href="<%=GlobalVariable.localUrl%>">DISCOVER</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">

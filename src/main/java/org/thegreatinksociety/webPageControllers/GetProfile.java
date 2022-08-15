@@ -20,11 +20,18 @@ public class GetProfile {
 
     @RequestMapping("/getProfile")
     public void getProfile(@RequestParam Long id, HttpSession session, HttpServletResponse response) throws IOException {
-        if (id == Long.parseLong(session.getAttribute("userId").toString())) {
-            response.sendRedirect(GlobalVariable.localUrl + "/myProfile");
-        } else {
+
+        if (session.getAttribute("userId") == null) {
             Users user = usersRepository.findUsersById(id);
             response.sendRedirect(GlobalVariable.localUrl + "/userProfile?username=" + user.getUserName());
+        } else {
+            if (id == Long.parseLong(session.getAttribute("userId").toString())) {
+                response.sendRedirect(GlobalVariable.localUrl + "/myProfile");
+            } else {
+                Users user = usersRepository.findUsersById(id);
+                response.sendRedirect(GlobalVariable.localUrl + "/userProfile?username=" + user.getUserName());
+            }
         }
+
     }
 }

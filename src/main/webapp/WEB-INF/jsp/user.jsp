@@ -105,7 +105,7 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
-                <img src="img/blog/user-info.png" class="img-circle img-profile img-thumbnail lazy"
+                <img src="${profilePicLink}" class="img-circle img-profile img-thumbnail lazy"
                      alt="User profile" style="border-radius: 50%; width: 150px; height: 150px"/>
                 <p>
                 <h3 style="color: white;">${userFullName}</h3>
@@ -597,8 +597,8 @@
         $.post("<%=GlobalVariable.localUrl%>/getSameAuthorBooks", {userId: userId}, function (result) {
             console.log(result);
             for (var i = 0; i < result.length; i++) {
-                let design = '<div class="card">' +
-                    '<img class="card-img-top" src="images/' + result[i].coverPhotoName + '" alt="Avatar">' +
+                let design = '<div id="' + result[i].id + '" class="card" onclick="bookDetails(this)">' +
+                    '<img class="card-img-top" src="' + result[i].coverPhotoLink + '" alt="Avatar">' +
                     '<div class="container" style="padding-top: 8px; padding-right: 5px; padding-left: 5px;">' +
                     '<h4><b>' + result[i].bookName + '</b></h4>' +
                     '<p><small><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; ' +
@@ -613,10 +613,10 @@
         $.post("<%=GlobalVariable.localUrl%>/getSameUploaderPodcasts", {userId: userId}, function (result) {
             console.log(result);
             for (var i = 0; i < result.length; i++) {
-                let design = '<div class="card" style="width: 100%;">' +
+                let design = '<div id="' + result[i].id + '" onclick="podcastDetails(this)" class="card" style="width: 100%;">' +
                     '<div class="card-horizontal">' +
-                    '<div class="img-square-wrapper" style="width: 55%">' +
-                    '<img class="" src="images/' + result[i].coverPhotoName + '" alt="Card image cap" style="width: 100%; height: 100%;">' +
+                    '<div class="img-square-wrapper">' +
+                    '<img class="" src="' + result[i].coverPhotoLink + '" alt="Card image cap" style="width: 200px; height: 200px;">' +
                     '</div>' +
                     '<div class="card-body">' +
                     '<h4>' + result[i].seriesName + '</h4>' +
@@ -625,11 +625,6 @@
                     '<i class="fas fa-eye"></i> ' + result[i].totalViews + '</small>' +
                     '<hr>' +
                     '<p class="card-text">' + result[i].description + ' </p>' +
-                    '<div class="player">' +
-                    '<audio id="player2" preload="none" controls style="max-width: 100%">' +
-                    '<source src="http://www.largesound.com/ashborytour/sound/brobob.mp3" type="audio/mp3" />' +
-                    '</audio>' +
-                    '</div> ' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -641,18 +636,9 @@
             console.log(result);
             for (var i = 0; i < result.length; i++) {
                 let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].id;
-                let imageName;
-                if (result[i].profilePicName != null) {
-                    imageName = result[i].profilePicName;
-                } else {
-                    if (result[i].gender == 'Male') {
-                        imageName = 'male_dp.jpg';
-                    } else {
-                        imageName = 'female_dp.jpg';
-                    }
-                }
+
                 let design = '<div class="list-group-item d-flex align-items-center">' +
-                    '<img src="images/' + imageName + '" alt="" width="50px" class="rounded-sm ml-n2"/>' +
+                    '<img src="' + result[i].profilePicLink + '" alt="" width="50px" class="rounded-sm ml-n2"/>' +
                     '<div class="flex-fill pl-3 pr-3">' +
                     '<div><a href="' + userProfileUrl + '" class="text-dark font-weight-600">' + result[i].fullName + '</a></div>' +
                     '<div class="text-muted fs-13px"><small><i class="fas fa-users"></i> ' + result[i].followers + ' &nbsp;' +
@@ -668,27 +654,41 @@
 
     function followOrUnfollow(followingId) {
         let followerId = '<%=session.getAttribute("userId")%>';
-        let profileId = '${userId}';
-        let btn;
-        if(followingId != profileId){
-            btn = document.getElementById('followSmallBtn_' + followingId);
-        } else{
-            btn = document.getElementById('followBigBtn');
-        }
-        $.post("<%=GlobalVariable.localUrl%>/followUnfollowUser", {
-            followerId: followerId,
-            followingId: followingId
-        }, function (result) {
-            if (result.status == 1) {
-                btn.textContent = "Unfollow";
-                btn.style.backgroundColor = 'orangered';
-                btn.style.color = 'white';
-            } else {
-                btn.textContent = "Follow";
-                btn.style.backgroundColor = 'limegreen';
-                btn.style.color = 'white';
+        console.log(followerId);
+        if (followerId == 'null') {
+            alert('You need to login first');
+            location.href = "<%=GlobalVariable.localUrl%>/signIn";
+        } else {
+            let profileId = '${userId}';
+            let btn;
+            if(followingId != profileId){
+                btn = document.getElementById('followSmallBtn_' + followingId);
+            } else{
+                btn = document.getElementById('followBigBtn');
             }
-        });
+            $.post("<%=GlobalVariable.localUrl%>/followUnfollowUser", {
+                followerId: followerId,
+                followingId: followingId
+            }, function (result) {
+                if (result.status == 1) {
+                    btn.textContent = "Unfollow";
+                    btn.style.backgroundColor = 'orangered';
+                    btn.style.color = 'white';
+                } else {
+                    btn.textContent = "Follow";
+                    btn.style.backgroundColor = 'limegreen';
+                    btn.style.color = 'white';
+                }
+            });
+        }
+    }
+
+    function bookDetails(element) {
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + element.id;
+    }
+
+    function podcastDetails(element) {
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetails?id=" + element.id;
     }
 
     document.addEventListener("DOMContentLoaded", function () {

@@ -5,12 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.thegreatinksociety.entities.ChapterLikeHistory;
-import org.thegreatinksociety.entities.EpisodeLikeHistory;
-import org.thegreatinksociety.entities.Episodes;
-import org.thegreatinksociety.entities.Users;
+import org.thegreatinksociety.entities.*;
 import org.thegreatinksociety.repositories.EpisodeLikeHistoryRepository;
 import org.thegreatinksociety.repositories.EpisodesRepository;
+import org.thegreatinksociety.repositories.PodcastSeriesRepository;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,10 +21,17 @@ public class ListeningPageController {
     @Autowired
     EpisodeLikeHistoryRepository episodeLikeHistoryRepository;
 
+    @Autowired
+    PodcastSeriesRepository podcastSeriesRepository;
+
     @RequestMapping("/listening")
     public String getListeningPage(ModelMap model, @RequestParam Long episodeId, HttpSession session) {
+        if (session.getAttribute("userId") == null) {
+            return "signin";
+        }
 
         Episodes episode = episodesRepository.findEpisodesById(episodeId);
+        PodcastSeries podcast = episode.getPodcastSeries();
         EpisodeLikeHistory episodeLike = episodeLikeHistoryRepository.findByUser_IdAndEpisodes_Id(Long.parseLong(session.getAttribute("userId").toString()), episodeId);
         Users user = episode.getUser();
         int isUploader = 0;
@@ -67,6 +72,10 @@ public class ListeningPageController {
         model.addAttribute("userId", episode.getUser().getId());
         model.addAttribute("genreId", episode.getPodcastSeries().getGenre().getId());
 
+        episode.setTotalViews(episode.getTotalViews() + 1);
+        podcast.setTotalViews(podcast.getTotalViews() + 1);
+        episodesRepository.save(episode);
+        podcastSeriesRepository.save(podcast);
 
         return "listening";
     }

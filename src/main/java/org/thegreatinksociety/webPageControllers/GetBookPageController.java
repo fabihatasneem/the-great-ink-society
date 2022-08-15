@@ -22,14 +22,19 @@ public class GetBookPageController {
     @RequestMapping("/bookDetails")
     public void getBookDetailsPage(@RequestParam Long id, HttpSession session, HttpServletResponse response) throws IOException {
         session.setAttribute("bookId", id);
-        Long userId = Long.valueOf(session.getAttribute("userId").toString());
 
-        Books books = booksRepository.findBooksById(id);
-
-        if (userId.equals(books.getUser().getId())) {
-            response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + id);
-        } else {
+        if (session.getAttribute("userId") == null) {
             response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsViewer?id=" + id);
+        } else {
+            Long userId = Long.valueOf(session.getAttribute("userId").toString());
+
+            Books books = booksRepository.findBooksById(id);
+
+            if (userId.equals(books.getUser().getId())) {
+                response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + id);
+            } else {
+                response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsViewer?id=" + id);
+            }
         }
     }
 }

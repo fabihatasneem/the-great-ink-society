@@ -6,7 +6,7 @@
 
 <!-- #header -->
 <!-- start banner Area -->
-<div class="parallax-content baner-content active" id="home" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwriting-index.jpg?alt=media&token=899830a5-7209-4247-844e-2859822722b2);">
+<div class="parallax-content baner-content active" id="home" style="background-image: url('${coverLink}');">
     <div class="container">
         <div class="first-content"></div>
     </div>
@@ -120,7 +120,7 @@
                                         <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F118Z_2012.w017.n001.334B.p15.334.jpg?alt=media&token=d7a3b5eb-1a24-451c-9e3a-b4132ba00e60" alt=""/>
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("FANTASY") %>>" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -141,7 +141,7 @@
                                         <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fromance.jpg?alt=media&token=6561cd6a-0beb-4981-b7db-7188c937b848"
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("ROMANCE") %>>" alt=""/>
                                                      alt=""/>
                                             </div>
                                             <div class="content-details">
@@ -163,7 +163,7 @@
                                         <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2F7Z_2103.w030.n002.6B.p30.6.jpg?alt=media&token=a49653a1-95b8-49a5-9013-a91cf8504f47" alt=""/>
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("SCI FI") %>>" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -184,7 +184,7 @@
                                         <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhorror.jpg?alt=media&token=eef7f4a0-c493-4550-8511-b17cd4d060eb" alt=""/>
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("HORROR") %>>" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -205,7 +205,70 @@
                                         <a href="genre.jsp" target="_blank">
                                             <div class="thumb" style="max-height: 170px;">
                                                 <img class="content-image img-fluid d-block mx-auto"
-                                                     src="https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/genre%2Fhistory.png?alt=media&token=74bc87e4-1a32-4a9f-81d3-65ce55482ffc" alt=""/>
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("HISTORY") %>>" alt=""/>
+                                            </div>
+                                            <div class="content-details">
+                                                <h4 class="content-title mx-auto text-uppercase">
+                                                    History
+                                                </h4>
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-4">
+                                <div class="single-cat-widget">
+                                    <div class="content relative">
+                                        <div class="overlay overlay-bg"></div>
+                                        <a href="genre.jsp" target="_blank">
+                                            <div class="thumb" style="max-height: 170px;">
+                                                <img class="content-image img-fluid d-block mx-auto"
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("SPIRITUAL") %>>" alt=""/>
+                                            </div>
+                                            <div class="content-details">
+                                                <h4 class="content-title mx-auto text-uppercase">
+                                                    Spiritual
+                                                </h4>
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-4">
+                                <div class="single-cat-widget">
+                                    <div class="content relative">
+                                        <div class="overlay overlay-bg"></div>
+                                        <a href="genre.jsp" target="_blank">
+                                            <div class="thumb" style="max-height: 170px;">
+                                                <img class="content-image img-fluid d-block mx-auto"
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("THRILLER") %>>" alt=""/>
+                                            </div>
+                                            <div class="content-details">
+                                                <h4 class="content-title mx-auto text-uppercase">
+                                                    Thriller
+                                                </h4>
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="col-md-4">
+                                <div class="single-cat-widget">
+                                    <div class="content relative">
+                                        <div class="overlay overlay-bg"></div>
+                                        <a href="genre.jsp" target="_blank">
+                                            <div class="thumb" style="max-height: 170px;">
+                                                <img class="content-image img-fluid d-block mx-auto"
+                                                     src="<%= GlobalVariable.GENRE_MAP.get("HISTORY") %>>" alt=""/>
                                             </div>
                                             <div class="content-details">
                                                 <h4 class="content-title mx-auto text-uppercase">
@@ -343,9 +406,9 @@
                     let userProfileUrl = '<%=GlobalVariable.localUrl%>/getProfile?id=' + result[i].user.id;
                     let url = '<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=' + result[i].id;
                     design += '<div><div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">' +
-                        '<div class="image" style="background-image: url("' + result[i].coverPhotoLink + '")"></div>' +
+                        '<div class="image" style="background-image: url(' + result[i].coverPhotoLink + ')"></div>' +
                         '<div class="text">' +
-                        '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a href="#"> ' + result[i].bookName + '</a></h3>' +
+                        '<h3 class="font-weight-medium" style="font-size: 1.3rem;"><a data-toggle="modal" data-target="#detailsModal" href="#" onclick="openModal(' + userId + ',' + result[i].id + ')">' + result[i].bookName + '</a></h3>' +
                         '<hr>' +
                         '<h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;"> Chapters : ' + result[i].numberOfChapters + '</h6>' +
                         '<div class="text-white mb-3">' +
@@ -363,25 +426,7 @@
                 document.getElementById('following-row').innerHTML += design;
             }
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        var mediaElements = document.querySelectorAll("video, audio"),
-            total = mediaElements.length;
 
-        for (var i = 0; i < total; i++) {
-            new MediaElementPlayer(mediaElements[i], {
-                pluginPath:
-                    "https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/",
-                shimScriptAccess: "always",
-                success: function () {
-                    var target = document.body.querySelectorAll(".player"),
-                        targetTotal = target.length;
-                    for (var j = 0; j < targetTotal; j++) {
-                        target[j].style.visibility = "visible";
-                    }
-                },
-            });
-        }
     });
 
     $("#recipeCarousel").carousel({
@@ -407,14 +452,20 @@
     });
 
     function bookDetails(bookId) {
-        location.href = "<%=GlobalVariable.localUrl%>/bookDetailsViewer?id=" + bookId;
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + bookId;
     }
 
     function voteBook(userId, bookId) {
-        $.post("<%=GlobalVariable.localUrl%>/likeUnlikeBook", {userId: userId, bookId: bookId}, function (result) {
-            console.log(result.status);
-            openModal(userId, bookId);
-        });
+        if (userId == null) {
+            alert('You need to login first');
+            location.href = "<%=GlobalVariable.localUrl%>/signIn";
+        } else {
+            $.post("<%=GlobalVariable.localUrl%>/likeUnlikeBook", {userId: userId, bookId: bookId}, function (result) {
+                console.log(result.status);
+                openModal(userId, bookId);
+            });
+        }
+
     }
 
     function openModal(userId, bookId) {

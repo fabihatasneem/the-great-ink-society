@@ -840,11 +840,11 @@
     });
 
     function bookDetails(element) {
-        location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + element.id;
     }
 
     function podcastDetails(element) {
-        location.href = "<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=" + element.id;
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetails?id=" + element.id;
     }
 
     function tabChange() {

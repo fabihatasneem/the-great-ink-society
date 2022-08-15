@@ -289,7 +289,7 @@
             result.map( podcast => {
                 genrePodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + podcast.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +
@@ -311,7 +311,7 @@
             result.map( podcast => {
                 sameUploaderPodcastDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + podcast.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=' + podcast.id + '">' +

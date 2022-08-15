@@ -183,12 +183,13 @@
             result.map( book => {
                 draftBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
                     '<h6>' + book.bookName + '</h6>' +
                     '</a>' +
+                    '<p><i class="fas fa-heart" style="color:red;"></i> ' + book.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + book.numberOfComments + '</p>' +
                     ' </div>' +
                     '</div>';
             });
@@ -204,7 +205,7 @@
             result.map( book => {
                 mostPopularBookDesign += '<div class="single-post-list d-flex flex-row align-items-center">' +
                     ' <div class="thumb">' +
-                    '<img class="img-fluid" src="img/blog/pp1.jpg" alt="">' +
+                    '<img style="width: 100px; height: 100px;" src="' + book.coverPhotoLink + '" alt="">' +
                     '</div>' +
                     '<div class="details">' +
                     '<a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=' + book.id + '">' +
