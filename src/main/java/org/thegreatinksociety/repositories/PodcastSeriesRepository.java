@@ -8,6 +8,10 @@ import org.thegreatinksociety.entities.PodcastSeries;
 import java.util.List;
 
 public interface PodcastSeriesRepository extends CrudRepository<PodcastSeries, Long> {
+    List<PodcastSeries> findByUser_FullNameContainsIgnoreCase(String fullName);
+
+    List<PodcastSeries> findBySeriesNameContainsIgnoreCase(String seriesName);
+
     PodcastSeries findPodcastSeriesById(Long podcastId);
 
     List<PodcastSeries> findByUser_UserName(String userName);

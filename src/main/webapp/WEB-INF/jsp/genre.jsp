@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zeeon
-  Date: 7/30/2021
-  Time: 3:02 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="header.jsp" %>
 
 <link rel="stylesheet" href="css/writing-podcast/style.css" />
@@ -19,133 +12,11 @@
             <h1 class="font-weight-medium" style="padding-top: 80px; margin-bottom: 35px; color: azure;">Genre</h1>
             <div class="row mx-auto my-auto">
                 <div class="row" style="padding: 30px">
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto"
-                                     src="<%= GlobalVariable.GENRE_MAP.get("FANTASY") %>>" alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Fantasy
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto"
-                                     src="<%= GlobalVariable.GENRE_MAP.get("ROMANCE") %>>"
-                                     alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Romance
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto"
-                                     src="<%= GlobalVariable.GENRE_MAP.get("SCI FI") %>>" alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Sci-Fi
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="<%= GlobalVariable.GENRE_MAP.get("HORROR") %>>"
-                                     alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Horror
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="padding: 10px"></div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto" src="<%= GlobalVariable.GENRE_MAP.get("HISTORY") %>>"
-                                     alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        History
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto"
-                                     src="<%= GlobalVariable.GENRE_MAP.get("ADVENTURE") %>>"
-                                     alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Adventure
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block " src="<%= GlobalVariable.GENRE_MAP.get("SPIRITUAL") %>>" alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Spiritual
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="single-cat-widget">
-                            <div class="content relative" onclick="showWrapperFunction()">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="content-image img-fluid d-block mx-auto"
-                                     src="<%= GlobalVariable.GENRE_MAP.get("THRILLER") %>>" alt="" />
-                                <div class="content-details">
-                                    <h4 class="content-title mx-auto text-uppercase">
-                                        Thriller
-                                    </h4>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ${genreDesign}
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <br />
 <!-- Genre End -->

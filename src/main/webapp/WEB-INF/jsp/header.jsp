@@ -110,7 +110,7 @@
         <div class="w-100 pt-1 mb-5 text-right">
             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+        <form action="<%=GlobalVariable.localUrl%>/search" method="get" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
                 <input type="text" class="form-control" id="inputModalSearch" name="q"
                        placeholder="Search ..." />

@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zeeon
-  Date: 10/22/2021
-  Time: 3:10 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
@@ -87,7 +81,7 @@
                         Chapters
                     </h3>
                     <div class="container extra2">
-                        <ul class="list-group list-group-flush">
+                        <ul id="chapterList" class="list-group list-group-flush">
 
                         </ul>
                     </div>

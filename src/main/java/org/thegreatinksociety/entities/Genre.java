@@ -16,4 +16,5 @@ public class Genre {
 
     private int numberOfBooks;
     private int numberOfPodcasts;
+    private String imageLink;
 }
