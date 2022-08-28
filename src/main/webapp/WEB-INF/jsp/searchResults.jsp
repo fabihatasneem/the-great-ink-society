@@ -57,7 +57,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Book title</h5>
+                <h5 class="modal-title" id="modalTitle">title</h5>
+                <br>
+                <h6 style="font-size: small" id="authorName"></h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -74,7 +76,7 @@
 <!-- Details Modal End -->
 <!-- End banner Area -->
 
-<!-- Searched Books Start -->
+
 
 <div class="container" style="font-size: x-large; margin-top: 50px">
     <div class="form-check form-check-inline">
@@ -90,6 +92,8 @@
         <label class="form-check-label" for="checkBoxAuthor">Authors</label>
     </div>
 </div>
+
+<!-- Searched Books Start -->
 
 <div id="searchedBooks" class="latest-products" style="margin-top: 50px">
     <div class="container">
@@ -139,14 +143,23 @@
 
     function bookChecked(e) {
         if (e.checked) {
-            document.getElementById("searchedBooks").innerHTML = searchedBookDesign;
+            if (document.getElementById("checkBoxAuthor").checked) {
+                document.getElementById("searchedBooks").innerHTML = searchedBookAuthorDesign;
+            } else {
+                document.getElementById("searchedBooks").innerHTML = searchedBookDesign;
+            }
         } else {
             document.getElementById("searchedBooks").innerHTML = "";
         }
     }
     function podcastChecked(e) {
         if (e.checked) {
-            document.getElementById("searchedPodcasts").innerHTML = searchedPodcastDesign;
+            if (document.getElementById("checkBoxPodcast").checked) {
+                document.getElementById("searchedPodcasts").innerHTML = searchedPodcastAuthorDesign;
+            } else {
+                document.getElementById("searchedPodcasts").innerHTML = searchedPodcastDesign;
+            }
+
         } else {
             document.getElementById("searchedPodcasts").innerHTML = "";
         }
@@ -210,6 +223,10 @@
         location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + bookId;
     }
 
+    function podcastDetails(podcastId) {
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetails?id=" + podcastId;
+    }
+
     function voteBook(userId, bookId) {
         if (userId == null) {
             alert('You need to login first');
@@ -223,12 +240,13 @@
 
     }
 
-    function openModal(userId, bookId) {
+    function openModalBooks(userId, bookId) {
         console.log(bookId);
 
         $.post("<%=GlobalVariable.localUrl%>/getSingleBookDetails", {bookId: bookId}, function (result) {
 
             $("#modalTitle").html(result.bookName);
+            $("#authorName").html(result.user.fullName);
 
             let awardCount = 0;
             for (var i = 0; i < result.user.award.length; i++) {
@@ -275,6 +293,66 @@
                 '</div>' +
                 '</div>' +
                 '<button type="button" class="btn btn-primary" onclick="bookDetails(' + bookId + ')">View Details</button>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalFooter').innerHTML = modalFooterDesign;
+        });
+    }
+
+    function openModalPodcasts(userId, podcastId) {
+        console.log(podcastId);
+
+        $.post("<%=GlobalVariable.localUrl%>/getSinglePodcastDetails", {podcastId: podcastId}, function (result) {
+            console.log(result);
+
+            $("#modalTitle").html(result.seriesName);
+            $("#authorName").html(result.user.fullName);
+
+            let awardCount = 0;
+            for (var i = 0; i < result.user.award.length; i++) {
+                if (result.user.award[i].winnerPodcastId == podcastId) {
+                    awardCount++;
+                }
+            }
+
+            let modalBodyDesign = '<div class="container">' +
+                '<div class="row">' +
+                '<div class="col-lg-8">' +
+                '<div class="container-fluid">' +
+                '<div class="text-center">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="' + result.coverPhotoLink + '">' +
+                '<hr>' +
+                '<h4>Description</h4> &nbsp;' +
+                '<p class="text-left">' + result.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                '<div class="container extra">' +
+                '<div class="row">' +
+                '<p><i class="fas fa-book-open"></i> Episodes Published : ' + result.numberOfEpisodes + '</p> &nbsp;' +
+                '<br><br>' +
+                '<p><i class="fas fa-language"></i> Language : ' + result.language.languageName + '</p>' +
+                '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
+                '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
+                '<br><br>' +
+                '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
+                '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
+                '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + awardCount + '</p>' +
+                '<br><br>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalBody').innerHTML = modalBodyDesign;
+
+            let modalFooterDesign = '<div class="text-left">' +
+                '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
+                '<i id="voteId" style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true" onclick="votePodcast(' + userId + ',' + podcastId + ')">&nbsp;' + result.numberOfLikes + '</i>' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-primary" onclick="podcastDetails(' + podcastId + ')">View Details</button>' +
                 '</div>' +
                 '</div>';
             document.getElementById('modalFooter').innerHTML = modalFooterDesign;

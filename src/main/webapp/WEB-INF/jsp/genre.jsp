@@ -6,6 +6,42 @@
 <link rel="stylesheet" href="css/genre/style.css" />
 <link rel="stylesheet" href="css/genre/main.css" />
 
+<style>
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 28%;
+        padding: unset;
+        height: fit-content;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .card-img-top {
+        object-fit: contain;
+        height: 132px;
+    }
+
+    .card-horizontal {
+        display: flex;
+        flex: 1 1 auto;
+    }
+
+    .single-cat-widget {
+        cursor: pointer;
+    }
+
+</style>
+
 <div style="background-color: #111;">
     <div class="top-category-widget-area pt-90 pb-90">
         <div class="container text-center">
@@ -21,486 +57,78 @@
 <br />
 <!-- Genre End -->
 
-<!-- BookList Starts -->
-
-<div class="wrapper" id="wrapper" style="display: none;">
-    <div class="content py-md-0 py-3">
-        <section>
-            <label class="toggleSwitch nolabel" onclick="">
-                <input type="checkbox" checked />
-                <a></a>
-                <span>
-                        <span class="left-span" style="text-align: center;">Books</span>
-                        <span class="right-span" style="text-align: center;">Podcasts</span>
-                    </span>
-            </label>
-            <br />
-        </section>
-        <section>
-            <h1>From This Genre</h1>
-            <br />
-        </section>
-        <section id="sidebar">
-            <div class="py-3">
-                <div class="sorting-selection">
-                    <span>Sort By:</span>
-                    <select class="form-control nice-select sort-select mr-0" style="display: none;">
-                        <option value="" selected="selected">Default Sorting</option>
-                        <option value="">Sort By:Name (A - Z)</option>
-                        <option value="">Sort By:Name (Z - A)</option>
-                        <option value="">Sort By:Rating (Highest)</option>
-                        <option value="">Sort By:Rating (Lowest)</option>
-                    </select>
-                    <div class="nice-select form-control sort-select mr-0" tabindex="0">
-                        <span class="current">Default Sorting</span>
-                        <ul class="list">
-                            <li data-value="" class="option selected">Default Sorting</li>
-                            <li data-value="" class="option">Sort By:Name (A - Z)</li>
-                            <li data-value="" class="option">Sort By:Name (Z - A)</li>
-                            <li data-value="" class="option">Sort By:Rating (Highest)</li>
-                            <li data-value="" class="option">Sort By:Rating (Lowest)</li>
-                    </div>
-                </div>
+<!-- Details Modal Start -->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">title</h5>
+                <br>
+                <h6 style="font-size: small" id="authorName"></h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="py-3">
-                <h5 class="font-weight-bold">Popular Tags</h5>
-                <ul class="list-group">
-                    <li
-                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">
-                        thriller <span class="badge badge-primary badge-pill">328</span> </li>
-                    <li
-                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">
-                        mystery <span class="badge badge-primary badge-pill">112</span> </li>
-                    <li
-                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">
-                        adult <span class="badge badge-primary badge-pill">32</span> </li>
-                    <li
-                            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center category">
-                        halloween <span class="badge badge-primary badge-pill">48</span> </li>
-                </ul>
-            </div>
-            <div class="py-3">
-                <div class="single-sidebar-widget popular-post-widget">
-                    <h4 class="popular-title"><i class="fas fa-book-open"></i> Latest Uploads</h4>
-                    <div class="popular-post-list">
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp1.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Space The Final Frontier</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp2.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>The Amazing Hubble</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp3.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Astronomy Or Astrology</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp4.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Asteroids telescope</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <span> <a href=""> View More </a> </span>
-                </div>
-            </div>
-            <div class="py-3">
-                <div class="single-sidebar-widget popular-post-widget">
-                    <h4 class="popular-title"><i class="fas fa-book-open"></i> Most Popular</h4>
-                    <div class="popular-post-list">
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp1.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Space The Final Frontier</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp2.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>The Amazing Hubble</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp3.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Astronomy Or Astrology</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                        <div class="single-post-list d-flex flex-row align-items-center">
-                            <div class="card-body">
-                                <img class="img-fluid" src="img/blog/pp4.jpg" alt="" />
-                            </div>
-                            <div class="details">
-                                <a href="blog-single.html">
-                                    <h6>Asteroids telescope</h6>
-                                </a>
-                                <p>
-                                    <i class="fas fa-heart" style="color: red"></i> 78 &nbsp;
-                                    <i class="fas fa-comments"></i> 87
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <span> <a href=""> View More </a> </span>
-                </div>
-            </div>
-        </section>
+            <div class="modal-body" id="modalBody">
 
-        <!-- Products Section -->
-        <section id="products">
-            <div class="container py-3">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
-                        <div class="card"> <img class="card-img-top" src="images/1st-section.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-md-0 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover2.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-0 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover3.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-4 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover4.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-4 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover5.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-4 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover6.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-md-0 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover2.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-0 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover3.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 pt-lg-4 pt-4">
-                        <div class="card"> <img class="card-img-top" src="images/genre/cover4.jpg">
-                            <div class="card-body">
-                                <h6 class="font-weight-bold">Book title</h6>
-                                <div class="h6 text-muted rebate"><i class="fas fa-pen-nib"></i> Author</div>
-                                <div class="text-black-opacity-05 description">More room to move. With 80GB or 160GB
-                                    of storage
-                                    and up to 40 hours of
-                                    battery life, the new iPod classic lets you enjoy
-                                    up to 40,000 songs or.........</div>
-                                <div class="d-flex align-items-center product">
-                                    <div class="d-flex flex-column">
-                                        <div class="text-muted rebate"><i class="fas fa-book-open"></i> 10 </div>
-                                        <div class="text-muted rebate"><i class="fas fa-eye"></i> 36K </div>
-                                        <div class="text-muted rebate"><i class="fas fa-thumbs-up"></i> 15K </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-between pt-4">
-                                    <a href="genre.html" class="single-btn">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                    <div class="d-flex flex-column">
-                                        <div class="btn btn-primary">Read now</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BookList Ends -->
-
-                <!-- Pagination Block Starts -->
-                <div class="row pt--30">
-                    <div class="col-md-12">
-                        <div class="pagination-block">
-                            <ul class="pagination-btns flex-center">
-                                <li><a href="genre.html" class="single-btn prev-btn ">Previous<i
-                                        class="zmdi zmdi-chevron-left"></i> </a>
-                                </li>
-                                <li><a href="genre.html" class="single-btn prev-btn "><i
-                                        class="zmdi zmdi-chevron-left"></i>
-                                </a>
-                                </li>
-                                <li class="active"><a href="genre.html" class="single-btn">1</a></li>
-                                <li><a href="genre.html" class="single-btn">2</a></li>
-                                <li><a href="genre.html" class="single-btn">3</a></li>
-                                <li><a href="genre.html" class="single-btn">4</a></li>
-                                <li><a href="genre.html" class="single-btn next-btn"><i
-                                        class="zmdi zmdi-chevron-right"></i></a>
-                                </li>
-                                <li><a href="genre.html" class="single-btn next-btn"><i
-                                        class="zmdi zmdi-chevron-right"></i>Next</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pagination Block Ends -->
             </div>
-        </section>
+            <div class="modal-footer" id="modalFooter">
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- Details Modal End -->
+
+<!-- BookList Starts -->
+
+<div class="container" id="selectors" style="font-size: x-large; margin-top: 50px; display: none">
+    <div class="form-check form-check-inline">
+        <input onclick="bookChecked(this)" class="form-check-input" type="checkbox" id="checkBoxBook" value="option1">
+        <label class="form-check-label" for="checkBoxBook">Books</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input onclick="podcastChecked(this)" class="form-check-input" type="checkbox" id="checkBoxPodcast" value="option2">
+        <label class="form-check-label" for="checkBoxPodcast">Podcasts</label>
+    </div>
+</div>
+
+<!-- Searched Books Start -->
+
+<div id="searchedBooks" class="latest-products" style="margin-top: 50px; display: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Books</h2>
+                </div>
+            </div>
+            <div class="row" id="searched-book-row">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Searched Books End -->
+
+<!-- Searched Books Start -->
+
+<div id="searchedPodcasts" class="latest-products" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Podcast Series</h2>
+                </div>
+            </div>
+            <div class="row" id="searched-podcast-row">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Searched Books End -->
 
 
 
@@ -511,14 +139,185 @@
 
 
 <script>
+    let genreBooksDesign;
+    let genrePodcastDesign;
 
-    /*-- Shows All Content After Clicking A Genre
+    $(document).ready(function () {
 
-        **********************************************
-    ----------------------------------------------------*/
+    });
 
-    function showWrapperFunction() {
-        document.getElementById('wrapper').style.display = 'block';  // <-- Visibility was "hidden". Set it to "visible".
+    function bookChecked(e) {
+        if (e.checked) {
+            document.getElementById("searchedBooks").innerHTML = genreBooksDesign;
+        } else {
+            document.getElementById("searchedBooks").innerHTML = "";
+        }
+    }
+
+    function podcastChecked(e) {
+        if (e.checked) {
+            document.getElementById("searchedPodcasts").innerHTML = genrePodcastDesign;
+        } else {
+            document.getElementById("searchedPodcasts").innerHTML = "";
+        }
+    }
+
+    function bookDetails(bookId) {
+        location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + bookId;
+    }
+
+    function podcastDetails(podcastId) {
+        location.href = "<%=GlobalVariable.localUrl%>/podcastDetails?id=" + podcastId;
+    }
+
+    function voteBook(userId, bookId) {
+        if (userId == null) {
+            alert('You need to login first');
+            location.href = "<%=GlobalVariable.localUrl%>/signIn";
+        } else {
+            $.post("<%=GlobalVariable.localUrl%>/likeUnlikeBook", {userId: userId, bookId: bookId}, function (result) {
+                console.log(result.status);
+                openModal(userId, bookId);
+            });
+        }
+
+    }
+
+    function openModalBooks(userId, bookId) {
+        console.log(bookId);
+
+        $.post("<%=GlobalVariable.localUrl%>/getSingleBookDetails", {bookId: bookId}, function (result) {
+
+            $("#modalTitle").html(result.bookName);
+            $("#authorName").html(result.user.fullName);
+
+            let awardCount = 0;
+            for (var i = 0; i < result.user.award.length; i++) {
+                if (result.user.award[i].winnerBookId == bookId) {
+                    awardCount++;
+                }
+            }
+
+            let modalBodyDesign = '<div class="container">' +
+                '<div class="row">' +
+                '<div class="col-lg-8">' +
+                '<div class="container-fluid">' +
+                '<div class="text-center">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="' + result.coverPhotoLink + '">' +
+                '<hr>' +
+                '<h4>Description</h4> &nbsp;' +
+                '<p class="text-left">' + result.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                '<div class="container extra">' +
+                '<div class="row">' +
+                '<p><i class="fas fa-book-open"></i> Chapters Published : ' + result.numberOfChapters + '</p> &nbsp;' +
+                '<br><br>' +
+                '<p><i class="fas fa-language"></i> Language : ' + result.language.languageName + '</p>' +
+                '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
+                '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
+                '<br><br>' +
+                '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
+                '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
+                '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + awardCount + '</p>' +
+                '<br><br>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalBody').innerHTML = modalBodyDesign;
+
+            let modalFooterDesign = '<div class="text-left">' +
+                '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
+                '<i id="voteId" style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true" onclick="voteBook(' + userId + ',' + bookId + ')">&nbsp;' + result.numberOfLikes + '</i>' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-primary" onclick="bookDetails(' + bookId + ')">View Details</button>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalFooter').innerHTML = modalFooterDesign;
+        });
+    }
+
+    function openModalPodcasts(userId, podcastId) {
+        console.log(podcastId);
+
+        $.post("<%=GlobalVariable.localUrl%>/getSinglePodcastDetails", {podcastId: podcastId}, function (result) {
+            console.log(result);
+
+            $("#modalTitle").html(result.seriesName);
+            $("#authorName").html(result.user.fullName);
+
+            let awardCount = 0;
+            for (var i = 0; i < result.user.award.length; i++) {
+                if (result.user.award[i].winnerPodcastId == podcastId) {
+                    awardCount++;
+                }
+            }
+
+            let modalBodyDesign = '<div class="container">' +
+                '<div class="row">' +
+                '<div class="col-lg-8">' +
+                '<div class="container-fluid">' +
+                '<div class="text-center">' +
+                '<img style="max-width: -webkit-fill-available; height: auto; min-width: 300px; max-height: 350px;" src="' + result.coverPhotoLink + '">' +
+                '<hr>' +
+                '<h4>Description</h4> &nbsp;' +
+                '<p class="text-left">' + result.description + '</p>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="col-lg-4">' +
+                '<div class="container extra">' +
+                '<div class="row">' +
+                '<p><i class="fas fa-book-open"></i> Episodes Published : ' + result.numberOfEpisodes + '</p> &nbsp;' +
+                '<br><br>' +
+                '<p><i class="fas fa-language"></i> Language : ' + result.language.languageName + '</p>' +
+                '<p><i class="fas fa-theater-masks"></i> Genre : ' + result.genre.name + '</p>' +
+                '<p><i class="fas fa-clock"></i> Last Updated : ' + result.lastUpdatedDate + '</p>' +
+                '<br><br>' +
+                '<p><i class="fas fa-eye"></i> Total Views : ' + result.totalViews + '</p>' +
+                '<p><i class="fas fa-comments"></i> Total Comments : ' + result.numberOfComments + '</p>' +
+                '<p> <i style="color: #daa520" class="fas fa-trophy"></i> Awards Won : ' + awardCount + '</p>' +
+                '<br><br>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalBody').innerHTML = modalBodyDesign;
+
+            let modalFooterDesign = '<div class="text-left">' +
+                '<div name="heart" id="heart" class="text-left" style="margin-right: 550px;">' +
+                '<i id="voteId" style="font-size: 25px;" class="fa fa-heart-o" aria-hidden="true" onclick="votePodcast(' + userId + ',' + podcastId + ')">&nbsp;' + result.numberOfLikes + '</i>' +
+                '</div>' +
+                '</div>' +
+                '<button type="button" class="btn btn-primary" onclick="podcastDetails(' + podcastId + ')">View Details</button>' +
+                '</div>' +
+                '</div>';
+            document.getElementById('modalFooter').innerHTML = modalFooterDesign;
+        });
+    }
+
+    function showBooksPodcasts(genreId) {
+        document.getElementById("searchedBooks").style.display = 'block';
+        document.getElementById("searchedPodcasts").style.display = 'block';
+        document.getElementById("selectors").style.display = 'block';
+
+        document.getElementById("checkBoxBook").checked = true;
+        document.getElementById("checkBoxPodcast").checked = true;
+
+        $.post("<%=GlobalVariable.localUrl%>/getGenreDetails", {genreId: genreId}, function (result) {
+            console.log(result);
+            document.getElementById("searched-book-row").innerHTML = result.books;
+            document.getElementById("searched-podcast-row").innerHTML = result.podcasts;
+
+            genreBooksDesign = document.getElementById("searchedBooks").innerHTML;
+            genrePodcastDesign = document.getElementById("searchedPodcasts").innerHTML;
+        });
     }
 </script>
 <!-- Scripts End -->

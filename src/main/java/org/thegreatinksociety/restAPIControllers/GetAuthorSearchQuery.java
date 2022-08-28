@@ -25,18 +25,18 @@ public class GetAuthorSearchQuery {
 
     @RequestMapping(value = "/searchAuthorName", method = RequestMethod.POST)
     public Map<String, String> getAuthorSearchQuery(@RequestParam String q, HttpSession session){
-        String userId = session.getAttribute("userId").toString();
+        String userId = session.getAttribute("userId") == null ? null : session.getAttribute("userId").toString();
         String bookDesign = "<p>No Books Found</p>";
         String podcastDesign = "<p>No Podcasts Found</p>";
 
-        List<PodcastSeries> podcastSeriesList = podcastSeriesRepository.findByUser_FullNameContainsIgnoreCase(q);
-        List<Books> booksList = booksRepository.findByUser_FullNameContainsIgnoreCase(q);
+        List<PodcastSeries> podcastSeriesList = podcastSeriesRepository.findByUser_FullNameContainsIgnoreCaseAndPublishStatus(q, 1);
+        List<Books> booksList = booksRepository.findByUser_FullNameContainsIgnoreCaseAndPublishStatus(q, 1);
 
         if (booksList.size() != 0) {
             bookDesign = "";
             for (Books book : booksList) {
 
-                bookDesign += "<div id=\" "+ book.getId() +" \" data-toggle=\"modal\" data-target=\"#detailsModal\" onclick=\"openModal(" + userId + "," + book.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
+                bookDesign += "<div id=\" "+ book.getId() +" \" data-toggle=\"modal\" data-target=\"#detailsModal\" onclick=\"openModalBooks(" + userId + "," + book.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
                         "                    <div class=\"card-horizontal\">\n" +
                         "                    <div class=\"img-square-wrapper\">\n" +
                         "                    <img class=\"\" src=" + book.getCoverPhotoLink() + " \n" +
@@ -44,6 +44,7 @@ public class GetAuthorSearchQuery {
                         "                     </div> \n" +
                         "                    <div class=\"card-body\">\n" +
                         "                    <h4> "+ book.getBookName() +" </h4> \n" +
+                        "                    <h6 style=\"font-size: small;\"> "+ book.getUser().getFullName() + " </h6>\n" +
                         "                    <small><i class=\"fas fa-heart\" style=\"color:red;\"></i> "+ book.getNumberOfLikes() +" &nbsp;  \n" +
                         "                    <i class=\"fas fa-comments\"></i> "+ book.getNumberOfComments() +" &nbsp;  \n" +
                         "                    <i class=\"fas fa-eye\"></i> "+ book.getTotalViews() +" </small> \n" +
@@ -52,7 +53,7 @@ public class GetAuthorSearchQuery {
                         "                    </div> \n" +
                         "                    </div> \n" +
                         "                    </div> \n" +
-                        "                    <br>";
+                        "                    <br><br>";
             }
         }
 
@@ -60,14 +61,15 @@ public class GetAuthorSearchQuery {
             podcastDesign = "";
             for (PodcastSeries podcast : podcastSeriesList) {
 
-                podcastDesign += "<div id=\" "+ podcast.getId() +" \" data-target=\"#detailsModal\" onclick=\"openModal(" + userId + "," + podcast.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
+                podcastDesign += "<div id=\" "+ podcast.getId() +" \" data-toggle=\"modal\" data-target=\"#detailsModal\" onclick=\"openModalPodcasts(" + userId + "," + podcast.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
                         "                    <div class=\"card-horizontal\">\n" +
                         "                    <div class=\"img-square-wrapper\">\n" +
                         "                    <img class=\"\" src=" + podcast.getCoverPhotoLink() + " \n" +
                         "                    alt = \"Card image cap\" style=\"width: 200px; height: 200px;\"> \n" +
                         "                     </div> \n" +
-                        "                    <div class=\"card-body\"> +\n" +
+                        "                    <div class=\"card-body\">\n" +
                         "                    <h4> "+ podcast.getSeriesName() +" </h4> \n" +
+                        "                    <h6 style=\"font-size: small;\"> "+ podcast.getUser().getFullName() + " </h6>\n" +
                         "                    <small><i class=\"fas fa-heart\" style=\"color:red;\"></i> "+ podcast.getNumberOfLikes() +" &nbsp;  \n" +
                         "                    <i class=\"fas fa-comments\"></i> "+ podcast.getNumberOfComments() +" &nbsp;  \n" +
                         "                    <i class=\"fas fa-eye\"></i> "+ podcast.getTotalViews() +" </small> \n" +
@@ -76,7 +78,7 @@ public class GetAuthorSearchQuery {
                         "                    </div> \n" +
                         "                    </div> \n" +
                         "                    </div> \n" +
-                        "                    <br>";
+                        "                    <br><br>";
             }
         }
 

@@ -25,7 +25,7 @@ public class GenrePageController {
         for (Genre genre : genreList) {
             design += "<div class=\"col-sm-3\">\n" +
                     "                        <div class=\"single-cat-widget\">\n" +
-                    "                            <div class=\"content relative\" onclick=\"showWrapperFunction()\">\n" +
+                    "                            <div class=\"content relative\" onclick=\"showBooksPodcasts(" + genre.getId() + ")\">\n" +
                     "                                <div class=\"overlay overlay-bg\"></div>\n" +
                     "                                <img class=\"content-image img-fluid d-block mx-auto\"\n" +
                     "                                     src=\"" + genre.getImageLink() + "\" alt=\"\" />\n" +

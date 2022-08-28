@@ -1,46 +1,40 @@
-package org.thegreatinksociety.webPageControllers;
+package org.thegreatinksociety.restAPIControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.thegreatinksociety.entities.Books;
-import org.thegreatinksociety.entities.Genre;
 import org.thegreatinksociety.entities.PodcastSeries;
-import org.thegreatinksociety.entities.Users;
-import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.BooksRepository;
-import org.thegreatinksociety.repositories.GenreRepository;
 import org.thegreatinksociety.repositories.PodcastSeriesRepository;
-import org.thegreatinksociety.repositories.UsersRepository;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Controller
-public class SearchPageController {
+@RestController
+public class GetGenreBooksPodcasts {
+    @Autowired
+    private PodcastSeriesRepository podcastSeriesRepository;
 
     @Autowired
     private BooksRepository booksRepository;
 
-    @Autowired
-    private PodcastSeriesRepository podcastSeriesRepository;
-
-    @RequestMapping("/search")
-    public String getSearchResultPage(Model model, @RequestParam String q, HttpSession session){
+    @RequestMapping(value = "/getGenreDetails", method = RequestMethod.POST)
+    public Map<String, String> getAuthorSearchQuery(@RequestParam Long genreId, HttpSession session){
         String userId = session.getAttribute("userId") == null ? null : session.getAttribute("userId").toString();
-
-        List<Books> searchedBooks = booksRepository.findByUser_FullNameContainsIgnoreCaseAndPublishStatus(q, 1);
-        List<PodcastSeries> searchedPodcasts = podcastSeriesRepository.findBySeriesNameContainsIgnoreCaseAndPublishStatus(q, 1);
-
         String bookDesign = "<p>No Books Found</p>";
         String podcastDesign = "<p>No Podcasts Found</p>";
 
-        if (searchedBooks.size() != 0) {
+        List<PodcastSeries> podcastSeriesList = podcastSeriesRepository.findByGenre_IdAndPublishStatusOrderBySeriesNameAsc(genreId, 1);
+        List<Books> booksList = booksRepository.findByGenre_IdAndPublishStatusOrderByBookNameAsc(genreId, 1);
+
+        if (booksList.size() != 0) {
             bookDesign = "";
-            for (Books book : searchedBooks) {
+            for (Books book : booksList) {
 
                 bookDesign += "<div id=\" "+ book.getId() +" \" data-toggle=\"modal\" data-target=\"#detailsModal\" onclick=\"openModalBooks(" + userId + "," + book.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
                         "                    <div class=\"card-horizontal\">\n" +
@@ -59,15 +53,13 @@ public class SearchPageController {
                         "                    </div> \n" +
                         "                    </div> \n" +
                         "                    </div> \n" +
-                        "                    <br>";
+                        "                    <br><br>";
             }
         }
 
-        if (searchedPodcasts.size() != 0) {
+        if (podcastSeriesList.size() != 0) {
             podcastDesign = "";
-            for (PodcastSeries podcast : searchedPodcasts) {
-//                String userProfileUrl = GlobalVariable.localUrl + "/getProfile?id=" + podcast.getUser().getId();
-//                String url = GlobalVariable.localUrl + "/podcastDetailsViewer?id=" + podcast.getId();
+            for (PodcastSeries podcast : podcastSeriesList) {
 
                 podcastDesign += "<div id=\" "+ podcast.getId() +" \" data-toggle=\"modal\" data-target=\"#detailsModal\" onclick=\"openModalPodcasts(" + userId + "," + podcast.getId() + ")\" class=\"card\" style=\"width: 100%;\"> \n" +
                         "                    <div class=\"card-horizontal\">\n" +
@@ -75,7 +67,7 @@ public class SearchPageController {
                         "                    <img class=\"\" src=" + podcast.getCoverPhotoLink() + " \n" +
                         "                    alt = \"Card image cap\" style=\"width: 200px; height: 200px;\"> \n" +
                         "                     </div> \n" +
-                        "                    <div class=\"card-body\"> +\n" +
+                        "                    <div class=\"card-body\">\n" +
                         "                    <h4> "+ podcast.getSeriesName() +" </h4> \n" +
                         "                    <h6 style=\"font-size: small;\"> "+ podcast.getUser().getFullName() + " </h6>\n" +
                         "                    <small><i class=\"fas fa-heart\" style=\"color:red;\"></i> "+ podcast.getNumberOfLikes() +" &nbsp;  \n" +
@@ -86,16 +78,14 @@ public class SearchPageController {
                         "                    </div> \n" +
                         "                    </div> \n" +
                         "                    </div> \n" +
-                        "                    <br>";
+                        "                    <br><br>";
             }
         }
 
-        model.addAttribute("bookDesign", bookDesign);
-        model.addAttribute("podcastDesign", podcastDesign);
-        model.addAttribute("searchedWord", q);
+        Map<String, String> map = new HashMap<>();
+        map.put("books", bookDesign);
+        map.put("podcasts", podcastDesign);
 
-
-        return "/searchResults";
+        return map;
     }
-
 }

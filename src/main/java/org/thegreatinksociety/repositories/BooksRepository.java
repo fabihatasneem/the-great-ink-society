@@ -8,13 +8,13 @@ import org.thegreatinksociety.entities.Books;
 import java.util.List;
 
 public interface BooksRepository extends CrudRepository<Books, Long> {
-    List<Books> findByUser_FullNameContainsIgnoreCase(String fullName);
+    List<Books> findByUser_FullNameContainsIgnoreCaseAndPublishStatus(String fullName, int publishStatus);
+
+    List<Books> findByBookNameContainsIgnoreCaseAndPublishStatus(String bookName, int publishStatus);
+
+    List<Books> findByGenre_IdAndPublishStatusOrderByBookNameAsc(Long id, int publishStatus);
 
     Books findBooksById(Long id);
-
-    List<Books> findByBookNameLikeIgnoreCase(String bookName);
-
-    List<Books> findByBookNameContainsIgnoreCase(String bookName);
 
     List<Books> findByUser_UserName(String userName);
 
