@@ -34,8 +34,8 @@
 <!-- CSS END -->
 
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
+<section class="banner-area relative" id="home"  style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwriting-index.jpg?alt=media&token=899830a5-7209-4247-844e-2859822722b2')">
+    <div class="overlay overlay-bg"  style="opacity: 40%"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">

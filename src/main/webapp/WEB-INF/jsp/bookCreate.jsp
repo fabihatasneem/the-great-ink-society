@@ -92,14 +92,14 @@
 <!-- CSS END -->
 
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
-    <div class="container">
+<section class="banner-area relative" id="home" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwriting-index.jpg?alt=media&token=899830a5-7209-4247-844e-2859822722b2')">
+    <div class="overlay overlay-bg" style="opacity: 40%"></div>
+    <div class="container" >
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    New Book(A fancy heading for a new story or something)
-                </h1>
+                <h2 class="text-white">
+                    Let your stories be told. Let your imaginations be heard.
+                </h2>
             </div>
         </div>
     </div>
@@ -132,17 +132,8 @@
             <div class="col-lg-9">
                 <div class="container">
                     <h2>Some Instructions</h2>
-                    <p>What is Lorem Ipsum?
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                        Why do we use it?
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-                        Where does it come from?
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                    <p>Writing an entire book can be a daunting task, especially for new writers. It requires hard work, extreme ambition, and intense discipline. If you take it one step at a time, though, writing a book is an attainable goal. Even for successful writers of bestsellers, the hardest part of the writing process can be simply sitting down to write the first page. Writing a new book will often expose your strengths and weaknesses, and a lot of time will be devoted to refining those skills. You don’t need to have it all worked out, but it’s helpful to have a reasonable idea of the shape and direction of your book before you the actual writing begins. Perhaps you already know precisely what your book is about, or maybe you’re trying to decide between a million different big ideas. Maybe all you have is an image for the book cover. Either way, to ask yourself a few simple questions before you start writing. What is my book about? Why is the story interesting or important? What attracted me to this idea in the first place? Who will want to read my book? If you’re still searching for a book idea or struggling with writer’s block, try using writing prompts to get started.
+                        </p>
                 </div>
                 <div class="cycle-tab-container">
                     <ul class="nav nav-tabs">

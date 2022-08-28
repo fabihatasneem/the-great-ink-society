@@ -14,6 +14,7 @@ import org.thegreatinksociety.repositories.UsersRepository;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 @Controller
 public class EpisodeSubmit {
@@ -44,6 +45,7 @@ public class EpisodeSubmit {
             episode.setAudioFileName(episodeFileName);
             episode.setAudioFileLink(episodeFileName);
             episode.setStatus(publishedStatus);
+            episode.setPublishDate(new Date());
             Episodes newEpisode = episodesRepository.save(episode);
             response.sendRedirect(GlobalVariable.localUrl + "/listening?episodeId=" + newEpisode.getId());
         }

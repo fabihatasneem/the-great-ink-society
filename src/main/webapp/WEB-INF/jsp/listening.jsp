@@ -52,8 +52,8 @@
 <!-- CSS END -->
 
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
+<section class="banner-area relative" id="home"   style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwhite-headphones-on-wooden-table-with-nature-background-free-photo.jpg?alt=media&token=5c1c5634-e5e6-43f1-95e6-049967d1675c')">
+    <div class="overlay overlay-bg"  style="opacity: 40%"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
@@ -86,7 +86,7 @@
                     <a class="mb-10" href="#">${genre}</a>
                     <div class="user-details row">
                         <div class="col-lg-12">
-                            <i class="fas fa-calendar-alt"></i> 12 Dec, 2017 &nbsp; &nbsp; &nbsp;
+                            <i class="fas fa-calendar-alt"></i> ${date} &nbsp; &nbsp; &nbsp;
                             <i class="fas fa-heart"> ${totalReacts}</i>&nbsp; &nbsp;
                             <i class="fas fa-eye"></i> ${totalViews} Views &nbsp; &nbsp; &nbsp;
                             <i class="fas fa-comments"></i> ${totalComments} Comments
@@ -96,20 +96,6 @@
                     <div class="col-lg-12 unselectable">
                         <div class="row mt-10 mb-30">
                             <div class="col-lg-12 mt-10">
-                                <h5 style="padding-bottom: 10px;">
-                                    Description
-                                </h5>
-                                <p>
-                                    Boot camps have its supporters and its detractors. Some people do not understand
-                                    why you
-                                    should have to spend money on boot camp when you can get the MCSE study
-                                    materials
-                                    yourself at a fraction of the camp price. However, who has the willpower to
-                                    actually sit
-                                    through a self-imposed MCSE training. who has the willpower to actually sit
-                                    through a
-                                    self-imposed
-                                </p>
                                 <div class="card" style="width: 100%;">
                                     <div class="card-horizontal">
                                         <div class="card-body">
