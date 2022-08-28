@@ -71,14 +71,14 @@
 <!-- CSS END -->
 
 <!-- start banner Area -->
-<section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
+<section class="banner-area relative" id="home"  style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fwhite-headphones-on-wooden-table-with-nature-background-free-photo.jpg?alt=media&token=5c1c5634-e5e6-43f1-95e6-049967d1675c')">
+    <div class="overlay overlay-bg" style="opacity: 40%"></div>
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
-                <h1 class="text-white">
-                    New Podcast(A fancy heading for a new story or something)
-                </h1>
+                <h2 class="text-white">
+                    Let your stories be told. Let your imaginations be heard.
+                </h2>
             </div>
         </div>
     </div>
@@ -91,18 +91,11 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="container">
-                    <h2>Some Instructions</h2>
-                    <p>What is Lorem Ipsum?
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                        Why do we use it?
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-
-                        Where does it come from?
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                    <h2>Instructions</h2>
+                    <p>You don’t need to be an established content creator or have a blog to become a successful podcaster.
+                        A podcast is an excellent way to build an audience from scratch and position yourself as an authority in your industry.
+                        Podcasts are a popular content platform because they’re easy to consume. People can listen to podcasts on the go, in the car, at the gym, and even at work.
+                        One of the best things about podcasting is the intimate connection you build with your audience. These listeners will spend 30 minutes or more with you at any given time. In this day and age, where social media has shrunk attention spans, that amount of attention is pretty rare giving you the ability to dive deep into topics. The first thing you need to do to start your podcast is identify a theme. Choose something you’re passionate about. Your passion will be your greatest motivator to keep you disciplined when things get difficult. Episode length depends on how long you need to give your audience value, but not longer. Consistency, not volume, is the key. No one wants to subscribe to a podcast that is unpredictable. Choose a publishing schedule that will be easy to maintain. You can always scale up later.</p>
                 </div>
                 <div class="cycle-tab-container">
                     <ul class="nav nav-tabs">

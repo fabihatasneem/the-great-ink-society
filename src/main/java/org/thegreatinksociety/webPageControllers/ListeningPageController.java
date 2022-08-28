@@ -68,6 +68,7 @@ public class ListeningPageController {
 
         model.addAttribute("isUploader", isUploader);
         model.addAttribute("episodeId", episode.getId());
+        model.addAttribute("date", episode.getPublishDate());
         model.addAttribute("podcastId", episode.getPodcastSeries().getId());
         model.addAttribute("userId", episode.getUser().getId());
         model.addAttribute("genreId", episode.getPodcastSeries().getGenre().getId());

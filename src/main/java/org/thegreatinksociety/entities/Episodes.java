@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
 public class Episodes {
@@ -29,4 +30,7 @@ public class Episodes {
     private int numberOfComments;
     private int audioLength;
     private int totalViews;
+
+    @Temporal(TemporalType.DATE) @Column(nullable = false)
+    private Date publishDate;
 }
