@@ -28,25 +28,55 @@ public class GetPastEvents {
     private UsersRepository usersRepository;
 
     @RequestMapping(value = "/getPastEvents", method = RequestMethod.GET)
-    public HashMap<String, List<?>> getPastEvents() {
-        HashMap<String, List<?>> map = new HashMap<>();
-
+    public String getPastEvents() {
+        StringBuilder design = new StringBuilder("<div class=\"row\">");
         List<Competitions> competitionsList = competitionsRepository.findCompetitionsByResultDateBefore(new Date());
-        map.put("competitionsList", competitionsList);
-        //JSONObject obj=new JSONObject();
 
-        for(Competitions c : competitionsList) {
-
-            String jsonString = String.valueOf(c);
-            System.out.println(jsonString);
+        for (int i = 0; i < competitionsList.size(); i++) {
+            Competitions c = competitionsList.get(i);
             List<Awards> awardsList = awardsRepository.findByCompetition_CompetitionId(c.getCompetitionId());
-            map.put("awardsList", awardsList);
-            List<Users> usersList = new ArrayList<>();
-            for(Awards a : awardsList){
-                usersList.add(usersRepository.findUsersById(a.getWinnerUserId()));
+
+            design.append("<div class=\"col-md-6\">" +
+                    " <div class=\"product-item\" style=\"background-color:white;\">" +
+                    "<a href=\"#\">" +
+                    "<img src=\"https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/img%2Fcompetition.webp?alt=media&token=399bb937-c08a-4983-92cb-b31e2a686cee\"" +
+                    " alt=\"\" /></a>" +
+                    "<div class=\"down-content\">" +
+                    "<h3>" + c.getCompetitionName() + "</h3>" +
+                    "<hr>" +
+                    "<span style=\"font-size: 95%;\">" +
+                    " <i class=\"fas fa-calendar\"></i> Event Held On: " +
+                    c.getEntryDate() +
+                    "</span><br>" );
+            for (Awards a : awardsList) {
+                Users user = usersRepository.findUsersById(a.getWinnerUserId());
+                if (a.getRank() == 1) {
+                    design.append("<i class=\"fas fa-award\" style=\"color:goldenrod;\"></i> " +
+                            a.getRankName() + " : " + user.getFullName() +
+                            "<br>");
+                } else if (a.getRank() == 2) {
+                    design.append("<i class=\"fas fa-award\" style=\"color:silver\"></i> " +
+                            a.getRankName() + " : " + user.getFullName() +
+                            "<br>");
+                } else if (a.getRank() == 3) {
+                    design.append(" <i class=\"fas fa-award\" style=\"color:chocolate;\"></i> " +
+                            a.getRankName() + " : " + user.getFullName() +
+                            " <br>");
+                }
             }
-            map.put("usersList", usersList);
+
+            design.append("</div>" +
+                    "</div>" +
+                    "</div>");
+
+            if (i % 2 != 0) {
+                design.append("</div><div class=\"row\">");
+            } else if (i == competitionsList.size() - 1) {
+                design.append("</div>");
+            }
+
         }
-        return map;
+
+        return design.toString();
     }
 }

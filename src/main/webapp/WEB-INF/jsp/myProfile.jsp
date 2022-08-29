@@ -655,9 +655,9 @@
                 $("#userbirthdate").html(" Date of Birth : ");
             }
             if (result.joinedDate != null) {
-                $("#userjoindate").html(" The Day You Found Us : " + result.joinedDate);
+                $("#userjoindate").html(" The Day You Joined Us : " + result.joinedDate);
             } else {
-                $("#userjoindate").html(" The Day You Found Us : ");
+                $("#userjoindate").html(" The Day You Joined Us : ");
             }
 
             for (let i = 0; i < result.badge.length; i++) {
@@ -747,7 +747,7 @@
                         '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
                         '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
                         '</div>' +
-                        '<a href="#" class="btn btn-outline-primary">Follow Back</a>' +
+                        '<button class="btn btn-outline-primary" id="followers_fBtn_' + data[i].id + '">Follow Back</button>' +
                         '</div>';
                     document.getElementById('myfollowers-list').innerHTML += design;
                 }
@@ -768,7 +768,7 @@
                         '<i class="fas fa-book-open"></i>' + data[i].numberOfBooks + '&nbsp; ' +
                         '<i class="fas fa-podcast"></i> ' + data[i].numberOfPodcasts + '</small></div>' +
                         '</div>' +
-                        '<a href="#" class="btn btn-outline-primary">Unfollow</a>' +
+                        '<button class="btn btn-outline-primary" id="followings_fBtn_' + data[i].id + '">Unfollow</button>' +
                         '</div>';
                     document.getElementById('myfollowings-list').innerHTML += design;
                 }
@@ -817,6 +817,17 @@
             }
         });
     });
+
+    function followers_fBtn_change() // no ';' here
+    {
+        var btn = document.getElementById("followers_fBtn_");
+        if (btn.value == "Follow") {
+            btn.value = "Unfollow";
+        }
+        else {
+            btn.value = "Follow";
+        }
+    }
 
     function bookDetails(element) {
         location.href = "<%=GlobalVariable.localUrl%>/bookDetails?id=" + element.id;

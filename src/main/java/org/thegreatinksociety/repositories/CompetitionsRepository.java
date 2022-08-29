@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface CompetitionsRepository extends CrudRepository<Competitions, Long> {
     List<Competitions> findCompetitionsByResultDateBefore(Date date);
+
+    List<Competitions> findCompetitionsByResultDateAfter(Date date);
 }

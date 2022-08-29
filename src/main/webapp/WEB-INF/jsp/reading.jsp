@@ -172,6 +172,7 @@
 <!-- End footer Area -->
 <script>
     let totalReacts = ${totalReacts};
+    let readerId = '<%=session.getAttribute("userId")%>';
     $(document).ready(function () {
 
         let chapterLiked = ${chapterLiked};
@@ -276,7 +277,7 @@
     }
 
     $("#heart").click(function () {
-        $.post("<%=GlobalVariable.localUrl%>/chapterLike", {userId: ${userId}, chapterId: ${chapterId}}, function (result) {
+        $.post("<%=GlobalVariable.localUrl%>/chapterLike", {userId: readerId, chapterId: ${chapterId}}, function (result) {
             console.log(result);
             if (result === true) {
                 if ($("#heart").hasClass("liked")) {

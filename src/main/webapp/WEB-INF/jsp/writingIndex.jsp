@@ -201,7 +201,8 @@
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
-                    '<p>' + result[i].description + '</p>' +
+                    '<p style="margin-bottom: 5px;">' + result[i].description + '</p>' +
+                    '<br>' +
                     '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>' +
                     '<span><b><a href="' + url + '">Start Reading</a></b></span>' +
                     '</div>' +
@@ -221,7 +222,8 @@
                     '<h4>' + result[i].bookName + '</h4>' +
                     '<small><i class="fas fa-user"></i><a href="' + userProfileUrl + '"> &nbsp;' + result[i].user.fullName + '&nbsp; </a><i class="fas fa-heart" style="color:red;"></i> ' + result[i].numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + result[i].numberOfComments + '</small>' +
                     '<hr>' +
-                    '<p>' + result[i].description + '</p>' +
+                    '<p style="margin-bottom: 5px;">' + result[i].description + '</p>' +
+                    '<br>' +
                     '<span style="margin-right: 65%; color: grey;"> Chapters : ' + result[i].numberOfChapters + ' </span>' +
                     '<span><b><a href="' + url + '">Start Reading</a></b></span>' +
                     '</div>' +

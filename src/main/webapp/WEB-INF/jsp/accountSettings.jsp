@@ -159,17 +159,18 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<%=GlobalVariable.localUrl%>/userProfilePictureUpdate" method="POST"
+                            <form action="<%=GlobalVariable.localUrl%>/userProfilePictureUpdate" id="profilePicForm" method="POST"
                                   enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <label for="profilePictureUpload" style="cursor: pointer">
                                         <b>Upload From Device</b>
-                                        <input type="file" class="form-control" name="profilePictureUpload"
-                                               id="profilePictureUpload">
                                     </label>
+                                    <input type="file" class="form-control" name="profilePictureUpload"
+                                           id="profilePictureUpload">
+                                    <progress id="uploader" value="0" max="100">0%</progress>
                                 </div>
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button onclick="validateForm()" type="button" name="profilePicUpdate" value="profilePicUpdate" class="btn btn-primary">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -365,7 +366,7 @@
     }
 
     function showModal(){
-        document.getElementById("pictureModal").modal("show");
+        $("#pictureModal").modal("show");
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -404,6 +405,65 @@
                 // tabCycle = setInterval(tabChange, 5000);
             }
         );
+    }
+
+
+    let file;
+    let fileExtension;
+    const uploader = document.getElementById('uploader');
+    const fileButton = document.getElementById('profilePictureUpload');
+    function validateForm() {
+        const firebaseConfig = {
+            apiKey: "${FIREBASE_API_KEY}",
+            authDomain: "${FIREBASE_AUTH_DOMAIN}",
+            projectId: "${FIREBASE_PROJECT_ID}",
+            storageBucket: "${FIREBASE_STORAGE_BUCKET}",
+            messagingSenderId: "${FIREBASE_MESSAGING_SENDER_ID}",
+            appId: "${FIREBASE_APP_ID}",
+            measurementId: "${FIREBASE_MEASUREMENT_ID}"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        console.log("firebase initialized.");
+
+        let fileName = '';
+
+        if (file === undefined) {
+            fileName = 'male_dp.jpg?alt=media&token=8a0f2989-5cd9-409b-887c-a1c4aded8b42';
+
+            const storageRef = firebase.storage().ref('profilePic/' + fileName);
+            console.log(storageRef);
+            storageRef.getDownloadURL()
+                .then((downloadURL) => {
+                    document.getElementById("profilePicForm").submit();
+
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        } else {
+            fileExtension = file.name.split('.').pop();
+            if (fileExtension === 'jpg' || fileExtension === 'png' || fileExtension === 'jpeg') {
+                const storageRef = firebase.storage().ref('profilePic/' + file.name);
+                const task = storageRef.put(file);
+                task.on('state_changed', function progress(snapshot) {
+                    uploader.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                }, function error(err) {
+                    console.log(err);
+                }, function complete() {
+                    // get the uploaded image url back
+                    task.snapshot.ref.getDownloadURL().then(
+                        function (downloadURL) {
+                            // You get your url from here
+                            console.log('File uploaded');
+                            document.getElementById("profilePicForm").submit();
+                        });
+                });
+            } else {
+                alert('Invalid image format');
+            }
+        }
     }
 
 </script>

@@ -3,6 +3,8 @@ package org.thegreatinksociety.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.thegreatinksociety.entities.Books;
 import org.thegreatinksociety.entities.Users;
 import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.UsersRepository;
@@ -22,27 +24,21 @@ public class UserProfilePictureUpdate {
     private UsersRepository usersRepository;
 
     @RequestMapping(value = "/userProfilePictureUpdate")
-    public void userProfilePictureUpdate(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws ServletException, IOException {
+    public void userProfilePictureUpdate(HttpServletRequest request, HttpServletResponse response,
+                                         HttpSession session, @RequestParam String profilePictureUpload) throws ServletException, IOException {
         Users user = usersRepository.findByUserName(session.getAttribute("username").toString());
 
-        Collection<Part> parts;
-        String fileName = null;
-        String path = GlobalVariable.imageUploadPath;
-
-        parts = request.getParts();
-        if (parts != null && parts.size() > 0) {
-            Part filePart_recordFile = request.getPart("profilePictureUpload");
-            fileName = FileUpload.upload(filePart_recordFile, path);
-        }
-
+        String fileName;
         String gender = user.getGender();
 
-        if (fileName == null) {
+        if (profilePictureUpload.equals("")) {
             if(gender.equalsIgnoreCase("Male")) {
                 fileName = "https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/profilePic%2Fmale_dp.jpg?alt=media&token=8a0f2989-5cd9-409b-887c-a1c4aded8b42";
-            } else if(gender.equalsIgnoreCase("Female")) {
+            } else {
                 fileName = "https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/profilePic%2Ffemale_dp.jpg?alt=media&token=ce14b4cf-1ee4-48ad-811c-32f6437e8e0f";
             }
+        } else {
+            fileName = profilePictureUpload;
         }
 
         user.setProfilePicName(fileName);
