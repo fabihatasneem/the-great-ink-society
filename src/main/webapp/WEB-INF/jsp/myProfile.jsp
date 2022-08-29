@@ -242,49 +242,58 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="text-align: center;">
                             <h4 class="mb-2 text-primary">Personal Details</h4>
                         </div>
-                        <div class="row">
-                        <div class="card" style="width:50%; padding: 5%;">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-bottom: 10px;">
-                                <i style="color: #c70000; font-size: 18px;" class="fas fa-envelope">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="useremail"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-4 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;">
-                                <i style="color: #f50392; font-size: 18px;" class="fas fa-map-marker-smile">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userlocation"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #812aff; font-size: 18px;" class="fas fa-phone">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userphone"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #3db212; font-size: 18px;" class="fas fa-venus-mars">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="usergender"></label>
-                                </i>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                <i style="color: #f17002; font-size: 18px;" class="fas fa-calendar-star">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="userjoindate"></label>
-                                </i>
-                            </div>
-                        </div>
-                            <div class="card" style="width:50%; padding: 5%;">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"
-                                 style="margin-bottom: 10px;text-align: center;">
-                                    <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
-                                           id="usercurrentbadge"></label>
-                            </div>
+                        <div class="row" style="align-items: center;">
+                            <div class="card" style="width:100%; padding: 5%;">
+
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #c70000; font-size: 18px;" class="fas fa-ribbon">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="usercurrentbadge"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #f17002; font-size: 18px;" class="fas fa-calendar-star">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="userjoindate"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #f50392; font-size: 18px;" class="fas fa-map-marker-smile">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="userlocation"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #c70000; font-size: 18px;" class="fas fa-envelope">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="useremail"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #812aff; font-size: 18px;" class="fas fa-phone">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="userphone"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #f50392; font-size: 18px;" class="fa fa-birthday-cake">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="userbirthdate"></label>
+                                    </i>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+                                     style="margin-bottom: 10px;">
+                                    <i style="color: #3db212; font-size: 18px;" class="fas fa-venus-mars">
+                                        <label style="color: #848484; font-size: 18px; font-family: Poppins; font-weight: 400;"
+                                               id="usergender"></label>
+                                    </i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -296,7 +305,6 @@
 
                     </div>
                 </div>
-
             </div>
             <div class="tab-pane fade" id="v-pills-mypodcasts" role="tabpanel" aria-labelledby="v-pills-mypodcasts-tab">
                 <div class="container-fluid">
@@ -337,23 +345,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-subscribes" role="tabpanel" aria-labelledby="v-pills-subscribes-tab">
-                <!-- <div class="team-boxed">
-                    <div class="container">
-                        <div class="row people">
-                            <div class="col-md-6 col-lg-4 item">
-                                <div class="box"><img class="rounded-circle"
-                                        src="https://epicbootstrap.com/freebies/snippets/team-cards/assets/img/2.jpg">
-                                    <h5 class="name">Ben Johnson</h5>
-                                    <small><i class="fas fa-users"></i> 100 &nbsp; <i
-                                            class="fas fa-book-open"></i> 100 &nbsp; <i
-                                            class="fas fa-podcast"></i> 100</small>
-                                            <br>
-                                    <button style="font-size: 10px;" type="button" class="btn btn-danger">Unsubscribe</button></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+
                 <div class="list-group" id="mysubscribers-list">
 
                 </div>
@@ -644,25 +636,29 @@
             $("#numberOfFollowers").html("  " + result.followers);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
-            $("#useremail").html("   " + result.email);
+            $("#useremail").html(" Email : " + result.email);
             $("#userbio").html(result.bio);
-            if (result.phone != null) {
-                $("#userphone").html(result.mobile);
+            if (result.mobile != null) {
+                $("#userphone").html(" Mobile Number : " + result.mobile);
             } else {
-                $("#userphone").html(" Mobile Number");
+                $("#userphone").html(" Mobile Number : ");
             }
             if (result.location != null) {
-                $("#userlocation").html(result.location);
+                $("#userlocation").html(" Location : " + result.location);
             } else {
-                $("#userlocation").html(" Location");
+                $("#userlocation").html(" Location : ");
             }
-            $("#usergender").html(result.gender);
-            if (result.location != null) {
-                $("#userbirthdate").html(result.dob);
+            $("#usergender").html(" Gender : " + result.gender);
+            if (result.dob != null) {
+                $("#userbirthdate").html(" Date of Birth : " + result.dob);
             } else {
-                $("#userbirthdate").html("Date of Birth");
+                $("#userbirthdate").html(" Date of Birth : ");
             }
-            $("#userjoindate").html(result.joinedDate);
+            if (result.joinedDate != null) {
+                $("#userjoindate").html(" The Day You Found Us : " + result.joinedDate);
+            } else {
+                $("#userjoindate").html(" The Day You Found Us : ");
+            }
 
             for (let i = 0; i < result.badge.length; i++) {
                 let design = '<div class="col-md-6 col-lg-4 item">' +
@@ -686,7 +682,11 @@
             }
             $.post("<%=GlobalVariable.localUrl%>/getCurrentBadge", {badgeId: result.currentBadgeId}, function (data) {
                 console.log("Badge:" + data);
-                $("#usercurrentbadge").html(data.badgeName);
+                if (data.badgeName != null) {
+                    $("#usercurrentbadge").html(" Current Badge : " + data.badgeName);
+                } else {
+                    $("#usercurrentbadge").html(" Current Badge : No Badges Achieved Yet");
+                }
             });
         });
         $.post("<%=GlobalVariable.localUrl%>/getMyBooksInfo", {username: username}, function (data) {

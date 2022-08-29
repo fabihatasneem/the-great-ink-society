@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="css/reading/main.css"/>
 <link rel="stylesheet" href="css/profile/style.css"/>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
     .cycle-tab-container {
         margin: 0px;
@@ -146,13 +146,12 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
-                <div class="profile-pic">
-                    <span class="glyphicon glyphicon-camera"></span>
+                <div class="profile-pic" data-toggle="modal" data-target="#pictureModal" onclick="showModal()">
                     <img id="profilePicture" class="img-circle img-profile img-thumbnail lazy"
-                         alt="Profile Picture" data-toggle="modal" data-target="#pictureModal"/>
+                         alt="Update" />
                 </div>
-                <div class="modal fade bd-example-modal-sm" id="pictureModal" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal fade" id="pictureModal" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"  aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">New Profile Picture</h5>
@@ -164,7 +163,7 @@
                                   enctype="multipart/form-data">
                                 <div class="modal-body">
                                     <label for="profilePictureUpload" style="cursor: pointer">
-                                        <b>Choose From Gallery</b>
+                                        <b>Upload From Device</b>
                                         <input type="file" class="form-control" name="profilePictureUpload"
                                                id="profilePictureUpload">
                                     </label>
@@ -191,8 +190,8 @@
 </section>
 <!-- End banner Area -->
 
-<!-- Modal Start -->
-<div style="opacity: 0.9; background-color: #ea6161 !important" class="modal fade bg-white" id="templatemo_search"
+<!-- Search Modal Start -->
+<div style="opacity: 80%; background-color: #ea6161 !important" class="modal fade bg-white" id="templatemo_search"
      tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="w-100 pt-1 mb-5 text-right">
@@ -331,6 +330,9 @@
 <!-- Nav Tabs End -->
 
 <%@ include file="footer.jsp" %>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
@@ -339,7 +341,7 @@
         let username = '<%=session.getAttribute("username")%>';
         let userId = '<%=session.getAttribute("userId")%>';
         $.post("<%=GlobalVariable.localUrl%>/getMyProfileInfo", {username: username}, function (result) {
-            console.log(result);
+
             if (result.profilePicLink != null) {
                 document.getElementById("profilePicture").src = result.profilePicLink;
             }
@@ -360,6 +362,10 @@
 
     function bookDetails(element) {
         location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
+    }
+
+    function showModal(){
+        document.getElementById("pictureModal").modal("show");
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -399,6 +405,7 @@
             }
         );
     }
+
 </script>
 </body>
 

@@ -35,12 +35,18 @@ public class UserProfilePictureUpdate {
             fileName = FileUpload.upload(filePart_recordFile, path);
         }
 
+        String gender = user.getGender();
+
         if (fileName == null) {
-            fileName = "img/blog/user-info.png";
+            if(gender.equalsIgnoreCase("Male")) {
+                fileName = "https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/profilePic%2Fmale_dp.jpg?alt=media&token=8a0f2989-5cd9-409b-887c-a1c4aded8b42";
+            } else if(gender.equalsIgnoreCase("Female")) {
+                fileName = "https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/profilePic%2Ffemale_dp.jpg?alt=media&token=ce14b4cf-1ee4-48ad-811c-32f6437e8e0f";
+            }
         }
 
         user.setProfilePicName(fileName);
-        user.setProfilePicLink(path + fileName);
+        user.setProfilePicLink(fileName);
 
         usersRepository.save(user);
 
