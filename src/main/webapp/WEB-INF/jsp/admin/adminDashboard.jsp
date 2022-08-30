@@ -18,7 +18,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../images/icon.png">
-    <link href="../css/admin/adminDashboard.css" rel="stylesheet" type="text/css" />
+    <link href="../css/admin/adminDashboard.css" rel="stylesheet" type="text/css"/>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -38,6 +38,59 @@
 </head>
 
 <body>
+<div class="modal lg fade" id="addNewEventModal" tabindex="-1" aria-labelledby="addNewEventModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="<%=GlobalVariable.localUrl%>/createEvent" method="POST" enctype="utf8"
+                  class="register-form" id="event-form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewEventModalLabel">Create A New Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="new_event_title" class="col-form-label">Event Title:</label>
+                            <input type="text" class="form-control" id="new_event_title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="new_deadline_date" class="col-form-label">Deadline Date:</label>
+                            <input type="date" class="form-control" id="new_deadline_date">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="new_result_date" class="col-form-label">Result Date:</label>
+                            <input type="date" class="form-control" id="new_result_date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="new_participants" class="col-form-label">Participants:</label>
+                            <input type="number" class="form-control" id="new_participants">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="new_type" class="col-form-label">Type:</label>
+                            <select id="new_type" class="form-control"
+                                    aria-label="Type">
+                                <option value="1" selected>Writings</option>
+                                <option value="2">Podcasts</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" data-bs-dismiss="modal"
+                            class="btn btn-primary">Create
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <main>
     <div class="d-flex flex-column min-vh-100 flex-shrink-0 p-2 text-white bg-dark" style="width: 230px;">
         <a href="/admin/login"
@@ -47,7 +100,8 @@
         <hr>
         <div>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a onclick="<%=GlobalVariable.localUrl%>/adminSignOut" class="dropdown-item" href="#">Sign out</a></li>
+                <li><a onclick="<%=GlobalVariable.localUrl%>/adminSignOut" class="dropdown-item" href="#">Sign out</a>
+                </li>
             </ul>
         </div>
         <hr>
@@ -58,7 +112,7 @@
                 </a>
             </li>
             <li>
-                <a href="" onclick="eventList()" class="nav-link text-white">
+                <a href="#" onclick="eventList()" class="nav-link text-white">
                     Events
                 </a>
             </li>
@@ -75,9 +129,11 @@
         </ul>
     </div>
 
+
     <div class="p-3" id="mainContents" style="width: 100%;">
 
     </div>
+
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -128,7 +184,6 @@
         });
 
         let ResponseObj = await response.json();
-        console.log(ResponseObj);
 
         let design = `<div class="row">
               <h2 align="center"> USERS </h2>
@@ -148,7 +203,7 @@
                     </thead>
                     <tbody>`;
 
-        for(let i = 0; i < ResponseObj.length; i++) {
+        for (let i = 0; i < ResponseObj.length; i++) {
             design += `<tr>
                         <td>` + i + `</td>
                         <th scope="row">` + ResponseObj[i].id + `</th>
@@ -169,7 +224,7 @@
     const banThisUser = async (userId) => {
 
         $.post("<%=GlobalVariable.localUrl%>/banUser", {userId: userId}, function (data) {
-            console.log(data);
+            alert("User Banned!");
             // window.location.replace("/admin/dashBoard");
         });
 
@@ -184,7 +239,6 @@
         });
 
         let ResponseObj = await response.json();
-        console.log(ResponseObj);
 
         let design = `<div class="row">
               <h2 align="center"> REPORTS </h2>
@@ -209,7 +263,7 @@
                     </thead>
                     <tbody>`;
 
-        for(let i = 0; i < ResponseObj.length; i++) {
+        for (let i = 0; i < ResponseObj.length; i++) {
             let date = "";
             if (ResponseObj[i].date != null) {
                 date = ResponseObj[i].date;
@@ -217,19 +271,19 @@
                 date = date[0];
             }
             let bookId = "";
-            if(ResponseObj[i].books != null){
+            if (ResponseObj[i].books != null) {
                 bookId = ResponseObj[i].books.id;
             }
             let chapterId = "";
-            if(ResponseObj[i].chapters != null){
+            if (ResponseObj[i].chapters != null) {
                 chapterId = ResponseObj[i].chapters.id;
             }
             let podcastSeriesId = "";
-            if(ResponseObj[i].podcastSeries != null){
+            if (ResponseObj[i].podcastSeries != null) {
                 podcastSeriesId = ResponseObj[i].podcastSeries.id;
             }
             let episodesId = "";
-            if(ResponseObj[i].episodes != null){
+            if (ResponseObj[i].episodes != null) {
                 episodesId = ResponseObj[i].episodes.id;
             }
             design += `<tr>
@@ -244,6 +298,74 @@
                         <td>` + podcastSeriesId + `</td>
                         <td>` + episodesId + `</td>
                         <td>` + ResponseObj[i].solveStatus + `</td>
+                    </tr>`;
+        }
+
+        design += `</tbody>
+                </table>`;
+        document.getElementById("mainContents").innerHTML = design;
+    };
+
+    const eventList = async () => {
+        const response = await fetch("<%=GlobalVariable.localUrl%>/getUpcomingEvents", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        let ResponseObj = await response.json();
+
+        let design = `<div class="row">
+              <h2 align="center"> UPCOMING EVENTS </h2>
+              </div>
+              <hr>
+                <div class="row">
+                  <p align="center">
+                  <button style="width:50%;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewEventModal"> Create A New Event</button>
+                  </p>
+                  </div>
+                  <hr>`;
+
+        design += `<table class="table" style="font-size:smaller">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event ID</th>
+                        <th scope="col">Competition Name</th>
+                        <th scope="col">Entry Date</th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col">Result Date</th>
+                        <th scope="col">Participants</th>
+                    </tr>
+                    </thead>
+                    <tbody>`;
+
+        for (let i = 0; i < ResponseObj.length; i++) {
+            let entryDate = "";
+            if (ResponseObj[i].entryDate != null) {
+                entryDate = ResponseObj[i].entryDate;
+                entryDate = entryDate.split("T");
+                entryDate = entryDate[0];
+            }
+            let deadlineDate = "";
+            if (ResponseObj[i].entryDate != null) {
+                deadlineDate = ResponseObj[i].deadlineDate;
+                deadlineDate = deadlineDate.split("T");
+                deadlineDate = deadlineDate[0];
+            }
+            let resultDate = "";
+            if (ResponseObj[i].resultDate != null) {
+                resultDate = ResponseObj[i].resultDate;
+                resultDate = resultDate.split("T");
+                resultDate = resultDate[0];
+            }
+            design += `<tr>
+                        <th scope="row">` + ResponseObj[i].id + `</th>
+                        <td>` + ResponseObj[i].competitionName + `</td>
+                        <td>` + entryDate + `</td>
+                        <td>` + deadlineDate + `</td>
+                        <td>` + resultDate + `</td>
+                        <td>` + ResponseObj[i].numberOfParticipants + `</td>
                     </tr>`;
         }
 
