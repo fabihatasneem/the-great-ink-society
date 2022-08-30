@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Fabiha
-  Date: 04/11/2021
-  Time: 12:19 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="header.jsp" %>
 
 <link rel="stylesheet" href="css/reading/main.css"/>
 <link rel="stylesheet" href="css/profile/style.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="css/writing-podcast/style.css"/>
+<link rel="stylesheet" href="css/writing-podcast/banner.css"/>
+<link rel="stylesheet" href="css/writing-podcast/main.css"/>
+
 <style>
     .cycle-tab-container {
         margin: 0px;
@@ -134,10 +130,36 @@
     }
 
     form input[type="file"] {
-        display: none;
         cursor: pointer;
     }
 </style>
+
+<div class="modal show" id="pictureModal" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Profile Picture</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<%=GlobalVariable.localUrl%>\userProfilePictureUpdate" id="profilePicForm" method="POST">
+                <div class="modal-body">
+                    <label for="profilePictureUpload" style="cursor: pointer">
+                        <b>Upload From Device</b>
+                    </label>
+                    <input type="file" class="form-control" name="profilePictureUpload"
+                           id="profilePictureUpload">
+                    <input id="profilePicFileName" name="profilePicName" type="hidden" value="">
+                    <progress id="uploader" value="0" max="100">0%</progress>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button onclick="validateForm()" type="button" name="profilePicUpdate" value="profilePicUpdate" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <!-- start banner Area -->
@@ -146,35 +168,9 @@
     <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12" style="margin-top: 60px">
-                <div class="profile-pic" data-toggle="modal" data-target="#pictureModal" onclick="showModal()">
+                <div class="profile-pic" data-toggle="modal" data-target="#pictureModal">
                     <img id="profilePicture" class="img-circle img-profile img-thumbnail lazy"
                          alt="Update" />
-                </div>
-                <div class="modal fade" id="pictureModal" tabindex="-1" role="dialog" aria-labelledby="pictureModalTitle"  aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">New Profile Picture</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form action="<%=GlobalVariable.localUrl%>/userProfilePictureUpdate" id="profilePicForm" method="POST"
-                                  enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <label for="profilePictureUpload" style="cursor: pointer">
-                                        <b>Upload From Device</b>
-                                    </label>
-                                    <input type="file" class="form-control" name="profilePictureUpload"
-                                           id="profilePictureUpload">
-                                    <progress id="uploader" value="0" max="100">0%</progress>
-                                </div>
-                                <div class="modal-footer justify-content-center">
-                                    <button onclick="validateForm()" type="button" name="profilePicUpdate" value="profilePicUpdate" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
                 <p>
                 <h3 style="color: white;" id="profileFullName">Full Name</h3>
@@ -191,24 +187,9 @@
 </section>
 <!-- End banner Area -->
 
-<!-- Search Modal Start -->
-<div style="opacity: 80%; background-color: #ea6161 !important" class="modal fade bg-white" id="templatemo_search"
-     tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="w-100 pt-1 mb-5 text-right">
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ..."/>
-                <button type="submit" class="input-group-text bg-success text-light">
-                    <i class="fa fa-fw fa-search text-white"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- Modal End -->
+<!-- Details Modal Start -->
+
+
 <br/>
 <!-- Nav tabs Start -->
 <div class="container">
@@ -331,11 +312,6 @@
 <!-- Nav Tabs End -->
 
 <%@ include file="footer.jsp" %>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -365,29 +341,6 @@
         location.href = "<%=GlobalVariable.localUrl%>/bookDetailsUser?id=" + element.id;
     }
 
-    function showModal(){
-        $("#pictureModal").modal("show");
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        var mediaElements = document.querySelectorAll("video, audio"),
-            total = mediaElements.length;
-
-        for (var i = 0; i < total; i++) {
-            new MediaElementPlayer(mediaElements[i], {
-                pluginPath:
-                    "https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/",
-                shimScriptAccess: "always",
-                success: function () {
-                    var target = document.body.querySelectorAll(".player"),
-                        targetTotal = target.length;
-                    for (var j = 0; j < targetTotal; j++) {
-                        target[j].style.visibility = "visible";
-                    }
-                },
-            });
-        }
-    });
 
     function tabChange() {
         var tabs = $(".nav-tabs > li");
@@ -412,6 +365,12 @@
     let fileExtension;
     const uploader = document.getElementById('uploader');
     const fileButton = document.getElementById('profilePictureUpload');
+
+    fileButton.addEventListener('change', function(e) {
+        console.log("here");
+        file = e.target.files[0];
+    });
+
     function validateForm() {
         const firebaseConfig = {
             apiKey: "${FIREBASE_API_KEY}",
@@ -429,14 +388,14 @@
         let fileName = '';
 
         if (file === undefined) {
-            fileName = 'male_dp.jpg?alt=media&token=8a0f2989-5cd9-409b-887c-a1c4aded8b42';
+            fileName = 'male_dp.jpg';
 
             const storageRef = firebase.storage().ref('profilePic/' + fileName);
             console.log(storageRef);
             storageRef.getDownloadURL()
                 .then((downloadURL) => {
+                    $("#profilePicFileName").val(downloadURL);
                     document.getElementById("profilePicForm").submit();
-
                 })
                 .catch((error) => {
                     console.log(error);
@@ -457,6 +416,7 @@
                         function (downloadURL) {
                             // You get your url from here
                             console.log('File uploaded');
+                            $("#profilePicFileName").val(downloadURL);
                             document.getElementById("profilePicForm").submit();
                         });
                 });

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Zeeon
-  Date: 7/30/2021
-  Time: 4:04 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp" %>
 
@@ -95,7 +88,7 @@
                     <div class="row">
                         <div
                                 class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                            <div class="detials">
+                            <div class="details">
                                 <p> <a href="#"><i class="fas fa-chevron-circle-left"></i> Previous Chapter </a> </p>
                                 <a href="#">
                                     <h4>0. Chapter Name</h4>
@@ -103,7 +96,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                            <div class="detials">
+                            <div class="details">
                                 <p><a href="#"> Next Chapter  <i class="fas fa-chevron-circle-right"></i></a></p>
                                 <a href="#">
                                     <h4>02. Chapter Name </h4>
