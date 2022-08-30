@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li>
-                <a href="" onclick="reportList()" class="nav-link text-white">
+                <a href="#" onclick="reportList()" class="nav-link text-white">
                     Complaints
                 </a>
             </li>
@@ -120,7 +120,6 @@
     };
 
     const userList = async () => {
-        const MainContent = document.getElementById("mainContents");
         const response = await fetch("<%=GlobalVariable.localUrl%>/getUsers", {
             method: "GET",
             headers: {
@@ -167,9 +166,22 @@
         document.getElementById("mainContents").innerHTML = design;
     };
 
-    const banThisUser = async () => {
-        const MainContent = document.getElementById("mainContents");
-        const response = await fetch("<%=GlobalVariable.localUrl%>/banThisUser", {
+    const banThisUser = async (userId) => {
+        const response = await fetch("<%=GlobalVariable.localUrl%>/banUser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            userId: userId
+        });
+
+        let ResponseObj = await response.json();
+        console.log(ResponseObj);
+        window.location.replace("/admin/dashBoard");
+    };
+
+    const reportList = async () => {
+        const response = await fetch("<%=GlobalVariable.localUrl%>/getReports", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -180,33 +192,63 @@
         console.log(ResponseObj);
 
         let design = `<div class="row">
-              <h2 align="center"> USERS </h2>
+              <h2 align="center"> REPORTS </h2>
               </div>
               <hr>`;
 
         design += `<table class="table" style="font-size:smaller">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User ID</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Full Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Report ID</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Complainant</th>
+                        <th scope="col">Convict</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Reference Link</th>
+                        <th scope="col">Book</th>
+                        <th scope="col">Chapter</th>
+                        <th scope="col">Podcast</th>
+                        <th scope="col">Episode</th>
+                        <th scope="col">Resolve Status</th>
                     </tr>
                     </thead>
                     <tbody>`;
 
         for(let i = 0; i < ResponseObj.length; i++) {
+            let date = "";
+            if (ResponseObj[i].date != null) {
+                date = ResponseObj[i].date;
+                date = date.split("T");
+                date = date[0];
+            }
+            let bookId = "";
+            if(ResponseObj[i].books != null){
+                bookId = ResponseObj[i].books.id;
+            }
+            let chapterId = "";
+            if(ResponseObj[i].chapters != null){
+                chapterId = ResponseObj[i].chapters.id;
+            }
+            let podcastSeriesId = "";
+            if(ResponseObj[i].podcastSeries != null){
+                podcastSeriesId = ResponseObj[i].podcastSeries.id;
+            }
+            let episodesId = "";
+            if(ResponseObj[i].episodes != null){
+                episodesId = ResponseObj[i].episodes.id;
+            }
             design += `<tr>
-                        <td>` + i + `</td>
                         <th scope="row">` + ResponseObj[i].id + `</th>
-                        <td id="">` + ResponseObj[i].userName + `</td>
-                        <td>` + ResponseObj[i].fullName + `</td>
-                        <td>` + ResponseObj[i].email + `</td>
-                        <td><button id="` + ResponseObj[i].id + `" value="` + ResponseObj[i].id + `" onclick="banUser(` + ResponseObj[i].id + `)"
-                        class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#banUserModal">Ban</button>
-                        </td>
+                        <td>` + date + `</td>
+                        <td id="">` + ResponseObj[i].user.userName + `</td>
+                        <td>` + ResponseObj[i].convict.userName + `</td>
+                        <td>` + ResponseObj[i].description + `</td>
+                        <td>` + ResponseObj[i].referenceLink + `</td>
+                        <td>` + bookId + `</td>
+                        <td>` + chapterId + `</td>
+                        <td>` + podcastSeriesId + `</td>
+                        <td>` + episodesId + `</td>
+                        <td>` + ResponseObj[i].solveStatus + `</td>
                     </tr>`;
         }
 
