@@ -715,7 +715,7 @@
                     '<div class="card-horizontal">' +
                     '<div class="img-square-wrapper">' +
                     '<img class="" src="' + data[i].coverPhotoLink + '"' +
-                    'alt = "Card image cap" style="width: 100%; height: 100%;">' +
+                    'alt = "Card image cap" style="width: 200px; height: 200px;">' +
                     ' </div>' +
                     '<div class="card-body">' +
                     '<h4>' + data[i].seriesName + '</h4>' +

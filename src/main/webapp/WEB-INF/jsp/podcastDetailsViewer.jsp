@@ -92,6 +92,20 @@
             </div>
             <div class="col-lg-4">
                 <div class="widget-wrap">
+                    <div class="single-sidebar-widget user-info-widget">
+                        <img width="250" height="250" src="${userProfileLink}" alt="">
+                        <a href="<%=GlobalVariable.localUrl%>/getProfile?id=${userId}">
+                            <h4>${userFullName}</h4>
+                        </a>
+                        <p>
+                            <i class="fas fa-user-friends"></i> ${userFollowers} &nbsp; <i class="fas fa-award"></i> ${numberOfBadges} &nbsp; <i
+                                style="color: #DAA520;" class="fas fa-trophy"></i> ${numberOfAwards} &nbsp; <i class="fas fa-heart"
+                                                                                                               style="color:red;"></i> ${numberOfReacts}
+                        </p>
+                        <p>
+                            ${userBio}
+                        </p>
+                    </div>
                     <div class="single-sidebar-widget popular-post-widget">
                         <h4 class="popular-title">Most Popular</h4>
                         <div id="myMostPopular" class="popular-post-list">
@@ -131,17 +145,14 @@
             let urlLink = '';
             result.map(episode => {
                 draftName = '';
-                if (episode.status === 0) {
+                if (episode.status !== 0) {
                     draftName = ' <small style="color: red;">(Draft)</small> ';
                     urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
-                } else {
-                    urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
+
+                    design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + episode.episodeName +
+                        '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + episode.totalViews + '</p></small>' +
+                        '</li></a>';
                 }
-
-                design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + episode.episodeName +
-                    '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + episode.totalViews + '</p></small>' +
-                    '</li></a>';
-
             });
 
             document.getElementById('episodesList').innerHTML = design;

@@ -31,6 +31,6 @@ public class Episodes {
     private int audioLength;
     private int totalViews;
 
-    @Temporal(TemporalType.DATE) @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date publishDate;
 }

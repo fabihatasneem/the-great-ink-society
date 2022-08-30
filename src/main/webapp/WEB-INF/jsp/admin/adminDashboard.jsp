@@ -204,15 +204,23 @@
                     <tbody>`;
 
         for (let i = 0; i < ResponseObj.length; i++) {
+            let actionDesign = '';
+            if (ResponseObj[i].status == 1) {
+                actionDesign = `<td><button id="` + ResponseObj[i].id + `" value="` + ResponseObj[i].id + `" onclick="banThisUser(` + ResponseObj[i].id + `)"
+                        class="btn btn-warning btn-sm">Ban</button>
+                        </td>`;
+            } else {
+                actionDesign = `<td><button id="` + ResponseObj[i].id + `" value="` + ResponseObj[i].id + `" onclick="activateThisUser(` + ResponseObj[i].id + `)"
+                        class="btn btn-primary btn-sm">Activate</button>
+                        </td>`;
+            }
             design += `<tr>
                         <td>` + i + `</td>
                         <th scope="row">` + ResponseObj[i].id + `</th>
                         <td id="">` + ResponseObj[i].userName + `</td>
                         <td>` + ResponseObj[i].fullName + `</td>
-                        <td>` + ResponseObj[i].email + `</td>
-                        <td><button id="` + ResponseObj[i].id + `" value="` + ResponseObj[i].id + `" onclick="banThisUser(` + ResponseObj[i].id + `)"
-                        class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#banUserModal">Ban</button>
-                        </td>
+                        <td>` + ResponseObj[i].email + `</td>` +
+                        actionDesign + `
                     </tr>`;
         }
 
@@ -225,6 +233,14 @@
 
         $.post("<%=GlobalVariable.localUrl%>/banUser", {userId: userId}, function (data) {
             alert("User Banned!");
+            // window.location.replace("/admin/dashBoard");
+        });
+
+    };
+    const activateThisUser = async (userId) => {
+
+        $.post("<%=GlobalVariable.localUrl%>/activateUser", {userId: userId}, function (data) {
+            alert("User Activated!");
             // window.location.replace("/admin/dashBoard");
         });
 
@@ -289,14 +305,14 @@
             design += `<tr>
                         <th scope="row">` + ResponseObj[i].id + `</th>
                         <td>` + date + `</td>
-                        <td id="">` + ResponseObj[i].user.userName + `</td>
-                        <td>` + ResponseObj[i].convict.userName + `</td>
+                        <td id=""> <a href="<%=GlobalVariable.localUrl%>/userProfile?username=` + ResponseObj[i].user.userName + `">` + ResponseObj[i].user.userName + `</a></td>
+                        <td> <a href="<%=GlobalVariable.localUrl%>/userProfile?username=` + ResponseObj[i].convict.userName + `">` + ResponseObj[i].convict.userName + `</a></td>
                         <td>` + ResponseObj[i].description + `</td>
-                        <td>` + ResponseObj[i].referenceLink + `</td>
-                        <td>` + bookId + `</td>
-                        <td>` + chapterId + `</td>
-                        <td>` + podcastSeriesId + `</td>
-                        <td>` + episodesId + `</td>
+                        <td> <a href="#">` + ResponseObj[i].referenceLink + `</a></td>
+                        <td> <a href="<%=GlobalVariable.localUrl%>/bookDetailsUser?id=` + bookId + `">` + bookId + `</a></td>
+                        <td> <a href="<%=GlobalVariable.localUrl%>/reading?id=` + chapterId + `">` + chapterId + `</a></td>
+                        <td> <a href="<%=GlobalVariable.localUrl%>/podcastDetailsUser?id=` + podcastSeriesId + `">` + podcastSeriesId + `</a></td>
+                        <td> <a href="<%=GlobalVariable.localUrl%>/listening?id=` + episodesId + `">` + episodesId + `</a></td>
                         <td>` + ResponseObj[i].solveStatus + `</td>
                     </tr>`;
         }

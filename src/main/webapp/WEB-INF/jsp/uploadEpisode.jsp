@@ -51,55 +51,6 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="widget-wrap">
-                    <div class="single-sidebar-widget popular-post-widget">
-                        <h4 class="popular-title">My Drafts</h4>
-                        <div class="popular-post-list">
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp1.jpg" alt="" />
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Space The Final Frontier</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp2.jpg" alt="" />
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>The Amazing Hubble</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp3.jpg" alt="" />
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Astronomy Or Astrology</h6>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="single-post-list d-flex flex-row align-items-center">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="img/blog/pp4.jpg" alt="" />
-                                </div>
-                                <div class="details">
-                                    <a href="blog-single.html">
-                                        <h6>Asteroids telescope</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -177,8 +128,6 @@
             }
 
         }
-
-
     }
 </script>
 </body>

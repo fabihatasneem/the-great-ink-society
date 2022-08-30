@@ -40,47 +40,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="latest-products">
-            <div class="section-heading">
-                <h2>Continue From Where You Left Off</h2>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/the-great-ink-society-6e0c8.appspot.com/o/bookCover%2FnoBookCover.jpg?alt=media&token=a2db9408-750b-4997-bcee-f47811a3f89e')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Chapter 1 : Prologue</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        Pride & Prejudice
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Jane Austen
-                  <span class="sep"><i class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i
-                          class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.
-                        However little known the feelings or views of such a man may be
-                        on his first entering a neighbourhood, this truth is so well fixed in the
-                        minds of the surrounding families, that he is considered the rightful
-                        property of some one or other of their daughters.
-                        "My dear Mr. Bennet," said his lady to him one day, "have you
-                        heard that Netherfield Park is let at last?"
-
-                        <a href="#">
-                            (...Continue)
-                        </a>
-
-                    </p>
-                </div>
-            </div>
-            <div class="section-heading">
-                <a href="#">Go to Chapter Page <i class="fa fa-angle-right"></i></a>
-            </div>
-        </div>
+        ${lastDesign}
     </div>
 </div>
 

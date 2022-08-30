@@ -26,9 +26,13 @@ public class GetBookPageController {
         if (session.getAttribute("userId") == null) {
             response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsViewer?id=" + id);
         } else {
-            Long userId = Long.valueOf(session.getAttribute("userId").toString());
+
+            Long userId = Long.parseLong(session.getAttribute("userId").toString());
 
             Books books = booksRepository.findBooksById(id);
+
+            System.out.println(userId);
+            System.out.println(books.getUser().getId());
 
             if (userId.equals(books.getUser().getId())) {
                 response.sendRedirect(GlobalVariable.localUrl + "/bookDetailsUser?id=" + id);

@@ -5,9 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.thegreatinksociety.entities.Genre;
+import org.thegreatinksociety.entities.ListeningHistory;
+import org.thegreatinksociety.entities.ReadingHistory;
+import org.thegreatinksociety.entities.Users;
 import org.thegreatinksociety.global.GlobalVariable;
 import org.thegreatinksociety.repositories.GenreRepository;
+import org.thegreatinksociety.repositories.ListeningHistoryRepository;
+import org.thegreatinksociety.repositories.ReadingHistoryRepository;
+import org.thegreatinksociety.repositories.UsersRepository;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -15,13 +22,59 @@ public class PodcastIndexPageController {
     @Autowired
     private GenreRepository genreRepository;
 
+    @Autowired
+    private UsersRepository usersRepository;
+
+    @Autowired
+    private ListeningHistoryRepository listeningHistoryRepository;
+
     @RequestMapping("/podcastIndex")
-    public String getPodcastIndex(Model model) {
+    public String getPodcastIndex(Model model, HttpSession session) {
 
         String design = "";
         List<Genre> genreList = genreRepository.findAll();
+        String lastDesign = "";
+
 
         int count = 1;
+
+        if (session.getAttribute("userId") != null) {
+            Users user = usersRepository.findUsersById(Long.parseLong(session.getAttribute("userId").toString()));
+
+            ListeningHistory listeningHistory = listeningHistoryRepository.findFirstByUser_IdOrderByLastListeningTimeTimeDesc(user.getId());
+
+            lastDesign = "<div class=\"latest-products\">\n" +
+                    "            <div class=\"section-heading\">\n" +
+                    "                <h2>Continue From Where You Left Off</h2>\n" +
+                    "            </div>\n" +
+                    "            <div class=\"d-block d-md-flex podcast-entry bg-white mb-5\" data-aos=\"fade-up\">\n" +
+                    "                <div class=\"image\" style=\"background-image: url('" + listeningHistory.getPodcastSeries().getCoverPhotoLink() +"')\"></div>\n" +
+                    "                <div class=\"text\">\n" +
+                    "                    <h3 class=\"font-weight-medium\" style=\"font-size: 1.3rem;\">\n" +
+                    "                        <a href=\"" + GlobalVariable.localUrl +"/listening?id=" + listeningHistory.getEpisodes().getId() + "\">Episode  : " + listeningHistory.getEpisodes().getEpisodeName() + "</a>\n" +
+                    "                    </h3>\n" +
+                    "                    <hr>\n" +
+                    "                    <h6 class=\"font-weight-light\" style=\"margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;\">\n" +
+                    "                        " + listeningHistory.getPodcastSeries().getSeriesName() +"\n" +
+                    "                    </h6>\n" +
+                    "                    <div class=\"text-white mb-3\">\n" +
+                    "                    </div>\n" +
+                    "                    <hr>\n" +
+                    "                    <p class=\"mb-4\">\n" +
+                                            listeningHistory.getPodcastSeries().getDescription() +
+                    "                    </p>\n" +
+                    "                   <div class=\"player\">\n" +
+                    "                        <audio id=\"player2\" preload=\"none\" controls style=\"max-width: 100%\">\n" +
+                    "                            <source src=\"" + listeningHistory.getEpisodes().getAudioFileLink()  + "\" type=\"audio/mp3\" />\n" +
+                    "                        </audio>\n" +
+                    "                    </div>" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "            <div class=\"section-heading\">\n" +
+                    "                <a href=\"" + GlobalVariable.localUrl  +"/listening?id=" + listeningHistory.getEpisodes().getId() +"\">Go to Episode Page <i class=\"fa fa-angle-right\"></i></a>\n" +
+                    "            </div>\n" +
+                    "        </div>";
+        }
 
         for (Genre genre : genreList) {
             if (count == 1) {
@@ -74,6 +127,7 @@ public class PodcastIndexPageController {
 
         model.addAttribute("coverLink", GlobalVariable.PODCAST_BACKGROUND_LINK);
         model.addAttribute("genreDesign", design);
+        model.addAttribute("lastDesign", lastDesign);
 
         return "/podcastIndex";
     }

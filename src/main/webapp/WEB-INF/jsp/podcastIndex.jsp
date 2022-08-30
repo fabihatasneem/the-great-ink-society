@@ -42,46 +42,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="latest-products">
-            <div class="section-heading">
-                <h2>Continue From Where You Left Off</h2>
-            </div>
-            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-                <div class="image" style="background-image: url('${coverLink}')"></div>
-                <div class="text">
-                    <h3 class="font-weight-medium" style="font-size: 1.3rem;">
-                        <a href="single-post.html">Episode 01: That Nights Out Episode</a>
-                    </h3>
-                    <hr>
-                    <h6 class="font-weight-light" style="margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;">
-                        That Peter Crouch Podcast
-                    </h6>
-                    <div class="text-white mb-3">
-              <span style="font-size: 95%;" class="text-black-opacity-05"><small><i class="fas fa-user"></i> Cenyth <span class="sep"><i
-                      class="fas fa-heart" style="color:red;"></i></span>78 &nbsp; <i class="fas fa-comments"></i> 87
-                </small></span>
-                    </div>
-                    <hr>
-                    <p class="mb-4">
-                        What goes on in a dressing room full of millionaire footballers? Peter Crouch tells Tom Fordyce
-                        and Chris Stark tales of which team-mate to avoid following into the toilet and why the kit man is the most important man at a football club.
-                        <a href="">
-                            (...Continue)
-                        </a>
-
-                    </p>
-
-                    <div class="player">
-                        <audio id="player2" preload="none" controls style="max-width: 100%">
-                            <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3" />
-                        </audio>
-                    </div>
-                </div>
-            </div>
-            <div class="section-heading">
-                <a href="products.html">Go to Podcast Page <i class="fa fa-angle-right"></i></a>
-            </div>
-        </div>
+        ${lastDesign}
     </div>
 </div>
 

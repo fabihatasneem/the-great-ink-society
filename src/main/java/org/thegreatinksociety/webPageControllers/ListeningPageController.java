@@ -6,29 +6,36 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.thegreatinksociety.entities.*;
-import org.thegreatinksociety.repositories.EpisodeLikeHistoryRepository;
-import org.thegreatinksociety.repositories.EpisodesRepository;
-import org.thegreatinksociety.repositories.PodcastSeriesRepository;
+import org.thegreatinksociety.repositories.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @Controller
 public class ListeningPageController {
 
     @Autowired
-    EpisodesRepository episodesRepository;
+    private EpisodesRepository episodesRepository;
 
     @Autowired
-    EpisodeLikeHistoryRepository episodeLikeHistoryRepository;
+    private EpisodeLikeHistoryRepository episodeLikeHistoryRepository;
 
     @Autowired
-    PodcastSeriesRepository podcastSeriesRepository;
+    private PodcastSeriesRepository podcastSeriesRepository;
+
+    @Autowired
+    private ListeningHistoryRepository listeningHistoryRepository;
+
+    @Autowired
+    private UsersRepository usersRepository;
 
     @RequestMapping("/listening")
     public String getListeningPage(ModelMap model, @RequestParam Long episodeId, HttpSession session) {
         if (session.getAttribute("userId") == null) {
             return "signin";
         }
+
+        Users listener =usersRepository.findUsersById(Long.parseLong(session.getAttribute("userId").toString()));
 
         Episodes episode = episodesRepository.findEpisodesById(episodeId);
         PodcastSeries podcast = episode.getPodcastSeries();
@@ -75,8 +82,16 @@ public class ListeningPageController {
 
         episode.setTotalViews(episode.getTotalViews() + 1);
         podcast.setTotalViews(podcast.getTotalViews() + 1);
-        episodesRepository.save(episode);
-        podcastSeriesRepository.save(podcast);
+        Episodes updatedEpisode = episodesRepository.save(episode);
+        PodcastSeries updatedPodcast = podcastSeriesRepository.save(podcast);
+
+        ListeningHistory listeningHistory = new ListeningHistory();
+        listeningHistory.setEpisodes(updatedEpisode);
+        listeningHistory.setLastListeningTime(new Date());
+        listeningHistory.setPodcastSeries(updatedPodcast);
+        listeningHistory.setUser(listener);
+
+        listeningHistoryRepository.save(listeningHistory);
 
         return "listening";
     }

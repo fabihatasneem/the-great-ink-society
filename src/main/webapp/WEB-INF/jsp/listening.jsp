@@ -68,7 +68,39 @@
 </section>
 <!-- End banner Area -->
 
-
+<div class="modal show" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Report</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<%=GlobalVariable.localUrl%>\reportSubmit" id="reportForm" method="POST">
+                <div class="modal-body">
+                    <label for="reportSubmit">
+                        <b>Write down your description</b>
+                    </label>
+                    <textarea required class="form-control" name="reportDesc"
+                              id="reportSubmit"></textarea>
+                    <br>
+                    <label for="referenceLink">
+                        <b>Enter the reference link(Optional)</b>
+                    </label>
+                    <input id="referenceLink" type="text" name="referenceLink">
+                    <input id="chapterId" name="chapterId" type="hidden" value="${episodeId}">
+                    <input id="bookId" name="bookId" type="hidden" value="${podcastId}">
+                    <input id="authorId" name="authorId" type="hidden" value="${userId}">
+                    <input name="page" type="hidden" value="2">
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <!-- Start post-content Area -->
 <section class="post-content-area single-post-area">

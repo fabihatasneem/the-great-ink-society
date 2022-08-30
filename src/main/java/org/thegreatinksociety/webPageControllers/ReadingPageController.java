@@ -7,22 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.thegreatinksociety.entities.Books;
-import org.thegreatinksociety.entities.ChapterLikeHistory;
-import org.thegreatinksociety.entities.Chapters;
-import org.thegreatinksociety.entities.Users;
-import org.thegreatinksociety.repositories.BooksRepository;
-import org.thegreatinksociety.repositories.ChapterLikeHistoryRepository;
-import org.thegreatinksociety.repositories.ChaptersRepository;
+import org.thegreatinksociety.entities.*;
+import org.thegreatinksociety.repositories.*;
 import org.thegreatinksociety.restAPIControllers.ChapterLike;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.print.Book;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 
 @Controller
 public class ReadingPageController {
@@ -36,11 +33,19 @@ public class ReadingPageController {
     @Autowired
     private BooksRepository booksRepository;
 
+    @Autowired
+    private ReadingHistoryRepository readingHistoryRepository;
+
+    @Autowired
+    private UsersRepository usersRepository;
+
     @RequestMapping("/reading")
     public String getReadingPage(ModelMap model, @RequestParam Long id, HttpSession session, HttpServletResponse response) throws IOException {
         if (session.getAttribute("userId") == null) {
             return "signin";
         }
+
+        Users reader = usersRepository.findUsersById(Long.parseLong(session.getAttribute("userId").toString()));
 
         Chapters chapter = chaptersRepository.findChaptersById(id);
         Books book = chapter.getBook();
@@ -95,8 +100,16 @@ public class ReadingPageController {
 
         chapter.setTotalViews(chapter.getTotalViews() + 1);
         book.setTotalViews(book.getTotalViews() + 1);
-        chaptersRepository.save(chapter);
-        booksRepository.save(book);
+        Chapters updatedChapter = chaptersRepository.save(chapter);
+        Books updatedBook = booksRepository.save(book);
+
+        ReadingHistory readingHistory = new ReadingHistory();
+        readingHistory.setBook(updatedBook);
+        readingHistory.setChapter(updatedChapter);
+        readingHistory.setLastReadingTime(new Date());
+        readingHistory.setUser(reader);
+
+        readingHistoryRepository.save(readingHistory);
 
         return "reading";
     }

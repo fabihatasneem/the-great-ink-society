@@ -211,9 +211,6 @@
                                     Current Badge: ${currentBadge}
                                 </p>
                             </div>
-                            <hr style="width:max-content;">
-                            <span><button style="font-size: 11px;" type="button" class="btn btn-outline-warning"> <i
-                                    class="fas fa-flag"></i> Report This Profile</button></span>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="publishedbooks" role="tabpanel"
