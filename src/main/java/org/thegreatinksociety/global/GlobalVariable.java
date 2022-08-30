@@ -24,4 +24,7 @@ public class GlobalVariable {
     public static final String FIREBASE_MESSAGING_SENDER_ID = "245652946373";
     public static final String FIREBASE_APP_ID = "1:245652946373:web:0beac7f80fec1ff6021fac";
     public static final String FIREBASE_MEASUREMENT_ID = "G-SM4S8XW2X7";
+
+    public static final String EMAIL_ADDRESS = "thegreatinksociety@gmail.com";
+    public static final String SITE_NAME = "The Great Ink Society";
 }

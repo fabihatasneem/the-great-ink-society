@@ -5,13 +5,13 @@ import org.thegreatinksociety.entities.Users;
 
 public interface UsersRepository extends CrudRepository<Users, Long> {
 
-    Users findByUserNameIsAndPassword(String userName, String password);
-
     Users findByUserName(String userName);
 
     Users findUsersById(Long userId);
 
+    Users findByUserNameAndPasswordAndStatus(String userName, String password, int status);
 
+    Users findByUserNameAndStatus(String userName, int status);
 
 
 }

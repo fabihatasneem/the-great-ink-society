@@ -629,7 +629,13 @@
             $("#numberOfFollowers").html("  " + result.followers);
             $("#username").val(result.userName);
             $("#fullName").val(result.fullName);
-            $("#useremail").html(" Email : " + result.email);
+            if (result.emailVerified === 1) {
+                $("#useremail").html(' Email : ' + result.email + '<i style="color: green" class="fas fa-check-circle"></i>');
+            } else {
+                $("#useremail").html(' Email : ' + result.email + '<i style="color: #f0ff07" class="fas fa-exclamation-triangle"></i>' +
+                    '&nbsp; <a href="<%=GlobalVariable.localUrl%>/verifyEmail"><button> Verify Email </button></a>');
+            }
+
             $("#userbio").html(result.bio);
             if (result.mobile != null) {
                 $("#userphone").html(" Mobile Number : " + result.mobile);

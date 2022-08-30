@@ -71,4 +71,8 @@ public class Users {
     @Column(nullable = false) @Temporal(TemporalType.DATE)
     private Date joinedDate;//28
 
+    private int emailVerified;
+    private String emailVerificationCode;
+    private int status;
+
 }

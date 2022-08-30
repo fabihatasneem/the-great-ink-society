@@ -1,6 +1,7 @@
 package org.thegreatinksociety.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,18 +23,27 @@ public class SignInSubmit {
 
     @RequestMapping(value = "/signInSubmit", method = RequestMethod.POST)
     public void loginSubmit(@RequestParam String username, @RequestParam String password, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException {
-        Users users = usersRepository.findByUserNameIsAndPassword(username, password);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        Users users = usersRepository.findByUserNameAndStatus(username, 1);
 
-        session = request.getSession();
-
-        if (users != null) {
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            session.setAttribute("userId", users.getId());
-
-            response.sendRedirect(GlobalVariable.localUrl + "/myProfile");
-        } else {
+        if (users == null) {
+            //Username not found
             response.sendRedirect(GlobalVariable.localUrl + "/signIn");
+        } else {
+            String encodedPassword = users.getPassword();
+            if(passwordEncoder.matches(password, encodedPassword)) {
+                //Matched
+                session = request.getSession();
+
+                session.setAttribute("username", username);
+                session.setAttribute("password", password);
+                session.setAttribute("userId", users.getId());
+
+                response.sendRedirect(GlobalVariable.localUrl + "/myProfile");
+            } else {
+                //Password incorrect
+                response.sendRedirect(GlobalVariable.localUrl + "/signIn");
+            }
         }
     }
 }
