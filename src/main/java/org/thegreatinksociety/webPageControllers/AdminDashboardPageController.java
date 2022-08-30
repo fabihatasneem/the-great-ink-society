@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 public class AdminDashboardPageController {
 
     @RequestMapping("/admin/dashBoard")
-    public String getBookCreatePage(HttpSession session, Model model) {
+    public String getAdminDashboardPage(HttpSession session, Model model) {
 
         return "/admin/adminDashboard";
     }
