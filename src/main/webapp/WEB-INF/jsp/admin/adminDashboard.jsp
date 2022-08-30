@@ -167,17 +167,12 @@
     };
 
     const banThisUser = async (userId) => {
-        const response = await fetch("<%=GlobalVariable.localUrl%>/banUser", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            userId: userId
+
+        $.post("<%=GlobalVariable.localUrl%>/banUser", {userId: userId}, function (data) {
+            console.log(data);
+            // window.location.replace("/admin/dashBoard");
         });
 
-        let ResponseObj = await response.json();
-        console.log(ResponseObj);
-        window.location.replace("/admin/dashBoard");
     };
 
     const reportList = async () => {

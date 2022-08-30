@@ -19,7 +19,7 @@ public class BanUser {
         Users user = usersRepository.findUsersById(userId);
         user.setStatus(0);
 
-        usersRepository.save(user);
-        return user;
+        Users updatedUser = usersRepository.save(user);
+        return updatedUser;
     }
 }
