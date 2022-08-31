@@ -14,6 +14,10 @@ public class AdminDashboardPageController {
     @RequestMapping("/admin/dashBoard")
     public String getAdminDashboardPage(HttpSession session, Model model) {
 
-        return "/admin/adminDashboard";
+        if (session.getAttribute("adminUsername") == null) {
+            return "/admin/adminLogin";
+        } else {
+            return "/admin/adminDashboard";
+        }
     }
 }
