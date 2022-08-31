@@ -48,6 +48,7 @@ public class PodcastDetailsUserPageController {
         model.addAttribute("publishStatus", podcast.getPublishStatus());
         model.addAttribute("description", podcast.getDescription());
         model.addAttribute("userId", podcast.getUser().getId());
+        model.addAttribute("podcastCoverLink", podcast.getCoverPhotoLink());
 
         return "/podcastDetailsUser";
     }

@@ -37,32 +37,35 @@ public class WritingIndexPageController {
 
             ReadingHistory readingHistory = readingHistoryRepository.findFirstByUserOrderByLastReadingTimeDesc(user);
 
-            lastDesign = "<div class=\"latest-products\">\n" +
-                    "            <div class=\"section-heading\">\n" +
-                    "                <h2>Continue From Where You Left Off</h2>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"d-block d-md-flex podcast-entry bg-white mb-5\" data-aos=\"fade-up\">\n" +
-                    "                <div class=\"image\" style=\"background-image: url('" + readingHistory.getBook().getCoverPhotoLink() +"')\"></div>\n" +
-                    "                <div class=\"text\">\n" +
-                    "                    <h3 class=\"font-weight-medium\" style=\"font-size: 1.3rem;\">\n" +
-                    "                        <a href=\"" + GlobalVariable.localUrl +"/reading?id=" + readingHistory.getChapter().getId() + "\">Chapter  : " + readingHistory.getChapter().getChapterName() + "</a>\n" +
-                    "                    </h3>\n" +
-                    "                    <hr>\n" +
-                    "                    <h6 class=\"font-weight-light\" style=\"margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;\">\n" +
-                    "                        " + readingHistory.getBook().getBookName() +"\n" +
-                    "                    </h6>\n" +
-                    "                    <div class=\"text-white mb-3\">\n" +
-                    "                    </div>\n" +
-                    "                    <hr>\n" +
-                    "                    <p class=\"mb-4\">\n" +
-                                          readingHistory.getBook().getDescription() +
-                    "                    </p>\n" +
-                    "                </div>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"section-heading\">\n" +
-                    "                <a href=\"" + GlobalVariable.localUrl  +"/reading?id=" + readingHistory.getChapter().getId() +"\">Go to Chapter Page <i class=\"fa fa-angle-right\"></i></a>\n" +
-                    "            </div>\n" +
-                    "        </div>";
+            if (readingHistory != null) {
+                lastDesign = "<div class=\"latest-products\">\n" +
+                        "            <div class=\"section-heading\">\n" +
+                        "                <h2>Continue From Where You Left Off</h2>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"d-block d-md-flex podcast-entry bg-white mb-5\" data-aos=\"fade-up\">\n" +
+                        "                <div class=\"image\" style=\"background-image: url('" + readingHistory.getBook().getCoverPhotoLink() +"')\"></div>\n" +
+                        "                <div class=\"text\">\n" +
+                        "                    <h3 class=\"font-weight-medium\" style=\"font-size: 1.3rem;\">\n" +
+                        "                        <a href=\"" + GlobalVariable.localUrl +"/reading?id=" + readingHistory.getChapter().getId() + "\">Chapter  : " + readingHistory.getChapter().getChapterName() + "</a>\n" +
+                        "                    </h3>\n" +
+                        "                    <hr>\n" +
+                        "                    <h6 class=\"font-weight-light\" style=\"margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;\">\n" +
+                        "                        " + readingHistory.getBook().getBookName() +"\n" +
+                        "                    </h6>\n" +
+                        "                    <div class=\"text-white mb-3\">\n" +
+                        "                    </div>\n" +
+                        "                    <hr>\n" +
+                        "                    <p class=\"mb-4\">\n" +
+                        readingHistory.getBook().getDescription() +
+                        "                    </p>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"section-heading\">\n" +
+                        "                <a href=\"" + GlobalVariable.localUrl  +"/reading?id=" + readingHistory.getChapter().getId() +"\">Go to Chapter Page <i class=\"fa fa-angle-right\"></i></a>\n" +
+                        "            </div>\n" +
+                        "        </div>";
+            }
+
         }
 
         int count = 1;

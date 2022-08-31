@@ -43,37 +43,39 @@ public class PodcastIndexPageController {
 
             ListeningHistory listeningHistory = listeningHistoryRepository.findFirstByUserOrderByLastListeningTimeDesc(user);
 
-            lastDesign = "<div class=\"latest-products\">\n" +
-                    "            <div class=\"section-heading\">\n" +
-                    "                <h2>Continue From Where You Left Off</h2>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"d-block d-md-flex podcast-entry bg-white mb-5\" data-aos=\"fade-up\">\n" +
-                    "                <div class=\"image\" style=\"background-image: url('" + listeningHistory.getPodcastSeries().getCoverPhotoLink() +"')\"></div>\n" +
-                    "                <div class=\"text\">\n" +
-                    "                    <h3 class=\"font-weight-medium\" style=\"font-size: 1.3rem;\">\n" +
-                    "                        <a href=\"" + GlobalVariable.localUrl +"/listening?id=" + listeningHistory.getEpisodes().getId() + "\">Episode  : " + listeningHistory.getEpisodes().getEpisodeName() + "</a>\n" +
-                    "                    </h3>\n" +
-                    "                    <hr>\n" +
-                    "                    <h6 class=\"font-weight-light\" style=\"margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;\">\n" +
-                    "                        " + listeningHistory.getPodcastSeries().getSeriesName() +"\n" +
-                    "                    </h6>\n" +
-                    "                    <div class=\"text-white mb-3\">\n" +
-                    "                    </div>\n" +
-                    "                    <hr>\n" +
-                    "                    <p class=\"mb-4\">\n" +
-                                            listeningHistory.getPodcastSeries().getDescription() +
-                    "                    </p>\n" +
-                    "                   <div class=\"player\">\n" +
-                    "                        <audio id=\"player2\" preload=\"none\" controls style=\"max-width: 100%\">\n" +
-                    "                            <source src=\"" + listeningHistory.getEpisodes().getAudioFileLink()  + "\" type=\"audio/mp3\" />\n" +
-                    "                        </audio>\n" +
-                    "                    </div>" +
-                    "                </div>\n" +
-                    "            </div>\n" +
-                    "            <div class=\"section-heading\">\n" +
-                    "                <a href=\"" + GlobalVariable.localUrl  +"/listening?id=" + listeningHistory.getEpisodes().getId() +"\">Go to Episode Page <i class=\"fa fa-angle-right\"></i></a>\n" +
-                    "            </div>\n" +
-                    "        </div>";
+            if (listeningHistory != null) {
+                lastDesign = "<div class=\"latest-products\">\n" +
+                        "            <div class=\"section-heading\">\n" +
+                        "                <h2>Continue From Where You Left Off</h2>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"d-block d-md-flex podcast-entry bg-white mb-5\" data-aos=\"fade-up\">\n" +
+                        "                <div class=\"image\" style=\"background-image: url('" + listeningHistory.getPodcastSeries().getCoverPhotoLink() +"')\"></div>\n" +
+                        "                <div class=\"text\">\n" +
+                        "                    <h3 class=\"font-weight-medium\" style=\"font-size: 1.3rem;\">\n" +
+                        "                        <a href=\"" + GlobalVariable.localUrl +"/listening?id=" + listeningHistory.getEpisodes().getId() + "\">Episode  : " + listeningHistory.getEpisodes().getEpisodeName() + "</a>\n" +
+                        "                    </h3>\n" +
+                        "                    <hr>\n" +
+                        "                    <h6 class=\"font-weight-light\" style=\"margin-top: 7px; margin-bottom: 8px; font-size: 1.1rem;\">\n" +
+                        "                        " + listeningHistory.getPodcastSeries().getSeriesName() +"\n" +
+                        "                    </h6>\n" +
+                        "                    <div class=\"text-white mb-3\">\n" +
+                        "                    </div>\n" +
+                        "                    <hr>\n" +
+                        "                    <p class=\"mb-4\">\n" +
+                        listeningHistory.getPodcastSeries().getDescription() +
+                        "                    </p>\n" +
+                        "                   <div class=\"player\">\n" +
+                        "                        <audio id=\"player2\" preload=\"none\" controls style=\"max-width: 100%\">\n" +
+                        "                            <source src=\"" + listeningHistory.getEpisodes().getAudioFileLink()  + "\" type=\"audio/mp3\" />\n" +
+                        "                        </audio>\n" +
+                        "                    </div>" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"section-heading\">\n" +
+                        "                <a href=\"" + GlobalVariable.localUrl  +"/listening?id=" + listeningHistory.getEpisodes().getId() +"\">Go to Episode Page <i class=\"fa fa-angle-right\"></i></a>\n" +
+                        "            </div>\n" +
+                        "        </div>";
+            }
         }
 
         for (Genre genre : genreList) {
