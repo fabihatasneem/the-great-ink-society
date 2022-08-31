@@ -141,12 +141,7 @@
             let urlLink = '';
             result.map(episode => {
                 draftName = '';
-                if (episode.status === 0) {
-                    draftName = ' <small style="color: red;">(Draft)</small> ';
-                    urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
-                } else {
-                    urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
-                }
+                urlLink = '<%=GlobalVariable.localUrl%>/listening?episodeId=' + episode.id;
 
                 design += '<a href="' + urlLink + '"><li class="list-group-item">' + draftName + episode.episodeName +
                     '<small><p><i style="color: red;" class="fas fa-heart"></i> ' + episode.numberOfLikes + ' &nbsp; <i class="fas fa-comments"></i> ' + episode.numberOfComments + ' &nbsp; <i class="fas fa-eye"></i> ' + episode.totalViews + '</p></small>' +
