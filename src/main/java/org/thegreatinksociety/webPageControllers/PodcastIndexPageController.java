@@ -41,7 +41,7 @@ public class PodcastIndexPageController {
         if (session.getAttribute("userId") != null) {
             Users user = usersRepository.findUsersById(Long.parseLong(session.getAttribute("userId").toString()));
 
-            ListeningHistory listeningHistory = listeningHistoryRepository.findFirstByUser_IdOrderByLastListeningTimeTimeDesc(user.getId());
+            ListeningHistory listeningHistory = listeningHistoryRepository.findFirstByUserOrderByLastListeningTimeDesc(user);
 
             lastDesign = "<div class=\"latest-products\">\n" +
                     "            <div class=\"section-heading\">\n" +

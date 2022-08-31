@@ -35,7 +35,7 @@ public class WritingIndexPageController {
         if (session.getAttribute("userId") != null) {
             Users user = usersRepository.findUsersById(Long.parseLong(session.getAttribute("userId").toString()));
 
-            ReadingHistory readingHistory = readingHistoryRepository.findFirstByUser_IdOrderByLastReadingTimeDesc(user.getId());
+            ReadingHistory readingHistory = readingHistoryRepository.findFirstByUserOrderByLastReadingTimeDesc(user);
 
             lastDesign = "<div class=\"latest-products\">\n" +
                     "            <div class=\"section-heading\">\n" +
